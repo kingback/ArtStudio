@@ -34,21 +34,20 @@
  * <li>reverse:(boolean) "播放下一个"和"播放上一个"对调，默认为false</li>
  * </ul>
  */
-YUI.namespace('Y.Slide');
 YUI.add('slide',function(Y){
 
-	Slide = function(){
+	function Slide(){
 		this.init.apply(this,arguments);
 	};
 
-	Y.mix(Slide,{
+	Y.mix(Slide, {
 		init:function(id,config){
 			var that = this;
 			that.id = id;
 			//接受参数
 			that.buildParam(config);
 			//构建事件中心
-			that.buildEventCenter();
+			that.buildEvent();
 			//构造函数
 			that.construct();
 			//绑定事件
@@ -135,22 +134,10 @@ YUI.add('slide',function(Y){
 				
 		},
 		// 构建事件中心
-		buildEventCenter:function(){
-			var that = this;
-			var EventFactory = function(){
-				this.publish("switch");//实际上就是before_switch
-				this.publish("after_switch");//未实现
-				this.publish("before_switch");//未实现
-			};
-			Y.augment(EventFactory, Y.Event.Target);
-			that.EventCenter = new EventFactory();
-			return this;
-		},
-		// 绑定函数 
-		on:function(type,foo){
-			var that = this;
-			that.EventCenter.subscribe(type,foo);
-			return this;
+		buildEvent:function(){
+			this.publish("switch");//实际上就是before_switch
+			this.publish("after_switch");//未实现
+			this.publish("before_switch");//未实现
 		},
 		//构建html结构
 		construct: function() {
@@ -159,6 +146,7 @@ YUI.add('slide',function(Y){
             that.tabs = con.all('.' + that.navClass + ' li');
             var tmp_pannels = con.all('.' + that.contentClass + ' div.' + that.pannelClass);
             that.length = tmp_pannels.size();
+            that.total = that.length;
             if (that.tabs.size() == 0) {
                 //nav.li没有指定，默认指定1234
                 var t_con = con.all('.' + that.navClass);
@@ -582,9 +570,12 @@ YUI.add('slide',function(Y){
 			//modified by huya
             that.defaultTab = (typeof o.defaultTab == 'undefined' || o.defaultTab == null) ? 0 : Number(o.defaultTab) - 1;//隐藏所有pannel
 			// 如果是跑马灯，则不考虑默认选中的功能，一律定位在第一页,且只能是左右切换的不支持上下切换
+			// TODO v-slide
+			if (that.effect != 'h-slide') {
+			    that.carousel = false;
+			}
 			if(that.carousel){
 				that.defaultTab = 1;//跑马灯显示的是真实的第二项
-				that.effect = 'h-slide';
 			}
 			that.current_tab = that.defaultTab;//0,1,2,3...
 
@@ -768,9 +759,12 @@ YUI.add('slide',function(Y){
 		},
 		//切换至index,这里的index为真实的索引
 		switch_to:function(index){
-			var that = this;
+			var that = this,
+			    realIndex = that.getWrappedIndex(index),
+			    prevIndex = that.getWrappedIndex(that.current_tab);
+			    
 			//首先高亮显示tab
-			that.hightlightNav(that.getWrappedIndex(index));
+			that.hightlightNav(realIndex);
 			that.fixSlideSize(index);
 			if(that.autoSlide){
 				that.stop().play();
@@ -886,9 +880,11 @@ YUI.add('slide',function(Y){
                 that.anim.run();
             }
             that.current_tab = index;
-            that.EventCenter.fire('switch', {
-                index: index,
-                navnode: that.tabs.item(that.getWrappedIndex(index)),
+            that.fire('switch', {
+                index: realIndex,
+                newIndex: realIndex,
+                prevIndex: prevIndex,
+                navnode: that.tabs.item(realIndex),
                 pannelnode: that.pannels.item(index)
             });
 			//延迟执行的脚本
@@ -932,11 +928,17 @@ YUI.add('slide',function(Y){
 			return this;
 		}
 
-	},0,null,4);
+	}, 0, null, 4);
+	
+	Y.augment(Slide, Y.EventTarget, {
+	    edmitFacade: true
+	});
 
 	Y.Slide = Slide;
 	
-},'',{requires:['node','anim']});
+}, '1.0.0', {
+    requires: ['node', 'event-custom', 'anim']
+});
 
 /*
  * TODO

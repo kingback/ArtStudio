@@ -32,6 +32,7 @@ img {vertical-align:bottom;}
 .g-sublogo,
 .g-nav li.selected,
 .g-nav li b,
+.g-floatbar,
 .g-weibo a {background:url("./image/sprite.png") -9999px -9999px no-repeat;}
 
 .g-hd {margin-left:154px;width:846px;height:100px;position:relative;}
@@ -62,6 +63,15 @@ img {vertical-align:bottom;}
 .g-weibo a {text-indent:-9999px;background-position:23px -160px;height:62px;}
 
 .g-bd {margin-left:154px;margin-top:20px;width:846px;}
+
+.g-floatbar {position:fixed;left:1040px;top:200px;background-position:-124px 0;width:71px;height:154px;}
+.g-floatbar a {display:block;color:#fff;text-align:center;}
+.g-floatbar a:hover {text-decoration:none;}
+.g-floatbar img {display:none;}
+.g-floatbar .g-floatbar-qq {height:57px;}
+.g-floatbar .g-floatbar-sqq {height:30px;line-height:30px;}
+.g-floatbar .g-floatbar-apply {height:31px;line-height:31px;}
+.g-floatbar .g-floatbar-back {height:36px;line-height:36px;}
 
 .g-ft {margin-left:114px;margin-top:40px;width:806px;background:#dddada;padding:20px 40px 0;}
 .g-friend {border-bottom:1px solid #e2e0e0;padding-bottom:10px;}

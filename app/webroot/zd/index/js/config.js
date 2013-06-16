@@ -8,11 +8,15 @@
                 combine: true,
                 modules: {
                     'index': {
-                        use: ['slideshow']    
+                        use: ['slideshow', 'hallfame']    
                     },
                     'slideshow': {
                         path: 'slideshow.js',
                         requires: ['slide']
+                    },
+                    'hallfame': {
+                        path: 'hallfame.js',
+                        requires: ['node', 'yui-throttle']
                     }
                 }
             }
