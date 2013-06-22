@@ -1,3 +1,8 @@
+/**
+ * 全局漂浮框
+ * @author ningzbruc@gmail.com
+ * @date 2013-06-10
+ */
 
 YUI.add('g-floatbar', function(Y) {
     

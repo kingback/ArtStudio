@@ -1,4 +1,8 @@
-
+/**
+ * 首页光荣榜
+ * @author ningzbruc@gmail.com
+ * @date 2013-06-20
+ */
 YUI.add('hallfame', function(Y) {
     
     var hall = Y.one('.hall'),
@@ -62,7 +66,6 @@ YUI.add('hallfame', function(Y) {
     
     // 初始化检查
     check();
-    
     
 }, '0.0.1', {
     requires: ['node', 'yui-throttle']

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
     <head>
         <title>周达画室</title>
         <meta charset="utf-8" />
@@ -8,9 +13,15 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="shortcut icon" href="http://zhoudams.com/wp-content/themes/crystal/images/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="http://localhost/min/?b=github/ArtStudio/app/webroot/zd&f=global/global.css,index/css/index.css" />
-        <script src="http://localhost/min/?b=github/ArtStudio/app/webroot/zd&f=global/modernizr-min.js,yui/build/yui/yui-min.js,global/gconfig.js"></script>
-        <script src="http://localhost/min/?b=github/ArtStudio/app/webroot/zd&f=index/js/config.js"></script>
+        
+        <!-- TODO combo -->
+        <link rel="stylesheet" href="../global/global.css" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <script src="../global/modernizr-min.js"></script>
+        <script src="../yui/build/yui/yui-min.js"></script>
+        <script src="../global/gconfig.js"></script>
+        <script src="./js/config.js"></script>
+        
         <base target="_blank" />
     </head>
     <body class="zds-index">
@@ -52,10 +63,10 @@
         </script>
         
         <div class="g-bd clearfix">
-            <div class="col-main">
+            <article class="col-main">
                 
                 <!-- 焦点图 {{-->
-                <div class="slide-show" id="J_slide_show">
+                <section class="slide-show" id="J_slide_show">
                     <div class="tab-content">
                         <div class="tab-pannel">
                             <a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-1.jpg" width="600" height="400" alt="焦点图" /></a>
@@ -93,11 +104,11 @@
                     </div>
                     <a href="#" class="tab-btn tab-btn-prev hidden"></a>
                     <a href="#" class="tab-btn tab-btn-next hidden"></a>
-                </div>
+                </section>
                 <!-- 焦点图 }}-->
                 
                 <!-- 了解周达画室 {{-->
-                <div class="about-zd clearfix">
+                <section class="about-zd clearfix">
                     <header>
                         <hgroup>
                             <h2>了解zhouda<br />studio</h2>
@@ -107,11 +118,11 @@
                     <div>
                         <p>北京周达画室是全国知名的美术培训中心，是正式注册的国家高考培训机构。自2008年创办以来，秉承“关注每一位学生”的教学宗旨和“注重基础”的教学理念，与地方高中和画室建立长期的合作关系，备受各界关注和好评。经过周达画室师生们的共同努力，向全国各高等院校美术专业输送了大批优秀学生，帮助学子考入理想的大学，在社会上赢得了良好的口碑。</p>
                     </div>
-                </div>
+                </section>
                 <!-- 了解周达画室 }}-->
                 
                 <!-- 展示列表 {{-->
-                <div class="show-category">
+                <section class="show-category">
                     <ul class="show-list clearfix">
                         <li class="show-item">
                             <div class="show-con">
@@ -122,8 +133,8 @@
                                     <strong>素描</strong><em>drawing</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -136,12 +147,12 @@
                                     <strong>色彩</strong><em>color</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="show-item show-item-last">
+                        <li class="show-item show-item-blue show-item-last">
                             <div class="show-con">
                                 <div class="show-image">
                                     <a href="#"><img src="./img/show-video.png" alt="视频" /></a>
@@ -150,8 +161,8 @@
                                     <strong>视频</strong><em>video</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -164,8 +175,8 @@
                                     <strong>创作</strong><em>creation</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -178,8 +189,8 @@
                                     <strong>平面</strong><em>graphic</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -193,17 +204,17 @@
                                     <em>sketch</em>
                                 </h3>
                                 <ul>
-                                    <li>素描头像</li>
-                                    <li>素描半身像</li>
+                                    <li><a href="#"><b></b>素描头像</a></li>
+                                    <li><a href="#"><b></b>素描半身像</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
-                </div>
+                </section>
                 <!-- 展示列表 }}-->
                 
                 <!-- 黄金课程组合 }}-->
-                <div class="class-group">
+                <section class="class-group">
                     <h2>黄金课程组合</h2>
                     <div class="class-con">
                         <div class="class-desc">
@@ -214,51 +225,51 @@
                         </div>
                         <p><img src="./img/class-time.png" alt="课时详细" /></p>
                     </div>
-                </div>
+                </section>
                 <!-- 黄金课程组合 {{-->
                     
                 <!-- 师资力量 {{-->
-                <div class="teachers">
+                <section class="teachers">
                     <h2>师资力量</h2>
                     <div class="teachers-con">
                         <ul class="main-teachers clearfix">
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/mt1.png" alt="文筱波" />
+                                    <a href="#"><img src="./img/mt1.png" alt="文筱波" /></a>
                                 </div>
-                                <h3 class="teacher-name">文筱波</h3>
+                                <h3 class="teacher-name"><a href="#">文筱波</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">造型主教</p>
                             </li>
                             <li class="teacher-even">
                                 <div class="teacher-image">
-                                    <img src="./img/mt2.png" alt="李迪" />
+                                    <a href="#"><img src="./img/mt2.png" alt="李迪" /></a>
                                 </div>
-                                <h3 class="teacher-name">李迪</h3>
+                                <h3 class="teacher-name"><a href="#">李迪</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">综合班素描主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/mt3.png" alt="王允昌" />
+                                    <a href="#"><img src="./img/mt3.png" alt="王允昌" /></a>
                                 </div>
-                                <h3 class="teacher-name">王允昌</h3>
+                                <h3 class="teacher-name"><a href="#">王允昌</a></h3>
                                 <p class="teacher-school">清华美术学院</p>
                                 <p class="teacher-title">设计主教</p>
                             </li>
                             <li class="teacher-even">
                                 <div class="teacher-image">
-                                    <img src="./img/mt4.png" alt="郝爽" />
+                                    <a href="#"><img src="./img/mt4.png" alt="郝爽" /></a>
                                 </div>
-                                <h3 class="teacher-name">郝爽</h3>
+                                <h3 class="teacher-name"><a href="#">郝爽</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">综合班素描主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/mt5.png" alt="董丹丹" />
+                                    <a href="#"><img src="./img/mt5.png" alt="董丹丹" /></a>
                                 </div>
-                                <h3 class="teacher-name">董丹丹</h3>
+                                <h3 class="teacher-name"><a href="#">董丹丹</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">色彩主教</p>
                             </li>
@@ -266,61 +277,93 @@
                         <ul class="other-teachers clearfix">
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/ot1.png" alt="文筱波" />
+                                    <a href="#"><img src="./img/ot1.png" alt="文筱波" /></a>
                                 </div>
-                                <h3 class="teacher-name">文筱波</h3>
+                                <h3 class="teacher-name"><a href="#">文筱波</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">造型主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/ot2.png" alt="李迪" />
+                                    <a href="#"><img src="./img/ot2.png" alt="李迪" /></a>
                                 </div>
-                                <h3 class="teacher-name">李迪</h3>
+                                <h3 class="teacher-name"><a href="#">李迪</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">综合班素描主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/ot3.png" alt="王允昌" />
+                                    <a href="#"><img src="./img/ot3.png" alt="王允昌" /></a>
                                 </div>
-                                <h3 class="teacher-name">王允昌</h3>
+                                <h3 class="teacher-name"><a href="#">王允昌</a></h3>
                                 <p class="teacher-school">清华美术学院</p>
                                 <p class="teacher-title">设计主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/ot1.png" alt="郝爽" />
+                                    <a href="#"><img src="./img/ot1.png" alt="郝爽" /></a>
                                 </div>
-                                <h3 class="teacher-name">郝爽</h3>
+                                <h3 class="teacher-name"><a href="#">郝爽</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">综合班素描主教</p>
                             </li>
                             <li>
                                 <div class="teacher-image">
-                                    <img src="./img/ot2.png" alt="董丹丹" />
+                                    <a href="#"><img src="./img/ot2.png" alt="董丹丹" /></a>
                                 </div>
-                                <h3 class="teacher-name">董丹丹</h3>
+                                <h3 class="teacher-name"><a href="#">董丹丹</a></h3>
                                 <p class="teacher-school">中央美术学院</p>
                                 <p class="teacher-title">色彩主教</p>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </section>
                 <!-- 师资力量 }}-->
                 
                 <!-- 教学环境 {{-->
-                <div class="environment">
+                <section class="environment">
                     <h2>教学环境</h2>
                     <div class="environment-con">
-                        <img src="./img/environment.png" alt="教学环境" />
-                        <a href="#" class="environment-more"><span>more</span></a>
+                        <ul class="clearfix">
+                            <li class="env-image env-long">
+                                <a href="#"><img src="./img/env1.png" alt="周达画室" /></a>
+                            </li>
+                            <li class="env-desc">
+                                <strong>高效</strong>
+                            </li>
+                            <li class="env-image">
+                                <a href="#"><img src="./img/env2.png" alt="周达画室" /></a>
+                            </li>
+                            <li class="env-image">
+                                <a href="#"><img src="./img/env3.png" alt="周达画室" /></a>
+                            </li>
+                            <li class="env-image env-wide">
+                                <a href="#"><img src="./img/env4.png" alt="周达画室" /></a>
+                            </li>
+                            <li class="env-desc env-more">
+                                <a href="#">
+                                    <strong>了解更多</strong><em>more<b></b></em>
+                                </a>
+                            </li>
+                            <li class="env-desc">
+                                <strong>责任</strong>
+                            </li>
+                            <li class="env-image">
+                                <a href="#"><img src="./img/env5.png" alt="周达画室" /></a>
+                            </li>
+                            <li class="env-desc">
+                                <strong>沟通</strong>
+                            </li>
+                            <li class="env-image">
+                                <a href="#"><img src="./img/env6.png" alt="周达画室" /></a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
+                </section>
                 <!-- 教学环境 }}-->
                 
                 <!-- 出版书籍 {{-->
-                <div class="books">
+                <section class="books">
                     <h2>出版书籍</h2>
                     <div class="books-con">
                         <ul class="clearfix">
@@ -330,12 +373,12 @@
                             <li class="book-last"><a href="#"><img src="./img/book2.png" alt="名师堂" /></a></li>
                         </ul>
                     </div>
-                    <a href="#" class="books-more">更多</a>
-                </div>
+                    <a href="#" class="books-more">more</a>
+                </section>
                 <!-- 出版书籍 }}-->
                 
                 <!-- 光荣榜 {{-->
-                <div class="hall">
+                <section class="hall">
                     <h2>光荣榜</h2>
                     <div class="hall-con">
                         <div class="hall-list">
@@ -350,12 +393,15 @@
                                 <li>8祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
                             </ul>
                         </div>
+                        <div class="hall-mask-up"></div>
+                        <div class="hall-mask"></div>
                     </div>
-                </div>
+                    <a href="#" class="hall-more">more</a>
+                </section>
                 <!-- 光荣榜 }}-->
                 
                 <!-- 联系我们 }}-->
-                <div class="contact">
+                <section class="contact">
                     <h2>联系我们</h2>
                     <div class="contact-con clearfix">
                         <div class="contact-map">
@@ -367,129 +413,155 @@
                             <p class="contact-address">北京市通州区宋庄小堡文化广场对面<br />(离中央美术学院燕郊校区仅10分钟车程)</p>
                             <p class="contact-qq">278953129</p>
                             <p class="contact-path clearfix">
-                                <a href="http://api.map.baidu.com/direction?origin=天安门&destination=北京周达画室&mode=transit&region=北京&output=html">乘车路线</a>
+                                <a href="http://api.map.baidu.com/direction?origin=天安门&destination=北京周达画室&mode=transit&region=北京&output=html">乘车路线<b></b></a>
                             </p>
                         </div>
                     </div>
-                </div>
+                </section>
                 <!-- 联系我们 {{-->
                 
-            </div>
-            <div class="col-aside">
+            </article>
+            <aside class="col-aside">
                 
                 <!-- 微博秀 {{-->
-                <div class="weibo-show">
+                <section class="weibo-show">
                     <iframe width="226" height="400" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=226&height=400&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1681647790&verifier=9ba1611c&dpc=1"></iframe>
-                </div>
+                </section>
                 <!-- 微博秀 }}-->
                 
                 <!-- 开课时间 {{-->
-                <div class="quick-nav opening-time">
+                <section class="quick-nav opening-time">
                     <h3>
                         <em>opening time</em>
                         <strong>周达画室开课时间</strong>
                     </h3>
                     <ul>
-                        <li><a href="#">造型班</a></li>
-                        <li><a href="#">设计班</a></li>
-                        <li><a href="#">综合班</a></li>
-                        <li><a href="#">进修班</a></li>
-                        <li><a href="#">中考班</a></li>
+                        <li><a href="#"><b></b>造型班</a></li>
+                        <li><a href="#"><b></b>设计班</a></li>
+                        <li><a href="#"><b></b>综合班</a></li>
+                        <li><a href="#"><b></b>进修班</a></li>
+                        <li><a href="#"><b></b>中考班</a></li>
                     </ul>
-                </div>
+                </section>
                 <!-- 开课时间 }}-->
                 
                 <!-- 报名须知及注意事项 {{-->
-                <div class="quick-nav guidance">
+                <section class="quick-nav guidance">
                     <h3>
                         <em>request&amp;guidance</em>
                         <strong>报名须知及注意事项</strong>
                     </h3>
                     <ul>
-                        <li><a href="#">入学报名须知</a></li>
-                        <li><a href="#">复读生优惠</a></li>
-                        <li><a href="#">常见问题详解</a></li>
-                        <li><a href="#">学生服务</a></li>
-                        <li><a href="#">画室招生简章</a></li>
+                        <li><a href="#"><b></b>入学报名须知</a></li>
+                        <li><a href="#"><b></b>复读生优惠</a></li>
+                        <li><a href="#"><b></b>常见问题详解</a></li>
+                        <li><a href="#"><b></b>学生服务</a></li>
+                        <li><a href="#"><b></b>画室招生简章</a></li>
                     </ul>
-                </div>
+                </section>
                 <!-- 报名须知及注意事项 }}-->
                 
                 <!-- 创始人 {{-->
-                <div class="founder">
+                <section class="founder">
                     <header>
                         <hgroup>
                             <h3>周达</h3>
                             <p>教学总监/画室创始人</p>
                         </hgroup>
                     </header>
-                    <div class="founder-image">
-                        
-                    </div>
+                    <div class="founder-image"></div>
                     <p class="founder-desc">2007年考入中央美院。2008年进入中央美院油画系三工作室学习，在校期间多幅作品被留校珍藏。</p>
-                    <a href="#" class="founder-works">作品欣赏</a>
-                </div>
+                    <a href="#" class="founder-works">作品欣赏<b></b></a>
+                </section>
                 <!-- 创始人 }}-->
                 
                 <!-- 画室新闻 {{-->
-                <ul class="news">
-                    <li>
-                        <div class="news-image">
-                            <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
-                        </div>
-                        <h4 class="news-title">
-                            <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
-                        </h4>
-                        <p class="news-date">2013-5-16</p>
-                        <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-                        <div class="news-more clearfix">
-                            <a href="#">more</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="news-image">
-                            <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
-                        </div>
-                        <h4 class="news-title">
-                            <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
-                        </h4>
-                        <p class="news-date">2013-5-16</p>
-                        <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-                        <div class="news-more clearfix">
-                            <a href="#">more</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="news-image">
-                            <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
-                        </div>
-                        <h4 class="news-title">
-                            <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
-                        </h4>
-                        <p class="news-date">2013-5-16</p>
-                        <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-                        <div class="news-more clearfix">
-                            <a href="#">more</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="news-image">
-                            <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
-                        </div>
-                        <h4 class="news-title">
-                            <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
-                        </h4>
-                        <p class="news-date">2013-5-16</p>
-                        <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-                        <div class="news-more clearfix">
-                            <a href="#">more</a>
-                        </div>
-                    </li>
-                </ul>
+                <section>
+                    <ul class="news">
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="news-image">
+                                <a href="#"><img src="./img/news.png" alt="画室新闻" /></a>
+                            </div>
+                            <h4 class="news-title">
+                                <a href="#">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</a>
+                            </h4>
+                            <p class="news-date">2013-5-16</p>
+                            <p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+                            <div class="news-more clearfix">
+                                <a href="#">more<b></b></a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
                 <!-- 画室新闻 }}-->
                 
             </div>
-        </div>
+        </aside>
         <div class="g-floatbar">
             <a class="g-floatbar-qq" href="http://wpa.qq.com/msgrd?v=3&uin=632934382&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:632934382:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
             <a class="g-floatbar-sqq" href="http://wpa.qq.com/msgrd?v=3&uin=632934382&site=qq&menu=yes">QQ咨询</a>
@@ -500,29 +572,29 @@
             <div class="g-friend clearfix">
                 <h3>友情链接</h3>
                 <ul class="clearfix">
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
                     
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
                     
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="#">中央美术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
                 </ul>
             </div>
             <p class="g-copyright">Copyright &copy; 2013 周达画室</p>
         </footer>
         <script>
-            ZD.use('index');
+            ZD.use('main');
         </script>
     </body>
 </html>

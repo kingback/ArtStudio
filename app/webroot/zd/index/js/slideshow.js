@@ -1,3 +1,8 @@
+/**
+ * 首页焦点图
+ * @author ningzbruc@gmail.com
+ * @date 2013-06-11
+ */
 
 YUI.add('slideshow', function(Y) {
 

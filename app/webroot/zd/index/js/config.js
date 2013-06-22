@@ -1,14 +1,21 @@
+/**
+ * 首页配置
+ * @author ningzbruc@gmail.com
+ * @date 2013-06-13
+ */
+
 ;(function() {
     
     ZD.applyConfig({
         groups: {
             index: {
-                comboBase: 'http://localhost/min/?b=github/ArtStudio/app/webroot/zd/index/js&f=',
+                base: YUI.getBase('index/js'),
+                comboBase: YUI.getComboBase('index/js'),
                 root: '',
-                combine: true,
+                combine: YUI.combine,
                 modules: {
-                    'index': {
-                        use: ['slideshow', 'hallfame']    
+                    'main': {
+                        use: ['slideshow', 'hallfame']  
                     },
                     'slideshow': {
                         path: 'slideshow.js',
