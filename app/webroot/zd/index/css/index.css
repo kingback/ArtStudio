@@ -1,5 +1,5 @@
 /* 布局 */
-.col-main {float:right;width:600px;min-height:100%;}
+.col-main {float:right;width:600px;}
 .col-aside {float:left;width:226px;}
 
 /* CSS Sprites */
@@ -118,24 +118,33 @@
 .teachers-con li {float:left;}
 .other-teachers {margin-top:6px;}
 .other-teachers li {margin-right:5px;}
-.main-teachers .teacher-image {border-top:5px solid #e90011;}
-.main-teachers .teacher-even .teacher-image {border-top:0;border-bottom:5px solid #e90011;padding-top:67px;}
-.main-teachers .teacher-image {width:120px;height:240px;overflow:hidden;}
-.other-teachers .teacher-image {width:115px;height:115px;overflow:hidden;}
-.teacher-name {font-size:14px;font-weight:bold;margin-top:5px;}
-.teacher-name a:hover {text-decoration:none;color:#e90011;}
+.teacher-link {display:block;position:relative;}
+.teacher-image {display:block;overflow:hidden;}
+.teacher-name {display:block;font-size:14px;font-weight:bold;margin-top:5px;}
 .teacher-school,
 .teacher-title {color:#666;}
+.teacher-link em {display:block;width:109px;height:109px;border:3px solid #e90011;position:absolute;top:0;left:0;opacity:0;}
+.main-teachers .teacher-image {border-top:5px solid #e90011;width:120px;height:240px;}
+.main-teachers .teacher-even .teacher-image {border-top:0;border-bottom:5px solid #e90011;padding-top:67px;}
+.other-teachers .teacher-image {width:115px;height:115px;}
 .other-teachers .teacher-name {margin-top:15px;}
-.teacher-image a {
+.teacher-link {
     opacity:1;
-    -webkit-transition:opacity 0.1s linear 0s;
-    -moz-transition:opacity 0.1s linear 0s;
-    -o-transition:opacity 0.1s linear 0s;
-    -ms-transition:opacity 0.1s linear 0s;
-    transition:opacity 0.1s linear 0s;
+    -webkit-transition:all 0.1s linear 0s;
+    -moz-transition:all 0.1s linear 0s;
+    -o-transition:all 0.1s linear 0s;
+    -ms-transition:all 0.1s linear 0s;
+    transition:all 0.1s linear 0s;
 }
-.teacher-image a:hover {opacity:0.8;}
+.teacher-link em {
+    -webkit-transition:all 0.1s linear 0s;
+    -moz-transition:all 0.1s linear 0s;
+    -o-transition:all 0.1s linear 0s;
+    -ms-transition:all 0.1s linear 0s;
+    transition:all 0.1s linear 0s;
+}
+.teacher-link:hover {opacity:0.8;color:#e90011;text-decoration:none;}
+.teacher-link:hover em {opacity:1}
 
 /* 教学环境 */
 .environment {margin-top:25px;font:20px/2 "Microsoft yahei","微软雅黑","黑体";}
@@ -176,7 +185,15 @@
 .books-con {margin-top:10px;}
 .books li {float:left;width:135px;border:1px solid #d2d2d2;margin-right:17px;margin-bottom:20px;border-radius:2px;box-shadow:0 0 5px #ccc;}
 .books .book-last {margin-right:0;}
-.books li a {display:block;border:1px solid #f2f2f2;padding:3px;overflow:hidden;}
+.books li a {
+    opacity:1;display:block;border:1px solid #f2f2f2;padding:3px;overflow:hidden;
+    -webkit-transition:opacity 0.1s linear 0s;
+    -moz-transition:opacity 0.1s linear 0s;
+    -o-transition:opacity 0.1s linear 0s;
+    -ms-transition:opacity 0.1s linear 0s;
+    transition:opacity 0.1s linear 0s;
+}
+.books li a:hover {opacity:0.8;}
 .books-more {position:absolute;width:68px;height:12px;text-indent:-9999px;top:16px;right:0;background-position:0 -114px;}
 .books-more:hover {background-position:0 -136px;}
 
@@ -277,8 +294,16 @@
 /* 画室新闻 */
 .news li {margin-top:30px;padding-bottom:10px;}
 .news img {max-width:100%;}
-.news-title {margin-top:8px;font-weight:bold;}
-.news-title a:hover {text-decoration:none;color:#e90011;}
+.news-image {
+    display:block;
+    -webkit-transition:all 0.1s linear 0s;
+    -moz-transition:all 0.1s linear 0s;
+    -o-transition:all 0.1s linear 0s;
+    -ms-transition:all 0.1s linear 0s;
+    transition:all 0.1s linear 0s;
+}
+.news-title {margin-top:8px;font-weight:bold;display:block;}
+.news-image:hover {text-decoration:none;color:#e90011;opacity:0.8;}
 .news-date {color:#787878;}
 .news-desc {margin-top:7px;color:#787878;}
 .news-more {margin-top:16px;}

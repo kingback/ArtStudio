@@ -13,9 +13,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 .vhidden {visibility:hidden;}
 
 .clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;font-size:0;}
-.clearfix {display:inline-block;}
-* html .clearfix {zoom:1;}
-.clearfix {display:block;}
+.clearfix {*zoom:1;}
 
 html {background-color:#efefef;}
 body {font:12px/1.67 tahoma,arial,\5b8b\4f53;min-height:100%;color:#252424;}
@@ -84,10 +82,13 @@ img {vertical-align:bottom;}
 .g-floatbar .g-floatbar-sqq:hover,
 .g-floatbar .g-floatbar-apply:hover {background:#ee3643;}
 .g-floatbar .g-floatbar-sqq:hover {border-bottom-color:#ff515d;}
-.g-floatbar .g-floatbar-back {height:36px;line-height:36px;background:#1a1a1a;}
+.g-floatbar .g-floatbar-back {
+    height:36px;line-height:36px;background:#1a1a1a;opacity:0;
+    -webkit-transition:opacity 0.15s linear 0s;
+}
 
 /* 公用底部 */
-.g-ft {margin-left:114px;margin-top:40px;width:806px;background:#dddada;padding:20px 40px 0;}
+.g-ft {margin-left:114px;margin-top:40px;width:806px;background:#dddada;padding:20px 40px 0;clear:both;}
 .g-friend {border-bottom:1px solid #e2e0e0;padding-bottom:10px;}
 .g-friend h3 {float:left;margin-right:40px;background:#c8c5c5;width:14px;padding:10px 8px;line-height:14px;text-align:center;}
 .g-friend ul {overflow:hidden;*zoom:1;padding-top:5px;}

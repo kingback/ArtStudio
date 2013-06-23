@@ -25,10 +25,24 @@ YUI.add('g-floatbar', function(Y) {
     };
     
     Y.on('contentready', function(evt) {
-        Y.one('.g-floatbar-back').on('click', function(e) {
+        
+        var backToTop = Y.one('.g-floatbar-back'),
+            body = Y.one(Y.config.doc.body);
+
+        function check() {
+            backToTop.setStyle('opacity', body.get('scrollTop') > 300 ? '1' : '0');
+        }
+        
+        Y.on('scroll', Y.throttle(function() {
+            check();
+        }, 15), Y.config.win);
+        
+        check();
+        
+        backToTop.on('click', function(e) {
             e.halt(true);
             var anim = new Y.Anim({
-                node: Y.one(Y.config.doc.body),
+                node: body,
                 to: {
                     winScrollTo: [0, 0]
                 },
@@ -41,8 +55,9 @@ YUI.add('g-floatbar', function(Y) {
             });
             anim.run();
         });
+        
     }, '.g-floatbar');
     
 }, '0.0.1', {
-    requires: ['anim']
+    requires: ['anim', 'yui-throttle']
 });

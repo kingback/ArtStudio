@@ -44,7 +44,7 @@
                 combine: combine,
                 modules: {
                     'slide': {
-                        path: 'slide/slide.js',
+                        path: 'slide/slide-min.js',
                         requires: ['node', 'anim']
                     }
                 }
@@ -59,7 +59,7 @@
                         use: ['g-floatbar']    
                     },
                     'g-floatbar': {
-                        path: 'g-floatbar.js',
+                        path: 'g-floatbar-min.js',
                         requires: ['anim']
                     }
                 }
@@ -72,6 +72,7 @@
     YUI.getComboBase = getComboBase;
     
     YUI.combine = combine;
+    YUI.filter = filter;
 
     window['ZD'] = YUI();
     
