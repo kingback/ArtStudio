@@ -120,14 +120,13 @@
 .other-teachers li {margin-right:5px;}
 .teacher-link {display:block;position:relative;}
 .teacher-image {display:block;overflow:hidden;}
-.teacher-name {display:block;font-size:14px;font-weight:bold;margin-top:5px;}
+.teacher-name {display:block;font-size:14px;font-weight:bold;margin-top:5px;margin-bottom:5px;}
 .teacher-school,
 .teacher-title {color:#666;}
 .teacher-link em {display:block;width:109px;height:109px;border:3px solid #e90011;position:absolute;top:0;left:0;opacity:0;}
 .main-teachers .teacher-image {border-top:5px solid #e90011;width:120px;height:240px;}
 .main-teachers .teacher-even .teacher-image {border-top:0;border-bottom:5px solid #e90011;padding-top:67px;}
 .other-teachers .teacher-image {width:115px;height:115px;}
-.other-teachers .teacher-name {margin-top:15px;}
 .teacher-link {
     opacity:1;
     -webkit-transition:all 0.1s linear 0s;
