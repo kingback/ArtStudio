@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+    <head>
+        <title>周达画室</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        
+        <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
+        <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+        <script src="/editor/kindeditor.js"></script>
+        <script src="/editor/lang/zh_CN.js"></script>
+        
+        <base target="_blank" />
+    </head>
+    <body>
+        <form action="/editor.php" method="post">
+            <textarea id="editor" name="content" style="width:700px;height:300px;"></textarea>
+            <button type="button">提交</button>
+        </form>
+        <div id="content"></div>
+        <script>
+            KindEditor.ready(function(K) {
+                var btn = K('button'),
+                    textarea = K('#editor'),
+                    content = K('#content'),
+                    editor = K.create('#editor');
+                    
+                btn.bind('click', function(e) {
+                    editor.sync();
+                    content.html((textarea.val())); 
+                });
+            });
+        </script>
+    </body>
+</html>
