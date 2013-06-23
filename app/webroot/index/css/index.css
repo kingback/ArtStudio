@@ -20,7 +20,7 @@
 .founder-works b,
 .environment .env-more b,
 .news-more a,
-.news-more b {background:url("../img/sprites.png") -9999px -9999px no-repeat;}
+.news-more b {background:url("/index/img/sprites.png") -9999px -9999px no-repeat;}
 
 /* 焦点图 */
 .slide-show {position:relative;overflow:hidden;}
@@ -202,8 +202,8 @@
 .hall-con {padding:30px 38px 80px;background-color:#fff;background-position:-60px 296px;position:relative;}
 .hall-list {height:256px;overflow:hidden;position:relative;}
 .hall-list ul {position:absolute;width:100%;}
-.hall-mask-up {background:url("../img/mask-up.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;top:0;}
-.hall-mask {background:url("../img/mask.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;bottom:50px;}
+.hall-mask-up {background:url("/index/img/mask-up.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;top:0;}
+.hall-mask {background:url("/index/img/mask.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;bottom:50px;}
 .hall-more {position:absolute;width:68px;height:12px;text-indent:-9999px;top:16px;right:0;background-position:0 -114px;}
 .hall-more:hover {background-position:0 -136px;}
 
@@ -265,7 +265,7 @@
 .guidance ul {background-position:-421px -248px;}
 
 /* 创始人 */
-.founder {background:#323232 url("../img/founder.png") 0 0 no-repeat;color:#fff;padding:12px 15px 0;height:388px;margin-top:13px;}
+.founder {background:#323232 url("/index/img/founder.png") 0 0 no-repeat;color:#fff;padding:12px 15px 0;height:388px;margin-top:13px;}
 .founder header {font-family:"Microsoft yahei","微软雅黑","黑体";text-align:center;}
 .founder hgroup h3 {font-size:22px;line-height:30px;}
 .founder hgroup p {font-size:14px;line-height:22px;}

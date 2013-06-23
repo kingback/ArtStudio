@@ -9,16 +9,12 @@
     var combine = true,
         filter;
     
-    function getRoot(root) {
-        return location.pathname.substring(1, location.pathname.indexOf('zd/') + 3) + (root || '');
-    }
-    
     function getBase(root) {
-        return location.protocol + '//' + location.hostname + '/' + getRoot(root) + '/';
+        return '/' + root + '/';
     }
     
     function getComboBase(root) {
-        return location.protocol + '//' + location.hostname + '/min/?b=' + getRoot(root) + '&f=';
+        return '/min/?b=' + root + '&f=';
     }
     
     if (location.search.indexOf('debug=true') > -1) {
@@ -38,8 +34,8 @@
         filter: filter,
         groups: {
             'g-widgets': {
-                base: getBase('global/widgets'),
-                comboBase: getComboBase('global/widgets'),
+                base: getBase('global/wdg'),
+                comboBase: getComboBase('global/wdg'),
                 root: '',
                 combine: combine,
                 modules: {
@@ -50,8 +46,8 @@
                 }
             },
             'g-mods': {
-                base: getBase('global'),
-                comboBase: getComboBase('global'),
+                base: getBase('global/js'),
+                comboBase: getComboBase('global/js'),
                 root: '',
                 combine: combine,
                 modules: {
@@ -67,7 +63,6 @@
         }
     };
     
-    YUI.getRoot = getRoot;
     YUI.getBase = getBase;
     YUI.getComboBase = getComboBase;
     

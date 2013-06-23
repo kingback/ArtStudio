@@ -31,7 +31,7 @@ img {vertical-align:bottom;}
 .g-nav li.selected,
 .g-nav li b,
 .g-weibo a,
-.g-floatbar-qq {background:url("./image/sprite.png") -9999px -9999px no-repeat;}
+.g-floatbar-qq {background:url("/global/img/sprite.png") -9999px -9999px no-repeat;}
 
 /* 公用头部 */
 .g-hd {margin-left:154px;width:846px;height:100px;position:relative;}
