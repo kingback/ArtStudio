@@ -1,0 +1,65 @@
+.path li,
+.s-phone p,
+.avartar-unload-btn button,
+.submit-btn button {background:url('/signup/img/sprites.png') -9999px -9999px no-repeat;}
+
+.s-main {background:#fff;margin-top:26px;padding:0 10px 80px;}
+.s-main h1 {font:28px/36px "Microsoft yahei","微软雅黑","黑体";text-align:center;padding:20px 0 14px;border-bottom:1px solid #e6e6e6;}
+
+.map {float:left;width:418px;height:317px;border:2px solid #e7e7e7;overflow:hidden;margin:32px 0 0 27px;}
+.path {float:left;margin:32px 0 0 35px;width:250px;padding-top:7px;}
+.path h2 {line-height:20px;font-size:14px;font-weight:bold;}
+.path li {line-height:32px;padding-left:13px;background-position:-140px 6px;}
+.path p {float:left;}
+.path a {float:right;color:#009fe9;}
+.path a:hover {color:#ff6600;text-decoration:none;}
+
+.s-phone {float:left;width:250px;margin:37px 0 0 35px;}
+.s-phone h2 {line-height:20px;font-size:14px;font-weight:bold;}
+.s-phone p {margin-top:12px;height:22px;background-position:0 -112px;text-indent:-9999px;}
+
+.form {font-size:14px;margin-top:70px;}
+.required-info {float:left;width:480px;}
+.optional-info {float:left;}
+.form li {}
+.form li .label {float:left;width:130px;text-align:right;line-height:28px;}
+.form li .elem {float:left;}
+.form li .info {height:30px;line-height:26px;clear:both;} 
+.form li .elem-txt {display:inline-block;padding:4px 8px;width:266px;border:1px solid #d9d9d9;border-top:1px solid #c0c0c0;-webkit-appearance:none;}
+.form li .hidden {display:none;}
+.item-radio input,
+.item-radio span,
+.item-select select,
+.item-select span {vertical-align:middle;}
+.item-radio input {margin-right:10px;}
+.item-radio span {margin-right:30px;}
+.item-select select {margin:0;margin-right:7px;padding:2px;border:1px solid #dadada;box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);}
+.item-select span {margin-right:10px;}
+.form .info {padding-left:130px;color:#dd4b39;font-size:12px;}
+.optional-info .info {padding-left:55px;}
+.optional-info li .label {width:55px;}
+.optional-info li .elem-txt {width:166px;}
+.form li.item-error input,
+.form li.item-error select,
+.form li.item-error input:hover,
+.form li.item-error select:hover {border:1px solid #dd4b39}
+.form li .elem-txt:hover,
+.form li select:hover {border:1px solid #b9b9b9;border-top:1px solid #a0a0a0;box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);}
+.form li .elem-txt:focus,
+.form li select:focus {border:1px solid #4d90fe !important;outline:none;box-shadow:inset 0 1px 2px rgba(0,0,0,0.3);}
+
+.avartar {margin-left:55px;margin-bottom:59px;}
+.avartar-image {border:1px solid #ddd;width:130px;height:160px;padding:4px;}
+.avartar-image p {overflow:hidden;}
+.avartar-image img {width:130px;height:160px;}
+.avartar-unload {margin:20px 0 0 5px;}
+.avartar-unload-btn {width:130px;height:41px;overflow:hidden;position:relative;float:left;}
+.avartar-unload-btn button {width:130px;height:41px;background-position:0 0;padding:0;border:0;margin:0;display:block;text-indent:-9999px;}
+.avartar-unload-btn button.hover {background-position:0 -144px;}
+.avartar-unload-btn button.active {background-position:0 -195px;}
+.avartar-unload-btn input {position:absolute;opacity:0;display:block;height:41px;top:0;left:0;}
+.avartar-unload span {float:left;line-height:41px;}
+
+.submit-btn {clear:both;padding-top:36px;}
+.submit-btn button {border:0;padding:0;display:block;margin:0 auto;background-position:0 -51px;width:160px;height:51px;text-indent:-9999px;cursor:pointer;}
+.submit-btn button:hover {opacity:0.8;}

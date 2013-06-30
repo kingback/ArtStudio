@@ -42,6 +42,25 @@
                     'slide': {
                         path: 'slide/slide-min.js',
                         requires: ['node', 'anim']
+                    },
+                    'datecascade': {
+                        path: 'datecascade/datecascade-min.js',
+                        requires: ['node', 'base']
+                    },
+                    'validator': {
+                        path: 'validator/validator-min.js'
+                    },
+                    'mytabview': {
+                        path: 'mytabview/mytabview-min.js',
+                        requires: ['base', 'classnamemanager', 'node', 'event', 'event-delegate']
+                    },
+                    'mytabview-fade': {
+                        path: 'mytabview/mytabview-fade-min.js',
+                        requires: ['plugin', 'mytabview']
+                    },
+                    'mytabview-lazyload': {
+                        path: 'mytabview/mytabview-lazyload-min.js',
+                        requires: ['plugin', 'mytabview']
                     }
                 }
             },

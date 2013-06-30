@@ -1,47 +1,41 @@
 module.exports = function(grunt) {
     
+    var roots = ['global', 'index', 'signup', 'honour'];
+    
+    function getFiles(type) {
+        var files = [],
+            i = 0,
+            l = roots.length;
+            
+        for (; i < l; i++) {
+            files.push(getFile(roots[i], type));
+        }
+        
+        return files;
+    }
+    
+    function getFile(root, type) {
+        return {
+            expand: true,
+            cwd: root + '/',
+            src: ['**/*.' + type, '!**/*-min.' + type],
+            dest: root + '/',
+            ext: '-min.' + type 
+        };
+    }
+    
     grunt.initConfig({
         uglify: {
             options: {
                 banner: "/* ZD */\n"
             },
             myTask: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'global/',
-                        src: ['**/*.js', '!**/*-min.js'],
-                        dest: 'global/',
-                        ext: '-min.js'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'index/',
-                        src: ['**/*.js', '!**/*-min.js'],
-                        dest: 'index/',
-                        ext: '-min.js'
-                    }
-                ]
+                files: getFiles('js')
             }
         },
         cssmin: {
             cssminify: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'global/',
-                        src: ['**/*.css', '!**/*-min.css'],
-                        dest: 'global/',
-                        ext: '-min.css'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'index/',
-                        src: ['**/*.css', '!**/*-min.css'],
-                        dest: 'index/',
-                        ext: '-min.css'
-                    }
-                ]
+                files: getFiles('css')
             }
         }
     });
