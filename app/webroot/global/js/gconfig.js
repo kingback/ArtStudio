@@ -17,6 +17,12 @@
         return '/min/?b=' + root + '&f=';
     }
     
+    function getPath(path, type, sep) {
+        type = type || 'js';
+        sep = sep || '-';
+        return path + (YUI.filter ? '.' : sep + 'min.') + type; 
+    }
+    
     if (location.search.indexOf('debug=true') > -1) {
         filter = 'RAW';
     }
@@ -24,6 +30,13 @@
     if (location.search.indexOf('combo=false') > -1) {
         combine = false;
     }
+    
+    YUI.filter = filter;
+    YUI.combine = combine;
+    
+    YUI.getBase = getBase;
+    YUI.getComboBase = getComboBase;
+    YUI.getPath = getPath;
 
     YUI.GlobalConfig = {
         base: getBase('yui/build'),
@@ -40,27 +53,30 @@
                 combine: combine,
                 modules: {
                     'slide': {
-                        path: 'slide/slide-min.js',
+                        path: getPath('slide/slide'),
                         requires: ['node', 'anim']
                     },
                     'datecascade': {
-                        path: 'datecascade/datecascade-min.js',
+                        path: getPath('datecascade/datecascade'),
                         requires: ['node', 'base']
                     },
                     'validator': {
-                        path: 'validator/validator-min.js'
+                        path: getPath('validator/validator')
                     },
                     'mytabview': {
-                        path: 'mytabview/mytabview-min.js',
+                        path: getPath('mytabview/mytabview'),
                         requires: ['base', 'classnamemanager', 'node', 'event', 'event-delegate']
                     },
                     'mytabview-fade': {
-                        path: 'mytabview/mytabview-fade-min.js',
+                        path: getPath('mytabview/mytabview-fade'),
                         requires: ['plugin', 'mytabview']
                     },
                     'mytabview-lazyload': {
-                        path: 'mytabview/mytabview-lazyload-min.js',
+                        path: getPath('mytabview/mytabview-lazyload'),
                         requires: ['plugin', 'mytabview']
+                    },
+                    'greensock': {
+                        path: getPath('greensock/TweenMax', 'js', '.')
                     }
                 }
             },
@@ -74,19 +90,13 @@
                         use: ['g-floatbar']    
                     },
                     'g-floatbar': {
-                        path: 'g-floatbar-min.js',
+                        path: getPath('g-floatbar'),
                         requires: ['anim']
                     }
                 }
             }
         }
     };
-    
-    YUI.getBase = getBase;
-    YUI.getComboBase = getComboBase;
-    
-    YUI.combine = combine;
-    YUI.filter = filter;
 
     window['ZD'] = YUI();
     

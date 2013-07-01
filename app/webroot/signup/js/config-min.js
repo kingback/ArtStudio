@@ -1,2 +1,2 @@
 /* ZD */
-!function(){ZD.applyConfig({groups:{index:{base:YUI.getBase("signup/js"),comboBase:YUI.getComboBase("signup/js"),root:"",combine:YUI.combine,modules:{main:{use:["form"]},form:{path:"form-min.js",requires:["datecascade","validator","event-hover"]}}}}})}();
+!function(){ZD.applyConfig({groups:{index:{base:YUI.getBase("signup/js"),comboBase:YUI.getComboBase("signup/js"),root:"",combine:YUI.combine,modules:{main:{use:["form"]},form:{path:YUI.getPath("form"),requires:["datecascade","validator","event-hover","greensock"]}}}}})}();

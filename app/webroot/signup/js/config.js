@@ -1,7 +1,7 @@
 /**
- * 首页配置
+ * 报名配置
  * @author ningzbruc@gmail.com
- * @date 2013-06-13
+ * @date 2013-06-30
  */
 
 ;(function() {
@@ -18,8 +18,8 @@
                         use: ['form']  
                     },
                     'form': {
-                        path: 'form-min.js',
-                        requires: ['datecascade', 'validator', 'event-hover']
+                        path: YUI.getPath('form'),
+                        requires: ['datecascade', 'validator', 'event-hover', 'greensock']
                     }
                 }
             }

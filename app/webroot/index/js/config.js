@@ -18,11 +18,11 @@
                         use: ['slideshow', 'hallfame']  
                     },
                     'slideshow': {
-                        path: 'slideshow-min.js',
+                        path: YUI.getPath('slideshow'),
                         requires: ['slide']
                     },
                     'hallfame': {
-                        path: 'hallfame-min.js',
+                        path: YUI.getPath('hallfame'),
                         requires: ['node', 'yui-throttle']
                     }
                 }

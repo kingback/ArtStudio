@@ -18,7 +18,7 @@
                         use: ['honour']  
                     },
                     'honour': {
-                        path: 'honour.js',
+                        path: YUI.getPath('honour'),
                         requires: ['scrollview']
                     }
                 }

@@ -1,6 +1,6 @@
 .path li,
 .s-phone p,
-.avartar-unload-btn button,
+.avartar-unload-btn a,
 .submit-btn button {background:url('/signup/img/sprites.png') -9999px -9999px no-repeat;}
 
 .s-main {background:#fff;margin-top:26px;padding:0 10px 80px;}
@@ -53,11 +53,11 @@
 .avartar-image p {overflow:hidden;}
 .avartar-image img {width:130px;height:160px;}
 .avartar-unload {margin:20px 0 0 5px;}
-.avartar-unload-btn {width:130px;height:41px;overflow:hidden;position:relative;float:left;}
-.avartar-unload-btn button {width:130px;height:41px;background-position:0 0;padding:0;border:0;margin:0;display:block;text-indent:-9999px;}
-.avartar-unload-btn button.hover {background-position:0 -144px;}
-.avartar-unload-btn button.active {background-position:0 -195px;}
-.avartar-unload-btn input {position:absolute;opacity:0;display:block;height:41px;top:0;left:0;}
+.avartar-unload-btn {width:130px;height:41px;overflow:hidden;float:left;position:relative;}
+.avartar-unload-btn a {position:relative;width:130px;height:41px;background-position:0 0;padding:0;border:0;margin:0;display:block;text-indent:-9999px;}
+.avartar-unload-btn a:hover {background-position:0 -144px;}
+.avartar-unload-btn a:active {background-position:0 -195px;}
+.avartar-unload-btn input {position:absolute;opacity:0;display:block;width:100%;height:41px;top:0;left:0;z-index:50;font-size:300px;cursor:pointer;}
 .avartar-unload span {float:left;line-height:41px;}
 
 .submit-btn {clear:both;padding-top:36px;}

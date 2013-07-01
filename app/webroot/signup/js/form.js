@@ -63,8 +63,6 @@ YUI.add('form', function(Y) {
             this.requiredInputs = this.form.all('.required-info .elem-txt');
             this.dateSelectInput = this.form.one('#birthday');
             
-            this.upload = this.form.one('.avartar-unload-btn');
-            this.uploadBtn = this.upload.one('button');
             this.uploadInput = this.form.one('#avartar-unload-ipt');
             this.avartarImage = this.form.one('.avartar-image img');
         },
@@ -120,25 +118,7 @@ YUI.add('form', function(Y) {
                 }
             }, this);
             
-            this.upload.on('mousemove', function(e) {
-                this.uploadInput.setXY([e.pageX - 5, e.pageY - 5]);
-            }, this);
-            
-            this.upload.on('hover', function() {
-                this.uploadBtn.addClass('hover');
-            }, function() {
-                this.uploadBtn.removeClass('hover');
-            }, this);
-            
-            this.upload.on('mousedown', function() {
-                this.uploadBtn.addClass('active');
-            }, this);
-            
-            this.upload.on('mouseup', function() {
-                this.uploadBtn.removeClass('active');
-            }, this);
-            
-            // IE本地图片预览
+            // TODO IE本地图片预览
             this.uploadInput.on('change', function(e) {
                 var _this = this,
                     files = e.target._node.files,
