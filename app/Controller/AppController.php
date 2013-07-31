@@ -37,7 +37,7 @@ class AppController extends Controller {
 
 	protected function get_connection()
 	{
-		$port = 28017;
+		$port = 27017;
 		$mongo_url = "localhost";
 		$mongo_host = "mongodb://$mongo_url:$port";
 		return new MongoClient($mongo_host);
