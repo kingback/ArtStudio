@@ -37,7 +37,7 @@ class AdminController extends AppController {
 	public function honour()
 	{
 		$collection = $this->get_collection($this->db_name, $this->honour_collection);
-		$honours = $collection->find()->sort(array('year' => 1));
+		$honours = $collection->find()->sort(array('year' => -1));
 		$this->set('honours', $honours);
 	}
 }
