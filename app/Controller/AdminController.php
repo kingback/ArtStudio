@@ -40,4 +40,25 @@ class AdminController extends AppController {
 		$honours = $collection->find()->sort(array('year' => -1));
 		$this->set('honours', $honours);
 	}
+
+	public function uploadImage()
+	{
+		$pic_name = $this->save_pic("pic");
+		$this->redirect('/admin/images');
+	}
+
+	public function images()
+	{
+		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
+		$cursor = $collection->find();
+		$files = array();
+		foreach ($cursor as $file) {
+			$f = array();
+			$f['filename'] = $file['filename'];
+			$f['url'] = $this->get_file_url($f['filename']);
+			$files[] = $f;
+		}
+		var_dump(count($files));
+		$this->set('files', $files);
+	}
 }

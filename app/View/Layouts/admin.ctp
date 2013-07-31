@@ -65,14 +65,9 @@
                     <div id="menu">
 			<h3>控制台</h3>
 			<ul>
-                        <li><a href="/admin/index">管理APP</a></li>
+                        <li><a href="/admin/index">主页</a></li>
                         <li><a href="/admin/honour" >画室荣誉管理</a> </li>
-                        <li><a href="/dashboard/uploadKey">添加SSH Key</a></li>
-                        <li><a href="/dashboard/install">安装App</a></li>
-                        <li><a href="/">app排行榜</a></li>
-                        <li><a href="/deploy">App上线</a></li>
-                        <li><a href="http://readme.iyoudao.net/">帮助</a></li>
-                        <li><a href="#"></a></li>
+                        <li><a href="/admin/images">图片管理</a></li>
 			</ul>
                     </div>
                 </td>

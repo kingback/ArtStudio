@@ -34,6 +34,9 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	protected $db_name = 'test';
 	protected $honour_collection = 'honour';
+	protected $grid_db = "pic";
+	protected $grid_db_file = "fs.files";
+	protected $grid_base_url = "http://localhost:4444/gridfs/";
 
 	protected function get_connection()
 	{
@@ -108,5 +111,51 @@ class AppController extends Controller {
 		$this->response->statusCode($code);
 		$this->response->send();
 		exit(); 
+	}
+
+	protected function get_grid_fs()
+	{
+		$connection = $this->get_connection();
+		$db = $connection->selectDB($this->grid_db); // Connect to Database
+		return $db->getGridFS();
+	}
+
+	protected function save_pic($upload_pic)
+	{
+		$mimeType = 'image/';
+		$file = $_FILES[$upload_pic];
+		if (!$this->starts_with($file['type'], $mimeType)) {
+			return false;
+		}
+		$grid = $this->get_grid_fs();
+		$pic_name = $this->generate_name($file);
+		echo "Will store pic to " . $pic_name . "\n";
+		$res = $grid->storeUpload($upload_pic, $pic_name);
+		var_dump($res);
+		return $pic_name;
+	}
+
+	protected function get_file_url($file_name)
+	{
+		return $this->grid_base_url . $file_name;
+	}
+
+	protected function generate_name($file)
+	{
+		$mimeType = 'image/';
+		$image_size = getimagesize($file['tmp_name']);
+		var_dump($image_size);
+		$pic_name = md5($file['name'] . time());
+		echo $pic_name . "\n";
+		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
+		echo $pic_name . "\n";
+
+		$type = substr($image_size['mime'], strlen($mimeType));
+		echo $type . "\n";
+
+		$pic_name .= ".$type";
+		echo $pic_name;
+
+		return $pic_name;
 	}
 }
