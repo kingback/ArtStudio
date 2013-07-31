@@ -13,7 +13,7 @@
 	<?php foreach ($files as $file): ?>
 		<tr>
 		<td><a href='<?php echo $file['url']; ?>'><?php echo $file['filename']; ?></td>
-		<td><img src='<?php echo $file['url']?>' style='max-height:100'/></td>
+		<td><img src='<?php echo $file['url']?>' style='max-height:100px'/></td>
 		</tr>
 	<?php endforeach; ?>
 	</body>

@@ -58,7 +58,7 @@ class AdminController extends AppController {
 			$f['url'] = $this->get_file_url($f['filename']);
 			$files[] = $f;
 		}
-		var_dump(count($files));
+		//var_dump(count($files));
 		$this->set('files', $files);
 	}
 }

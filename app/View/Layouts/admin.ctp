@@ -21,17 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link href="/css/home.css" type="text/css" rel="stylesheet"></link>
-        <link rel="stylesheet" title="Arta" href="/static/highlight/styles/arta.css"></link>
         <script src="/static/jquery.min.js"> </script>
-        <script src="/static/highlight/highlight.pack.js"></script>
-        <link rel="stylesheet" type="text/css" href="/jqModal/jqModal.css" />
-        <script type='text/javascript' src='/jqModal/jqModal.js'></script>
-        <script type='text/javascript' src='/js/dashboard.js'></script>
-
-        <script>
-            hljs.tabReplace = '    ';
-            hljs.initHighlightingOnLoad();
-        </script>
         <?php echo $this->Html->charset(); ?>
         <title>
             <?php echo $title_for_layout; ?>
