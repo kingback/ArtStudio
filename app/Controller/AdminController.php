@@ -1,25 +1,19 @@
 <?php
-class MainController extends AppController {
+class AdminController extends AppController {
+
+
 	public function beforeFilter() {
 		parent::beforeFilter();
+		$this->layout = 'admin';
 	}
 
 	public function index()
 	{
-		$this->set('body_class', 'zds-index');
-		// code...
-	}
-
-	public function signup()
-	{
-		$this->set('body_class', 'zds-signup');
-
 	}
 
 	public function honour()
 	{
-		$this->set('body_class', 'zds-honour');
-		$collection = $this->get_collection($this->db_name, $this->honour_collection);
+		$collection = $this->getCollection($this->db_name, $this->honour_collection);
 		$years = $collection->distinct('year');
 		$honours = array();
 		foreach ($years as $year) {
@@ -29,10 +23,4 @@ class MainController extends AppController {
 		$this->set('honours', $honours);
 		$this->set('years', $years);
 	}
-
-	public function video()
-	{
-		$this->set('body_class', 'zds-video');
-	}
-
 }

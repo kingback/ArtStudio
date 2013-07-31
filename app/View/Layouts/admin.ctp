@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+    <head>
+        <title>周达画室</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        
+        <!-- TODO combo -->
+        <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
+        <link rel="stylesheet" href="/min?b=signup/css&f=signup-min.css" />
+        <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+        <script src="/min?f=signup/js/config-min.js"></script>
+        
+        <base target="_blank" />
+    </head>
+    <body class="zds-signup">
+        <header class="g-hd" id="g-hd">
+            <hgroup class="clearfix ">
+                <h1 class="g-logo" id="g-logo">
+                    <a href="#" target="_top"><img src="/global/img/logo.png" alt="周达画室" /></a>
+                </h1>
+                <p>一切用实力说话</p>
+            </hgroup>
+        </header>
+        <nav class="g-nav" id="g-nav">
+            <h2 class="g-sublogo">
+                <a href="http://zhoudams.com/" target="_top">http://zhoudams.com/</a>
+            </h2>
+            <ul>
+                <li class="selected"><a href="#" target="_top">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
+                <li><a href="#" target="_top">画室简介</a><b></b></li>
+                <li><a href="#" target="_top">画室成绩</a><b></b></li>
+                <li><a href="#" target="_top">教师介绍</a><b></b></li>
+                <li><a href="#" target="_top">作品欣赏</a><b></b></li>
+                <li><a href="#" target="_top">招生简章</a><b></b></li>
+                <li><a href="#" target="_top">学生管理</a><b></b></li>
+                <li><a href="#" target="_top">网上报名</a><b></b></li>
+                <li><a href="#" target="_top">画室新闻</a><b></b></li>
+            </ul>
+        </nav>
+        <script>
+            ZD.use('zdglobal');
+        </script>
+        
+
+<?php echo $content_for_layout; ?>
+        
+        
+        <script>
+            ZD.use('main');
+        </script>
+    </body>
+</html>

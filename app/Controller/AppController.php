@@ -32,4 +32,42 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	protected $db_name = 'test';
+	protected $honour_collection = 'honour';
+
+	protected function get_connection()
+	{
+		$port = 28017;
+		$mongo_url = "localhost";
+		$mongo_host = "mongodb://$mongo_url:$port";
+		return new MongoClient($mongo_host);
+	}
+
+	protected function starts_with($haystack, $needle)
+	{
+		$length = strlen($needle);
+		return (substr($haystack, 0, $length) === $needle);
+	}
+
+	protected function ends_with($haystack, $needle)
+	{
+		$length = strlen($needle);
+		if ($length == 0) {
+			return true;
+		}   
+		return (substr($haystack, -$length) === $needle);
+	}
+
+	protected function get_collection($db_name, $collection)
+	{
+		// connect
+		$connection = $this->get_connection();
+
+		// select a database
+		$db = $connection->selectDB($db_name);
+
+		// select a collection (analogous to a relational database's table)
+		return $db->$collection;
+	}
+
 }
