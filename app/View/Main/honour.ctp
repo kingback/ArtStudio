@@ -20,7 +20,9 @@
 			<li class="honour-tab honour-tab-<?php echo $i + 1;?> <?php if ($i == 0): ?>yui3-mytabview-tab-selected<?php endif; ?>"><strong><?php echo $years[$i]; ?>年</strong><b></b></li>
 			<?php endfor; ?>
 		</ol>
+		<?php if (count($years) > 0): ?>
 		<h2><strong><?php echo $years[0]; ?>年</strong><span>画室成绩</span><em>（据不完全统计）</em></h2>
+		<?php endif; ?>
 		<div class="honour-view">
 			<?php for ($i = 0; $i < count($years); $i++): ?>
 				<?php if ($i == 0): ?>
