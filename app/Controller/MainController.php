@@ -2,6 +2,7 @@
 class MainController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
+		$this->layout = 'zd';
 	}
 
 	public function index()

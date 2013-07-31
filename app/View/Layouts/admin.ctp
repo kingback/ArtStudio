@@ -1,61 +1,87 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
-<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
-<!--[if gt IE 9]><html class="no-js"><![endif]-->
-<!--[if !IE]><!--><html><!--<![endif]-->
-    <head>
-        <title>周达画室</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        
-        <!-- TODO combo -->
-        <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
-        <link rel="stylesheet" href="/min?b=signup/css&f=signup-min.css" />
-        <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
-        <script src="/min?f=signup/js/config-min.js"></script>
-        
-        <base target="_blank" />
-    </head>
-    <body class="zds-signup">
-        <header class="g-hd" id="g-hd">
-            <hgroup class="clearfix ">
-                <h1 class="g-logo" id="g-logo">
-                    <a href="#" target="_top"><img src="/global/img/logo.png" alt="周达画室" /></a>
-                </h1>
-                <p>一切用实力说话</p>
-            </hgroup>
-        </header>
-        <nav class="g-nav" id="g-nav">
-            <h2 class="g-sublogo">
-                <a href="http://zhoudams.com/" target="_top">http://zhoudams.com/</a>
-            </h2>
-            <ul>
-                <li class="selected"><a href="#" target="_top">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
-                <li><a href="#" target="_top">画室简介</a><b></b></li>
-                <li><a href="#" target="_top">画室成绩</a><b></b></li>
-                <li><a href="#" target="_top">教师介绍</a><b></b></li>
-                <li><a href="#" target="_top">作品欣赏</a><b></b></li>
-                <li><a href="#" target="_top">招生简章</a><b></b></li>
-                <li><a href="#" target="_top">学生管理</a><b></b></li>
-                <li><a href="#" target="_top">网上报名</a><b></b></li>
-                <li><a href="#" target="_top">画室新闻</a><b></b></li>
-            </ul>
-        </nav>
-        <script>
-            ZD.use('zdglobal');
-        </script>
-        
+<?php
+/**
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       Cake.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 
-<?php echo $content_for_layout; ?>
-        
-        
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="/css/home.css" type="text/css" rel="stylesheet"></link>
+        <link rel="stylesheet" title="Arta" href="/static/highlight/styles/arta.css"></link>
+        <script src="/static/jquery.min.js"> </script>
+        <script src="/static/highlight/highlight.pack.js"></script>
+        <link rel="stylesheet" type="text/css" href="/jqModal/jqModal.css" />
+        <script type='text/javascript' src='/jqModal/jqModal.js'></script>
+        <script type='text/javascript' src='/js/dashboard.js'></script>
+
         <script>
-            ZD.use('main');
+            hljs.tabReplace = '    ';
+            hljs.initHighlightingOnLoad();
         </script>
+        <?php echo $this->Html->charset(); ?>
+        <title>
+            <?php echo $title_for_layout; ?>
+        </title>
+        <?php
+        echo $scripts_for_layout;
+        ?>
+    </head>
+
+    <body>
+        <table style="width:100%"><tr>
+                <td>
+                    <a href="/dashboard/" class="header"><h1 style="margin:6px"><img src="/static/logo64.png"/><span style="position: absolute;padding: 15px; color: black">网站管理</span></h1></a>
+                </td>
+                <td id="info">
+                    <?php if (isset($isLogin))
+                    {
+                        //echo "<img src= '{$userAvatar}' />";
+                        echo "hello, {$username} | <a href='/users/logout'>logout</a>";
+                    }
+                    ?>
+                </td>
+            </tr>
+        </table>
+
+        <div class="line" style="right: 0pt;"></div>
+
+        <table id="content">
+            <tr>
+                <td class="left">
+                    <div id="menu">
+			<h3>控制台</h3>
+			<ul>
+                        <li><a href="/admin/index">管理APP</a></li>
+                        <li><a href="/admin/honour" >画室荣誉管理</a> </li>
+                        <li><a href="/dashboard/uploadKey">添加SSH Key</a></li>
+                        <li><a href="/dashboard/install">安装App</a></li>
+                        <li><a href="/">app排行榜</a></li>
+                        <li><a href="/deploy">App上线</a></li>
+                        <li><a href="http://readme.iyoudao.net/">帮助</a></li>
+                        <li><a href="#"></a></li>
+			</ul>
+                    </div>
+                </td>
+                <td>
+                    <?php echo $content_for_layout; ?>
+                </td>
+            </tr>
+        </table>
+        <!-- footer -->
     </body>
 </html>
+
