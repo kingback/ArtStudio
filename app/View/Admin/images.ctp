@@ -1,5 +1,5 @@
 <form method="POST" enctype="multipart/form-data" action="/admin/uploadImage">
-    上传文件: <input type="file" name="pic"/>
+    上传文件: <input type="file" name="pics[]" multiple/>
     <input type="submit"/>
 </form>
 

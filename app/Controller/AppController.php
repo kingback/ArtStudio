@@ -128,9 +128,23 @@ class AppController extends Controller {
 			return false;
 		}
 		$grid = $this->get_grid_fs();
-		$pic_name = $this->generate_name($file);
+		$pic_name = $this->generate_name($file['tmp_name']);
 		echo "Will store pic to " . $pic_name . "\n";
 		$res = $grid->storeUpload($upload_pic, $pic_name);
+		var_dump($res);
+		return $pic_name;
+	}
+
+	protected function save_file($filename, $type)
+	{
+		$mimeType = 'image/';
+		if (!$this->starts_with($type, $mimeType)) {
+			return false;
+		}
+		$grid = $this->get_grid_fs();
+		$pic_name = $this->generate_name($filename);
+		echo "Will store pic to " . $pic_name . "\n";
+		$res = $grid->storeFile($filename, array('filename' => $pic_name));
 		var_dump($res);
 		return $pic_name;
 	}
@@ -140,12 +154,12 @@ class AppController extends Controller {
 		return $this->grid_base_url . $file_name;
 	}
 
-	protected function generate_name($file)
+	protected function generate_name($filename)
 	{
 		$mimeType = 'image/';
-		$image_size = getimagesize($file['tmp_name']);
+		$image_size = getimagesize($filename);
 		var_dump($image_size);
-		$pic_name = md5($file['name'] . time());
+		$pic_name = md5($filename . time());
 		echo $pic_name . "\n";
 		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
 		echo $pic_name . "\n";

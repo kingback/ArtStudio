@@ -43,7 +43,11 @@ class AdminController extends AppController {
 
 	public function uploadImage()
 	{
-		$pic_name = $this->save_pic("pic");
+		for ($i = 0; $i < count($_FILES['pics']['name']); $i++) {
+			$filename = $_FILES['pics']['tmp_name'][$i];
+			$type = $_FILES['pics']['type'][$i];
+			$this->save_file($filename, $type);
+		}
 		$this->redirect('/admin/images');
 	}
 
