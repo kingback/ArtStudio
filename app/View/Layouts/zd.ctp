@@ -15,11 +15,13 @@
         
         <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
+        <link rel="stylesheet" href="/min?b=signup/css&f=signup-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+        <script src="/min?f=signup/js/config-min.js"></script>
         
         <base target="_blank" />
     </head>
-	<body class="<?php echo $body_class; ?>">
+    <body class="zds-signup">
         <header class="g-hd" id="g-hd">
             <hgroup class="clearfix ">
                 <h1 class="g-logo" id="g-logo">
