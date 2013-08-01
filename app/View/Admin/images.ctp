@@ -1,15 +1,19 @@
 <form method="POST" enctype="multipart/form-data" action="/admin/uploadImage">
-    上传文件: <input type="file" name="pics[]" multiple/>
-    <input type="submit"/>
+	<table class="table table-bordered table-striped responsive-utilities">
+    <tr><td>上传文件</td><td><input type="file" name="pics[]" multiple/></td></tr>
+    <tr><td><input type="submit"/> </td></tr>
+	</table>
 </form>
 
 
-<table cellspacing="1" cellpadding="0" class="help-msg-table">
-	<tbody>
+<table class="table table-bordered table-striped responsive-utilities">
+	<thead>
 	<tr>
 		<th>图片地址</th>
 		<th>图片预览</th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php foreach ($files as $file): ?>
 		<tr>
 		<td><a href='<?php echo $file['url']; ?>'><?php echo $file['filename']; ?></td>

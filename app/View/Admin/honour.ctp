@@ -20,14 +20,16 @@
 		</table>
 	</form>
 
-<table cellspacing="1" cellpadding="0" class="help-msg-table">
-	<tbody>
+<table class="table table-bordered table-striped responsive-utilities">
+    <thead>
 	<tr>
 		<th class="student">考生姓名</th>
 		<th class="school">通过学校</th>
 		<th class="school">考试年</th>
 		<th class="school">删除</th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php foreach ($honours as $stu): ?>
 	<tr>
 		<td class="student"><?php echo $stu['name']; ?></td>

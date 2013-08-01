@@ -1,73 +1,71 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
     <head>
-        <link href="/admin/css/admin.css" type="text/css" rel="stylesheet"></link>
-        <script src="/admin/js/jquery.min.js"> </script>
-        <script src="/admin/js/admin.js"> </script>
         <?php echo $this->Html->charset(); ?>
         <title>
             <?php echo $title_for_layout; ?>
         </title>
-        <?php
-        echo $scripts_for_layout;
-        ?>
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/admin/css/docs.css" rel="stylesheet">
+        <link href="/admin/css/prettify.css" rel="stylesheet">
+        <link href="/admin/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="/admin/css/bootstrap-datetimepicker.min.css">
     </head>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/">网站管理</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+						<li <?php if ($title_for_layout == "empty") echo 'class="active"' ?>><a href="/admin/index">empty</a></li>
+                        <li <?php if ($title_for_layout == "画室荣誉管理") echo 'class="active"' ?>><a href="/admin/honour">画室荣誉管理</a></li>
+                        <li <?php if ($title_for_layout == "图片管理") echo 'class="active"' ?>><a href="/admin/images">图片管理</a></li>
+                        <li <?php if ($title_for_layout == "Manul") echo 'class="active"' ?>><a href="/pages/manul">帮助</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <body>
-        <table style="width:100%"><tr>
-                <td>
-                    <a href="/dashboard/" class="header"><h1 style="margin:6px"><img src="/global/img/logo.png"/><span style="position: absolute;padding: 15px; color: black">网站管理</span></h1></a>
-                </td>
-                <td id="info">
-                    <?php if (isset($isLogin))
-                    {
-                        //echo "<img src= '{$userAvatar}' />";
-                        echo "hello, {$username} | <a href='/users/logout'>logout</a>";
-                    }
-                    ?>
-                </td>
-            </tr>
-        </table>
+    <header class="jumbotron subhead" id="overview">
+    <div class="container">
+	<h1><?php echo $title_for_layout; ?></h1>
+    </div>
+    </header>
 
-        <div class="line" style="right: 0pt;"></div>
+    <div class="container">
+        <?php $session = $this->Session->flash(); ?>
+        <?php if ($session): ?>
+        <div class="alert alert-error">
+            <?php echo $session; ?>
+        </div>
+        <?php endif; ?>
 
-        <table id="content">
-            <tr>
-                <td class="left">
-                    <div id="menu">
-			<h3>控制台</h3>
-			<ul>
-                        <li><a href="/admin/index">主页</a></li>
-                        <li><a href="/admin/honour" >画室荣誉管理</a> </li>
-                        <li><a href="/admin/images">图片管理</a></li>
-			</ul>
-                    </div>
-                </td>
-                <td>
-                    <?php echo $content_for_layout; ?>
-                </td>
-            </tr>
-        </table>
-        <!-- footer -->
-    </body>
+        <?php echo $this->fetch('content'); ?>
+    </div>
+
+    <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+    <script src="/admin/js/holder.js"></script>
+    <script src="/admin/js/prettify.js"></script>
+    <script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/admin/js/application.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
 </html>
-
+<!--
+vim:ft=html
+-->
