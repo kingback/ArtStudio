@@ -65,6 +65,7 @@ class AdminController extends AppController {
 
 		$info['files'] = $files;
 		echo json_encode($info);
+		$this->redirect('/admin/images');
 		$this->response->send();
 		exit();
 	}
