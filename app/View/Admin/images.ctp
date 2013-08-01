@@ -30,13 +30,15 @@
     function deletePics()
     {
 		var ids = "";
+		var cnt = 0;
 		var box = document.getElementsByName("checkbox");
 		for (i = 0; i < box.length; ++i) {
 			if (box[i].checked) {
-				if (i > 0) {
+				if (cnt > 0) {
 					ids += ",";
 				}
 				ids += box[i].value;
+				++cnt;
 			}
 		}
 		$.ajax({
