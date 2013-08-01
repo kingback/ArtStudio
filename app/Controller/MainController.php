@@ -16,7 +16,39 @@ class MainController extends AppController {
 	{
 		$this->set('body_class', 'zds-signup');
 		$this->set('page', 8);
+	}
 
+	public function addStudent()
+	{
+		echo "<pre>";
+		//var_dump($_FILES);
+		//var_dump($this->request);
+
+		$name = $this->_get_argument('name');
+		$sex = $this->_get_argument('sex');
+		$birthday = $this->_get_argument('birthday');
+		$highschool = $this->_get_argument('highschool');
+		$telephone = $this->_get_argument('telephone');
+		$qq = $this->_get_argument('qq');
+		$email = $this->_get_argument('email');
+		$volk = $this->_get_argument('volk');
+		$household = $this->_get_argument('household');
+		$stu = array(
+			'name' => $name,
+			'sex' => $sex,
+			'birthday' => $birthday,
+			'highschool' => $highschool,
+			'telephone' => $telephone,
+			'qq' => $qq,
+			'email' => $email,
+			'volk' => $volk,
+			'household' => $household
+		);
+		var_dump($stu);
+
+		$collection = $this->get_collection($this->db_name, $this->signup_collection);
+		$collection->update(array('telephone' => $telephone), $stu, array('upsert' => true));
+		$this->redirect('/main/signup');
 	}
 
 	public function honour()

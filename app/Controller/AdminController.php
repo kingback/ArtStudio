@@ -65,4 +65,11 @@ class AdminController extends AppController {
 		//var_dump(count($files));
 		$this->set('files', $files);
 	}
+
+	public function signup()
+	{
+		$collection = $this->get_collection($this->db_name, $this->signup_collection);
+		$students = $collection->find();
+		$this->set('students', $students);
+	}
 }

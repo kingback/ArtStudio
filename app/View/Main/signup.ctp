@@ -59,7 +59,7 @@
 	</div>
 
 	<section class="form">
-	<form action="#" method="get" class="clearfix" id="s-form">
+	<form action="/main/addStudent" method="get" class="clearfix" id="s-form">
 		<div class="required-info">
 			<ul>
 				<li>
