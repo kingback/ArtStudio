@@ -45,6 +45,17 @@ class AdminController extends AppController {
 	{
 		$this->autoRender = false;
 		$this->response->header('Content-Type: text/javascript');
+		$file = $this->save_pic('Filedata');
+		$info['file'] = $file;
+		echo json_encode($info);
+		$this->response->send();
+		exit();
+	}
+
+	public function uploadImages()
+	{
+		$this->autoRender = false;
+		$this->response->header('Content-Type: text/javascript');
 		$files = array();
 		for ($i = 0; $i < count($_FILES['pics']['name']); $i++) {
 			$filename = $_FILES['pics']['tmp_name'][$i];

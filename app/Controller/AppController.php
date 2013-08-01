@@ -130,9 +130,7 @@ class AppController extends Controller {
 		}
 		$grid = $this->get_grid_fs();
 		$pic_name = $this->generate_name($file['tmp_name']);
-		echo "Will store pic to " . $pic_name . "\n";
 		$res = $grid->storeUpload($upload_pic, $pic_name);
-		var_dump($res);
 		return $pic_name;
 	}
 
