@@ -69,6 +69,23 @@ class AdminController extends AppController {
 		exit();
 	}
 
+	public function deleteImages()
+	{
+		$this->autoRender = false;
+		$this->response->header('Content-Type: text/javascript');
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+		
+		var_dump($ids);
+		$grid = $this->get_grid_fs();
+		foreach ($ids as $id) {
+			$res = $grid->delete(new MongoId($id));
+			var_dump($res);
+		}
+		$this->response->send();
+		exit();
+	}
+
 	public function images()
 	{
 		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
@@ -78,6 +95,7 @@ class AdminController extends AppController {
 			$f = array();
 			$f['filename'] = $file['filename'];
 			$f['url'] = $this->get_file_url($f['filename']);
+			$f['id'] = $file['_id'];
 			$files[] = $f;
 		}
 		//var_dump(count($files));
