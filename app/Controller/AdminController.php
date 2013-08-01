@@ -47,7 +47,7 @@ class AdminController extends AppController {
 		$this->response->header('Content-Type: text/javascript');
 		$file = $this->save_pic('Filedata');
 		$info['file'] = $file;
-		echo json_encode($info);
+		echo json_encode($file);
 		$this->response->send();
 		exit();
 	}
