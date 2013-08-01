@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     
-    var roots = ['global', 'index', 'signup', 'honour', 'video'];
+    var roots = ['global', 'index', 'signup', 'honour', 'video', 'news', 'iuploader'];
     
     function getFiles(type) {
         var files = [],
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         return {
             expand: true,
             cwd: root + '/',
-            src: ['**/*.' + type, '!**/*-min.' + type, '!**/greensock/**'],
+            src: ['**/*.' + type, '!**/*-min.' + type, '!**/greensock/**', '!**/ZeroClipboard/**'],
             dest: root + '/',
             ext: '-min.' + type 
         };

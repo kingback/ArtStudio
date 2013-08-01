@@ -63,6 +63,14 @@
                     'validator': {
                         path: getPath('validator/validator')
                     },
+                    'waterfall': {
+                        path: getPath('waterfall/waterfall'),
+                        requires: ['node', 'event', 'base']
+                    },
+                    'waterfall-loader': {
+                        path: getPath('waterfall/waterfall-loader'),
+                        requires: ['waterfall']
+                    },
                     'mytabview': {
                         path: getPath('mytabview/mytabview'),
                         requires: ['base', 'classnamemanager', 'node', 'event', 'event-delegate']
@@ -77,6 +85,9 @@
                     },
                     'greensock': {
                         path: getPath('greensock/TweenMax', 'js', '.')
+                    },
+                    'ZeroClipboard': {
+                        path: getPath('ZeroClipboard/ZeroClipboard', 'js', '.')
                     }
                 }
             },

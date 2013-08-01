@@ -1,0 +1,2 @@
+/* ZD */
+YUI.add("news",function(a){function b(){return 30*Math.ceil(10*Math.random())}function c(c){return c.height=b(),a.Lang.sub(f,c)||""}function d(a){setTimeout(function(){a(window.NewsData)},500)}var e,f=a.Lang.trim(a.one("#J_news_temp").get("innerHTML"));e=new a.Waterfall({container:".waterfall",data:window.NewsData,formatter:c,loader:d}),e.on("add",function(a){setTimeout(function(){a.item.addClass("waterfall-item-added")},50)}),e.render()},"0.0.1",{requires:["waterfall","waterfall-loader"]});
