@@ -16,6 +16,8 @@
         <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+		<script src="/admin/js/jquery.js"></script>
+		<script src="/admin/js/jquery.form.js"></script> 
         
         <base target="_blank" />
     </head>

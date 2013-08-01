@@ -20,10 +20,8 @@ class MainController extends AppController {
 
 	public function addStudent()
 	{
-		echo "<pre>";
-		//var_dump($_FILES);
-		//var_dump($this->request);
-
+		$this->autoRender = false;
+		$this->response->header('Content-Type: text/javascript');
 		$name = $this->_get_argument('name');
 		$sex = $this->_get_argument('sex');
 		$birthday = $this->_get_argument('birthday');
@@ -44,11 +42,12 @@ class MainController extends AppController {
 			'volk' => $volk,
 			'household' => $household
 		);
-		var_dump($stu);
-
+		//var_dump($stu);
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
-		$collection->update(array('telephone' => $telephone), $stu, array('upsert' => true));
-		$this->redirect('/main/signup');
+		$res = $collection->update(array('name' => $name, 'telephone' => $telephone), $stu, array('upsert' => true));
+		echo json_encode($res);
+		$this->response->send();
+		exit();
 	}
 
 	public function honour()
