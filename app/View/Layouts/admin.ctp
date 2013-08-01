@@ -59,11 +59,11 @@
     </div>
 
     <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/js/jquery.form.js"></script> 
     <script src="/admin/js/bootstrap.min.js"></script>
     <script src="/admin/js/holder.js"></script>
     <script src="/admin/js/prettify.js"></script>
     <script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/admin/js/application.js"></script>
     <script src="/admin/js/admin.js"></script>
 </body>
 </html>

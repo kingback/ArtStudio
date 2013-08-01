@@ -1,4 +1,4 @@
-<form method="POST" enctype="multipart/form-data" action="/admin/uploadImages">
+<form id = "uploadImage" method="POST" enctype="multipart/form-data" action="/admin/uploadImages">
 	<table class="table table-bordered table-striped responsive-utilities">
     <tr><td>上传文件</td><td><input type="file" name="pics[]" multiple/></td></tr>
     <tr><td><input type="submit"/> </td></tr>
@@ -26,44 +26,3 @@
 	<?php endforeach; ?>
 	</body>
 </table>
-<script type="text/javascript">
-    function deletePics()
-    {
-		var ids = "";
-		var cnt = 0;
-		var box = document.getElementsByName("checkbox");
-		for (i = 0; i < box.length; ++i) {
-			if (box[i].checked) {
-				if (cnt > 0) {
-					ids += ",";
-				}
-				ids += box[i].value;
-				++cnt;
-			}
-		}
-		$.ajax({
-			type: 'POST',
-			url: '/admin/deleteImages',
-			data: {
-				'ids' : ids
-			},
-			success: function(e) {
-				alert("删除成功");
-				window.location.reload();
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("删除失败");
-			}
-		});
-		return false;
-    }
-
-	function selectAllPics()
-	{
-		var box = document.getElementsByName("checkbox");
-		for (i = 0; i < box.length; ++i) {
-			box[i].checked = true;
-		}
-		return false;
-	}
-</script>
