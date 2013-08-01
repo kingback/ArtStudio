@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+    <head>
+        <title>周达画室</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        
+        <!-- TODO combo -->
+        <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
+        <link rel="stylesheet" href="/min?b=iuploader/css&f=iuploader-min.css" />
+        <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+        <script src="/min?f=iuploader/js/config-min.js"></script>
+        
+        <base target="_blank" />
+    </head>
+    <body>
+        <div class="main">
+            <h1>Image Uploader</h1>
+            <!-- 上传区域 {{-->
+            <div class="dd-area">
+                <ul class="file-list"></ul>
+                <div class="select-button-container">
+                    <div class="select-button" id="select-button"></div>
+                    <p>or you can drag and drop your images here...</p>
+                </div>
+            </div>
+            <!-- 上传区域 }}-->
+            
+            <!-- 上传按钮 {{-->
+            <div class="upload-button">
+                <button class="yui3-button yui3-button-disabled" type="button" id="upload">Upload images</button>
+                <button class="yui3-button yui3-button-disabled" type="button" id="remove">Remove images</button>
+            </div>
+            <!-- 上传按钮 }}-->
+        </div>
+        
+        <!-- 已上传图片 }}-->
+        <div class="images-uploaded">
+            <ul class="uploaded-list"></ul>
+        </div>
+        <!-- 已上传图片 {{-->
+            
+        <p class="copied-tip">Image url has been copied to the clipboard!</p>
+         
+        <script type="text/template" id="J_file_temp">
+            <li id="{id}" data-name="{name}"><em>{name}</em><span>0%</span></li>
+        </script>
+        
+        <script type="text/template" id="J_uploaded_temp">
+            <li id="{id}" data-url="{url}"><div><a href="{src}" title="{name}" target="_blank"><img src="{src}" /></a></div><button class="yui3-button">Copy</button></li>
+        </script>
+        
+        <script>
+            window.uploadURL = 'http://yuilibrary.com/sandbox/upload/';
+            ZD.use('main');
+        </script>
+    </body>
+</html>
