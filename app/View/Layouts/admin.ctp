@@ -35,7 +35,7 @@
     <body>
         <table style="width:100%"><tr>
                 <td>
-                    <a href="/dashboard/" class="header"><h1 style="margin:6px"><img src="/static/logo64.png"/><span style="position: absolute;padding: 15px; color: black">网站管理</span></h1></a>
+                    <a href="/dashboard/" class="header"><h1 style="margin:6px"><img src="/global/img/logo.png"/><span style="position: absolute;padding: 15px; color: black">网站管理</span></h1></a>
                 </td>
                 <td id="info">
                     <?php if (isset($isLogin))
