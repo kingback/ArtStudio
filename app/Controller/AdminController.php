@@ -47,6 +47,11 @@ class AdminController extends AppController {
 		$this->response->header('Content-Type: text/javascript');
 		$file = $this->save_pic('Filedata');
 		$info['file'] = $file;
+		if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+			 header('Access-Control-Allow-Origin: *');
+			$this->response->send();
+			exit();
+		}
 		echo json_encode($file);
 		$this->response->send();
 		exit();
@@ -76,7 +81,7 @@ class AdminController extends AppController {
 		$this->response->header('Content-Type: text/javascript');
 		$ids_str = $this->_get_argument('ids');
 		$ids = explode(',', $ids_str);
-		
+
 		var_dump($ids);
 		$grid = $this->get_grid_fs();
 		foreach ($ids as $id) {
