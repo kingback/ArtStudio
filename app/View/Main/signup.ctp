@@ -59,7 +59,7 @@
 	</div>
 
 	<section class="form">
-	<form action="#" method="get" class="clearfix" id="s-form">
+	<form action="/main/addStudent" method="post" class="clearfix" id="s-form">
 		<div class="required-info">
 			<ul>
 				<li>
@@ -166,4 +166,14 @@
 	<!-- 报名页面 }}-->
 </div>
 <!-- 主内容 }}-->
+
+
+<script> 
+$(document).ready(function() {
+	// bind 'myForm' and provide a simple callback function 
+	$('#s-form').ajaxForm(function() {
+		alert("报名成功");
+	});
+});
+</script>
 

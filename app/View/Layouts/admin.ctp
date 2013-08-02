@@ -33,6 +33,7 @@
 						<li <?php if ($title_for_layout == "empty") echo 'class="active"' ?>><a href="/admin/index">empty</a></li>
                         <li <?php if ($title_for_layout == "画室荣誉管理") echo 'class="active"' ?>><a href="/admin/honour">画室荣誉管理</a></li>
                         <li <?php if ($title_for_layout == "图片管理") echo 'class="active"' ?>><a href="/admin/images">图片管理</a></li>
+                        <li <?php if ($title_for_layout == "图片管理") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
                         <li <?php if ($title_for_layout == "Manul") echo 'class="active"' ?>><a href="/pages/manul">帮助</a></li>
                     </ul>
                 </div>
@@ -58,11 +59,11 @@
     </div>
 
     <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/js/jquery.form.js"></script> 
     <script src="/admin/js/bootstrap.min.js"></script>
     <script src="/admin/js/holder.js"></script>
     <script src="/admin/js/prettify.js"></script>
     <script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/admin/js/application.js"></script>
     <script src="/admin/js/admin.js"></script>
 </body>
 </html>
