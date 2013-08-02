@@ -72,14 +72,13 @@ YUI.add('iuploader', function(Y) {
     
     uploader.on('uploadcomplete', function(e) {
         var node = Y.one('#' + e.file.get('id')),
-            data = Y.JSON.parse(e.data),
             item;
             
         item = Y.Node.create(Y.Lang.sub(utemp, {
             id: node.getAttribute('id') + '_uploaded',
             name: node.getAttribute('data-name'),
-            src: 'http://106.186.25.82/gridfs/' + data.file,
-            url: 'http://106.186.25.82/gridfs/' + data.file
+            src: 'http://106.186.25.82/gridfs/' + e.data,
+            url: 'http://106.186.25.82/gridfs/' + e.data
         }));
         
         uploadedList.append(item);
