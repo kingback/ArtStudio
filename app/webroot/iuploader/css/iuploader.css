@@ -27,7 +27,7 @@ h1 {font-size:30px;padding-top:30px;text-align:center;font-weight:bold;}
 .file-list li span {text-align:right;width:50px;display:block;padding-right:10px;}
 
 .images-uploaded {padding:20px 0;background:#f0f0f0;border-top:1px solid #ccc;}
-.uploaded-list {width:90%;margin:0 auto;}
+.uploaded-list {width:90%;margin:0 auto;min-width:960px;}
 .uploaded-list:after {font-size:0;height:0;visibility:hidden;line-height:0;content:'.';clear:both;display:block;}
 .uploaded-list li {width:16%;float:left;margin:2%;}
 .uploaded-list li div {width:100%;padding-bottom:100%;height:0;position:relative;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);}

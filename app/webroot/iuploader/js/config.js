@@ -19,7 +19,7 @@
                     },
                     'iuploader': {
                         path: YUI.getPath('iuploader'),
-                        requires: ['uploader', 'ZeroClipboard']
+                        requires: ['uploader', 'ZeroClipboard', 'json-parse']
                     }
                 }
             }

@@ -71,9 +71,19 @@ YUI.add('iuploader', function(Y) {
     });
     
     uploader.on('uploadcomplete', function(e) {
-        //TODO 获取线上链接
-        var node = Y.one('#' + e.file.get('id'));
-        node.setAttribute('data-url', e.data);
+        var node = Y.one('#' + e.file.get('id')),
+            data = Y.JSON.parse(e.data),
+            item;
+            
+        item = Y.Node.create(Y.Lang.sub(utemp, {
+            id: node.getAttribute('id') + '_uploaded',
+            name: node.getAttribute('data-name'),
+            src: 'http://106.186.25.82/gridfs/' + data.file,
+            url: 'http://106.186.25.82/gridfs/' + data.file
+        }));
+        
+        uploadedList.append(item);
+        clip.glue(item.one('button')._node);
     });
     
     uploader.on('alluploadscomplete', function(e) {
@@ -82,16 +92,6 @@ YUI.add('iuploader', function(Y) {
         uploadBtn.removeClass('yui3-button-disabled');
         removeBtn.removeClass('yui3-button-disabled');
         uploader.set('fileList', []);
-        fileList.all('li').each(function(node) {
-            item = Y.Node.create(Y.Lang.sub(utemp, {
-                id: node.getAttribute('id') + '_uploaded',
-                name: node.getAttribute('data-name'),
-                src: node.one('img').getAttribute('src'),
-                url: node.getAttribute('data-url')
-            }));
-            uploadedList.append(item);
-            clip.glue(item.one('button')._node);
-        });
     });
     
     uploadBtn.on('click', function(e) {
@@ -159,5 +159,5 @@ YUI.add('iuploader', function(Y) {
     }
     
 }, '0.0.1', {
-    requires: ['uploader', 'ZeroClipboard']
+    requires: ['uploader', 'ZeroClipboard', 'json-parse']
 });
