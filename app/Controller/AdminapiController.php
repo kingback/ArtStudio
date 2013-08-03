@@ -213,6 +213,19 @@ class AdminapiController extends AppController {
 		echo json_encode($res);
 	}
 
+	public function setAlbumCover()
+	{
+		$album_id = $this->_get_argument('id');
+		$pic_id = $this->_get_argument('picid');
+
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums->findOne(array('_id' => $album_id));
+		$newdata = array('$set' => array('cover' => $pic_id));
+		var_dump($newdata);
+		$res = $albums->update(array('_id' => $album_id), $newdata);
+		echo json_encode($res);
+	}
+
 	public function modifyAlbumPics()
 	{
 		$id = $this->_get_argument('id');

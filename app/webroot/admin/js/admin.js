@@ -74,6 +74,37 @@ function deleteAlbumPics(albumId) {
 	return false;
 }
 
+function setAlbumCover(albumId) {
+	var box = document.getElementsByName("checkbox");
+	var cnt = 0;
+	for (i = 0; i < box.length; ++i) {
+		if (box[i].checked) {
+			pic_id = box[i].value;
+			++ cnt;
+		}
+	}
+	if (cnt != 1) {
+		alert("请设置一个照片作为封面");
+		return false;
+	}
+	$.ajax({
+		type: 'POST',
+		url: '/adminapi/setAlbumCover',
+		data: {
+			'id': albumId,
+			'picid': pic_id
+		},
+		success: function(e) {
+			alert("设置成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("设置失败");
+		}
+	});
+	return false;
+}
+
 function deletePics() {
 	var ids = "";
 	var cnt = 0;

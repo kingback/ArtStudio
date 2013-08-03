@@ -7,6 +7,7 @@
 
 <a target='_blank' class='btn btn-info' onclick="deleteAlbumPics('<?php echo $id;?>')">删除选中图片</a>
 <a target='_blank' class='btn btn-info' onclick="modifyAlbumPics('<?php echo $id;?>')">修改选中图片</a>
+<a target='_blank' class='btn btn-info' onclick="setAlbumCover('<?php echo $id;?>')">设置选中图片为封面</a>
 <a target='_blank' class='btn btn-info' onclick="selectAll()">全选</a>
 <a target='_blank' class='btn btn-info' onclick="dselectAll()">全部取消</a>
 <a target='_blank' class='btn btn-info' onclick="rselectAll()">反选</a>
@@ -24,7 +25,10 @@
 	<?php foreach ($images as $image_id => $image): ?>
 	<div id = "<?php echo $image_id;?>">
 		<tr>
-		<td><input type="checkbox" name="checkbox" value="<?php echo $image_id;?>"></td>
+		<td>
+			<input type="checkbox" name="checkbox" value="<?php echo $image_id;?>">
+			<?php if ($image_id == $cover) { echo "<br><font color='red'>相册封面</font>";} ?>
+		</td>
 		<td><img src='<?php echo $base_url; echo $image['small']?>' style='max-height:100px'/></td>
 		<td><a href='<?php echo $base_url; echo $image['large']?>' target=_blank>查看原图</a></td>
 		<td><input id='<?php echo $image_id;?>_name' name ="name" type="text" value="<?php echo $image['name'];?>"></input></td>

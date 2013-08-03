@@ -83,7 +83,12 @@ class AdminController extends AppController {
 		if (isset($album['images'])) {
 			$images = $album['images'];
 		}
+		$cover = "";
+		if (isset($album['cover'])) {
+			$cover = $album['cover'];
+		}
 		$this->set('id', $id);
+		$this->set('cover', $cover);
 		$this->set('images', $images);
 		$this->set('base_url', $this->grid_base_url);
 	}
@@ -112,6 +117,18 @@ class AdminController extends AppController {
 	{
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
 		$albums = $albums_col->find();
+		$covers = array();
+		foreach ($albums as $album) {
+			$album_id = $album['_id'];
+			if (isset($album['cover'])) {
+				$id = $album['cover'];
+				$covers[$album_id] = $album['images'][$id]['small'];
+			} else {
+				$covers[$album_id] = '404';
+			}
+		}
 		$this->set('albums', $albums);
+		$this->set('covers', $covers);
+		$this->set('base_url', $this->grid_base_url);
 	}
-}
+	}
