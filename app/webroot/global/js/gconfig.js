@@ -71,6 +71,14 @@
                         path: getPath('waterfall/waterfall-loader'),
                         requires: ['waterfall']
                     },
+                    'galleria-skin': {
+                        path: getPath('galleria/galleria', 'css'),
+                        type: 'css'  
+                    },
+                    'galleria': {
+                        path: getPath('galleria/galleria'),
+                        requires: ['galleria-skin', 'node-event-simulate', 'base', 'widget', 'widget-stdmod', 'widget-stack', 'scrollview']
+                    },
                     'mytabview': {
                         path: getPath('mytabview/mytabview'),
                         requires: ['base', 'classnamemanager', 'node', 'event', 'event-delegate']
