@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     
-    var roots = ['global', 'index', 'signup', 'honour', 'video', 'news', 'iuploader'];
+    var roots = ['global', 'index', 'signup', 'honour', 'video', 'news', 'iuploader', 'gallery'];
     
     function getFiles(type) {
         var files = [],
