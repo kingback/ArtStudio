@@ -24,14 +24,22 @@ class AdminapiController extends AppController {
 
 	public function uploadImage()
 	{
-		$file = $this->save_pic('Filedata');
-		$info['file'] = $file;
-		if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-			 header('Access-Control-Allow-Origin: *');
-			$this->response->send();
-			exit();
+		$filename = $_FILES['Filedata']['tmp_name'];
+		$name = $_FILES['Filedata']['name'];
+		$type = $_FILES['Filedata']['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('err_msg' => $name . ' is not image'));
+			return;
 		}
-		echo json_encode($file);
+		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
+		$large = $this->save_file($filename, $type);
+		$small = $this->save_file($small_file, $type);
+		$pic = array('large' => $large, 'small' => $small);
+		$collection = $this->get_collection($this->db_name, $this->pic_collection);
+		$res = $collection->insert($pic);
+		$info['large'] = $large;
+		$info['small'] = $small;
+		echo json_encode($info);
 	}
 
 	public function uploadImages()
@@ -167,7 +175,6 @@ class AdminapiController extends AppController {
 			$im = @ImageCreateFromGIF($src_file);
 			break;
 		case 2: //图片类型，2是JPG图
-			echo var_dump(function_exists('imagecreatefromjpeg'));
 			$im = @imagecreatefromjpeg($src_file);
 			break;
 		case 3: //图片类型，3是PNG图
