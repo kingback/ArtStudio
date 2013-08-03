@@ -22,6 +22,39 @@ class AdminapiController extends AppController {
 		}
 	}
 
+	public function uploadAlbumImages()
+	{
+		if (!isset($_FILES['pics'])) {
+			return;
+		}
+		$id = $this->_get_argument('id');
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums->findOne(array('_id' => $id));
+		$images = array();
+		if (isset($album['images'])) {
+			$images = $album['images'];
+		}
+		for ($i = 0; $i < count($_FILES['pics']['name']); $i++) {
+			$filename = $_FILES['pics']['tmp_name'][$i];
+			$name = $_FILES['pics']['name'][$i];
+			$type = $_FILES['pics']['type'][$i];
+			if (!$this->is_image($type)) {
+				echo json_encode(array('err_msg' => $name . ' is not image'));
+				return;
+			}
+			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
+			$large = $this->save_file($filename, $type);
+			$small = $this->save_file($small_file, $type);
+			$pic_id = md5($large);
+			$pic = array('large' => $large, 'small' => $small, 'name' => $name, 'desc' => $name);
+			//$res = $images_col->insert($pic);
+			$images[$pic_id] = $pic;
+		}
+		$newdata = array('$set' => array('images' => $images));
+		$albums->update(array('_id' => $id), $newdata);
+		echo json_encode($album);
+	}
+
 	public function uploadImage()
 	{
 		$filename = $_FILES['Filedata']['tmp_name'];
@@ -150,6 +183,56 @@ class AdminapiController extends AppController {
 			$res = $collection->remove(array('_id' => $mongo_id));
 			var_dump($res);
 		}
+	}
+
+	public function deleteAlbumPics()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$album_id = $this->_get_argument('id');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums->findOne(array('_id' => $album_id));
+		$images = $album['images'];
+		$grid = $this->get_grid_fs();
+		foreach ($ids as $id) {
+			$small = $images[$id]['small'];
+			$large = $images[$id]['large'];
+			$res = $grid->remove(array('filename' => $large));
+			var_dump($res);
+			$res = $grid->remove(array('filename' => $small));
+			var_dump($res);
+			unset($images[$id]);
+		}
+		var_dump($images);
+		$newdata = array('$set' => array('images' => $images));
+		var_dump($album_id);
+		var_dump($newdata);
+		$res = $albums->update(array('_id' => $album_id), $newdata);
+		echo json_encode($res);
+	}
+
+	public function modifyAlbumPics()
+	{
+		$id = $this->_get_argument('id');
+		$ids_str = $this->_get_argument('ids');
+		$names_str = $this->_get_argument('names');
+		$descs_str = $this->_get_argument('descs');
+		$ids = json_decode($ids_str);
+		$names = json_decode($names_str);
+		$descs = json_decode($descs_str);
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums->findOne(array('_id' => $id));
+		$images = $album['images'];
+		$cnt = count($ids);
+		for ($i = 0; $i < $cnt; $i++) {
+			$images[$ids[$i]]['desc'] = $descs[$i];
+			$images[$ids[$i]]['name'] = $names[$i];
+		}
+		$newdata = array('$set' => array('images' => $images));
+		$res = $albums->update(array('_id' => $id), $newdata);
+		echo json_encode($res);
 	}
 
 	private function make_photo_thumb($src_file, $max_size) {

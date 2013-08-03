@@ -71,4 +71,47 @@ class AdminController extends AppController {
 		$students = $collection->find();
 		$this->set('students', $students);
 	}
+
+	public function uploadAlbumImages()
+	{
+		$id = $this->_get_argument('id');
+		$collection = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $collection->findOne(array('_id' => $id));
+		$this->set('title', $album['title']);
+		$this->set('desc', $album['desc']);
+		$images = array();
+		if (isset($album['images'])) {
+			$images = $album['images'];
+		}
+		$this->set('id', $id);
+		$this->set('images', $images);
+		$this->set('base_url', $this->grid_base_url);
+	}
+
+	public function createAlbum()
+	{
+		if ($this->request->is('post')) {
+			$title = $this->_get_argument('title');
+			$desc = $this->_get_argument('desc');
+			$id = md5($title . $desc . time());
+			$album = array('title' => $title, 'desc' => $desc, '_id' => $id);
+			var_dump($album);
+			$collection = $this->get_collection($this->db_name, $this->album_collection);
+			$res = $collection->insert($album);
+			var_dump($res);
+
+			$cursor = $collection->find(array('_id' => $id));
+			foreach ($cursor as $a) {
+				var_dump($a);
+			}
+			$this->redirect(array('controller' => 'admin', 'action' => 'uploadAlbumImages', '?' => array('id' => $id)));
+		}
+	}
+
+	public function listAlbums()
+	{
+		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
+		$albums = $albums_col->find();
+		$this->set('albums', $albums);
+	}
 }

@@ -8,6 +8,8 @@
 
 <a target='_blank' class='btn btn-info' onclick="deletePics()">删除选中图片</a>
 <a target='_blank' class='btn btn-info' onclick="selectAll()">全选</a>
+<a target='_blank' class='btn btn-info' onclick="dselectAll()">全部取消</a>
+<a target='_blank' class='btn btn-info' onclick="rselectAll()">反选</a>
 <table class="table table-bordered table-striped responsive-utilities">
 	<thead>
 	<tr>
