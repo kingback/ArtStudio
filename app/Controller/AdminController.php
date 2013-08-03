@@ -28,6 +28,7 @@ class AdminController extends AppController {
 	{
 		$collection = $this->get_collection($this->db_name, $this->honour_collection);
 		$honours = $collection->find()->sort(array('year' => -1));
+        $this->set('title_for_layout', '画室荣誉管理');
 		$this->set('honours', $honours);
 	}
 
@@ -45,6 +46,7 @@ class AdminController extends AppController {
 		}
 		//var_dump(count($files));
 		$this->set('files', $files);
+        $this->set('title_for_layout', '所有图片');
 	}
 
 	public function images()
@@ -63,6 +65,7 @@ class AdminController extends AppController {
 		}
 		//var_dump($files);
 		$this->set('files', $files);
+        $this->set('title_for_layout', '图片管理');
 	}
 
 	public function signup()
@@ -70,6 +73,7 @@ class AdminController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
 		$students = $collection->find();
 		$this->set('students', $students);
+        $this->set('title_for_layout', '注册管理');
 	}
 
 	public function uploadAlbumImages()
@@ -91,6 +95,7 @@ class AdminController extends AppController {
 		$this->set('cover', $cover);
 		$this->set('images', $images);
 		$this->set('base_url', $this->grid_base_url);
+		$this->set('title_for_layout', '修改相册图片');
 	}
 
 	public function createAlbum()
@@ -111,6 +116,7 @@ class AdminController extends AppController {
 			}
 			$this->redirect(array('controller' => 'admin', 'action' => 'uploadAlbumImages', '?' => array('id' => $id)));
 		}
+		$this->set('title_for_layout', '创建相册');
 	}
 
 	public function modifyAlbum()
@@ -130,6 +136,7 @@ class AdminController extends AppController {
 			$this->set('id', $id);
 			$this->set('title', $album['title']);
 			$this->set('desc', $album['desc']);
+			$this->set('title_for_layout', '修改相册信息');
 		}
 	}
 
@@ -150,5 +157,6 @@ class AdminController extends AppController {
 		$this->set('albums', $albums);
 		$this->set('covers', $covers);
 		$this->set('base_url', $this->grid_base_url);
+		$this->set('title_for_layout', '管理相册');
 	}
 }

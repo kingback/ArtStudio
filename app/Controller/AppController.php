@@ -92,6 +92,7 @@ class AppController extends Controller {
 			return $values[$len - 1];
 		}
 		if (null == $default) {
+			echo "can't find $name";
 			$this->_setStatusAndExit(400);
 		}
 		return $default;

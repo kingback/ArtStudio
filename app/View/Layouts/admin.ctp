@@ -33,10 +33,9 @@
 						<li <?php if ($title_for_layout == "empty") echo 'class="active"' ?>><a href="/admin/index">empty</a></li>
                         <li <?php if ($title_for_layout == "画室荣誉管理") echo 'class="active"' ?>><a href="/admin/honour">画室荣誉管理</a></li>
                         <li <?php if ($title_for_layout == "图片管理") echo 'class="active"' ?>><a href="/admin/images">图片管理</a></li>
-                        <li <?php if ($title_for_layout == "") echo 'class="active"' ?>><a href="/admin/all_images">所有图片</a></li>
-                        <li <?php if ($title_for_layout == "") echo 'class="active"' ?>><a href="/admin/createAlbum">创建相册</a></li>
-                        <li <?php if ($title_for_layout == "") echo 'class="active"' ?>><a href="/admin/listAlbums">管理相册</a></li>
-                        <li <?php if ($title_for_layout == "") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
+                        <li <?php if ($title_for_layout == "创建相册") echo 'class="active"' ?>><a href="/admin/createAlbum">创建相册</a></li>
+                        <li <?php if ($title_for_layout == "管理相册") echo 'class="active"' ?>><a href="/admin/listAlbums">管理相册</a></li>
+                        <li <?php if ($title_for_layout == "注册管理") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
                         <li <?php if ($title_for_layout == "Manul") echo 'class="active"' ?>><a href="/pages/manul">帮助</a></li>
                     </ul>
                 </div>
