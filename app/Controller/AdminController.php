@@ -113,6 +113,26 @@ class AdminController extends AppController {
 		}
 	}
 
+	public function modifyAlbum()
+	{
+		$id = $this->_get_argument('id');
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		if ($this->request->is('post')) {
+			$title = $this->_get_argument('title');
+			$desc = $this->_get_argument('desc');
+			$newdata = array('$set' => array('title' => $title, 'desc' => $desc));
+			var_dump($newdata);
+			$res = $albums->update(array('_id' => $id), $newdata);
+			var_dump($res);
+			$this->redirect(array('controller' => 'admin', 'action' => 'listAlbums'));
+		} else {
+			$album = $albums->findOne(array('_id' => $id));
+			$this->set('id', $id);
+			$this->set('title', $album['title']);
+			$this->set('desc', $album['desc']);
+		}
+	}
+
 	public function listAlbums()
 	{
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
@@ -131,4 +151,4 @@ class AdminController extends AppController {
 		$this->set('covers', $covers);
 		$this->set('base_url', $this->grid_base_url);
 	}
-	}
+}
