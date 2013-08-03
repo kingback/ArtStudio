@@ -1,17 +1,23 @@
-<form id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>">
-	<table class="table table-bordered table-striped responsive-utilities">
-    <tr><td>上传图片</td><td><input type="file" name="pics[]" multiple/></td></tr>
-    <tr><td><input type="submit"/> </td></tr>
-	</table>
+<div class="well">
+<form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>">
+	<fieldset>
+		<legend>上传图片</legend>
+	<label>选择图片</label>
+	<input type="file" name="pics[]" multiple/>
+	<button type="submit" class="btn btn-info">确定上传</button>
+	</fieldset>
 </form>
+</div>
 
-<a target='_blank' class='btn btn-info' onclick="deleteAlbumPics('<?php echo $id;?>')">删除选中图片</a>
-<a target='_blank' class='btn btn-info' onclick="modifyAlbumPics('<?php echo $id;?>')">修改选中图片</a>
-<a target='_blank' class='btn btn-info' onclick="setAlbumCover('<?php echo $id;?>')">设置选中图片为封面</a>
-<a target='_blank' class='btn btn-info' onclick="selectAll()">全选</a>
-<a target='_blank' class='btn btn-info' onclick="dselectAll()">全部取消</a>
-<a target='_blank' class='btn btn-info' onclick="rselectAll()">反选</a>
-<table class="table table-bordered table-striped responsive-utilities">
+<p>
+<a target='_blank' class='btn btn-danger' onclick="deleteAlbumPics('<?php echo $id;?>')">删除选中图片</a>&nbsp;
+<a target='_blank' class='btn btn-success' onclick="modifyAlbumPics('<?php echo $id;?>')">修改选中图片</a>&nbsp;
+<a target='_blank' class='btn btn-warning' onclick="setAlbumCover('<?php echo $id;?>')">设置选中图片为封面</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
+<a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
+<a target='_blank' class='btn ' onclick="rselectAll()">反选</a>&nbsp;
+</p>
+<table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
 		<th>选择</th>

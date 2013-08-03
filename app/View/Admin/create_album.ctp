@@ -7,6 +7,6 @@
 	<label>相册描述</label>
 	<textarea rows="10" class="span9" name="desc"></textarea>
 	<br/>
-	<button type="submit" class="btn">创建</button>
+	<button type="submit" class="btn btn-info">创建</button>
 	</fieldset>
 </form>

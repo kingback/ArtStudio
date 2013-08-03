@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped responsive-utilities">
+<table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
 		<th>姓名</th>

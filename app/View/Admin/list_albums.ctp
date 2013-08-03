@@ -1,5 +1,7 @@
-<a target='_blank' class='btn btn-info' href="/admin/createAlbum" >新建相册</a>
-<table class="table table-bordered table-striped responsive-utilities">
+<p>
+<a target='_blank' class='btn btn-success' href="/admin/createAlbum" >新建相册</a>
+</p>
+<table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
 		<th>相册名称</th>

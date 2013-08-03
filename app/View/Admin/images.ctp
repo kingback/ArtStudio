@@ -1,16 +1,21 @@
-<form id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadImages">
-	<table class="table table-bordered table-striped responsive-utilities">
-    <tr><td>上传文件</td><td><input type="file" name="pics[]" multiple/></td></tr>
-    <tr><td><input type="submit"/> </td></tr>
-	</table>
+<div class="well">
+<form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadImages">
+	<fieldset>
+		<legend>上传图片</legend>
+	<label>选择图片</label>
+	<input type="file" name="pics[]" multiple/>
+	<button type="submit" class="btn btn-info">确定上传</button>
+	</fieldset>
 </form>
+</div>
 
-
-<a target='_blank' class='btn btn-info' onclick="deletePics()">删除选中图片</a>
-<a target='_blank' class='btn btn-info' onclick="selectAll()">全选</a>
-<a target='_blank' class='btn btn-info' onclick="dselectAll()">全部取消</a>
-<a target='_blank' class='btn btn-info' onclick="rselectAll()">反选</a>
-<table class="table table-bordered table-striped responsive-utilities">
+<p>
+<a target='_blank' class='btn btn-danger' onclick="deletePics()">删除选中图片</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
+<a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
+<a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
+</p>
+<table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
 		<th>选择图片</th>
