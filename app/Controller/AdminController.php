@@ -31,7 +31,7 @@ class AdminController extends AppController {
 		$this->set('honours', $honours);
 	}
 
-	public function images()
+	public function all_images()
 	{
 		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
 		$cursor = $collection->find();
@@ -44,6 +44,24 @@ class AdminController extends AppController {
 			$files[] = $f;
 		}
 		//var_dump(count($files));
+		$this->set('files', $files);
+	}
+
+	public function images()
+	{
+		$collection = $this->get_collection($this->db_name, $this->pic_collection);
+		$cursor = $collection->find();
+		$files = array();
+		foreach ($cursor as $file) {
+			$f = array();
+			$f['large'] = $file['large'];
+			$f['large_url'] = $this->get_file_url($f['large']);
+			$f['small'] = $file['small'];
+			$f['small_url'] = $this->get_file_url($f['small']);
+			$f['id'] = $file['_id'];
+			$files[] = $f;
+		}
+		//var_dump($files);
 		$this->set('files', $files);
 	}
 
