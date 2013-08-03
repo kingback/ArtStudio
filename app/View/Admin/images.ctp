@@ -1,4 +1,4 @@
-<form id = "uploadImage" method="POST" enctype="multipart/form-data" action="/admin/uploadImages">
+<form id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadImages">
 	<table class="table table-bordered table-striped responsive-utilities">
     <tr><td>上传文件</td><td><input type="file" name="pics[]" multiple/></td></tr>
     <tr><td><input type="submit"/> </td></tr>

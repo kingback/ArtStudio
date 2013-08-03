@@ -20,7 +20,7 @@ function deletePics() {
 	}
 	$.ajax({
 		type: 'POST',
-		url: '/admin/deleteImages',
+		url: '/adminapi/deleteImages',
 		data: {
 			'ids': ids
 		},
@@ -47,7 +47,7 @@ function deleteHonour(id, name) {
 	if (window.confirm("确定删除" + name + "吗?")) {
 		$.ajax({
 			type: 'POST',
-			url: '/admin / deletehonour ',
+			url: '/adminapi/deletehonour ',
 			data: {
 				'id': id
 			},
