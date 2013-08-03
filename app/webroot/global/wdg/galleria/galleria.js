@@ -201,6 +201,9 @@ YUI.add('galleria', function(Y) {
         
         _afterVisibleChange: function(e) {
             this.htmlEl.toggleClass('yui3-galleria-lock', e.newVal);  
+            if (!e.newVal) {
+                this.hideNav();
+            }
         },
         
         _afterSelectedItemChange: function(e) {

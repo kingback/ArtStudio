@@ -59,6 +59,8 @@ YUI.add('gallery', function(Y) {
             }
             
             this.getAlbumData(id, function(data) {
+                this.id = id;
+                this.data[id] = data;
                 this.showGalleria(data);
             });
             
@@ -66,10 +68,27 @@ YUI.add('gallery', function(Y) {
         },
         
         getAlbumData: function(id, fn) {
+            var self = this;
             if (this.data[id]) {
                 fn && fn.call(this, this.data[id]);
             } else {
-                
+                Y.io('http://106.186.25.82/mainapi/albuminfo?id=' + id, {
+                    method: 'GET',
+                    data: {
+                        id: id
+                    },
+                    on: {
+                        complete: function(id, r) {
+                            var data;
+                            try {
+                                data = Y.JSON.parse(r.responseText);
+                            } catch (err) {}
+                            if (data) {
+                                fn && fn.call(self, data.images);
+                            }
+                        }
+                    }
+                });
             }
         },
         
@@ -84,5 +103,5 @@ YUI.add('gallery', function(Y) {
     Y.Gallery.init();
     
 }, '0.0.1', {
-    requires: ['galleria']
+    requires: ['galleria', 'io', 'json-parse']
 });

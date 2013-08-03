@@ -19,7 +19,7 @@
                     },
                     'gallery': {
                         path: YUI.getPath('gallery'),
-                        requires: ['galleria']
+                        requires: ['galleria', 'io', 'json-parse']
                     }
                 }
             }
