@@ -82,7 +82,7 @@ YUI.add('gallery', function(Y) {
                             var data;
                             try {
                                 data = Y.JSON.parse(r.responseText);
-                                data = this.parseData(data);
+                                data = self.parseData(data);
                             } catch (err) {}
                             if (data) {
                                 fn && fn.call(self, data.images);
