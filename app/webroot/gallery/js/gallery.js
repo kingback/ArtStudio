@@ -27,8 +27,8 @@ YUI.add('gallery', function(Y) {
             this.id = false;
             this.data = {};
             this.bindAlbums();
-            this.data['1'] = source;
-            this.data['2'] = source;
+            this.data['4'] = source;
+            this.data['5'] = source;
         },
         
         initGalleria: function(data) {
@@ -59,7 +59,6 @@ YUI.add('gallery', function(Y) {
             }
             
             this.getAlbumData(id, function(data) {
-                data = this.parseData(data);
                 this.id = id;
                 this.data[id] = data;
                 this.showGalleria(data);
@@ -83,6 +82,7 @@ YUI.add('gallery', function(Y) {
                             var data;
                             try {
                                 data = Y.JSON.parse(r.responseText);
+                                data = this.parseData(data);
                             } catch (err) {}
                             if (data) {
                                 fn && fn.call(self, data.images);
