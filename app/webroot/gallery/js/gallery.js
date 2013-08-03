@@ -59,6 +59,7 @@ YUI.add('gallery', function(Y) {
             }
             
             this.getAlbumData(id, function(data) {
+                data = this.parseData(data);
                 this.id = id;
                 this.data[id] = data;
                 this.showGalleria(data);
@@ -90,6 +91,15 @@ YUI.add('gallery', function(Y) {
                     }
                 });
             }
+        },
+        
+        parseData: function(data) {
+            Y.Array.each(data, function(item, index) {
+                data[index].small = 'http://106.186.25.82/gridfs/' + data[index].small;
+                data[index].large = 'http://106.186.25.82/gridfs/' + data[index].large;
+            });
+            
+            return data;
         },
         
         bindAlbums: function() {
