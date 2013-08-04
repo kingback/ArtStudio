@@ -2,10 +2,6 @@
  * 查看相册
  */
 
-//TODO 分享hash
-//TODO showImageId()
-//TODO 点击图片显示下一个
-
 YUI.add('galleria', function(Y) {
     
     var DEF_HEADER = '<div>' + 
@@ -89,6 +85,7 @@ YUI.add('galleria', function(Y) {
             cb.delegate('click', this._onItemClick, '.yui3-galleria-list li a', this);
             cb.delegate('click', this._onPrevClick, '.yui3-galleria-prev a', this);
             cb.delegate('click', this._onNextClick, '.yui3-galleria-next a', this);
+            cb.delegate('click', this._onNextClick, '.yui3-galleria-image img', this);
             Y.on('resize', this._onWinResize, Y.config.win, this);
             
             this.after('sourceChange', this._updateThumbs, this);
