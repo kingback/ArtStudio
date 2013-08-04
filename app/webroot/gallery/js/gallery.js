@@ -60,7 +60,7 @@ YUI.add('gallery', function(Y) {
                 return this;
             }
             
-            this.loading.setStyle('display', 'none');
+            this.loading.setStyle('display', 'block');
             this.id = id;
             
             this.getAlbumData(id, function(data) {
