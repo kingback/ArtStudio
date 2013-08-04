@@ -103,8 +103,9 @@ class AdminController extends AppController {
 		if ($this->request->is('post')) {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
+			$category = $this->_get_argument('category');
 			$id = md5($title . $desc . time());
-			$album = array('title' => $title, 'desc' => $desc, '_id' => $id);
+			$album = array('title' => $title, 'desc' => $desc, '_id' => $id, 'category' => $category);
 			var_dump($album);
 			$collection = $this->get_collection($this->db_name, $this->album_collection);
 			$res = $collection->insert($album);
@@ -126,7 +127,8 @@ class AdminController extends AppController {
 		if ($this->request->is('post')) {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
-			$newdata = array('$set' => array('title' => $title, 'desc' => $desc));
+			$category = $this->_get_argument('category');
+			$newdata = array('$set' => array('title' => $title, 'desc' => $desc, 'category' => $category));
 			var_dump($newdata);
 			$res = $albums->update(array('_id' => $id), $newdata);
 			var_dump($res);
@@ -136,6 +138,11 @@ class AdminController extends AppController {
 			$this->set('id', $id);
 			$this->set('title', $album['title']);
 			$this->set('desc', $album['desc']);
+			if (isset($album['category'])) {
+				$this->set('category', $album['category']);
+			} else {
+				$this->set('category', '');
+			}
 			$this->set('title_for_layout', '修改相册信息');
 		}
 	}
@@ -143,7 +150,7 @@ class AdminController extends AppController {
 	public function listAlbums()
 	{
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
-		$albums = $albums_col->find();
+		$albums = $albums_col->find()->sort(array('category' => 1));
 		$covers = array();
 		foreach ($albums as $album) {
 			$album_id = $album['_id'];
