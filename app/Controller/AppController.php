@@ -144,7 +144,8 @@ class AppController extends Controller {
 		$images = array();
 		$al['image_num'] = 0;
 		if (isset($album['images'])) {
-			foreach ($album['images'] as $image) {
+			foreach ($album['images'] as $image_id => $image) {
+				$image['id'] = $image_id;
 				$images[] = $image;
 			}
 			$al['image_num'] = count($images);
