@@ -122,9 +122,17 @@ YUI.add('gallery', function(Y) {
         },
         
         showGalleria: function(data, imageid) {
+            var remain = false;
+            
             this.loading.setStyle('display', 'none');
-            if (data === true || (data && data.images && data.images.length)) {
-                if (data !== true) {
+            
+            if (Y.Lang.isString(data)) {
+                data = this.data[data];
+                remain = true;
+            }
+            
+            if (data && data.images && data.images.length) {
+                if (!remain) {
                     if (!this.galleria) {
                         this.initGalleria(data);
                     } else {
@@ -148,7 +156,7 @@ YUI.add('gallery', function(Y) {
             this.hideTip();
             
             if (this.id && id === this.id && this.data[id]) {
-                this.showGalleria(true, imageid);
+                this.showGalleria(id, imageid);
                 return this;
             }
             
