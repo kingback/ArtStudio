@@ -28,8 +28,8 @@
 		<ul class="clearfix">
 		    <?php 
 		      $albumCount = 0;
-              $albumFirst = "album-item-first";
-              $albumLast = "album-item-last";
+              $albumFirst = " album-item-first";
+              $albumLast = " album-item-last";
 		    ?>
 			<?php foreach ($albums as $album): ?>
 			<li class="album-item<?php $albumCount++; if ($albumCount % 4 == 1) { echo $albumFirst; } elseif ($albumCount % 4 == 0) { echo $albumLast; } ?>" data-albumid="<?php echo $album['id']; ?>">
