@@ -2,6 +2,8 @@
  * 查看相册
  */
 
+//TODO 相册无照片处理
+
 YUI.add('galleria', function(Y) {
     
     var DEF_HEADER = '<div>' + 
@@ -104,7 +106,6 @@ YUI.add('galleria', function(Y) {
             this._cb = this.get('contentBox');
             this._amplifyBtn = this._cb.one('.yui3-galleria-amplify a');
             this._imageCon = this._cb.one('.yui3-galleria-image');
-            this._imageCon = this._cb.one('.yui3-galleria-image');
             this._nextBtn = this._cb.one('.yui3-galleria-next');
             this._prevBtn = this._cb.one('.yui3-galleria-prev');
             this._review = this._cb.one('.yui3-galleria-review');
@@ -177,8 +178,9 @@ YUI.add('galleria', function(Y) {
                 node, size;
             
             delete this._thumbItems;
-            list.empty();
             this.reset();
+            list.empty();
+            this._imageCon.empty();
             
             Y.Array.each(source.images, function(item, index) {
                 size = this.getImageSize(item.small);
@@ -198,7 +200,7 @@ YUI.add('galleria', function(Y) {
             
             this._thumbItems = list.all('li');
             
-            current.setContent(1);
+            current.setContent(source.images.length ? 1 : 0);
             num.setContent(source.images.length);
             total.setContent(source.images.length);
             
@@ -394,7 +396,7 @@ YUI.add('galleria', function(Y) {
         },
         
         _updateReview: function(e) {
-            this._review.setContent('“' + (e.data.desc || '暂无点评') + "”");
+            this._review.setContent('“' + (e && e.data && e.data.desc || '暂无点评') + "”");
         },
         
         _updateJiaThis: function(e) {
