@@ -26,6 +26,7 @@ YUI.add('gallery', function(Y) {
         init: function() {
             this.id = false;
             this.data = {};
+            this.initLoading();
             this.bindAlbums();
             this.data['4'] = source;
             this.data['5'] = source;
@@ -48,6 +49,7 @@ YUI.add('gallery', function(Y) {
                     this.galleria.set('source', data);
                 }
             }
+            this.loading.setStyle('display', 'none');
             this.galleria.show();
         },
         
@@ -58,10 +60,14 @@ YUI.add('gallery', function(Y) {
                 return this;
             }
             
+            this.loading.setStyle('display', 'none');
+            this.id = id;
+            
             this.getAlbumData(id, function(data) {
-                this.id = id;
                 this.data[id] = data;
-                this.showGalleria(data);
+                if (this.id === id) {
+                    this.showGalleria(data);
+                }
             });
             
             return this;
@@ -104,8 +110,14 @@ YUI.add('gallery', function(Y) {
         
         bindAlbums: function() {
             Y.one('body').delegate('click', function(e) {
-                this.showAlbum(e.currentTarget.ancestor().getAttribute('data-albumid'));
-            }, '.album-cover', this);
+                e.halt();
+                this.showAlbum(e.currentTarget.ancestor('li').getAttribute('data-albumid'));
+            }, '.album-cover a', this);
+        },
+        
+        initLoading: function() {
+            this.loading = Y.Node.create('<div class="album-loading">正在加载相册中...</div>');
+            Y.one('body').prepend(this.loading);
         }
           
     };

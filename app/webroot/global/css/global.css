@@ -21,7 +21,7 @@ article,aside,dialog,footer,header,section,footer,nav,figure,figcaption,menu{dis
 html {background-color:#efefef;}
 body {font:12px/1.67 tahoma,arial,\5b8b\4f53;min-height:100%;color:#252424;}
 
-a {color:#333;text-decoration:none;}
+a {color:#333;text-decoration:none;outline:none;}
 a:hover {color:#999;text-decoration:underline;}
 
 img {vertical-align:bottom;}

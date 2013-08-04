@@ -2,37 +2,40 @@
  * 查看相册
  */
 
+//TODO 图片垂直居中 
+
 YUI.add('galleria', function(Y) {
     
     var DEF_HEADER = '<div>' + 
-                         '<div class="yui3-galleria-share"><a href="javascript:void(0);">分享</a></div>' +
+                         '<div class="yui3-galleria-share"><a href="javascript:void(0);" target="_self">分享</a></div>' +
                          '<div class="yui3-galleria-amplify"><a href="#" title="查看原图">查看原图</a></div>' +
-                         '<div class="yui3-galleria-close"><a href="javascript:void(0);" title="关闭">关闭</a></div>' + 
+                         '<div class="yui3-galleria-close"><a href="javascript:void(0);" target="_self" title="关闭">关闭</a></div>' + 
                      '</div>',
                      
         DEF_BODY = '<div>' + 
+                       '<div class="yui3-galleria-loading"></div>' +
                        '<div class="yui3-galleria-image"></div>' + 
                    '</div>',
         
         DEF_FOOTER = '<div>' + 
-                         '<div class="yui3-galleria-prev"><a href="javascript:void(0);">前一张</a></div>' + 
-                         '<div class="yui3-galleria-thumb"><a href="javascript:void(0);">所有图片</a></div>' + 
-                         '<div class="yui3-galleria-next"><a href="javascript:void(0);">后一张</a></div>' + 
+                         '<div class="yui3-galleria-prev"><a href="javascript:void(0);" target="_self">前一张</a></div>' + 
+                         '<div class="yui3-galleria-thumb"><a href="javascript:void(0);" target="_self">所有图片</a></div>' + 
+                         '<div class="yui3-galleria-next"><a href="javascript:void(0);" target="_self">后一张</a></div>' + 
                          '<div class="yui3-galleria-num">第<strong>1</strong>张（共<em>10</em>张）</div>' + 
                      '</div>',
                      
         DEF_NAV = '<div class="yui3-galleria-nav">' + 
-                      '<div class="yui3-galleria-total"><span>所有照片（<strong>10</strong>）</span><a href="javascript:void(0);">关闭</a></div>' + 
+                      '<div class="yui3-galleria-total"><span>所有照片（<strong>10</strong>）</span><a href="javascript:void(0);" target="_self">关闭</a></div>' + 
                       '<div class="yui3-galleria-all"><div class="yui3-galleria-scroller"><ul class="yui3-galleria-list"></ul></div></div>' + 
                   '</div>',
         DEF_MASK = '<div class="yui3-galleria-mask"></div>',
         
-        DEF_THUMB = '<li data-large="{large}" data-index="{index}"><a href="javascript:void(0);"><img src="{small}" title="{title}" /></a></li>',
+        DEF_THUMB = '<li data-large="{large}" data-index="{index}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
                       
         DEF_INFO = '<div>' + 
                         '<h3><img src="http://106.186.25.82/gridfs/921dc26e07ed2436a6cb001ed05323e2-180-180.jpeg" width="48" height="48" /><strong>周达点评</strong></h3>' + 
-                        '<div class="yui3-galleria-review">“青年女子素描胸像。整体块面黑白灰效果明显，头发表现得相当有体积轻松，五官重点塑造，头发表现得相是其突出自然。”</div>' + 
-                        '<div class="yui3-galleria-like"><a href="javascript:void(0);">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
+                        '<div class="yui3-galleria-review"></div>' + 
+                        '<div class="yui3-galleria-like"><a href="javascript:void(0);" target="_self">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
                         '<div class="yui3-galleria-jiathis">' + 
                             '<span class="yui3-galleria-jiato">分享到：</span>' + 
                             '<div class="jiathis_style_24x24">' + 
@@ -53,6 +56,10 @@ YUI.add('galleria', function(Y) {
         
         initializer: function() {
             Y.one('body').addClass('yui3-skin-sam');
+            
+            this._navHeight = 180;
+            this._nextImage = null;
+            
             this.publish('select', {
                 defaultFn: this._defSelectFn 
             });
@@ -73,13 +80,14 @@ YUI.add('galleria', function(Y) {
         bindUI: function() {
             var cb = this.get('contentBox');
             
-            cb.delegate('click', this.showNav, '.yui3-galleria-thumb', this);
+            cb.delegate('click', this.showNav, '.yui3-galleria-thumb a', this);
             cb.delegate('click', this.hideNav, '.yui3-galleria-total a', this);
-            cb.delegate('click', this._onShareClick, '.yui3-galleria-share', this);
-            cb.delegate('click', this._onCloseClick, '.yui3-galleria-close', this);
-            cb.delegate('click', this._onItemClick, '.yui3-galleria-list li', this);
-            cb.delegate('click', this._onPrevClick, '.yui3-galleria-prev', this);
-            cb.delegate('click', this._onNextClick, '.yui3-galleria-next', this);
+            cb.delegate('click', this._onShareClick, '.yui3-galleria-share a', this);
+            cb.delegate('click', this._onCloseClick, '.yui3-galleria-close a', this);
+            cb.delegate('click', this._onItemClick, '.yui3-galleria-list li a', this);
+            cb.delegate('click', this._onPrevClick, '.yui3-galleria-prev a', this);
+            cb.delegate('click', this._onNextClick, '.yui3-galleria-next a', this);
+            Y.on('resize', this._onWinResize, Y.config.win, this);
             
             this.after('sourceChange', this._updateThumbs, this);
             this.after('visibleChange', this._afterVisibleChange, this);
@@ -94,9 +102,12 @@ YUI.add('galleria', function(Y) {
             this._bb = this.get('boundingBox');  
             this._cb = this.get('contentBox');
             this._amplifyBtn = this._cb.one('.yui3-galleria-amplify a');
+            this._imageCon = this._cb.one('.yui3-galleria-image');
+            this._imageCon = this._cb.one('.yui3-galleria-image');
             this._nextBtn = this._cb.one('.yui3-galleria-next');
             this._prevBtn = this._cb.one('.yui3-galleria-prev');
-            this.htmlEl = Y.one('html');
+            this._review = this._cb.one('.yui3-galleria-review');
+            this._htmlEl = Y.one('html');
         },
         
         _checkSibling: function() {
@@ -125,6 +136,35 @@ YUI.add('galleria', function(Y) {
             });
         },
         
+        _showAnim: function() {
+            var self = this,
+                duration = 0.2,
+                easing = 'ease-out';
+                
+            self._infoNode.setStyle('right', '-320px');
+            self._cb.setStyle('opacity', 0);
+            self._bb.setStyles({
+                top: '-100%',
+                opacity: 0
+            });
+            
+            self._bb.transition({
+                top: 0,
+                opacity: 1,
+                duration: duration
+            }, function() {
+                self._cb.transition({
+                    opacity: 1,
+                    duration: duration
+                });
+                self._infoNode.transition({
+                    right: 0,
+                    duration: duration,
+                    easing: easing
+                });
+            });
+        },
+        
         _updateThumbs: function() {
             var source = this.get('source'),
                 cb = this.get('contentBox'),
@@ -146,6 +186,7 @@ YUI.add('galleria', function(Y) {
                     large: item.large,
                     title: item.title || ''
                 }));
+                node.setData('imageData', item);
                 if (size[0] > size[1]) {
                     node.addClass('yui3-galleria-short');
                 }
@@ -160,10 +201,70 @@ YUI.add('galleria', function(Y) {
             this.showImage(list.one('li'));
         },
         
+        _getImageRealSize: function(src) {
+            var size = this.getImageSize(src),
+                width = this._imageCon.get('offsetWidth'),
+                height = this._imageCon.get('offsetHeight'),
+                wRatio = size[0]/width,
+                hRatio = size[1]/height,
+                ratio = Math.max(wRatio, hRatio);
+            
+            if (ratio > 1) {
+                size[0] = Math.round(size[0] / ratio);
+                size[1] = Math.round(size[1] / ratio);
+            }
+            
+            return {
+                width: size[0],
+                height: size[1],
+                ratio: ratio,
+                cWidth: width,
+                cHeight: height
+            };
+        },
+        
+        _posImage: function(img) {
+            var size = this._getImageRealSize(img.src),
+                top = 0;
+                
+            if (size.height < size.cHeight) {
+                top = Math.round((size.cHeight - size.height) / 2);
+            }
+            
+            img.style['marginTop'] = top + 'px';
+        },
+        
+        _getNavHeight: function() {
+            this._navHeight = Math.max(180, Math.round(this._bb.get('offsetHeight') / 3));
+            return this._navHeight;
+        },
+        
+        _updateImageSize: function() {
+            var visible = this.get('visible'),
+                img = this._imageCon.one('img');
+                
+            if (visible && img) {
+                this._posImage(img._node);
+            }
+        },
+        
+        _updateNavSize: function() {
+            var visible = this.get('visible'),
+                height = this._getNavHeight(),
+                h = this._navNode.get('offsetHeight');
+            
+            if (visible) {
+                if (h) {
+                    this._navNode.setStyle('height', height);
+                }
+                this.scrollview.set('height', height - 64);
+            }
+        },
+        
         _initScrollView: function() {
             this.scrollview = new Y.ScrollView({
                 srcNode: this._navNode.one('.yui3-galleria-scroller'),
-                height: '116px',
+                height: this._navHeight - 64,
                 axis: 'y',
                 flick: {
                     minDistance: 10,
@@ -196,13 +297,22 @@ YUI.add('galleria', function(Y) {
         },
         
         _onItemClick: function(e) {
-            this.showImage(e.currentTarget);
+            this.showImage(e.currentTarget.ancestor('li'));
+        },
+        
+        _onWinResize: function(e) {
+            this._updateImageSize();
+            this._updateNavSize();
         },
         
         _afterVisibleChange: function(e) {
-            this.htmlEl.toggleClass('yui3-galleria-lock', e.newVal);  
+            this._htmlEl.toggleClass('yui3-galleria-lock', e.newVal);  
             if (!e.newVal) {
                 this.hideNav();
+            } else {
+                this._updateImageSize();
+                this._updateNavSize();
+                this._showAnim();
             }
         },
         
@@ -214,7 +324,9 @@ YUI.add('galleria', function(Y) {
                 this.fire('select', {
                     prevItem: prevItem,
                     item: item,
-                    index: item.getAttribute('data-index')
+                    data: item.getData('imageData'),
+                    index: item.getAttribute('data-index'),
+                    src: e.src
                 });
             }
         },
@@ -222,7 +334,7 @@ YUI.add('galleria', function(Y) {
         _defSelectFn: function(e) {
             this._showImage(e);
             this._checkSibling(e);
-            //this._updateReview();
+            this._updateReview(e);
             //this._updateLike();
             //this._updateHash();
             this._updateJiaThis(e);
@@ -233,10 +345,18 @@ YUI.add('galleria', function(Y) {
                 imageCon = cb.one('.yui3-galleria-image'),
                 current = cb.one('.yui3-galleria-num strong'),
                 large = e.item.getAttribute('data-large'),
-                img = new Image();
+                img;
             
-            img.src = large;
+            if (e.src === 'next' && this._nextImage) {
+                img = this._nextImage;
+            } else {
+                img = new Image();
+                img.src = large;
+            }
+            
             imageCon.empty().appendChild(img);
+            this._posImage(img);
+            
             this._amplifyBtn.setAttribute('href', large);
             
             if (e.prevItem && e.prevItem._node) {
@@ -246,11 +366,31 @@ YUI.add('galleria', function(Y) {
             current.setContent(e.index);
             
             this.hideNav();
+            
+            this._preload();
+        },
+        
+        _updateReview: function(e) {
+            //TODO
+            this._review.setContent(e.data.desc || '暂无评论');
         },
         
         _updateJiaThis: function(e) {
             window.jiathis_config = window.jiathis_config || {};
             window.jiathis_config.pic = e.item.getAttribute('data-large');
+        },
+        
+        _preload: function() {
+            var item = this.get('selectedItem'),
+                img = null,
+                next;
+            
+            if (item && (next = item.next('li'))) {
+                img = new Image();
+                img.src = next.getAttribute('data-large');
+            }
+            
+            this._nextImage = img;
         },
         
         reset: function() {
@@ -262,9 +402,7 @@ YUI.add('galleria', function(Y) {
                 prev = current.previous('li');
             
             if (prev) {
-                this.showImage(prev);
-            } else {
-                
+                this.showImage(prev, 'prev');
             }
         },
         
@@ -273,9 +411,7 @@ YUI.add('galleria', function(Y) {
                 next = current.next('li');
             
             if (next) {
-                this.showImage(next);
-            } else {
-                
+                this.showImage(next, 'next');
             }
         },
         
@@ -285,11 +421,13 @@ YUI.add('galleria', function(Y) {
                 a = s.split('-'),
                 l = a.length;
             
-            return [a[l - 2], a[l - 1]];
+            return [Number(a[l - 2]), Number(a[l - 1])];
         },
         
-        showImage: function(item) {
-            this.set('selectedItem', item);
+        showImage: function(item, dir) {
+            this.set('selectedItem', item, {
+                src: dir || 'select'
+            });
         },
         
         showNav: function(e) {
@@ -297,7 +435,7 @@ YUI.add('galleria', function(Y) {
             
             this._navNode.transition({
                 opacity: 1,
-                height: '180px',
+                height: this._navHeight + 'px',
                 duration: 0.25
             });
             this.showMask();
@@ -322,7 +460,6 @@ YUI.add('galleria', function(Y) {
             this._maskNode.setStyle('display', 'block');
             this._maskNode.transition({
                 opacity: 0.75,
-                height: '224px',
                 duration: 0.25
             });
         },
@@ -330,7 +467,6 @@ YUI.add('galleria', function(Y) {
         hideMask: function() {
             this._maskNode.transition({
                 opacity: 0,
-                height: '44px',
                 duration: 0.25
             }, function() {
                 this.setStyle('display', 'none');
