@@ -147,7 +147,7 @@ YUI.add('gallery', function(Y) {
             setHash('albumid', id);
             this.hideTip();
             
-            if (this.id && id === this.id) {
+            if (this.id && id === this.id && this.data[id]) {
                 this.showGalleria(true, imageid);
                 return this;
             }
