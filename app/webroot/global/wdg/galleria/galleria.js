@@ -2,7 +2,9 @@
  * 查看相册
  */
 
-//TODO 图片垂直居中 
+//TODO 分享hash
+//TODO showImageId()
+//TODO 点击图片显示下一个
 
 YUI.add('galleria', function(Y) {
     
@@ -21,16 +23,16 @@ YUI.add('galleria', function(Y) {
                          '<div class="yui3-galleria-prev"><a href="javascript:void(0);" target="_self">前一张</a></div>' + 
                          '<div class="yui3-galleria-thumb"><a href="javascript:void(0);" target="_self">所有图片</a></div>' + 
                          '<div class="yui3-galleria-next"><a href="javascript:void(0);" target="_self">后一张</a></div>' + 
-                         '<div class="yui3-galleria-num">第<strong>1</strong>张（共<em>10</em>张）</div>' + 
+                         '<div class="yui3-galleria-num">第<strong>0</strong>张（共<em>0</em>张）</div>' + 
                      '</div>',
                      
         DEF_NAV = '<div class="yui3-galleria-nav">' + 
-                      '<div class="yui3-galleria-total"><span>所有照片（<strong>10</strong>）</span><a href="javascript:void(0);" target="_self">关闭</a></div>' + 
+                      '<div class="yui3-galleria-total"><span>所有照片（<strong>0</strong>）</span><a href="javascript:void(0);" target="_self">关闭</a></div>' + 
                       '<div class="yui3-galleria-all"><div class="yui3-galleria-scroller"><ul class="yui3-galleria-list"></ul></div></div>' + 
                   '</div>',
         DEF_MASK = '<div class="yui3-galleria-mask"></div>',
         
-        DEF_THUMB = '<li data-large="{large}" data-index="{index}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
+        DEF_THUMB = '<li data-large="{large}" data-index="{index}" data-id="{id}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
                       
         DEF_INFO = '<div>' + 
                         '<h3><img src="http://106.186.25.82/gridfs/921dc26e07ed2436a6cb001ed05323e2-180-180.jpeg" width="48" height="48" /><strong>周达点评</strong></h3>' + 
@@ -175,13 +177,15 @@ YUI.add('galleria', function(Y) {
                 items = [],
                 node, size;
             
+            delete this._thumbItems;
             list.empty();
             this.reset();
             
-            Y.Array.each(source, function(item, index) {
+            Y.Array.each(source.images, function(item, index) {
                 size = this.getImageSize(item.small);
                 node = Y.Node.create(Y.Lang.sub(DEF_THUMB, {
                     index: index + 1,
+                    id: item.id || '',
                     small: item.small,
                     large: item.large,
                     title: item.title || ''
@@ -193,12 +197,14 @@ YUI.add('galleria', function(Y) {
                 list.append(node);
             }, this);
             
+            this._thumbItems = list.all('li');
+            
             current.setContent(1);
-            num.setContent(source.length);
-            total.setContent(source.length);
+            num.setContent(source.images.length);
+            total.setContent(source.images.length);
             
             this.scrollview.syncUI();
-            this.showImage(list.one('li'));
+            this.showImage(this._thumbItems.item(0));
         },
         
         _getImageRealSize: function(src) {
@@ -232,6 +238,22 @@ YUI.add('galleria', function(Y) {
             }
             
             img.style['marginTop'] = top + 'px';
+        },
+        
+        _getItemById: function(id) {
+            var items = this._thumbItems.getDOMNodes(),
+                item = null;
+            
+            if (id) {
+                Y.Array.some(items, function(node, index) {
+                    if (node.getAttribute('data-id') === id) {
+                        item = this._thumbItems.item(index);
+                        return true;
+                    }
+                }, this);
+            }
+            
+            return item;
         },
         
         _getNavHeight: function() {
@@ -326,17 +348,18 @@ YUI.add('galleria', function(Y) {
                     item: item,
                     data: item.getData('imageData'),
                     index: item.getAttribute('data-index'),
+                    id: item.getAttribute('data-id'),
                     src: e.src
                 });
             }
         },
         
         _defSelectFn: function(e) {
+            this._set('selectedId', e.id);
             this._showImage(e);
             this._checkSibling(e);
             this._updateReview(e);
             //this._updateLike();
-            //this._updateHash();
             this._updateJiaThis(e);
         },
         
@@ -371,7 +394,7 @@ YUI.add('galleria', function(Y) {
         },
         
         _updateReview: function(e) {
-            this._review.setContent('“' + (e.data.desc || '暂无评论') + "”");
+            this._review.setContent('“' + (e.data.desc || '暂无点评') + "”");
         },
         
         _updateJiaThis: function(e) {
@@ -394,6 +417,7 @@ YUI.add('galleria', function(Y) {
         
         reset: function() {
             this.set('selectedItem', null);
+            this._set('selectedId', '');
         },
         
         prevImage: function() {
@@ -424,6 +448,16 @@ YUI.add('galleria', function(Y) {
         },
         
         showImage: function(item, dir) {
+            if (Y.Lang.isNumber(item)) {
+                item = this._thumbItems.item(item);
+            } else if (Y.Lang.isString(item)) {
+                item = this._getItemById(item);
+            }
+            
+            if (!item) {
+                item = this.get('selectedItem') || this._thumbItems.item(0);
+            }
+            
             this.set('selectedItem', item, {
                 src: dir || 'select'
             });
@@ -475,8 +509,10 @@ YUI.add('galleria', function(Y) {
     }, {
         ATTRS: {
             source: {},
-            
-            selectedItem: {}
+            selectedItem: {},
+            selectedId: {
+                readOnly: true
+            }
         },
         
         GALLERIA_HD: DEF_HEADER,
