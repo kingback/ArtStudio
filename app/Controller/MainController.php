@@ -89,7 +89,7 @@ class MainController extends AppController {
 			 */
 			$info[] = $this->copyAlbum($album);
 		}
-		$this->set('body_class', 'zds-signup');
+		$this->set('body_class', 'zds-gallery');
 		$this->set('page', -1);
 		$this->set('albums', $info);
 		$this->set('base_url', $this->grid_base_url);

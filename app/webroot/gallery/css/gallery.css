@@ -16,6 +16,7 @@
 
 .all-albums {margin-top:15px;}
 .all-albums .album-item {float:left;margin:0 40px 55px 0;width:180px;}
+.all-albums .album-item-first {clear:both;}
 .all-albums .album-item-last {margin-right:0;}
 .all-albums .album-title {padding:0 15px;margin-top:10px;}
 .all-albums .album-title em {font-size:14px;}

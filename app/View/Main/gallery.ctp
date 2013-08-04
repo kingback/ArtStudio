@@ -26,12 +26,17 @@
 
 	<div class="all-albums">
 		<ul class="clearfix">
+		    <?php 
+		      $albumCount = 0;
+              $albumFirst = "album-item-first";
+              $albumLast = "album-item-last";
+		    ?>
 			<?php foreach ($albums as $album): ?>
-			<li class="album-item" data-albumid="<?php echo $album['id']; ?>">
+			<li class="album-item<?php $albumCount++; if ($albumCount % 4 == 1) { echo $albumFirst; } elseif ($albumCount % 4 == 0) { echo $albumLast; } ?>" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
+				<a href="javascript:void(0);" target="_self" title="<?php echo $album['title']; ?>">
 					<?php if (isset($album['cover'])): ?>
-					<img src="<?php echo $base_url, $album['cover']['small']; ?>" style="max-height:210px; max-width:149px" />
+					<img src="<?php echo $base_url, $album['cover']['small']; ?>" />
 					<?php else: ?>
 					<img src="/gallery/img/gf.png" />
 					<?php endif;?>
