@@ -130,4 +130,26 @@ class AppController extends Controller {
 		return $this->grid_base_url . $file_name;
 	}
 
+	protected function copyAlbum($album)
+	{
+		$al = array();
+		$al['id'] = $album['_id'];
+		$al['desc'] = $album['desc'];
+		$al['title'] = $album['title'];
+		if (isset($album['cover'])) {
+			$cover_id = $album['cover'];
+			$al['cover']['large'] = $album['images'][$cover_id]['large'];
+			$al['cover']['small'] = $album['images'][$cover_id]['small'];
+		}
+		$images = array();
+		$al['image_num'] = 0;
+		if (isset($album['images'])) {
+			foreach ($album['images'] as $image) {
+				$images[] = $image;
+			}
+			$al['image_num'] = count($images);
+		}
+		$al['images'] = $images;
+		return $al;
+	}
 }

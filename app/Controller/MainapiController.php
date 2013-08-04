@@ -33,24 +33,4 @@ class MainapiController extends AppController {
 		echo json_encode($info);
 	}
 
-	private function copyAlbum($album)
-	{
-		$al = array();
-		$al['id'] = $album['_id'];
-		$al['desc'] = $album['desc'];
-		$al['title'] = $album['title'];
-		if (isset($album['cover'])) {
-			$cover_id = $album['cover'];
-			$al['cover']['large'] = $album['images'][$cover_id]['large'];
-			$al['cover']['small'] = $album['images'][$cover_id]['small'];
-		}
-		$images = array();
-		if (isset($album['images'])) {
-			foreach ($album['images'] as $image) {
-				$images[] = $image;
-			}
-		}
-		$al['images'] = $images;
-		return $al;
-	}
 }

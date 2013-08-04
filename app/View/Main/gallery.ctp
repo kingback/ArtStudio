@@ -26,51 +26,21 @@
 
 	<div class="all-albums">
 		<ul class="clearfix">
-			<li class="album-item" data-albumid="f85715b9620d2e0a3102fc6a56421562">
+			<?php foreach ($albums as $album): ?>
+			<li class="album-item" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
 				<a href="javascript:void(0);" target="_self" title="造型班">
-					<img src="../img/gf.png" />
+					<?php if (isset($album['cover'])): ?>
+					<img src="<?php echo $base_url, $album['cover']['small']; ?>" style="max-height:210px; max-width:149px" />
+					<?php else: ?>
+					<img src="/gallery/img/gf.png" />
+					<?php endif;?>
 				</a>
 			</div>
-			<h3 class="album-title"><strong>素描头像</strong><em>（28张）</em></h3>
+			<h3 class="album-title"><strong><?php echo $album['title']; ?></strong><em>（<?php echo $album['image_num']; ?>张）</em></h3>
 			<p class="album-eng">portrait sketch</p>
 			</li>
-			<li class="album-item" data-albumid="f731acbf53d4a52a0f587e8bf1a6c8a4">
-			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
-					<img src="../img/gf.png" />
-				</a>
-			</div>
-			<h3 class="album-title"><strong>素描头像</strong><em>（28张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
-			</li>
-			<li class="album-item" data-albumid="a9c1671343227b4e40a68c9d1e213189">
-			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
-					<img src="../img/gf.png" />
-				</a>
-			</div>
-			<h3 class="album-title"><strong>素描头像</strong><em>（28张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
-			</li>
-			<li class="album-item album-item-last" data-albumid="4">
-			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
-					<img src="../img/gf.png" />
-				</a>
-			</div>
-			<h3 class="album-title"><strong>素描头像</strong><em>（28张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
-			</li>
-			<li class="album-item" data-albumid="5">
-			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
-					<img src="../img/gf.png" />
-				</a>
-			</div>
-			<h3 class="album-title"><strong>素描头像</strong><em>（28张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
-			</li>
+			<?php endforeach;?>
 		</ul>
 	</div>
 

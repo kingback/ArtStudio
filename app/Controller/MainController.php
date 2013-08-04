@@ -74,7 +74,24 @@ class MainController extends AppController {
 
 	public function gallery()
 	{
+		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
+		$albums = $albums_col->find();
+		$info = array();
+		foreach ($albums as $album) {
+			/*
+			if (isset($album['cover'])) {
+				$cover_id = $album['cover'];
+				$album['cover']['large'] = $album['images'][$cover_id]['large'];
+				$album['cover']['small'] = $album['images'][$cover_id]['small'];
+			}
+			$album['image_num'] = 0;
+			$album['image_num'] = count($album['images']);
+			 */
+			$info[] = $this->copyAlbum($album);
+		}
 		$this->set('body_class', 'zds-signup');
 		$this->set('page', -1);
+		$this->set('albums', $info);
+		$this->set('base_url', $this->grid_base_url);
 	}
 }
