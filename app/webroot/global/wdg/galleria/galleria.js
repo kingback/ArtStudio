@@ -371,8 +371,7 @@ YUI.add('galleria', function(Y) {
         },
         
         _updateReview: function(e) {
-            //TODO
-            this._review.setContent(e.data.desc || '暂无评论');
+            this._review.setContent('“' + (e.data.desc || '暂无评论') + "”");
         },
         
         _updateJiaThis: function(e) {
