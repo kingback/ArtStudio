@@ -31,19 +31,21 @@ YUI.add('galleria', function(Y) {
         DEF_THUMB = '<li data-large="{large}" data-index="{index}" data-id="{id}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
                       
         DEF_INFO = '<div>' + 
-                        '<h3><img src="http://106.186.25.82/gridfs/921dc26e07ed2436a6cb001ed05323e2-180-180.jpeg" width="48" height="48" /><strong>周达点评</strong></h3>' + 
-                        '<div class="yui3-galleria-review"></div>' + 
-                        '<div class="yui3-galleria-like"><a href="javascript:void(0);" target="_self">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
-                        '<div class="yui3-galleria-jiathis">' + 
-                            '<span class="yui3-galleria-jiato">分享到：</span>' + 
-                            '<div class="jiathis_style_24x24">' + 
-                                '<a class="jiathis_button_qzone"></a>' + 
-                                '<a class="jiathis_button_tsina"></a>' + 
-                                '<a class="jiathis_button_tqq"></a>' + 
-                                '<a class="jiathis_button_weixin"></a>' + 
-                                '<a class="jiathis_button_renren"></a>' + 
-                                '<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>' + 
-                                '<a class="jiathis_counter_style"></a>' + 
+                        '<div class="yui3-galleria-infocon">' + 
+                            '<h3><img src="http://106.186.25.82/gridfs/921dc26e07ed2436a6cb001ed05323e2-180-180.jpeg" width="48" height="48" /><strong>周达点评</strong></h3>' + 
+                            '<div class="yui3-galleria-review"></div>' + 
+                            '<div class="yui3-galleria-like"><a href="javascript:void(0);" target="_self">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
+                            '<div class="yui3-galleria-jiathis">' + 
+                                '<span class="yui3-galleria-jiato">分享到：</span>' + 
+                                '<div class="jiathis_style_24x24">' + 
+                                    '<a class="jiathis_button_qzone"></a>' + 
+                                    '<a class="jiathis_button_tsina"></a>' + 
+                                    '<a class="jiathis_button_tqq"></a>' + 
+                                    '<a class="jiathis_button_weixin"></a>' + 
+                                    '<a class="jiathis_button_renren"></a>' + 
+                                    '<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>' + 
+                                    '<a class="jiathis_counter_style"></a>' + 
+                                '</div>' + 
                             '</div>' + 
                         '</div>' + 
                     '</div>';
@@ -140,7 +142,7 @@ YUI.add('galleria', function(Y) {
                 duration = 0.2,
                 easing = 'ease-out';
                 
-            self._infoNode.setStyle('right', '-320px');
+            self._infoNode.setStyle('right', '-25%');
             self._cb.setStyle('opacity', 0);
             self._bb.setStyles({
                 top: '-100%',
@@ -277,6 +279,7 @@ YUI.add('galleria', function(Y) {
                     this._navNode.setStyle('height', height);
                 }
                 this.scrollview.set('height', height - 64);
+                this.scrollview.syncUI();
             }
         },
         

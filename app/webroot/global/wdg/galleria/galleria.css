@@ -10,10 +10,10 @@
 .yui3-galleria-hidden {visibility:hidden;left:-99999px;top:-99999px;}
 .yui3-galleria-lock {height:100%;overflow:hidden;}
 .yui3-galleria {position:fixed;width:100%;height:100%;top:0;left:0;z-index:1000;background:#191919;}
-.yui3-galleria-content {padding-right:320px;background:#191919;height:100%;position:relative;}
-.yui3-galleria-hd {position:absolute;height:44px;left:0;right:320px;top:0;}
-.yui3-galleria-ft {position:absolute;height:44px;left:0;right:320px;bottom:0;}
-.yui3-galleria-bd {position:absolute;left:0;right:320px;top:44px;bottom:44px;padding:0 20px;}
+.yui3-galleria-content {padding-right:25%;background:#191919;height:100%;position:relative;}
+.yui3-galleria-hd {position:absolute;height:44px;left:0;right:25%;top:0;}
+.yui3-galleria-ft {position:absolute;height:44px;left:0;right:25%;bottom:0;}
+.yui3-galleria-bd {position:absolute;left:0;right:25%;top:44px;bottom:44px;padding:0 20px;}
 
 .yui3-galleria-hd {text-align:center;font-size:14px;}
 .yui3-galleria-hd div {display:inline-block;padding:8px 0;vertical-align:top;}
@@ -43,9 +43,9 @@
 .yui3-galleria-disabled a,
 .yui3-galleria-disabled a:hover {color:#999;opacity:0.6;cursor:default;}
 
-.yui3-galleria-mask {position:absolute;height:100%;bottom:0;left:0;right:320px;background:#000;opacity:0;display:none;}
+.yui3-galleria-mask {position:absolute;height:100%;bottom:0;left:0;right:25%;background:#000;opacity:0;display:none;}
 
-.yui3-galleria-nav {position:absolute;overflow:hidden;height:0;bottom:44px;left:0;right:320px;background:#000;opacity:0;}
+.yui3-galleria-nav {position:absolute;overflow:hidden;height:0;bottom:44px;left:0;right:25%;background:#000;opacity:0;}
 .yui3-galleria-total {height:44px;line-height:44px;background:#333;color:#fff;padding-left:40px;position:relative;}
 .yui3-galleria-total a {position:absolute;background-position:0 -162px;width:22px;height:22px;right:11px;top:11px;text-indent:-99px;overflow:hidden;}
 .yui3-galleria-total a:hover {background-position:0 -140px;}
@@ -60,7 +60,8 @@
 
 .yui3-galleria-all .yui3-scrollview-scrollbar span {background:#fff !important;}
 
-.yui3-galleria-info {width:250px;padding:0 35px;position:absolute;right:0;top:0;height:100%;background:#fff;}
+.yui3-galleria-info {width:25%;position:absolute;right:0;top:0;height:100%;background:#fff;}
+.yui3-galleria-infocon {padding:0 35px;}
 .yui3-galleria-info h3 {padding:20px 0;border-bottom:2px solid #000;height:48px;font-size:14px;color:#555;}
 .yui3-galleria-info h3 img {border-radius:24px;margin-right:12px;vertical-align:middle;}
 .yui3-galleria-info h3 strong {vertical-align:middle;font-weight:bold;}
