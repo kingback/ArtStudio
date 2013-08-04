@@ -197,7 +197,7 @@ YUI.add('gallery', function(Y) {
         },
         
         initLoading: function() {
-            this.loading = Y.Node.create('<div class="album-loading">正在加载相册中...</div>');
+            this.loading = Y.Node.create('<div class="album-loading">正在加载相册...</div>');
             Y.one('body').prepend(this.loading);
         }
           
