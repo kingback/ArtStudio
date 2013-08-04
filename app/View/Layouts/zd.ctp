@@ -40,7 +40,7 @@
                 <a href="http://zhoudams.com/" target="_top">http://zhoudams.com/</a>
             </h2>
             <ul>
-			<li <?php if($page == 1): ?>class="selected <?php endif; ?>"><a href="/main/index" target="_top">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
+			<li <?php if($page == 1):?>class="selected <?php endif; ?>"><a href="/main/index" target="_top">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
 			<li <?php if($page == 2): ?>class="selected <?php endif; ?>"><a href="#" target="_top">画室简介</a><b></b></li>
 			<li <?php if($page == 3): ?>class="selected <?php endif; ?>"><a href="/main/honour" target="_top">画室成绩</a><b></b></li>
 			<li <?php if($page == 4): ?>class="selected <?php endif; ?>"><a href="#" target="_top">教师介绍</a><b></b></li>

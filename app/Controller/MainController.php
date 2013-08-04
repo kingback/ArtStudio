@@ -72,4 +72,9 @@ class MainController extends AppController {
 		$this->set('page', 3);
 	}
 
+	public function gallery()
+	{
+		$this->set('body_class', 'zds-signup');
+		$this->set('page', -1);
+	}
 }
