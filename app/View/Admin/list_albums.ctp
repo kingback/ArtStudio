@@ -1,5 +1,6 @@
 <p>
 <a target='_blank' class='btn btn-success' href="/admin/createAlbum" >新建相册</a>
+<a target='_blank' class='btn btn-success' href="/admin/albumCategories" >管理相册类别</a>
 </p>
 <table class="table table-bordered table-hover responsive-utilities">
 	<thead>

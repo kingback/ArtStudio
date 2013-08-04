@@ -4,7 +4,11 @@
 		<label>相册名字</label>
 		<input name ="title" type="text" value="<?php echo $title; ?>"></input>
 		<label>相册类型</label>
-		<input name ="category" type="text" value="<?php echo $category; ?>"></input>
+		<select name="category">
+			<?php foreach ($categories as $category): ?>
+			<option <?php if ($category['name'] == $album_category) echo "selected=selected"; ?>><?php echo $category['name']; ?></option>
+			<?php endforeach;?>
+		</select>
 		<br/>
 		<label>相册描述</label>
 		<textarea rows="10" class="span9" name="desc"><?php echo $desc; ?></textarea>

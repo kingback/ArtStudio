@@ -9,9 +9,8 @@
 		<div class="gl-tab clearfix">
 			<a href="/main/allGallery" class="gl-tab-selected">全部</a>
 			<?php foreach ($categories as $category): ?>
-			<?php if (strlen($category) == 0) continue;?>
 			<span>|</span>
-			<a href="/main/gallery?category=<?php echo $category; ?>"><?php echo $category; ?></a>
+			<a href="/main/gallery?category=<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
 			<?php endforeach;?>
 		</div>                    
 	</div>

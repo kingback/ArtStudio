@@ -80,7 +80,9 @@ class MainController extends AppController {
 		foreach ($albums as $album) {
 			$info[] = $this->copyAlbum($album);
 		}
-		$categories = $albums_col->distinct('category');
+		
+		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $categories_col->find();
 		$this->set('body_class', 'zds-gallery');
 		$this->set('page', 5);
 		$this->set('albums', $info);
@@ -97,14 +99,21 @@ class MainController extends AppController {
 		foreach ($albums as $album) {
 			$info[] = $this->copyAlbum($album);
 		}
-		$categories = $albums_col->distinct('category');
-		var_dump($category);
+		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $categories_col->find();
+		$category_desc = "";
+		foreach ($categories as $cate) {
+			if ($cate['name'] == $category) {
+				$category_desc = $cate['desc'];
+				break;
+			}
+		}
 		$this->set('body_class', 'zds-gallery');
 		$this->set('page', 5);
 		$this->set('albums', $info);
 		$this->set('categories', $categories);
 		$this->set('cur_category', $category);
-		$this->set('category_desc', $category);
+		$this->set('category_desc', $category_desc);
 		$this->set('base_url', $this->grid_base_url);
 	}
 }

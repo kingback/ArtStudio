@@ -118,6 +118,9 @@ class AdminController extends AppController {
 			$this->redirect(array('controller' => 'admin', 'action' => 'uploadAlbumImages', '?' => array('id' => $id)));
 		}
 		$this->set('title_for_layout', '创建相册');
+		$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $collection->find();
+		$this->set('categories', $categories);
 	}
 
 	public function modifyAlbum()
@@ -139,10 +142,13 @@ class AdminController extends AppController {
 			$this->set('title', $album['title']);
 			$this->set('desc', $album['desc']);
 			if (isset($album['category'])) {
-				$this->set('category', $album['category']);
+				$this->set('album_category', $album['category']);
 			} else {
-				$this->set('category', '');
+				$this->set('album_category', '');
 			}
+			$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+			$categories = $collection->find();
+			$this->set('categories', $categories);
 			$this->set('title_for_layout', '修改相册信息');
 		}
 	}
@@ -165,5 +171,13 @@ class AdminController extends AppController {
 		$this->set('covers', $covers);
 		$this->set('base_url', $this->grid_base_url);
 		$this->set('title_for_layout', '管理相册');
+	}
+
+	public function albumCategories()
+	{
+		$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $collection->find();
+		$this->set('title_for_layout', '相册类型管理');
+		$this->set('categories', $categories);
 	}
 }

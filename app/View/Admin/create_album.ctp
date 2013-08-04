@@ -4,7 +4,11 @@
 		<label>相册名字</label>
 		<input name ="title" type="text"></input>
 		<label>相册类型</label>
-		<input name ="category" type="text"></input>
+		<select name="category">
+			<?php foreach ($categories as $category): ?>
+			<option><?php echo $category['name']; ?></option>
+			<?php endforeach;?>
+		</select>
 		<br/>
 		<label>相册描述</label>
 		<textarea rows="10" class="span9" name="desc"></textarea>
