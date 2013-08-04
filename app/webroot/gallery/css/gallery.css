@@ -4,9 +4,8 @@
 .gl-tab a,
 .gl-tab span {float:left;color:#666;}
 .gl-tab span {margin:0 12px;}
-.gl-tab a:hover {text-decoration:none;}
 .gl-tab a.gl-tab-selected,
-.gl-tab a.gl-tab-selected:hover {color:#ffa00a;}
+.gl-tab a.gl-tab-selected:hover {color:#ffa00a;text-decoration:none;}
 
 .album-cover {height:210px;padding:12px 15px;background:url('../img/gl.png') 0 0 no-repeat;}
 .album-cover a {height:210px;width:180px;text-align:center;display:table-cell;vertical-align:middle;overflow:hidden;}
