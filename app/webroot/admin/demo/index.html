@@ -31,7 +31,9 @@
                 var btn = K('button'),
                     textarea = K('#editor'),
                     content = K('#content'),
-                    editor = K.create('#editor');
+                    editor = K.create('#editor', {
+                        uploadJson: 'http://106.186.25.82/adminapi/uploadImage/'
+                    });
                     
                 btn.bind('click', function(e) {
                     editor.sync();

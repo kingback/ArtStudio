@@ -78,8 +78,8 @@ YUI.add('iuploader', function(Y) {
         item = Y.Node.create(Y.Lang.sub(utemp, {
             id: node.getAttribute('id') + '_uploaded',
             name: node.getAttribute('data-name'),
-            src: 'http://106.186.25.82/gridfs/' + data,
-            url: 'http://106.186.25.82/gridfs/' + data
+            src: 'http://106.186.25.82/gridfs/' + data.large,
+            url: 'http://106.186.25.82/gridfs/' + data.large
         }));
         
         uploadedList.append(item);
