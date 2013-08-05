@@ -116,4 +116,14 @@ class MainController extends AppController {
 		$this->set('category_desc', $category_desc);
 		$this->set('base_url', $this->grid_base_url);
 	}
+
+	public function teacher()
+	{
+		$this->set('body_class', 'zds-gallery');
+		$this->set('page', 4);
+		$this->set('base_url', $this->grid_base_url);
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$teachers = $collection->find();
+		$this->set('teachers', $teachers);
+	}
 }

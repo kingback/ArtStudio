@@ -9,6 +9,11 @@ $(document).ready(function() {
 		alert("添加成功");
 		window.location.reload();
 	});
+
+	$('#addTeacher').ajaxForm(function() {
+		alert("添加教师成功");
+		window.location.reload();
+	});
 });
 
 function modifyAlbumPics(albumId) {

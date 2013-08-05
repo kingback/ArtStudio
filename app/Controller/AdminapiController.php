@@ -260,4 +260,26 @@ class AdminapiController extends AppController {
 		$res = $albums->update(array('_id' => $id), $newdata);
 		echo json_encode($res);
 	}
+
+	public function addTeacher()
+	{
+		$name = $this->_get_argument('name');
+		$title = $this->_get_argument('title');
+		$desc = $this->_get_argument('desc');
+
+		$filename = $_FILES['imgFile']['tmp_name'];
+		$name = $_FILES['imgFile']['name'];
+		$type = $_FILES['imgFile']['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('error' => 1, 'message' => $name . ' is not image file, type=' . $type));
+			return;
+		}
+		$compressed_file = $this->make_photo_thumb($filename, 300);
+		$image = $this->save_file($compressed_file, $type);
+
+		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image);
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$res = $collection->insert($teacher);
+		echo json_encode($res);
+	}
 }
