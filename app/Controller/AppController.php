@@ -154,4 +154,12 @@ class AppController extends Controller {
 		$al['images'] = $images;
 		return $al;
 	}
+
+	protected function is_image($type)
+	{
+		if (!$this->starts_with($type, 'image/')) {
+			return false;
+		}
+		return true;
+	}
 }

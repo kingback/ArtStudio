@@ -145,14 +145,6 @@ class AdminapiController extends AppController {
 		echo json_encode($info);
 	}
 
-	protected function is_image($type)
-	{
-		if (!$this->starts_with($type, 'image/')) {
-			return false;
-		}
-		return true;
-	}
-
 	protected function save_file($filename)
 	{
 		$grid = $this->get_grid_fs();
