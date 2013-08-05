@@ -39,11 +39,15 @@ class MainapiController extends AppController {
 		$filename = $_FILES['imgFile']['tmp_name'];
 		$name = $_FILES['imgFile']['name'];
 		$type = $_FILES['imgFile']['type'];
-		if (!$this->is_image($type)) {
+		if (!$this->ends_with($name, 'png') 
+		&& !$this->ends_with($name, 'jpg') 
+		&& !$this->ends_with($name, 'gif') 
+		&& !$this->ends_with($name, 'jpef') ) {
 			echo json_encode(array('error' => 1, 'message' => $name . ' is not image file'));
 			return;
 		}
-		$large = $this->save_file($filename, $type);
+		$compressed_file = $this->make_photo_thumb($filename, 850);
+		$large = $this->save_file($compressed_file, $type);
 		$file_url = $this->grid_base_url . $large;
 		echo json_encode(array('error' => 0, 'url' => $file_url));
 	}

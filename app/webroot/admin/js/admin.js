@@ -1,13 +1,36 @@
 $(document).ready(function() {
 	// bind 'myForm' and provide a simple callback function 
-	$('#uploadImage').ajaxForm(function() {
-		alert("上传成功");
-		window.location.reload();
+	$('#uploadImage').ajaxForm({
+		success: function() {
+			alert("上传成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
+			alert("上传失败: " + msg);
+		}
 	});
 
-	$('#add_album').ajaxForm(function() {
-		alert("添加成功");
-		window.location.reload();
+	$('#add_album').ajaxForm({
+		success: function() {
+			alert("添加成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
+			alert("添加失败: " + msg);
+		}
+	});
+
+	$('#addTeacher').ajaxForm({
+		success: function() {
+			alert("添加教师成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
+			alert("添加教师失败: " + msg);
+		}
 	});
 });
 
@@ -84,8 +107,7 @@ function setAlbumCover(albumId) {
 	var cnt = 0;
 	for (i = 0; i < box.length; ++i) {
 		if (box[i].checked) {
-			pic_id = box[i].value;
-			++ cnt;
+			pic_id = box[i].value; ++cnt;
 		}
 	}
 	if (cnt != 1) {
@@ -187,7 +209,7 @@ function dselectAll() {
 function rselectAll() {
 	var box = document.getElementsByName("checkbox");
 	for (i = 0; i < box.length; ++i) {
-		box[i].checked = !box[i].checked;
+		box[i].checked = ! box[i].checked;
 	}
 	return false;
 }
@@ -268,10 +290,82 @@ function modifyAlbumCategory() {
 		},
 		success: function(e) {
 			alert("修改相册类型成功");
-			//window.location.reload();
+			window.location.reload();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("修改相册类型失败");
+		}
+	});
+	return false;
+}
+
+function deleteTeacher() {
+	var ids = "";
+	var cnt = 0;
+	var box = document.getElementsByName("checkbox");
+	for (i = 0; i < box.length; ++i) {
+		if (box[i].checked) {
+			if (cnt > 0) {
+				ids += ",";
+			}
+			ids += box[i].value; ++cnt;
+		}
+	}
+	$.ajax({
+		type: 'POST',
+		url: '/adminapi/deleteTeacher',
+		data: {
+			'ids': ids
+		},
+		success: function(e) {
+			alert("删除成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("删除失败");
+		}
+	});
+	return false;
+}
+
+function modifyTeacher() {
+	var ids = new Array();
+	var names = new Array();
+	var titles = new Array();
+	var descs = new Array();
+	var box = document.getElementsByName("checkbox");
+	for (i = 0; i < box.length; ++i) {
+		if (box[i].checked) {
+			var id = box[i].value;
+			var name = document.getElementById(id + "_name").value;
+			var desc = document.getElementById(id + "_desc").value;
+			var title = document.getElementById(id + "_title").value;
+			ids.push(id);
+			names.push(name);
+			titles.push(title);
+			descs.push(desc);
+		}
+	}
+	var json_ids = JSON.stringify(ids);
+	var json_names = JSON.stringify(names);
+	var json_titles = JSON.stringify(titles);
+	var json_descs = JSON.stringify(descs);
+	$.ajax({
+		type: 'POST',
+		url: '/adminapi/modifyTeacher',
+		data: {
+			'ids': json_ids,
+			'names': json_names,
+			'titles': json_titles,
+			'descs': json_descs
+		},
+		success: function(e) {
+			alert("修改教师成功");
+			window.location.reload();
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
+			alert("修改教师失败: " + msg);
 		}
 	});
 	return false;

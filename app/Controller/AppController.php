@@ -38,6 +38,7 @@ class AppController extends Controller {
 	protected $pic_collection = 'pics';
 	protected $album_collection = 'album';
 	protected $album_category_collection = 'albumCategory';
+	protected $teacher_collection = 'teacher';
 	protected $grid_db = "pic";
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";
@@ -153,5 +154,80 @@ class AppController extends Controller {
 		}
 		$al['images'] = $images;
 		return $al;
+	}
+
+	protected function is_image($type)
+	{
+		if (!$this->starts_with($type, 'image/')) {
+			return false;
+		}
+		return true;
+	}
+
+	protected function save_file($filename)
+	{
+		$grid = $this->get_grid_fs();
+		$stored_name = $this->generate_name($filename);
+		$res = $grid->storeFile($filename, array('filename' => $stored_name));
+		return $stored_name;
+	}
+
+	protected function generate_name($filename)
+	{
+		$mimeType = 'image/';
+		$image_size = getimagesize($filename);
+		$pic_name = md5($filename . time());
+		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
+
+		$type = substr($image_size['mime'], strlen($mimeType));
+
+		$pic_name .= ".$type";
+
+		return $pic_name;
+	}
+
+	protected function make_photo_thumb($src_file, $max_size) {
+		if (!function_exists('imagecreatefromjpeg')) {
+			echo "gd not installed";
+			return false;
+		}
+		$data = @getimagesize($src_file);
+		$src_w = $data[0];
+		$src_h = $data[1];
+		if ($src_w <= $max_size && $src_h <= $max_size) {
+			return $src_file;
+		}
+		if ($src_w >= $src_h) {
+			$dst_w = $max_size;
+			$dst_h = round($max_size * $src_h / $src_w);
+		} else {
+			$dst_h = $max_size;
+			$dst_w = round($max_size * $src_w / $src_h);
+		}
+		switch ($data[2]) {
+		case 1: //图片类型，1是GIF图
+			$im = @ImageCreateFromGIF($src_file);
+			break;
+		case 2: //图片类型，2是JPG图
+			$im = @imagecreatefromjpeg($src_file);
+			break;
+		case 3: //图片类型，3是PNG图
+			$im = @ImageCreateFromPNG($src_file);
+			break;
+		}
+		$src_w = ImageSX($im);
+		$src_h = ImageSY($im);
+		$new_im = imagecreatetruecolor($dst_w, $dst_h);//生成一张要生成的黑色背景图 ，比例为计算出来的新图片比例
+		if(function_exists("imagecopyresampled")) {
+			imagecopyresampled($new_im, $im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);  //复制按比例缩放的原图到 ，新的黑色背景中。    
+		} else {
+			imagecopyresized($new_im, $im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);  //复制按比例缩放的原图到 ，新的黑色背景中。    
+		}
+
+		$name = $src_file . '_small';
+		imagejpeg($new_im, $name);
+		imagedestroy($im);
+		imagedestroy($new_im);
+		return $name;
 	}
 }

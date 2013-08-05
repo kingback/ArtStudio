@@ -82,8 +82,8 @@ class AdminapiController extends AppController {
 			$name = $_FILES['pics']['name'][$i];
 			$type = $_FILES['pics']['type'][$i];
 			if (!$this->is_image($type)) {
-				echo json_encode(array('err_msg' => $name . ' is not image'));
-				return;
+				echo json_encode(array('msg' => $name . ' is not image'));
+				$this->_setStatusAndExit(400);
 			}
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 			$large = $this->save_file($filename, $type);
@@ -104,8 +104,8 @@ class AdminapiController extends AppController {
 		$name = $_FILES['Filedata']['name'];
 		$type = $_FILES['Filedata']['type'];
 		if (!$this->is_image($type)) {
-			echo json_encode(array('err_msg' => $name . ' is not image'));
-			return;
+			echo json_encode(array('msg' => $name . ' is not image'));
+			$this->_setStatusAndExit(400);
 		}
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 		$large = $this->save_file($filename, $type);
@@ -128,8 +128,8 @@ class AdminapiController extends AppController {
 			$name = $_FILES['pics']['name'][$i];
 			$type = $_FILES['pics']['type'][$i];
 			if (!$this->is_image($type)) {
-				echo json_encode(array('err_msg' => $name . ' is not image'));
-				return;
+				echo json_encode(array('msg' => $name . ' is not image'));
+				$this->_setStatusAndExit(400);
 			}
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 			$large = $this->save_file($filename, $type);
@@ -145,22 +145,6 @@ class AdminapiController extends AppController {
 		echo json_encode($info);
 	}
 
-	protected function is_image($type)
-	{
-		if (!$this->starts_with($type, 'image/')) {
-			return false;
-		}
-		return true;
-	}
-
-	protected function save_file($filename)
-	{
-		$grid = $this->get_grid_fs();
-		$stored_name = $this->generate_name($filename);
-		$res = $grid->storeFile($filename, array('filename' => $stored_name));
-		return $stored_name;
-	}
-
 	protected function save_pic($upload_pic)
 	{
 		$mimeType = 'image/';
@@ -171,20 +155,6 @@ class AdminapiController extends AppController {
 		$grid = $this->get_grid_fs();
 		$pic_name = $this->generate_name($file['tmp_name']);
 		$res = $grid->storeUpload($upload_pic, $pic_name);
-		return $pic_name;
-	}
-
-	protected function generate_name($filename)
-	{
-		$mimeType = 'image/';
-		$image_size = getimagesize($filename);
-		$pic_name = md5($filename . time());
-		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
-
-		$type = substr($image_size['mime'], strlen($mimeType));
-
-		$pic_name .= ".$type";
-
 		return $pic_name;
 	}
 
@@ -291,48 +261,64 @@ class AdminapiController extends AppController {
 		echo json_encode($res);
 	}
 
-	private function make_photo_thumb($src_file, $max_size) {
-		if (!function_exists('imagecreatefromjpeg')) {
-			echo "gd not installed";
-			return false;
-		}
-		$data = @getimagesize($src_file);
-		$src_w = $data[0];
-		$src_h = $data[1];
-		if ($src_w <= $max_size && $src_h <= $max_size) {
-			return $src_file;
-		}
-		if ($src_w >= $src_h) {
-			$dst_w = $max_size;
-			$dst_h = round($max_size * $src_h / $src_w);
-		} else {
-			$dst_h = $max_size;
-			$dst_w = round($max_size * $src_w / $src_h);
-		}
-		switch ($data[2]) {
-		case 1: //图片类型，1是GIF图
-			$im = @ImageCreateFromGIF($src_file);
-			break;
-		case 2: //图片类型，2是JPG图
-			$im = @imagecreatefromjpeg($src_file);
-			break;
-		case 3: //图片类型，3是PNG图
-			$im = @ImageCreateFromPNG($src_file);
-			break;
-		}
-		$src_w = ImageSX($im);
-		$src_h = ImageSY($im);
-		$new_im = imagecreatetruecolor($dst_w, $dst_h);//生成一张要生成的黑色背景图 ，比例为计算出来的新图片比例
-		if(function_exists("imagecopyresampled")) {
-			imagecopyresampled($new_im, $im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);  //复制按比例缩放的原图到 ，新的黑色背景中。    
-		} else {
-			imagecopyresized($new_im, $im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);  //复制按比例缩放的原图到 ，新的黑色背景中。    
-		}
+	public function addTeacher()
+	{
+		$name = $this->_get_argument('name');
+		$title = $this->_get_argument('title');
+		$desc = $this->_get_argument('desc');
 
-		$name = $src_file . '_small';
-		imagejpeg($new_im, $name);
-		imagedestroy($im);
-		imagedestroy($new_im);
-		return $name;
+		if (!isset($_FILES['imgFile'])) {
+			echo json_encode(array('msg' => 'no image for teacher'));
+			$this->_setStatusAndExit(400);
+		}
+		$tmp_filename = $_FILES['imgFile']['tmp_name'];
+		$filename = $_FILES['imgFile']['name'];
+		$type = $_FILES['imgFile']['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+			$this->_setStatusAndExit(400);
+		}
+		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
+		$image = $this->save_file($compressed_file, $type);
+
+		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image);
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$res = $collection->insert($teacher);
+		echo json_encode($res);
+	}
+
+	public function deleteTeacher()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
+	}
+
+	public function modifyTeacher()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$names_str = $this->_get_argument('names');
+		$titles_str = $this->_get_argument('titles');
+		$descs_str = $this->_get_argument('descs');
+		$ids = json_decode($ids_str);
+		$names = json_decode($names_str);
+		$titles = json_decode($titles_str);
+		$descs = json_decode($descs_str);
+
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$cnt = count($ids);
+		for ($i = 0; $i < $cnt; $i++) {
+			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i]));
+			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
+		}
 	}
 }

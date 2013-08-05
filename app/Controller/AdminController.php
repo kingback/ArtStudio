@@ -180,4 +180,13 @@ class AdminController extends AppController {
 		$this->set('title_for_layout', '相册类型管理');
 		$this->set('categories', $categories);
 	}
+
+	public function teachers()
+	{
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$teachers = $collection->find();
+		$this->set('title_for_layout', '教师管理');
+		$this->set('base_url', $this->grid_base_url);
+		$this->set('teachers', $teachers);
+	}
 }
