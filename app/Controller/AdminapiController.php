@@ -82,8 +82,8 @@ class AdminapiController extends AppController {
 			$name = $_FILES['pics']['name'][$i];
 			$type = $_FILES['pics']['type'][$i];
 			if (!$this->is_image($type)) {
-				echo json_encode(array('err_msg' => $name . ' is not image'));
-				return;
+				echo json_encode(array('msg' => $name . ' is not image'));
+				$this->_setStatusAndExit(400);
 			}
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 			$large = $this->save_file($filename, $type);
@@ -104,8 +104,8 @@ class AdminapiController extends AppController {
 		$name = $_FILES['Filedata']['name'];
 		$type = $_FILES['Filedata']['type'];
 		if (!$this->is_image($type)) {
-			echo json_encode(array('err_msg' => $name . ' is not image'));
-			return;
+			echo json_encode(array('msg' => $name . ' is not image'));
+			$this->_setStatusAndExit(400);
 		}
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 		$large = $this->save_file($filename, $type);
@@ -128,8 +128,8 @@ class AdminapiController extends AppController {
 			$name = $_FILES['pics']['name'][$i];
 			$type = $_FILES['pics']['type'][$i];
 			if (!$this->is_image($type)) {
-				echo json_encode(array('err_msg' => $name . ' is not image'));
-				return;
+				echo json_encode(array('msg' => $name . ' is not image'));
+				$this->_setStatusAndExit(400);
 			}
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 			$large = $this->save_file($filename, $type);
@@ -267,19 +267,58 @@ class AdminapiController extends AppController {
 		$title = $this->_get_argument('title');
 		$desc = $this->_get_argument('desc');
 
-		$filename = $_FILES['imgFile']['tmp_name'];
-		$name = $_FILES['imgFile']['name'];
+		if (!isset($_FILES['imgFile'])) {
+			echo json_encode(array('msg' => 'no image for teacher'));
+			$this->_setStatusAndExit(400);
+		}
+		$tmp_filename = $_FILES['imgFile']['tmp_name'];
+		$filename = $_FILES['imgFile']['name'];
 		$type = $_FILES['imgFile']['type'];
 		if (!$this->is_image($type)) {
-			echo json_encode(array('error' => 1, 'message' => $name . ' is not image file, type=' . $type));
-			return;
+			echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+			$this->_setStatusAndExit(400);
 		}
-		$compressed_file = $this->make_photo_thumb($filename, 300);
+		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
 		$image = $this->save_file($compressed_file, $type);
 
 		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$res = $collection->insert($teacher);
 		echo json_encode($res);
+	}
+
+	public function deleteTeacher()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
+	}
+
+	public function modifyTeacher()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$names_str = $this->_get_argument('names');
+		$titles_str = $this->_get_argument('titles');
+		$descs_str = $this->_get_argument('descs');
+		$ids = json_decode($ids_str);
+		$names = json_decode($names_str);
+		$titles = json_decode($titles_str);
+		$descs = json_decode($descs_str);
+
+		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+		$cnt = count($ids);
+		for ($i = 0; $i < $cnt; $i++) {
+			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i]));
+			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
+		}
 	}
 }
