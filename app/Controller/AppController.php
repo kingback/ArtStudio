@@ -162,4 +162,27 @@ class AppController extends Controller {
 		}
 		return true;
 	}
+
+	protected function save_file($filename)
+	{
+		$grid = $this->get_grid_fs();
+		$stored_name = $this->generate_name($filename);
+		$res = $grid->storeFile($filename, array('filename' => $stored_name));
+		return $stored_name;
+	}
+
+	protected function generate_name($filename)
+	{
+		$mimeType = 'image/';
+		$image_size = getimagesize($filename);
+		$pic_name = md5($filename . time());
+		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
+
+		$type = substr($image_size['mime'], strlen($mimeType));
+
+		$pic_name .= ".$type";
+
+		return $pic_name;
+	}
+
 }

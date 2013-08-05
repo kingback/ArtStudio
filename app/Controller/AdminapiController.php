@@ -145,14 +145,6 @@ class AdminapiController extends AppController {
 		echo json_encode($info);
 	}
 
-	protected function save_file($filename)
-	{
-		$grid = $this->get_grid_fs();
-		$stored_name = $this->generate_name($filename);
-		$res = $grid->storeFile($filename, array('filename' => $stored_name));
-		return $stored_name;
-	}
-
 	protected function save_pic($upload_pic)
 	{
 		$mimeType = 'image/';
@@ -163,20 +155,6 @@ class AdminapiController extends AppController {
 		$grid = $this->get_grid_fs();
 		$pic_name = $this->generate_name($file['tmp_name']);
 		$res = $grid->storeUpload($upload_pic, $pic_name);
-		return $pic_name;
-	}
-
-	protected function generate_name($filename)
-	{
-		$mimeType = 'image/';
-		$image_size = getimagesize($filename);
-		$pic_name = md5($filename . time());
-		$pic_name .= '-' . $image_size[0] . '-' . $image_size[1];
-
-		$type = substr($image_size['mime'], strlen($mimeType));
-
-		$pic_name .= ".$type";
-
 		return $pic_name;
 	}
 
@@ -283,7 +261,7 @@ class AdminapiController extends AppController {
 		echo json_encode($res);
 	}
 
-	private function make_photo_thumb($src_file, $max_size) {
+	protected function make_photo_thumb($src_file, $max_size) {
 		if (!function_exists('imagecreatefromjpeg')) {
 			echo "gd not installed";
 			return false;
