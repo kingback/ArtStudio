@@ -1,7 +1,7 @@
 .tc-main {overflow:hidden;margin-top:16px;}
 
 .tc-hd {color:#333;}
-.tc-hd h2 {font:28px/36px "Microsoft yahei","微软雅黑","黑体";text-align:center;}
+.tc-hd h2 {font:28px/36px "Microsoft yahei","微软雅黑","黑体";text-align:center;font-weight:bold;}
 .tc-hd p {font-size:14px;line-height:26px;margin-top:16px;text-indent:2em;}
 
 .tc-list {width:888px;margin-top:18px;}
