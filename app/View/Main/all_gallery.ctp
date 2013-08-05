@@ -18,19 +18,21 @@
 
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main/index">首页</a><span>&gt;</span><a href="/main/allGallery">作品欣赏</a><span>&gt;</span><em>造型班</em>
+		<em>当前位置：</em><a href="#">首页</a><span>&gt;</span><a href="#">作品欣赏</a><span>&gt;</span><em>全部</em>
 	</div>
 	<!-- 面包屑 }}-->
 
-	<article class="gl-main">
-	<h1><?php echo $cur_category; ?>简介</h1>
-	<p class="gl-desc"><?php echo $category_desc;?></p>
-	<div class="gl-albums">
-		<ul>
+	<div class="all-albums">
+		<ul class="clearfix">
+		    <?php 
+		      $albumCount = 0;
+              $albumFirst = " album-item-first";
+              $albumLast = " album-item-last";
+		    ?>
 			<?php foreach ($albums as $album): ?>
-			<li class="album-item clearfix" data-albumid="<?php echo $album['id']; ?>">
+			<li class="album-item<?php $albumCount++; if ($albumCount % 4 == 1) { echo $albumFirst; } elseif ($albumCount % 4 == 0) { echo $albumLast; } ?>" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
-				<a href="javascript:void(0);" target="_self" title="造型班">
+				<a href="javascript:void(0);" target="_self" title="<?php echo $album['title']; ?>">
 					<?php if (isset($album['cover'])): ?>
 					<img src="<?php echo $base_url, $album['cover']['small']; ?>" />
 					<?php else: ?>
@@ -38,18 +40,12 @@
 					<?php endif;?>
 				</a>
 			</div>
-			<div class="album-detail">
-			<h3 class="album-title"><strong><?php echo $album['title'];?></strong><em>（<?php echo $album['image_num'];?>张）</em></h3>
-				<p class="album-eng">portrait sketch</p>
-				<div class="album-desc"><?php echo $album['desc'];?></div>
-				<p class="album-show"><a href="javascript:void(0);" target="_self">点击欣赏 &gt;</a></p>
-			</div>
-			<div class="album-index">1</div>
+			<h3 class="album-title"><strong><?php echo $album['title']; ?></strong><em>（<?php echo $album['image_num']; ?>张）</em></h3>
+			<p class="album-eng">portrait sketch</p>
 			</li>
-			<?php endforeach; ?>
+			<?php endforeach;?>
 		</ul>
 	</div>
-	</article>
 
 </div>
 <!-- 主内容 }}-->

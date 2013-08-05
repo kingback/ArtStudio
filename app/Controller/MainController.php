@@ -72,26 +72,48 @@ class MainController extends AppController {
 		$this->set('page', 3);
 	}
 
-	public function gallery()
+	public function allGallery()
 	{
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
 		$albums = $albums_col->find();
 		$info = array();
 		foreach ($albums as $album) {
-			/*
-			if (isset($album['cover'])) {
-				$cover_id = $album['cover'];
-				$album['cover']['large'] = $album['images'][$cover_id]['large'];
-				$album['cover']['small'] = $album['images'][$cover_id]['small'];
-			}
-			$album['image_num'] = 0;
-			$album['image_num'] = count($album['images']);
-			 */
 			$info[] = $this->copyAlbum($album);
 		}
+		
+		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $categories_col->find();
 		$this->set('body_class', 'zds-gallery');
-		$this->set('page', -1);
+		$this->set('page', 5);
 		$this->set('albums', $info);
+		$this->set('categories', $categories);
+		$this->set('base_url', $this->grid_base_url);
+	}
+
+	public function gallery()
+	{
+		$category = $this->_get_argument('category');
+		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
+		$albums = $albums_col->find(array('category' => $category));
+		$info = array();
+		foreach ($albums as $album) {
+			$info[] = $this->copyAlbum($album);
+		}
+		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
+		$categories = $categories_col->find();
+		$category_desc = "";
+		foreach ($categories as $cate) {
+			if ($cate['name'] == $category) {
+				$category_desc = $cate['desc'];
+				break;
+			}
+		}
+		$this->set('body_class', 'zds-gallery');
+		$this->set('page', 5);
+		$this->set('albums', $info);
+		$this->set('categories', $categories);
+		$this->set('cur_category', $category);
+		$this->set('category_desc', $category_desc);
 		$this->set('base_url', $this->grid_base_url);
 	}
 }

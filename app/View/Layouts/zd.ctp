@@ -44,7 +44,7 @@
 			<li <?php if($page == 2): ?>class="selected <?php endif; ?>"><a href="#" target="_top">画室简介</a><b></b></li>
 			<li <?php if($page == 3): ?>class="selected <?php endif; ?>"><a href="/main/honour" target="_top">画室成绩</a><b></b></li>
 			<li <?php if($page == 4): ?>class="selected <?php endif; ?>"><a href="#" target="_top">教师介绍</a><b></b></li>
-			<li <?php if($page == 5): ?>class="selected <?php endif; ?>"><a href="#" target="_top">作品欣赏</a><b></b></li>
+			<li <?php if($page == 5): ?>class="selected <?php endif; ?>"><a href="/main/allGallery" target="_top">作品欣赏</a><b></b></li>
 			<li <?php if($page == 6): ?>class="selected <?php endif; ?>"><a href="#" target="_top">招生简章</a><b></b></li>
 			<li <?php if($page == 7): ?>class="selected <?php endif; ?>"><a href="#" target="_top">学生管理</a><b></b></li>
 			<li <?php if($page == 8): ?>class="selected <?php endif; ?>"><a href="/main/signup" target="_top">网上报名</a><b></b></li>

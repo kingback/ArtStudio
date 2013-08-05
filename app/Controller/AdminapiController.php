@@ -13,6 +13,49 @@ class AdminapiController extends AppController {
 		exit();
 	}
 
+	public function addAlbumCategory()
+	{
+		$name = $this->_get_argument('name');
+		$desc = $this->_get_argument('desc');
+		$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+		// add a record
+		$document = array('desc' => $desc, 'name' => $name);
+		$collection->update(array('name' => $name), $document, array('upsert' => true));
+	}
+
+	public function modifyAlbumCategory()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$names_str = $this->_get_argument('names');
+		$descs_str = $this->_get_argument('descs');
+		$ids = json_decode($ids_str);
+		$names = json_decode($names_str);
+		$descs = json_decode($descs_str);
+
+		$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+		$cnt = count($ids);
+		for ($i = 0; $i < $cnt; $i++) {
+			$name = $names[$i];
+			$desc = $descs[$i];
+			$document = array('desc' => $desc, 'name' => $name);
+			$collection->update(array('name' => $name), $document);
+		}
+		echo json_encode($res);
+	}
+
+	public function deleteAlbumCategory()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->album_category_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
+	}
+
 	public function deleteHonour()
 	{
 		if ($this->request->is('post')) {
