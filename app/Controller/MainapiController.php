@@ -33,4 +33,18 @@ class MainapiController extends AppController {
 		echo json_encode($info);
 	}
 
+	// for editor
+	public function uploadImage()
+	{
+		$filename = $_FILES['imgFile']['tmp_name'];
+		$name = $_FILES['imgFile']['name'];
+		$type = $_FILES['imgFile']['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('error' => 1, 'message' => $name . ' is not image file'));
+			return;
+		}
+		$large = $this->save_file($filename, $type);
+		$file_url = $this->grid_base_url . $large;
+		echo json_encode(array('error' => 0, 'url' => $file_url));
+	}
 }
