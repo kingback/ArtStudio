@@ -15,7 +15,7 @@
         
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
-        <script src="/editor/kindeditor.js"></script>
+        <script src="/editor/kindeditor-all.js"></script>
         <script src="/editor/lang/zh_CN.js"></script>
         
         <base target="_blank" />
@@ -32,7 +32,7 @@
                     textarea = K('#editor'),
                     content = K('#content'),
                     editor = K.create('#editor', {
-                        uploadJson: 'http://106.186.25.82/adminapi/uploadImage/'
+                        uploadJson: 'http://106.186.25.82/mainapi/uploadImage'
                     });
                     
                 btn.bind('click', function(e) {
