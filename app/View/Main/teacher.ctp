@@ -19,7 +19,9 @@
 		<?php foreach ($teachers as $teacher): ?>
 		<li class="clearfix">
 		<div class="tc-image">
-		<img src="<?php echo $base_url, $teacher['image']; ?>" alt="<?php $teacher['name'];?>" />
+    		<div class="tc-imagecon">
+        		<img src="<?php echo $base_url, $teacher['image']; ?>" alt="<?php $teacher['name'];?>" />
+    		</div>
 		</div>
 		<div class="tc-detail">
 			<h3 class="tc-name"><?php echo $teacher['name']; ?></h3>
