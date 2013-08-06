@@ -23,10 +23,14 @@
 	<?php foreach ($articles as $article): ?>
 		<tr>
 		<td><input type="checkbox" name="checkbox" value="<?php echo $article['_id'];?>"></td>
-		<td><?php echo $article['type'];?></td>
+		<td> 
+			<?php if ($article['type'] == '主页') { echo "<font color='red'>主页</font>";} ?>
+			<?php if ($article['type'] == '新闻') { echo "<font color='green'>新闻</font>";} ?>
+			<?php if ($article['type'] == '招生简章') { echo "<font color='blue'>招生简章</font>";} ?>
+		</td>
 		<td><?php echo $article['title']; ?></td>
 		<td><?php echo date('Y-m-d h:i:s', $article['modifyTime']->sec); ?></td>
-		<td><a class="btn btn-success" href='/main/article?id=<?php echo $article['_id']; ?>'>预览文章</a></td>
+		<td><a target="_blank" class="btn btn-success" href='/main/article?id=<?php echo $article['_id']; ?>'>预览文章</a></td>
 		<td><a class="btn btn-danger" href='/admin/publisher?id=<?php echo $article['_id']; ?>'>修改文章</a></td>
 		</tr>
 	<?php endforeach; ?>

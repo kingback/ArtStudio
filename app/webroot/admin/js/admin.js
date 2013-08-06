@@ -36,6 +36,7 @@ $(document).ready(function() {
 	$('#publish-form').ajaxForm({
 		success: function() {
 			alert("添加成功");
+			window.location.href='/admin/listArticles';
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			var msg = JSON.parse(XMLHttpRequest.responseText).msg;

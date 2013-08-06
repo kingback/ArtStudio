@@ -211,7 +211,7 @@ class AdminController extends AppController {
 	public function listArticles()
 	{
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
-		$articles = $collection->find();
+		$articles = $collection->find()->sort(array('type' => 1));
 		$this->set('title_for_layout', '文章管理');
 		$this->set('articles', $articles);
 	}
