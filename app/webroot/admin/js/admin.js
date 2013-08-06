@@ -36,7 +36,6 @@ $(document).ready(function() {
 	$('#publish-form').ajaxForm({
 		success: function() {
 			alert("添加成功");
-			window.location.reload();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
