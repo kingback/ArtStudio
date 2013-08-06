@@ -12,8 +12,9 @@
 	<thead>
 	<tr>
 		<th>选择</th>
-		<th>文章id</th>
+		<th>文章类型</th>
 		<th>文章题目</th>
+		<th>修改时间</th>
 		<th>文章预览</th>
 		<th>修改文章</th>
 	</tr>
@@ -22,8 +23,9 @@
 	<?php foreach ($articles as $article): ?>
 		<tr>
 		<td><input type="checkbox" name="checkbox" value="<?php echo $article['_id'];?>"></td>
-		<td><?php echo $article['_id'];?></td>
+		<td><?php echo $article['type'];?></td>
 		<td><?php echo $article['title']; ?></td>
+		<td><?php echo date('Y-m-d h:i:s', $article['modifyTime']->sec); ?></td>
 		<td><a class="btn btn-success" href='/main/article?id=<?php echo $article['_id']; ?>'>预览文章</a></td>
 		<td><a class="btn btn-danger" href='/admin/publisher?id=<?php echo $article['_id']; ?>'>修改文章</a></td>
 		</tr>

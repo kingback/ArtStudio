@@ -326,11 +326,12 @@ class AdminapiController extends AppController {
 	{
 		$content = $this->_get_argument('content');
 		$title = $this->_get_argument('title');
+		$type = $this->_get_argument('type');
 		$id = $this->_get_argument('id', -1);
-		$newdata = array('title' => $title, 'content' => $content);
+		$newdata = array('title' => $title, 'content' => $content, 'modifyTime' => new MongoDate(), 'type' => $type);
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		if ($id != -1) {
-			$res = $collection->update(array('_id' => new MongoId($id)), $newdata);
+			$res = $collection->update(array('_id' => new MongoId($id)), array('$set' => $newdata));
 			echo json_encode($res);
 			if (!$res['ok']) {
 				echo json_encode($res);

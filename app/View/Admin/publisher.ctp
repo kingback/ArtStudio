@@ -7,6 +7,14 @@
 		<div class="article-title">
 		<label for="article-title">文章标题：</label><input type="text" id="article-title" name="title" placeholder="文章标题" value="<?php echo $title;?>" />
 		</div>
+		<div>
+			<label for="type">文章类型：</label>
+			<select name="type">
+				<option>主页</option>
+				<option>新闻</option>
+				<option>招生简章</option>
+			</select>
+		</div>
 		<div class="article-content">
 			<textarea id="editor" name="content" style="width:900px;height:400px;">
 			<?php echo $content; ?>

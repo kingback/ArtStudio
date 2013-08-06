@@ -195,6 +195,7 @@ class AdminController extends AppController {
 		$id = $this->_get_argument('id', -1);
 		$content = "";
 		$title = "";
+		$type = "";
 		if ($id != -1) {
 			$collection = $this->get_collection($this->db_name, $this->article_collection);
 			$article = $collection->findOne(array('_id' => new MongoId($id)));
