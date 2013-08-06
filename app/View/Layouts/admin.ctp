@@ -37,6 +37,7 @@
                         <li <?php if ($title_for_layout == "管理相册") echo 'class="active"' ?>><a href="/admin/listAlbums">管理相册</a></li>
                         <li <?php if ($title_for_layout == "注册管理") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
                         <li <?php if ($title_for_layout == "教师管理") echo 'class="active"' ?>><a href="/admin/teachers">教师管理</a></li>
+                        <li <?php if ($title_for_layout == "文章管理") echo 'class="active"' ?>><a href="/admin/listArticles">文章管理</a></li>
                         <li <?php if ($title_for_layout == "Manul") echo 'class="active"' ?>><a href="/pages/manul">帮助</a></li>
                     </ul>
                 </div>

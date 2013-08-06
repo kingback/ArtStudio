@@ -126,4 +126,17 @@ class MainController extends AppController {
 		$teachers = $collection->find();
 		$this->set('teachers', $teachers);
 	}
+
+	public function article()
+	{
+		$id = $this->_get_argument('id');
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article = $collection->findOne(array('_id' => new MongoId($id)));
+		$title = $article['title'];
+		$content = $article['content'];
+		$this->set('title', $title);
+		$this->set('content', $content);
+		$this->set('page', -1);
+		$this->set('body_class', 'zds-article');
+	}
 }
