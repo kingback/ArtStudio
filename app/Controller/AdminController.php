@@ -189,4 +189,10 @@ class AdminController extends AppController {
 		$this->set('base_url', $this->grid_base_url);
 		$this->set('teachers', $teachers);
 	}
+
+	public function publisher()
+	{
+		$this->set('title_for_layout', '文章发布');
+		$this->set('base_url', $this->grid_base_url);
+	}
 }

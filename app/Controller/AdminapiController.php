@@ -321,4 +321,11 @@ class AdminapiController extends AppController {
 			}
 		}
 	}
+
+	public function modifyArticle()
+	{
+		echo "<pre>";
+		var_dump($_POST);
+		var_dump($_GET);
+	}
 }
