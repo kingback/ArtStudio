@@ -324,8 +324,33 @@ class AdminapiController extends AppController {
 
 	public function modifyArticle()
 	{
-		echo "<pre>";
-		var_dump($_POST);
-		var_dump($_GET);
+		$content = $this->_get_argument('content');
+		$title = $this->_get_argument('title');
+		$id = $this->_get_argument('id', -1);
+		$newdata = array('title' => $title, 'content' => $content);
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		if ($id != -1) {
+			$res = $collection->update(array('_id' => new MongoId($id)), $newdata);
+			echo json_encode($res);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
+		} else {
+			$res = $collection->insert($newdata);
+			echo json_encode($res);
+		}
+	}
+
+	public function deleteArticle()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
 	}
 }

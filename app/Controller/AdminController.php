@@ -192,7 +192,26 @@ class AdminController extends AppController {
 
 	public function publisher()
 	{
+		$id = $this->_get_argument('id', -1);
+		$content = "";
+		$title = "";
+		if ($id != -1) {
+			$collection = $this->get_collection($this->db_name, $this->article_collection);
+			$article = $collection->findOne(array('_id' => new MongoId($id)));
+			$content = $article['content'];
+			$title = $article['title'];
+		}
 		$this->set('title_for_layout', '文章发布');
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('id', $id);
+		$this->set('title', $title);
+		$this->set('content', $content);
+	}
+
+	public function listArticles()
+	{
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$articles = $collection->find();
+		$this->set('title_for_layout', '文章管理');
+		$this->set('articles', $articles);
 	}
 }
