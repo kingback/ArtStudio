@@ -13,11 +13,15 @@
 	<article class="n-main">
 	<script>
 		window.NewsData = [
-		{url:'#',image:'',title:'周达受邀参加2012中国国际设计峰会暨PIN UP Awards颁奖典礼',date:'2013-07-18',desc:'国际绿色设计与家居生活 2012 中国国际设计峰会——暨PIN UP Awards 颁奖典礼前日在京举行，西卡国际设计学校作为国内设计先锋机构。执行校长潘海凌女士及教学主任尚伟平老师代表出席了本次盛会，在颁奖典礼上，我校2010届家具设计专业学生马良的作品《椅》荣获了创新金奖。'}
-		,{url:'#',image:'',title:'周达受邀参加2012中国国际设计峰会暨PIN UP Awards颁奖典礼',date:'2013-07-18',desc:'国际绿色设计与家居生活 2012 中国国际设计峰会——暨PIN UP Awards 颁奖典礼前日在京举行，西卡国际设计学校作为国内设计先锋机构。执行校长潘海凌女士及教学主任尚伟平老师代表出席了本次盛会，在颁奖典礼上，我校2010届家具设计专业学生马良的作品《椅》荣获了创新金奖。'}
-		,{url:'#',image:'',title:'周达受邀参加2012中国国际设计峰会暨PIN UP Awards颁奖典礼',date:'2013-07-18',desc:'国际绿色设计与家居生活 2012 中国国际设计峰会——暨PIN UP Awards 颁奖典礼前日在京举行，西卡国际设计学校作为国内设计先锋机构。执行校长潘海凌女士及教学主任尚伟平老师代表出席了本次盛会，在颁奖典礼上，我校2010届家具设计专业学生马良的作品《椅》荣获了创新金奖。'}
-		,{url:'#',image:'',title:'周达受邀参加2012中国国际设计峰会暨PIN UP Awards颁奖典礼',date:'2013-07-18',desc:'国际绿色设计与家居生活 2012 中国国际设计峰会——暨PIN UP Awards 颁奖典礼前日在京举行，西卡国际设计学校作为国内设计先锋机构。执行校长潘海凌女士及教学主任尚伟平老师代表出席了本次盛会，在颁奖典礼上，我校2010届家具设计专业学生马良的作品《椅》荣获了创新金奖。'}
-		,{url:'#',image:'',title:'周达受邀参加2012中国国际设计峰会暨PIN UP Awards颁奖典礼',date:'2013-07-18',desc:'国际绿色设计与家居生活 2012 中国国际设计峰会——暨PIN UP Awards 颁奖典礼前日在京举行，西卡国际设计学校作为国内设计先锋机构。执行校长潘海凌女士及教学主任尚伟平老师代表出席了本次盛会，在颁奖典礼上，我校2010届家具设计专业学生马良的作品《椅》荣获了创新金奖。'}
+		<?php foreach ($newses as $news): ?>
+		{  
+			url:'/main/article?id=<?php echo $news['articleId'];?>',
+			image:'<?php echo $base_url, $news['image']?>',
+			title:'<?php echo $news['title']; ?>'
+			,date:'<?php echo date('Y-m-d', $news['date']->sec) ?>',
+			desc:'<?php echo $news['summary']; ?>'
+		},
+		<?php endforeach; ?>
 		];
 	</script>
 	<script type="text/template" id="J_news_temp">
