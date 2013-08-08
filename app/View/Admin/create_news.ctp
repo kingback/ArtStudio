@@ -4,45 +4,46 @@
 
 <div class="publisher">
 	<form action="/adminapi/modifyNews<?php if (isset($id)) echo "?id=$id";?>" method="post" target="self" id="publish-form" enctype="multipart/form-data">
+		<legend>新闻管理</legend>
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span9">
 					<div class="article-title" class="span6">
-						<label for="article-title">文章标题</label>
+						<label for="article-title">标题</label>
 						<input class="span3" type="text" id="article-title" name="title" placeholder="文章标题" value="<?php echo $title;?>" />
 					</div>
 					<div>
-						<label for="summary">文章简介</label>
+						<label for="summary">简介</label>
 						<textarea rows="6" class="span12" name="summary"><?php echo $summary; ?></textarea>
 					</div>
 				</div>
 				<div class="span3">
 					<?php if ($image != false): ?>
-					<img id="previewCover" style="width:300px; height:225px" src="<?php echo $base_url, $image; ?>"/>
+					<img id="previewCover" style="width:300px; height:225px" class="img-polaroid" src="<?php echo $base_url, $image; ?>"/>
 					<?php else: ?>
-					<img id="previewCover" style="width:300px; height:225px" data-src="holder.js/300x225" alt=""/>
+					<img id="previewCover" style="width:300px; height:225px" class="img-polaroid"  data-src="holder.js/300x225" alt=""/>
 					<?php endif; ?>
 					<div class="form-inline" class="span6">
-						<label for="cover">选择新闻介绍图片</label>
+						<label for="cover" style="margin:10px">封面图片</label>
 						<a class="btn btn-info" onclick="$('input[id=Filedata]').click();">Browse</a>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div>
-			<input id="Filedata" type="file" name="Filedata" style="display:none" multiple />
-			<div class="alert alert-info" id="photoCover" style="display:none" >
+			<div>
+				<input id="Filedata" type="file" name="Filedata" style="display:none" multiple />
+				<div class="alert alert-info" id="photoCover" style="display:none" >
+				</div>
 			</div>
-		</div>
-		<div class="article-content">
-			<textarea id="editor" name="content" style="width:900px;height:400px;">
-				<?php echo $content; ?>
-			</textarea>
-		</div>
-		<div class="form-button">
-			<button type="button" id="preview-btn">预览</button>
-			<button type="button" id="submit-btn">提交</button>
-			<button type="button" id="cancel-btn">取消</button>
+			<div class="article-content">
+				<label for="content">内容</label>
+				<textarea id="editor" name="content" style="width:900px;height:400px;">
+					<?php echo $content; ?>
+				</textarea>
+			</div>
+			<div class="form-button">
+				<button type="button" id="preview-btn">预览</button>
+				<button type="button" id="submit-btn">提交</button>
+			</div>
 		</div>
 	</form>
 </div>

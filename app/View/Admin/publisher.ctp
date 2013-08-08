@@ -4,6 +4,7 @@
 
 <div class="publisher">
 	<form action="/adminapi/modifyArticle<?php if (isset($id)) echo "?id=$id";?>" method="post" target="self" id="publish-form">
+		<legend>文章管理</legend>
 		<div class="article-title">
 		<label for="article-title">文章标题：</label><input type="text" id="article-title" name="title" placeholder="文章标题" value="<?php echo $title;?>" />
 		</div>
@@ -15,6 +16,7 @@
 			</select>
 		</div>
 		<div class="article-content">
+			<label for="content">内容</label>
 			<textarea id="editor" name="content" style="width:900px;height:400px;">
 			<?php echo $content; ?>
 			</textarea>
@@ -22,7 +24,6 @@
 		<div class="form-button">
 			<button type="button" id="preview-btn">预览</button>
 			<button type="button" id="submit-btn">提交</button>
-			<button type="button" id="cancel-btn">取消</button>
 		</div>
 	</form>
 </div>

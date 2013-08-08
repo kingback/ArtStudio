@@ -170,7 +170,7 @@ class AdminController extends AppController {
 		$this->set('albums', $albums);
 		$this->set('covers', $covers);
 		$this->set('base_url', $this->grid_base_url);
-		$this->set('title_for_layout', '管理相册');
+		$this->set('title_for_layout', '相册管理');
 	}
 
 	public function albumCategories()
