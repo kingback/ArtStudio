@@ -1,5 +1,6 @@
 <p>
-<a target='_blank' class='btn btn-success' href="/admin/publisher" >新建文章</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-success' href="/admin/publisher" >新建主页/招生简章</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-success' href="/admin/createNews" >新建新闻</a> &nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 <p>
@@ -31,7 +32,11 @@
 		<td><?php echo $article['title']; ?></td>
 		<td><?php echo date('Y-m-d h:i:s', $article['modifyTime']->sec); ?></td>
 		<td><a target="_blank" class="btn btn-success" href='/main/article?id=<?php echo $article['_id']; ?>'>预览文章</a></td>
+		<?php if ($article['type'] == '新闻'): ?>
+		<td><a class="btn btn-danger" href='/admin/createNews?id=<?php echo $article['_id']; ?>'>修改文章</a></td>
+		<?php else: ?>
 		<td><a class="btn btn-danger" href='/admin/publisher?id=<?php echo $article['_id']; ?>'>修改文章</a></td>
+		<?php endif; ?>
 		</tr>
 	<?php endforeach; ?>
 	</body>

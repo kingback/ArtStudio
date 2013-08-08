@@ -16,6 +16,7 @@
         <link href="/admin/css/prettify.css" rel="stylesheet">
         <link href="/admin/css/bootstrap-combined.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" media="screen" href="/admin/css/bootstrap-datetimepicker.min.css">
+        <script src="/admin/js/jquery.js"></script>
     </head>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -62,7 +63,6 @@
         <?php echo $this->fetch('content'); ?>
     </div>
 
-    <script src="/admin/js/jquery.js"></script>
     <script src="/admin/js/jquery.form.js"></script> 
     <script src="/admin/js/bootstrap.min.js"></script>
     <script src="/admin/js/holder.js"></script>

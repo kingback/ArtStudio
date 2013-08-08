@@ -215,4 +215,33 @@ class AdminController extends AppController {
 		$this->set('title_for_layout', '文章管理');
 		$this->set('articles', $articles);
 	}
+
+	public function createNews()
+	{
+		$id = $this->_get_argument('id', -1);
+		$content = "";
+		$title = "";
+		$type = "";
+		$summary = "";
+		$image = false;
+		if ($id != -1) {
+			$article_col = $this->get_collection($this->db_name, $this->article_collection);
+			$article = $article_col->findOne(array('_id' => new MongoId($id)));
+			$news_col = $this->get_collection($this->db_name, $this->news_collection);
+			$news = $news_col->findOne(array('articleId' => $id));
+			$content = $article['content'];
+			$title = $article['title'];
+			$summary = $news['summary'];
+			if (isset($news['image'])) {
+				$image = $news['image'];
+			}
+		}
+		$this->set('title_for_layout', '新闻发布');
+		$this->set('id', $id);
+		$this->set('title', $title);
+		$this->set('content', $content);
+		$this->set('summary', $summary);
+		$this->set('image', $image);
+		$this->set('base_url', $this->grid_base_url);
+	}
 }

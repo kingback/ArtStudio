@@ -40,6 +40,7 @@ class AppController extends Controller {
 	protected $album_category_collection = 'albumCategory';
 	protected $teacher_collection = 'teacher';
 	protected $article_collection = 'article';
+	protected $news_collection = 'news';
 	protected $grid_db = "pic";
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";
@@ -119,6 +120,12 @@ class AppController extends Controller {
 		$this->response->statusCode($code);
 		$this->response->send();
 		exit(); 
+	}
+
+	protected function _setErrMsgAndExit($msg, $code)
+	{
+		echo json_encode(array('msg' => $msg));
+		$this->_setStatusAndExit($code);
 	}
 
 	protected function get_grid_fs()

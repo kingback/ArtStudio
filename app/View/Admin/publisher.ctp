@@ -10,7 +10,6 @@
 		<div>
 			<label for="type">文章类型：</label>
 			<select name="type">
-				<option>新闻</option>
 				<option>主页</option>
 				<option>招生简章</option>
 			</select>

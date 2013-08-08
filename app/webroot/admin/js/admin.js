@@ -39,8 +39,8 @@ $(document).ready(function() {
 			window.location.href='/admin/listArticles';
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
-			alert("添加失败: " + msg);
+			//var msg = JSON.parse(XMLHttpRequest.responseText).msg;
+			//alert("添加失败: " + msg);
 		}
 	});
 });
