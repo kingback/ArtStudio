@@ -348,9 +348,12 @@ class AdminapiController extends AppController {
 		$ids = explode(',', $ids_str);
 
 		var_dump($ids);
-		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article_col = $this->get_collection($this->db_name, $this->article_collection);
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
 		foreach ($ids as $id) {
-			$res = $collection->remove(array('_id' => new MongoId($id)));
+			$res = $article_col->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+			$res = $news_col->remove(array('articleId' => $id));
 			var_dump($res);
 		}
 	}
