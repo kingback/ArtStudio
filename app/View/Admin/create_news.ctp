@@ -13,7 +13,7 @@
 					</div>
 					<div>
 						<label for="summary">文章简介</label>
-						<textarea rows="3" class="span9" name="summary"><?php echo $summary; ?></textarea>
+						<textarea rows="6" class="span12" name="summary"><?php echo $summary; ?></textarea>
 					</div>
 				</div>
 				<div class="span3">
