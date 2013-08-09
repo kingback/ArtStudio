@@ -126,4 +126,60 @@ class MainController extends AppController {
 		$teachers = $collection->find();
 		$this->set('teachers', $teachers);
 	}
+
+	public function article()
+	{
+		$id = $this->_get_argument('id');
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article = $collection->findOne(array('_id' => new MongoId($id)));
+		$this->setArticleInfo($article);
+		$this->set('page', -1);
+		$this->set('body_class', 'zds-article');
+	}
+
+	public function studioInfo()
+	{
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article = $collection->findOne(array('type' => '主页'));
+		$this->setArticleInfo($article);
+		$this->set('page', 2);
+		$this->set('body_class', 'zds-article');
+		$this->render('/Main/article');
+	}
+
+	public function recruitInfo()
+	{
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article = $collection->findOne(array('type' => '招生简章'));
+		$this->setArticleInfo($article);
+		$this->set('page', 6);
+		$this->set('body_class', 'zds-article');
+		$this->render('/Main/article');
+	}
+
+	public function news()
+	{
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		$newses = $news_col->find()->sort(array('date' => -1));
+		$this->set('newses', $newses);
+		$this->set('base_url', $this->grid_base_url);
+		$this->set('page', 9);
+		$this->set('body_class', 'zds-article');
+	}
+
+	private function setArticleInfo($article)
+	{
+		if (empty($article)) {
+			$title = "找不到相应文章";
+			$content = "无文章";
+			$type = "error";
+		} else {
+			$title = $article['title'];
+			$content = $article['content'];
+			$type = $article['type'];
+		}
+		$this->set('title', $title);
+		$this->set('type', $type);
+		$this->set('content', $content);
+	}
 }

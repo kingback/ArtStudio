@@ -8,7 +8,8 @@ KindEditor.ready(function(K) {
         debug = location.href.indexOf('publisher/demo/index') > -1,
         height = winHeight() - docHeight(),
         editor;
-    
+
+
     function winHeight() {
         return window.innerHeight;
     }
@@ -40,7 +41,7 @@ KindEditor.ready(function(K) {
     }
      
     editor = K.create('#editor', {
-        uploadJson: 'http://106.186.25.82/mainapi/uploadImage'
+        uploadJson: '/mainapi/uploadImage'
     }); 
     
     preview.bind('click', function(e) {
@@ -52,7 +53,8 @@ KindEditor.ready(function(K) {
         if (debug) {
             save();
         } else {
-            form[0].submit();
+            //form[0].submit();
+			$('#publish-form').submit();
         }
     });
     

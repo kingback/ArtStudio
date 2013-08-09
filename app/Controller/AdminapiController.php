@@ -108,8 +108,8 @@ class AdminapiController extends AppController {
 			$this->_setStatusAndExit(400);
 		}
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
-		$large = $this->save_file($filename, $type);
 		$small = $this->save_file($small_file, $type);
+		$large = $this->save_file($filename, $type);
 		$pic = array('large' => $large, 'small' => $small);
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
 		$res = $collection->insert($pic);
@@ -320,5 +320,95 @@ class AdminapiController extends AppController {
 				echo json_encode($res);
 			}
 		}
+	}
+
+	public function modifyArticle()
+	{
+		$content = $this->_get_argument('content');
+		$title = $this->_get_argument('title');
+		$type = $this->_get_argument('type');
+		$id = $this->_get_argument('id', -1);
+		$newdata = array('title' => $title, 'content' => $content, 'modifyTime' => new MongoDate(), 'type' => $type);
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		if ($id != -1) {
+			$res = $collection->update(array('_id' => new MongoId($id)), array('$set' => $newdata));
+			echo json_encode($res);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
+		} else {
+			$res = $collection->insert($newdata);
+			echo json_encode($res);
+		}
+	}
+
+	public function deleteArticle()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$article_col = $this->get_collection($this->db_name, $this->article_collection);
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		foreach ($ids as $id) {
+			$res = $article_col->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+			$res = $news_col->remove(array('articleId' => $id));
+			var_dump($res);
+		}
+	}
+
+	public function modifyNews()
+	{
+		var_dump($_POST);
+		var_dump($_FILES);
+		$content = $this->_get_argument('content');
+		$title = $this->_get_argument('title');
+		$summary = $this->_get_argument('summary');
+		$id = $this->_get_argument('id', -1);
+		$type = "新闻";
+
+		// save article
+		$newdata = array('title' => $title, 'content' => $content, 'modifyTime' => new MongoDate(), 'type' => $type);
+		$article_col = $this->get_collection($this->db_name, $this->article_collection);
+		if ($id != -1) {
+			$res = $article_col->update(array('_id' => new MongoId($id)), array('$set' => $newdata));
+			echo json_encode($res);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
+		} else {
+			$newdata['_id'] = new MongoId();
+			$id = $newdata['_id']->{'$id'};
+			$res = $article_col->insert($newdata);
+			echo json_encode($res);
+		}
+
+		$image_file = -1;
+		if (isset($_FILES['Filedata'])) {
+			echo "image!!";
+			$filename = $_FILES['Filedata']['tmp_name'];
+			$name = $_FILES['Filedata']['name'];
+			$type = $_FILES['Filedata']['type'];
+			// save news cover image
+			if (!$this->is_image($type)) {
+				echo json_encode(array('msg' => $name . ' is not image'));
+				$this->_setStatusAndExit(400);
+			}
+			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
+			$image_file = $this->save_file($small_file, $type);
+			var_dump($small_file);
+			var_dump($image_file);
+		}
+
+		// save news info
+		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => new MongoDate());
+		if ($image_file != -1) {
+			$news_data['image'] = $image_file;
+		}
+		var_dump($news_data);
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		$res = $news_col->update(array('articleId' => $id), array('$set' => $news_data), array('upsert' => true));
+		echo json_encode($res);
 	}
 }

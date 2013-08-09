@@ -18,7 +18,7 @@
 <table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
-		<th>选择图片</th>
+		<th></th>
 		<th>大图地址</th>
 		<th>小图地址</th>
 		<th>图片预览</th>

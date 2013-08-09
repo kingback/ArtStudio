@@ -54,12 +54,10 @@
 	<tbody>
 		<?php foreach ($honours as $stu): ?>
 		<tr>
-			<td class="student"><?php echo $stu['name']; ?></td>
-			<td class="school"><p><?php echo $stu['school']; ?></p></td>
-			<td class="school"><p><?php echo $stu['year']; ?></p></td>
-			<td class="school"><p><?php 
-				echo "<button class='btn btn-danger' onclick=\"deleteHonour('{$stu['_id']}', '{$stu['name']}')\">删除</button>";
-				?></p></td>
+			<td><?php echo $stu['name']; ?></td>
+			<td><?php echo $stu['school']; ?></td>
+			<td><?php echo $stu['year']; ?></td>
+			<td><button class='btn btn-danger' onclick=\"deleteHonour('<?php echo $stu['_id'];?>', '<?php echo $stu['name'];?>')'>删除</button></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>

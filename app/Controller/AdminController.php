@@ -164,13 +164,13 @@ class AdminController extends AppController {
 				$id = $album['cover'];
 				$covers[$album_id] = $album['images'][$id]['small'];
 			} else {
-				$covers[$album_id] = '404';
+				$covers[$album_id] = false;
 			}
 		}
 		$this->set('albums', $albums);
 		$this->set('covers', $covers);
 		$this->set('base_url', $this->grid_base_url);
-		$this->set('title_for_layout', '管理相册');
+		$this->set('title_for_layout', '相册管理');
 	}
 
 	public function albumCategories()
@@ -188,5 +188,60 @@ class AdminController extends AppController {
 		$this->set('title_for_layout', '教师管理');
 		$this->set('base_url', $this->grid_base_url);
 		$this->set('teachers', $teachers);
+	}
+
+	public function publisher()
+	{
+		$id = $this->_get_argument('id', -1);
+		$content = "";
+		$title = "";
+		$type = "";
+		if ($id != -1) {
+			$collection = $this->get_collection($this->db_name, $this->article_collection);
+			$article = $collection->findOne(array('_id' => new MongoId($id)));
+			$content = $article['content'];
+			$title = $article['title'];
+		}
+		$this->set('title_for_layout', '文章发布');
+		$this->set('id', $id);
+		$this->set('title', $title);
+		$this->set('content', $content);
+	}
+
+	public function listArticles()
+	{
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$articles = $collection->find()->sort(array('type' => 1));
+		$this->set('title_for_layout', '文章管理');
+		$this->set('articles', $articles);
+	}
+
+	public function createNews()
+	{
+		$id = $this->_get_argument('id', -1);
+		$content = "";
+		$title = "";
+		$type = "";
+		$summary = "";
+		$image = false;
+		if ($id != -1) {
+			$article_col = $this->get_collection($this->db_name, $this->article_collection);
+			$article = $article_col->findOne(array('_id' => new MongoId($id)));
+			$news_col = $this->get_collection($this->db_name, $this->news_collection);
+			$news = $news_col->findOne(array('articleId' => $id));
+			$content = $article['content'];
+			$title = $article['title'];
+			$summary = $news['summary'];
+			if (isset($news['image'])) {
+				$image = $news['image'];
+			}
+		}
+		$this->set('title_for_layout', '新闻发布');
+		$this->set('id', $id);
+		$this->set('title', $title);
+		$this->set('content', $content);
+		$this->set('summary', $summary);
+		$this->set('image', $image);
+		$this->set('base_url', $this->grid_base_url);
 	}
 }
