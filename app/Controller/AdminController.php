@@ -164,7 +164,7 @@ class AdminController extends AppController {
 				$id = $album['cover'];
 				$covers[$album_id] = $album['images'][$id]['small'];
 			} else {
-				$covers[$album_id] = '404';
+				$covers[$album_id] = false;
 			}
 		}
 		$this->set('albums', $albums);

@@ -17,12 +17,18 @@
 	<?php foreach ($albums as $album): ?>
 		<tr>
 		<td><?php echo $album['title']; ?></td>
-		<td><img src='<?php echo $base_url; echo $covers[$album['_id']]; ?>' style='max-height:100px'/></td>
+		<td>
+			<?php if ($covers[$album['_id']] != false): ?>
+			<img src='<?php echo $base_url; echo $covers[$album['_id']]; ?>' style='max-height:122px'/>
+			<?php else: ?>
+			<img style="width:160px; height:122px" class="img-polaroid"  data-src="holder.js/160x122"/>
+			<?php endif; ?>
+		</td>
 		<td><?php echo $album['desc']; ?></td>
 		<td><?php if (isset($album['category'])) echo $album['category']; ?></td>
 		<td><a class="btn btn-info" href="/admin/uploadAlbumImages?id=<?php echo $album['_id']; ?>">管理相册</a></td>
 		<td><a class="btn btn-warning" href="/admin/modifyAlbum?id=<?php echo $album['_id']; ?>">修改相册信息</a></td>
-		</tr>
+	</tr>
 	<?php endforeach; ?>
-	</tbody>
+</tbody>
 </table>
