@@ -119,7 +119,7 @@ YUI.add('env', function(Y) {
                         id: id
                     },
                     on: {
-                        complete: function(id, r) {
+                        complete: function(iid, r) {
                             var data;
                             
                             try {
@@ -129,6 +129,7 @@ YUI.add('env', function(Y) {
                             if (data) {
                                 data = self.parseData(data);
                                 self._data[id] = data;
+                                self.hideTip();
                                 if (self._id === id) {
                                     fn.call(self, data);   
                                 }
