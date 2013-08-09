@@ -130,7 +130,7 @@ YUI.add('env', function(Y) {
                                 data = self.parseData(data);
                                 self._data[id] = data;
                                 if (self._id === id) {
-                                    fn.call(this, data);   
+                                    fn.call(self, data);   
                                 }
                             } else {
                                 self.showTip('抱歉，图集加载失败，请稍后再试~', true);
@@ -167,6 +167,7 @@ YUI.add('env', function(Y) {
             
             if (!this.tip) {
                 this.tip = Y.Node.create('<div class="album-tip"></div>');
+                Y.one('body').prepend(this.tip);
             }
             
             clearTimeout(this.timer);
