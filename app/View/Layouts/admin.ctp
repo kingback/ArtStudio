@@ -8,11 +8,12 @@
 		<style>
 			body {
 				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+				font:14px arial;
 			}
 			.table {
 				background-color: #fff;
+				font:14px arial;
 			}
-
 		</style>
 		<link href="/admin/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -61,12 +62,12 @@
 		</div>
 	</div>
 
-<script src="/admin/js/jquery.form.js"></script> 
-<script src="/admin/js/bootstrap.min.js"></script>
-<script src="/admin/js/holder.js"></script>
-<script src="/admin/js/prettify.js"></script>
-<script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/admin/js/admin.js"></script>
+	<script src="/admin/js/jquery.form.js"></script> 
+	<script src="/admin/js/bootstrap.min.js"></script>
+	<script src="/admin/js/holder.js"></script>
+	<script src="/admin/js/prettify.js"></script>
+	<script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/admin/js/admin.js"></script>
 </body>
 </html>
 <!--
