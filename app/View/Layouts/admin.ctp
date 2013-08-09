@@ -5,22 +5,31 @@
 		<title>
 			<?php echo $title_for_layout; ?>
 		</title>
+		<link href="/admin/css/bootstrap-combined.min.css" rel="stylesheet">
 		<style>
 			body {
 				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-				font:14px arial;
 			}
 			.table {
 				background-color: #fff;
 				font:14px arial;
 			}
+			.navbar-inverse .navbar-inner {
+				background: #1170AB;
+				background-image: -webkit-linear-gradient(top, #0A4366, #083754);
+				background-image: -moz-linear-gradient(top, #0A4366, #083754);
+				background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0A4366), to(#083754));
+				background-image: -webkit-linear-gradient(top, #0A4366, #083754);
+				background-image: -o-linear-gradient(top, #0A4366, #083754);
+				background-image: linear-gradient(to bottom, #0A4366, #083754);
+			}
+			.navbar .nav > li > a {
+				color: #DDD;
+			}
+			.navbar .nav .active > a, .navbar .nav .active > a:hover {
+				background-color: #083754;
+			}
 		</style>
-		<link href="/admin/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="/admin/css/docs.css" rel="stylesheet">
-		<link href="/admin/css/prettify.css" rel="stylesheet">
-		<link href="/admin/css/bootstrap-combined.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" media="screen" href="/admin/css/bootstrap-datetimepicker.min.css">
 		<script src="/admin/js/jquery.js"></script>
 	</head>
 </head>
@@ -65,8 +74,6 @@
 	<script src="/admin/js/jquery.form.js"></script> 
 	<script src="/admin/js/bootstrap.min.js"></script>
 	<script src="/admin/js/holder.js"></script>
-	<script src="/admin/js/prettify.js"></script>
-	<script src="/admin/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="/admin/js/admin.js"></script>
 </body>
 </html>
