@@ -79,6 +79,14 @@
                         path: getPath('galleria/galleria'),
                         requires: ['galleria-skin', 'node-event-simulate', 'base', 'widget', 'widget-stdmod', 'widget-stack', 'scrollview']
                     },
+                    'slideshow-skin': {
+                        path: getPath('slideshow/slideshow', 'css'),
+                        type: 'css'  
+                    },
+                    'slideshow': {
+                        path: getPath('slideshow/slideshow'),
+                        requires: ['slideshow-skin', 'base', 'widget', 'widget-stack', 'widget-position', 'widget-position-align', 'widget-modality', 'transition']
+                    },
                     'mytabview': {
                         path: getPath('mytabview/mytabview'),
                         requires: ['base', 'classnamemanager', 'node', 'event', 'event-delegate']
