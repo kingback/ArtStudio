@@ -7,21 +7,17 @@
 	<!-- 焦点图 {{-->
 	<section class="slide-show" id="J_slide_show">
 	<div class="tab-content">
+		<?php $i = 0;?>
+		<?php foreach ($focusImages as $focusImage):?>
+		<?php ++$i; ?>
+		<?php if ($i == 1):  ?>
 		<div class="tab-pannel">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-1.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
+		<?php else: ?>
 		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-2.jpg" width="600" height="400" alt="焦点图" /></a>
+		<?php endif;?>
+		<a href="<?php echo $focusImage['link']; ?>"><img src="<?php echo $focusImage['src']; ?>" width="600" height="400" alt="<?php echo $focusImage['alt']; ?>" /></a>
 		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-3.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-4.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-5.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="tab-nav-con">
 		<div class="tab-nav-wrapper">
@@ -198,93 +194,35 @@
 	<h2>师资力量</h2>
 	<div class="teachers-con">
 		<ul class="main-teachers clearfix">
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt1.png" alt="文筱波" /></span>
-				<strong class="teacher-name">文筱波</strong>
+			<?php  $i = 0; ?>
+			<?php foreach ($mts as $mt): ?>
+			<?php ++$i; ?>
+			<?php if ($i % 2 ==0): ?>
+				<li>
+			<?php else: ?>
+				<li class="teacher-even">
+			<?php endif; ?>
+			<a href="/main/teacher" class="teacher-link">
+				<span class="teacher-image"><img src="<?php echo $mt['img']; ?>" alt="<?php echo $mt['name']; ?>" /></span>
+				<strong class="teacher-name"><?php echo $mt['name']; ?></strong>
 			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">造型主教</p>
+			<p class="teacher-school"><?php echo $mt['school'];?></p>
+			<p class="teacher-title"><?php echo $mt['title']; ?></p>
 			</li>
-			<li class="teacher-even">
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt2.png" alt="李迪" /></span>
-				<strong class="teacher-name">李迪</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt3.png" alt="王允昌" /></span>
-				<strong class="teacher-name">王允昌</strong>
-			</a>
-			<p class="teacher-school">清华美术学院</p>
-			<p class="teacher-title">设计主教</p>
-			</li>
-			<li class="teacher-even">
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt4.png" alt="郝爽" /></span>
-				<strong class="teacher-name">郝爽</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt5.png" alt="董丹丹" /></span>
-				<strong class="teacher-name">董丹丹</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">色彩主教</p>
-			</li>
+			<?php endforeach; ?>
 		</ul>
 		<ul class="other-teachers clearfix">
+			<?php foreach ($ots as $ot): ?>
 			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot1.png" alt="文筱波" /></span>
-				<strong class="teacher-name">文筱波</strong>
+			<a href="/main/teacher" class="teacher-link">
+			<span class="teacher-image"><img src="<?php echo $ot['img']; ?>" alt="<?php echo $ot['name']; ?>" /></span>
+			<strong class="teacher-name"><?php echo $ot['name']; ?></strong>
 				<em></em>
 			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">造型主教</p>
+			<p class="teacher-school"><?php echo $ot['school']; ?></p>
+			<p class="teacher-title"><?php echo $ot['title']; ?></p>
 			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot2.png" alt="李迪" /></span>
-				<strong class="teacher-name">李迪</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot3.png" alt="王允昌" /></span>
-				<strong class="teacher-name">王允昌</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">清华美术学院</p>
-			<p class="teacher-title">设计主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot1.png" alt="郝爽" /></span>
-				<strong class="teacher-name">郝爽</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot2.png" alt="董丹丹" /></span>
-				<strong class="teacher-name">董丹丹</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">色彩主教</p>
-			</li>
+			<?php endforeach; ?>
 		</ul>
 	</div>
 	</section>

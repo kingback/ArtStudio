@@ -7,9 +7,30 @@ class MainController extends AppController {
 
 	public function index()
 	{
-		$this->set('body_class', 'zds-index');
-		$this->set('page', 1);
-		$this->set('base_url', $this->grid_base_url);
+
+		$focusImages = array();
+		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-1.jpg', 'alt' => '焦点图', 'link' => '#');
+		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-2.jpg', 'alt' => '焦点图', 'link' => '#');
+		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-3.jpg', 'alt' => '焦点图', 'link' => '#');
+		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-4.jpg', 'alt' => '焦点图', 'link' => '#');
+		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-5.jpg', 'alt' => '焦点图', 'link' => '#');
+		$this->set('focusImages', $focusImages);
+
+		$mainTeachers = array();
+		$mainTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/mt1.png');
+		$mainTeachers[] = array('name' => '李迪', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'img' => '/index/img/mt2.png');
+		$mainTeachers[] = array('name' => '王允昌', 'school' => '清华美术学院', 'title' => '设计主教', 'img' => '/index/img/mt3.png');
+		$mainTeachers[] = array('name' => '郝爽', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'img' => '/index/img/mt4.png');
+		$mainTeachers[] = array('name' => '董丹丹', 'school' => '中央美术学院', 'title' => '色彩主教', 'img' => '/index/img/mt5.png');
+		$this->set('mts', $mainTeachers);
+
+		$otherTeachers = array();
+		$otherTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/ot1.png');
+		$otherTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/ot2.png');
+		$otherTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/ot3.png');
+		$otherTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/ot1.png');
+		$otherTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/index/img/ot2.png');
+		$this->set('ots', $otherTeachers);
 
 		$news_col = $this->get_collection($this->db_name, $this->news_collection);
 		$newses = $news_col->find()->sort(array('date' => -1));
@@ -28,6 +49,10 @@ class MainController extends AppController {
 		$album_col = $this->get_collection($this->db_name, $this->album_collection);
 		$albums = $album_col->find()->sort(array('type' => 1));
 		$this->set('albums', $albums);
+
+		$this->set('body_class', 'zds-index');
+		$this->set('page', 1);
+		$this->set('base_url', $this->grid_base_url);
 	}
 
 	public function signup()
