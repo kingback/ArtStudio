@@ -45,7 +45,6 @@ YUI.add('intro', function(Y) {
             });
             
             slide.render();
-            slide.set('tabs', null);
             
             this.slide = slide;
         }
