@@ -6,9 +6,10 @@
 			<?php echo $title_for_layout; ?>
 		</title>
 		<link href="/admin/css/bootstrap-combined.min.css" rel="stylesheet">
+		<link href="/admin/css/bootstrap-google.css" rel="stylesheet">
 		<style>
 			body {
-				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+				padding-top: 10px; /* 60px to make the container go all the way to the bottom of the topbar */
 			}
 			.table {
 				background-color: #fff;

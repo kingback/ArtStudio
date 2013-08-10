@@ -58,7 +58,7 @@
 			<?php foreach ($teachers as $teacher): ?>
 			<tr>
 				<td><input type="checkbox" name="checkbox" value="<?php echo $teacher['_id'];?>"></td>
-				<td><img class="span3" src='<?php echo $base_url, $teacher['image']?>' style='max-height:210px'/></td>
+				<td class="span3"><img src='<?php echo $base_url, $teacher['image']?>' style='max-height:210px'/></td>
 				<td><input class="span1"  id='<?php echo $teacher['_id'];?>_name' name ="name" type="text" value="<?php echo $teacher['name'];?>"></input></td>
 				<td><input class="span2"  id='<?php echo $teacher['_id'];?>_title' name ="title" type="text" value="<?php echo $teacher['title'];?>"></input></td>
 				<td><textarea rows="5" class="span5" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
