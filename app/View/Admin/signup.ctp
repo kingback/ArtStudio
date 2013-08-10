@@ -2,7 +2,8 @@
 <?php $this->Html->css('/admin/css/signup.css',null, array('inline' => false)); ?>
 
 <p>
-<a target='_blank' class='btn btn-danger' onclick="deleteSignup()">删除选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-danger' onclick="deleteSignup()">删除选中学生</a> &nbsp;
+<a target='_blank' class='btn btn-info' href="/admin/downloadSignupXls" >下载注册列表</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
 <a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
 <a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
