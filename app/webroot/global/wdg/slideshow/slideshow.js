@@ -5,7 +5,8 @@
 YUI.add('slideshow', function(Y) {
     
     var SHOW_TEMP = '<li data-id="{id}" data-index="{index}"><img src="{src}" title="{alt}" alt="{alt}" /></li>',
-        NAV_TEMP = '<li data-id="{id}" data-index="{index}"><span><img src="{src}" title="{alt}" alt="{alt}" /></span></li>';
+        NAV_TEMP = '<li data-id="{id}" data-index="{index}"><span><img src="{src}" title="{alt}" alt="{alt}" /></span></li>',
+        INFO_TEMP = '<h3>{title}</h3><p></p>';
     
     Y.SlideShow = Y.Base.create('slideshow', Y.Widget, [
         Y.WidgetPosition,
@@ -30,6 +31,7 @@ YUI.add('slideshow', function(Y) {
             this._renderWin();
             this._renderNav();
             this._renderInfo();
+            this._renderBtns();
             this._renderClose();
         },
         
@@ -37,11 +39,13 @@ YUI.add('slideshow', function(Y) {
             this.after('dataChange', this._afterDataChange);
             this.after('selectedItemChange', this._afterSelectedItemChange);
             this._cb.delegate('click', this._onItemClick, '.yui3-slideshow-nav li', this);
+            this._prev.on('click', this.prev, this);
+            this._next.on('click', this.next, this);
             this._close.on('click', this.hide, this);
         },
         
         syncUI: function() {
-            this.select(this.get('selected'));
+            this.select(this.get('selected'), false);
         },
         
         select: function(item, anim) {
@@ -56,8 +60,34 @@ YUI.add('slideshow', function(Y) {
             }
             
             this.set('selectedItem', item, {
-                anim: anim
+                anim: anim === false ? false : true
             });
+        },
+        
+        prev: function(e) {
+            var items = this._nav.all('li'),
+                size = items.size(),
+                selectedItem = this.get('selectedItem'),
+                prevItem = selectedItem && selectedItem.previous('li') || items.item(size - 1);
+            
+            e && e.preventDefault();
+            
+            if (prevItem && size > 1) {
+                this.select(prevItem);
+            }
+        },
+        
+        next: function(e) {
+            var items = this._nav.all('li'),
+                size = items.size(),
+                selectedItem = this.get('selectedItem'),
+                nextItem = selectedItem && selectedItem.next('li') || items.item(0);
+            
+            e && e.preventDefault();
+            
+            if (nextItem && size > 1) {
+                this.select(nextItem);
+            }
         },
         
         _domCache: function() {
@@ -72,31 +102,6 @@ YUI.add('slideshow', function(Y) {
             node.addClass(this.getClassName(cls));
             
             return node;
-        },
-        
-        _getItemById: function(id) {
-            var node = null;
-            
-            this._nav.all('li').some(function(item) {
-                if (item.getAttribute('data-id') === id) {
-                    node = item;
-                    return true;
-                }
-            });
-            
-            return node;
-        },
-        
-        _getItemByIndex: function(index) {
-            return this._nav.all('li').item(index);  
-        },
-        
-        _getWinByItem: function(item) {
-            return item ? this._win.all('li').item(Number(item.getAttribute('data-index'))) : null;
-        },
-        
-        _getDataByItem: function(item) {
-            return item ? this._data.images[Number(item.getAttribute('data-index'))] : null;
         },
         
         _renderWin: function() {
@@ -150,7 +155,8 @@ YUI.add('slideshow', function(Y) {
         
         _renderInfo: function() {
             if (!this._info) {
-                this._info = this._createElem('h3', 'info');
+                this._info = this._createElem('div', 'info');
+                this._info.addClass('clearfix');
                 this._cb.append(this._info);
             } else {
                 this._info.setContent('');
@@ -158,13 +164,49 @@ YUI.add('slideshow', function(Y) {
             
             if (!this._data) { return; }
             
-            this._info.setContent(this._data.title);
+            this._info.append(Y.Lang.sub(INFO_TEMP, {
+                title: this._data.title
+            }));
+        },
+        
+        _renderBtns: function() {
+            this._prev = this._createElem('a', 'prev');
+            this._prev.setAttribute('href', '#');
+            this._next = this._createElem('a', 'next');
+            this._next.setAttribute('href', '#');
+            this._cb.append(this._prev);
+            this._cb.append(this._next);
         },
         
         _renderClose: function() {
             this._close = this._createElem('span', 'close');
             this._close.setContent('×');
             this._cb.append(this._close);
+        },
+        
+        _getItemById: function(id) {
+            var node = null;
+            
+            this._nav.all('li').some(function(item) {
+                if (item.getAttribute('data-id') === id) {
+                    node = item;
+                    return true;
+                }
+            });
+            
+            return node;
+        },
+        
+        _getItemByIndex: function(index) {
+            return this._nav.all('li').item(index);  
+        },
+        
+        _getWinByItem: function(item) {
+            return item ? this._win.all('li').item(Number(item.getAttribute('data-index'))) : null;
+        },
+        
+        _getDataByItem: function(item) {
+            return item ? this._data.images[Number(item.getAttribute('data-index'))] : null;
         },
         
         _onItemClick: function(e) {
@@ -230,6 +272,10 @@ YUI.add('slideshow', function(Y) {
                 } else {
                     e.win.setStyle('opacity', 1);
                 }
+            }
+            
+            if (e.data) {
+                this._info.one('p').setContent(e.data.desc);
             }
         }
         
