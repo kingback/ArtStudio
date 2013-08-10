@@ -1,3 +1,12 @@
+<?php 
+$types = array(
+	'drawing' => '素描',
+	'color' => '色彩',
+	'creation' => '创作',
+	'graphic' => '平面',
+	'sketch' => '速写',
+);
+?>
 <p>
 <a target='_blank' class='btn btn-primary' href="/admin/createAlbum" >新建相册</a>
 <a target='_blank' class='btn btn-primary' href="/admin/albumCategories" >管理班级</a>
@@ -26,7 +35,7 @@
 			<?php endif; ?>
 		</td>
 		<td><?php echo $album['desc']; ?></td>
-		<td><?php echo $album['type']; ?></td>
+		<td><?php echo $types[$album['type']]; ?></td>
 		<td><?php if (isset($album['category'])) echo $album['category']; ?></td>
 		<td><a class="btn btn-info" href="/admin/uploadAlbumImages?id=<?php echo $album['_id']; ?>">管理相册</a></td>
 		<td><a class="btn btn-warning" href="/admin/modifyAlbum?id=<?php echo $album['_id']; ?>">修改相册信息</a></td>
