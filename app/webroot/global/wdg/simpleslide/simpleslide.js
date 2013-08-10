@@ -128,7 +128,7 @@ YUI.add('simpleslide', function(Y) {
         },
         
         _afterAttrChange: function(e) {
-            this[attrName] = e.newVal;
+            this[e.attrName] = e.newVal;
         },
         
         _afterIndexChange: function(e) {
