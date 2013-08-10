@@ -47,3 +47,6 @@
 	<?php endforeach; ?>
 	</body>
 </table>
+
+<?php $this->Html->script('/admin/js/article.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/article.css',null, array('inline' => false)); ?>

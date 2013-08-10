@@ -35,7 +35,7 @@
 				background-color: #083754;
 			}
 		</style>
-		<script src="/admin/js/jquery.js"></script>
+		<?php echo $this->fetch('css'); ?>
 	</head>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar" style="background-color:#666">
@@ -72,10 +72,12 @@
 		</div>
 	</div>
 
+	<script src="/admin/js/jquery.js"></script>
 	<script src="/admin/js/jquery.form.js"></script> 
 	<script src="/admin/js/bootstrap.min.js"></script>
 	<script src="/admin/js/holder.js"></script>
 	<script src="/admin/js/admin.js"></script>
+	<?php echo $this->fetch('script'); ?>
 </body>
 </html>
 <!--

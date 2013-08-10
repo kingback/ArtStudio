@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="/min?b=publisher/css&f=publisher-min.css" />
-<script src="/editor/kindeditor-all.js"></script>
-<script src="/editor/lang/zh_CN.js"></script>
+<?php $this->Html->script('/editor/kindeditor-all.js', array('inline' => false)); ?>
+<?php $this->Html->script('/editor/lang/zh_CN.js', array('inline' => false)); ?>
+<?php $this->Html->css('/min?b=publisher/css&f=publisher-min.css',null, array('inline' => false)); ?>
+<?php $this->Html->script('/admin/js/publisher.js', array('inline' => false)); ?>
+
+<?php $this->Html->script('/admin/js/article.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/article.css',null, array('inline' => false)); ?>
 
 <div class="publisher">
 	<form action="/adminapi/modifyNews<?php if (isset($id)) echo "?id=$id";?>" method="post" target="self" id="publish-form" enctype="multipart/form-data">
@@ -31,8 +35,6 @@
 			</div>
 			<div>
 				<input id="Filedata" type="file" name="Filedata" style="display:none" multiple />
-				<div class="alert alert-info" id="photoCover" style="display:none" >
-				</div>
 			</div>
 			<div class="article-content">
 				<label for="content">内容</label>
@@ -47,15 +49,3 @@
 		</div>
 	</form>
 </div>
-</div>
-<script src="/admin/js/publisher.js"></script>
-<script>
-	$('input[id=Filedata]').change(function() {
-		$('#photoCover').html($(this).val());
-		$('#photoCover').css("display", "block");
-		var fobj = document.getElementById("Filedata");
-		var file = fobj.files[0];
-		var file_url = window.URL.createObjectURL(file);
-		document.getElementById("previewCover").src = file_url;
-	});
-</script>

@@ -67,11 +67,5 @@
 	</body>
 </table>
 
-<script>
-	$('input[id=imgFile]').change(function() {
-		var fobj = document.getElementById("imgFile");
-		var file = fobj.files[0];
-		var file_url = window.URL.createObjectURL(file);
-		document.getElementById("previewImg").src = file_url;
-	});
-</script>
+<?php $this->Html->script('/admin/js/teacher.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/teacher.css',null, array('inline' => false)); ?>

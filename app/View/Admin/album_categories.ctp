@@ -1,5 +1,5 @@
 <div class="well">
-<form  id="add_album" class="form-horizontal" action="/adminapi/addAlbumCategory" method="post">
+<form  id="addAlbumCategory" class="form-horizontal" action="/adminapi/addAlbumCategory" method="post">
 	<legend>添加新类型</legend>
 	<div class="control-group">
 		<label class="control-label" for="name">类型名称</label>
@@ -48,3 +48,6 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+
+<?php $this->Html->script('/admin/js/album.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/album.css',null, array('inline' => false)); ?>

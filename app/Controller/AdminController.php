@@ -10,19 +10,6 @@ class AdminController extends AppController {
 	{
 	}
 
-	public function addHonour()
-	{
-		if ($this->request->is('post')) {
-			$collection = $this->get_collection($this->db_name, $this->honour_collection);
-			$name = $this->_get_argument('name');
-			$school = $this->_get_argument('school');
-			$year = $this->_get_argument('year');
-			// add a record
-			$document = array('name' => $name, 'school' => $school, 'year' => $year);
-			$collection->insert($document);
-		} 
-		$this->redirect('/admin/honour');
-	}
 
 	public function honour()
 	{
@@ -32,7 +19,7 @@ class AdminController extends AppController {
 		$this->set('honours', $honours);
 	}
 
-	public function all_images()
+	public function allImages()
 	{
 		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
 		$cursor = $collection->find();

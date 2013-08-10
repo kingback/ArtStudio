@@ -13,6 +13,20 @@ class AdminapiController extends AppController {
 		exit();
 	}
 
+	public function addHonour()
+	{
+		if ($this->request->is('post')) {
+			$collection = $this->get_collection($this->db_name, $this->honour_collection);
+			$name = $this->_get_argument('name');
+			$school = $this->_get_argument('school');
+			$year = $this->_get_argument('year');
+			// add a record
+			$document = array('name' => $name, 'school' => $school, 'year' => $year);
+			$collection->insert($document);
+		} 
+		$this->redirect('/admin/honour');
+	}
+
 	public function addAlbumCategory()
 	{
 		$name = $this->_get_argument('name');
@@ -58,10 +72,27 @@ class AdminapiController extends AppController {
 
 	public function deleteHonour()
 	{
-		if ($this->request->is('post')) {
-			$collection = $this->get_collection($this->db_name, $this->honour_collection);
-			$id = $this->_get_argument('id');
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->honour_collection);
+		foreach ($ids as $id) {
 			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
+	}
+
+	public function deleteSignup()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->signup_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
 		}
 	}
 
@@ -448,6 +479,28 @@ class AdminapiController extends AppController {
 		foreach ($ids as $id) {
 			$res = $collection->remove(array('_id' => new MongoId($id)));
 			var_dump($res);
+		}
+	}
+
+	public function modifyVideo()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$names_str = $this->_get_argument('names');
+		$urls_str = $this->_get_argument('urls');
+		$descs_str = $this->_get_argument('descs');
+		$ids = json_decode($ids_str);
+		$names = json_decode($names_str);
+		$urls = json_decode($urls_str);
+		$descs = json_decode($descs_str);
+
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$cnt = count($ids);
+		for ($i = 0; $i < $cnt; $i++) {
+			$newdata = array('$set' => array('name' => $names[$i], 'url' => $urls[$i], 'desc' => $descs[$i]));
+			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
+			if (!$res['ok']) {
+				echo json_encode($res);
+			}
 		}
 	}
 }

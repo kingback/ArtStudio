@@ -5,10 +5,12 @@
 	</table>
 </form>
 
+<p>
 <a target='_blank' class='btn btn-info' onclick="deleteImages()">删除选中图片</a>
 <a target='_blank' class='btn btn-info' onclick="selectAll()">全选</a>
 <a target='_blank' class='btn btn-info' onclick="dselectAll()">全部取消</a>
 <a target='_blank' class='btn btn-info' onclick="rselectAll()">反选</a>
+</p>
 <table class="table table-bordered table-striped responsive-utilities">
 	<thead>
 	<tr>
@@ -27,3 +29,6 @@
 	<?php endforeach; ?>
 	</body>
 </table>
+
+<?php $this->Html->script('/admin/js/images.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/images.css',null, array('inline' => false)); ?>

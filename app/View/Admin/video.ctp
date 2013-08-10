@@ -1,3 +1,6 @@
+<?php $this->Html->script('/admin/js/video.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/video.css',null, array('inline' => false)); ?>
+
 <div class="well">
 	<form class="form-inline" id = "addVideo" method="POST" enctype="multipart/form-data" action="/adminapi/addVideo">
 		<legend>添加视频</legend>
@@ -66,12 +69,3 @@
 		<?php endforeach; ?>
 	</body>
 </table>
-
-<script>
-	$('input[id=imgFile]').change(function() {
-		var fobj = document.getElementById("imgFile");
-		var file = fobj.files[0];
-		var file_url = window.URL.createObjectURL(file);
-		document.getElementById("previewImg").src = file_url;
-	});
-</script>

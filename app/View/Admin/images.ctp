@@ -1,3 +1,6 @@
+<?php $this->Html->script('/admin/js/images.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/images.css',null, array('inline' => false)); ?>
+
 <div class="well">
 <form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadImages">
 	<fieldset>
@@ -35,3 +38,4 @@
 	<?php endforeach; ?>
 	</body>
 </table>
+
