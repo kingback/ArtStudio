@@ -188,9 +188,13 @@ class AdminController extends AppController {
 			$article = $collection->findOne(array('_id' => new MongoId($id)));
 			$content = $article['content'];
 			$title = $article['title'];
+			$type = $article['type'];
+		} else {
+			$type = $this->_get_argument('type');
 		}
 		$this->set('title_for_layout', '文章发布');
 		$this->set('id', $id);
+		$this->set('type', $type);
 		$this->set('title', $title);
 		$this->set('content', $content);
 	}

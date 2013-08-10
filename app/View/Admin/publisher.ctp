@@ -14,10 +14,8 @@
 		</div>
 		<div>
 			<label for="type">文章类型：</label>
-			<select name="type">
-				<option>主页</option>
-				<option>招生简章</option>
-			</select>
+			<input disabled type="text" value="<?php echo $type; ?>"></input>
+			<input style="display:none" type="text" name="type" value="<?php echo $type; ?>"></input>
 		</div>
 		<div class="article-content">
 			<label for="content">内容</label>
