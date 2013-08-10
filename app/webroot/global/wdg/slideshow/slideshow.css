@@ -1,5 +1,5 @@
 .yui3-widget-mask {background:#000;opacity: 0.4;}
-.yui3-slideshow {background:#fff;position:absolute;outline:none;}
+.yui3-slideshow {background:#fff;position:absolute;outline:none;box-shadow:0 0 50px #444;}
 .yui3-slideshow-hidden {visibility:hidden;left:-9999px !important;top:-9999px !important;}
 
 .yui3-slideshow-win {position:relative;width:100%;height:380px;overflow:hidden;}
