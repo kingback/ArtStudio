@@ -9,6 +9,10 @@
 						<input type="text" name="name" />
 					</div>
 					<div class="control-group">
+						<label class="control-label" for="school">任职学校</label>
+						<input type="text" name="school" />
+					</div>
+					<div class="control-group">
 						<label class="control-label" for="title">教师头衔</label>
 						<input type="text" name="title" />
 					</div>
@@ -50,6 +54,7 @@
 			<th></th>
 			<th>头像</th>
 			<th>姓名</th>
+			<th>学校</th>
 			<th>头衔</th>
 			<th>描述</th>
 		</tr>
@@ -60,6 +65,7 @@
 			<td><input type="checkbox" name="checkbox" value="<?php echo $teacher['_id'];?>"></td>
 			<td class="span3"><img src='<?php echo $base_url, $teacher['image']?>' style='max-height:210px'/></td>
 			<td><input class="span1"  id='<?php echo $teacher['_id'];?>_name' name ="name" type="text" value="<?php echo $teacher['name'];?>"></input></td>
+			<td><?php echo $teacher['school'];?></input></td>
 			<td><input class="span2"  id='<?php echo $teacher['_id'];?>_title' name ="title" type="text" value="<?php echo $teacher['title'];?>"></input></td>
 			<td><textarea rows="5" class="span5" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
 		</tr>

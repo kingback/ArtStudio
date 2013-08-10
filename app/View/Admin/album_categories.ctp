@@ -1,14 +1,14 @@
 <div class="well">
 <form  id="addAlbumCategory" class="form-horizontal" action="/adminapi/addAlbumCategory" method="post">
-	<legend>添加新类型</legend>
+	<legend>添加新班级</legend>
 	<div class="control-group">
-		<label class="control-label" for="name">类型名称</label>
+		<label class="control-label" for="name">名称</label>
 		<div class="controls">
 			<input type="text" name="name">
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="desc">类型介绍</label>
+		<label class="control-label" for="desc">介绍</label>
 		<div class="controls">
 			<textarea rows="5" class="span6" name="desc"></textarea>
 		</div>
@@ -32,8 +32,8 @@
 	<thead>
 		<tr>
 			<th>选择</th>
-			<th>类型名称</th>
-			<th>类型介绍</th>
+			<th>名称</th>
+			<th>介绍</th>
 		</tr>
 	</thead>
 	<tbody>

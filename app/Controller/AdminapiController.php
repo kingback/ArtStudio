@@ -317,6 +317,7 @@ class AdminapiController extends AppController {
 		$name = $this->_get_argument('name');
 		$title = $this->_get_argument('title');
 		$desc = $this->_get_argument('desc');
+		$school = $this->_get_argument('school');
 
 		if (!isset($_FILES['imgFile'])) {
 			echo json_encode(array('msg' => 'no image for teacher'));
@@ -332,7 +333,7 @@ class AdminapiController extends AppController {
 		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
 		$image = $this->save_file($compressed_file, $type);
 
-		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image);
+		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image, 'school' => $school);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$res = $collection->insert($teacher);
 		echo json_encode($res);
