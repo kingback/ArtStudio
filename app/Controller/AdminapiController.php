@@ -411,4 +411,43 @@ class AdminapiController extends AppController {
 		$res = $news_col->update(array('articleId' => $id), array('$set' => $news_data), array('upsert' => true));
 		echo json_encode($res);
 	}
+
+	public function addVideo()
+	{
+		$name = $this->_get_argument('name');
+		$url = $this->_get_argument('url');
+		$desc = $this->_get_argument('desc');
+
+		if (!isset($_FILES['imgFile'])) {
+			echo json_encode(array('msg' => 'no image for teacher'));
+			$this->_setStatusAndExit(400);
+		}
+		$tmp_filename = $_FILES['imgFile']['tmp_name'];
+		$filename = $_FILES['imgFile']['name'];
+		$type = $_FILES['imgFile']['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+			$this->_setStatusAndExit(400);
+		}
+		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
+		$image = $this->save_file($compressed_file, $type);
+
+		$video = array('name' => $name, 'url' => $url, 'desc' => $desc, 'image' => $image);
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$res = $collection->insert($video);
+		echo json_encode($res);
+	}
+
+	public function deleteVideo()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		foreach ($ids as $id) {
+			$res = $collection->remove(array('_id' => new MongoId($id)));
+			var_dump($res);
+		}
+	}
 }

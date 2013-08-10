@@ -244,4 +244,14 @@ class AdminController extends AppController {
 		$this->set('image', $image);
 		$this->set('base_url', $this->grid_base_url);
 	}
+
+	public function video()
+	{
+		$videos = array();
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$videos = $collection->find();
+		$this->set('title_for_layout', '视频管理');
+		$this->set('videos', $videos);
+		$this->set('base_url', $this->grid_base_url);
+	}
 }

@@ -52,6 +52,7 @@
 						<li <?php if ($title_for_layout == "注册管理") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
 						<li <?php if ($title_for_layout == "教师管理") echo 'class="active"' ?>><a href="/admin/teachers">教师管理</a></li>
 						<li <?php if ($title_for_layout == "文章管理") echo 'class="active"' ?>><a href="/admin/listArticles">文章管理</a></li>
+						<li <?php if ($title_for_layout == "视频管理") echo 'class="active"' ?>><a href="/admin/video">视频管理</a></li>
 					</ul>
 				</div>
 			</div>
@@ -60,7 +61,7 @@
 
 
 	<div class="container" style="background-color: #666">
-		<div class="hero-unit" style="background-color: #eee; margin:40px">
+		<div class="hero-unit" style="background-color: #eee;">
 			<?php $session = $this->Session->flash(); ?>
 			<?php if ($session): ?>
 			<div class="alert alert-error">
