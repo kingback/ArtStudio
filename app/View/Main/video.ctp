@@ -14,150 +14,25 @@
 	<!-- 视频列表 {{-->
 	<section class="video">
 	<ul class="video-list clearfix">
-		<li>
+		<?php $i = 0; ?>
+		<?php foreach ($videos as $video): ?>
+		<?php $i++; if ($i % 3 == 0): ?>
+			<li class="last">
+		<?php else: ?>
+			<li>
+		<?php endif; ?>
 		<a href="#">
 			<figure>
 			<div class="video-image">
-				<img src="/video/img/vi0.png" />
+			<img src="<?php echo $base_url, $video['image'];?>" />
 				<div class="video-mask"></div>
 				<span class="video-play"></span>
 			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
+			<figcaption><?php echo $video['name']; ?></figcaption>
 			</figure>
 		</a>
 		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi1.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li class="last">
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi2.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi3.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi4.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li class="last">
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi5.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi0.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi1.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li class="last">
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi2.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi3.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li>
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi4.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
-		<li class="last">
-		<a href="#">
-			<figure>
-			<div class="video-image">
-				<img src="/video/img/vi5.png" />
-				<div class="video-mask"></div>
-				<span class="video-play"></span>
-			</div>
-			<figcaption>美术高考视频北京周达画室色静物</figcaption>
-			</figure>
-		</a>
-		</li>
+		<?php endforeach; ?>
 	</ul>
 	<div class="g-paginator clearfix">
 		<ol class="clearfix">

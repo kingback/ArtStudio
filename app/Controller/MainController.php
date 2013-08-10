@@ -68,6 +68,10 @@ class MainController extends AppController {
 
 	public function video()
 	{
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$videos = $collection->find();
+		$this->set('base_url', $this->grid_base_url);
+		$this->set('videos', $videos);
 		$this->set('body_class', 'zds-video');
 		$this->set('page', 3);
 	}
