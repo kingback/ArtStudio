@@ -24,8 +24,12 @@
 				background-image: -o-linear-gradient(top, #0A4366, #083754);
 				background-image: linear-gradient(to bottom, #0A4366, #083754);
 			}
+			.navbar .brand{
+				font-size: 24px;
+			}
 			.navbar .nav > li > a {
 				color: #DDD;
+				font-size: 18px;
 			}
 			.navbar .nav .active > a, .navbar .nav .active > a:hover {
 				background-color: #083754;
@@ -38,11 +42,6 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
 				<a class="brand" href="/admin">网站管理</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
