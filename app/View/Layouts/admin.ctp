@@ -45,6 +45,7 @@
 				<a class="brand" href="/admin">网站管理</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
+						<li <?php if ($title_for_layout == "主页管理") echo 'class="active"' ?>><a href="/admin/index">主页管理</a></li>
 						<li <?php if ($title_for_layout == "画室荣誉管理") echo 'class="active"' ?>><a href="/admin/honour">画室荣誉管理</a></li>
 						<li <?php if ($title_for_layout == "图片管理") echo 'class="active"' ?>><a href="/admin/images">图片管理</a></li>
 						<li <?php if ($title_for_layout == "相册管理") echo 'class="active"' ?>><a href="/admin/listAlbums">相册管理</a></li>

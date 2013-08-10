@@ -9,7 +9,25 @@ class MainController extends AppController {
 	{
 		$this->set('body_class', 'zds-index');
 		$this->set('page', 1);
-		// code...
+		$this->set('base_url', $this->grid_base_url);
+
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		$newses = $news_col->find()->sort(array('date' => -1));
+		$this->set('newses', $newses);
+
+		$honour_col = $this->get_collection($this->db_name, $this->honour_collection);
+		$honours = $honour_col->find(array("year" => 2013));
+		$this->set('honours', $honours);
+
+		$article_col = $this->get_collection($this->db_name, $this->article_collection);
+		$courseInfos = $article_col->find(array('type' => '开课时间'));
+		$applyInfos = $article_col->find(array('type' => '报名须知及注意事项'));
+		$this->set('courseInfos', $courseInfos);
+		$this->set('applyInfos', $applyInfos);
+
+		$album_col = $this->get_collection($this->db_name, $this->album_collection);
+		$albums = $album_col->find()->sort(array('type' => 1));
+		$this->set('albums', $albums);
 	}
 
 	public function signup()

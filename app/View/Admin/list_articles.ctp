@@ -1,8 +1,8 @@
 <p>
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=主页" >新建主页</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=招生简章" >新建招生简章</a> &nbsp;&nbsp;&nbsp;&nbsp;
-<a target='_blank' class='btn btn-primary' href="/admin/publisher?type=画室开课时间" >新建画室开课时间</a> &nbsp;&nbsp;&nbsp;&nbsp;
-<a target='_blank' class='btn btn-primary' href="/admin/publisher?type=报名须知及注意事项" >新建报名须知及注意事项</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-primary' href="/admin/publisher?type=开课时间">开课时间</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-primary' href="/admin/publisher?type=报名须知及注意事项">报名须知及注意事项</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/createNews" >新建新闻</a> &nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 

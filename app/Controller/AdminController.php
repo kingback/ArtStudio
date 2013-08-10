@@ -8,6 +8,8 @@ class AdminController extends AppController {
 
 	public function index()
 	{
+
+        $this->set('title_for_layout', '主页管理');
 	}
 
 
@@ -91,8 +93,9 @@ class AdminController extends AppController {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
 			$category = $this->_get_argument('category');
+			$type = $this->_get_argument('type');
 			$id = md5($title . $desc . time());
-			$album = array('title' => $title, 'desc' => $desc, '_id' => $id, 'category' => $category);
+			$album = array('title' => $title, 'desc' => $desc, '_id' => $id, 'category' => $category, 'type' => $type);
 			var_dump($album);
 			$collection = $this->get_collection($this->db_name, $this->album_collection);
 			$res = $collection->insert($album);
@@ -118,7 +121,8 @@ class AdminController extends AppController {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
 			$category = $this->_get_argument('category');
-			$newdata = array('$set' => array('title' => $title, 'desc' => $desc, 'category' => $category));
+			$type = $this->_get_argument('type');
+			$newdata = array('$set' => array('title' => $title, 'desc' => $desc, 'category' => $category, 'type' => $type));
 			var_dump($newdata);
 			$res = $albums->update(array('_id' => $id), $newdata);
 			var_dump($res);

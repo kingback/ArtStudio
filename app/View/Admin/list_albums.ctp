@@ -9,6 +9,7 @@
 		<th>封面</th>
 		<th>描述</th>
 		<th>类别</th>
+		<th>班级</th>
 		<th>管理</th>
 		<th>修改</th>
 	</tr>
@@ -25,6 +26,7 @@
 			<?php endif; ?>
 		</td>
 		<td><?php echo $album['desc']; ?></td>
+		<td><?php echo $album['type']; ?></td>
 		<td><?php if (isset($album['category'])) echo $album['category']; ?></td>
 		<td><a class="btn btn-info" href="/admin/uploadAlbumImages?id=<?php echo $album['_id']; ?>">管理相册</a></td>
 		<td><a class="btn btn-warning" href="/admin/modifyAlbum?id=<?php echo $album['_id']; ?>">修改相册信息</a></td>
