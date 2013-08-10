@@ -264,7 +264,7 @@ class AdminController extends AppController {
 
 	public function downloadSignupXls()
 	{
-		App::import('Vendor', 'phpExcel/phpExcel');
+		App::import('Vendor', 'phpExcel/PHPExcel');
 		$this->autoRender = false;
 
 		$objPHPExcel = new PHPExcel();
