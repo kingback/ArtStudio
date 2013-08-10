@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	$('#addVideo').ajaxForm({
+	$('#addHonours').ajaxForm({
 		success: function() {
-			alert("添加视频成功");
+			alert("添加成功");
 			window.location.reload();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			var msg = JSON.parse(XMLHttpRequest.responseText).msg;
-			alert("添加视频失败: " + msg);
+			alert("添加失败: " + msg);
 		}
 	});
 });

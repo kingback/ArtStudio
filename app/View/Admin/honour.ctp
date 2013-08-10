@@ -45,6 +45,12 @@
 </form>
 </div>
 
+<div class="well">
+<form class="form-inline" id="addHonours"  method="POST" enctype="multipart/form-data" action="/adminapi/addHonours">
+	<legend>批量添加新学生(Excel)</legend>
+	<input type="file" name="file" multiple/>
+	<button type="submit" class="btn btn-info">确定上传</button>
+</div>
 <p>
 <a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;

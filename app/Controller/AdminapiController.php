@@ -21,10 +21,30 @@ class AdminapiController extends AppController {
 			$school = $this->_get_argument('school');
 			$year = $this->_get_argument('year');
 			// add a record
-			$document = array('name' => $name, 'school' => $school, 'year' => $year);
+			$document = array('name' => $name, 'school' => $school, 'year' => intval($year));
 			$collection->insert($document);
 		} 
 		$this->redirect('/admin/honour');
+	}
+
+	public function addHonours()
+	{
+		var_dump($_FILES);
+		if (!isset($_FILES['file'])) {
+			$this->_setErrMsgAndExit("can't find upload file", 400);
+		}
+		$tmp_filename = $_FILES['file']['tmp_name'];
+
+		var_dump($tmp_filename);
+		App::import('Vendor', 'phpExcel/PHPExcel');
+		$objPHPExcel = PHPExcel_IOFactory::load($tmp_filename);
+		$honours = $objPHPExcel->getActiveSheet()->toArray();
+		var_dump($honours);
+		$collection = $this->get_collection($this->db_name, $this->honour_collection);
+		foreach ($honours as $honour) {
+			$document = array('name' => $honour[0], 'school' => $honour[1], 'year' => intval($honour[2]));
+			$collection->insert($document);
+		}
 	}
 
 	public function addAlbumCategory()
