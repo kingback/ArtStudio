@@ -57,9 +57,9 @@
 	<!-- 了解周达画室 }}-->
 
 	<!-- 展示列表 {{-->
-	<?php $max_num = 4; ?>
 	<section class="show-category">
 	<ul class="show-list clearfix">
+		<?php $max_num = 4; ?>
 		<li class="show-item show-item-first show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
@@ -112,6 +112,7 @@
 			</ul>
 		</div>
 		</li>
+		<?php $max_num = 2; ?>
 		<li class="show-item show-item-first">
 		<div class="show-con">
 			<div class="show-image">
@@ -373,7 +374,7 @@
 	</header>
 	<div class="founder-image"></div>
 	<p class="founder-desc">2007年考入中央美院。2008年进入中央美院油画系三工作室学习，在校期间多幅作品被留校珍藏。</p>
-	<a href="#" class="founder-works">作品欣赏<b></b></a>
+	<a href="/main/zdIntro" class="founder-works">作品欣赏<b></b></a>
 	</section>
 	<!-- 创始人 }}-->
 
