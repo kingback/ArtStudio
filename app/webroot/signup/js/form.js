@@ -88,7 +88,7 @@ YUI.add('form', function(Y) {
                 this.removeError(this.requiredInputs);
                 
                 if (result.valid) {
-                    this.submit();
+                    this.form.submit();
                 } else {
                     this.addError(result.ErrObj);
                     firstErrorElement = this.form.one('.item-error .elem-txt');
