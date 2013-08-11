@@ -43,6 +43,7 @@
 		</div>
 	</script>
 	<div class="waterfall clearfix"></div>
+	<p class="news-nomore">没有更多新闻了</p>
 	</article>
 	<!-- 新闻页面 }}-->
 </div>
