@@ -125,7 +125,7 @@ class MainController extends AppController {
 		$albums = $albums_col->find();
 		$info = array();
 		foreach ($albums as $album) {
-			$info[] = $this->copyAlbum($album);
+			$info[] = $this->copyAlbum($album, null);
 		}
 		
 		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
@@ -144,7 +144,7 @@ class MainController extends AppController {
 		$albums = $albums_col->find(array('category' => $category));
 		$info = array();
 		foreach ($albums as $album) {
-			$info[] = $this->copyAlbum($album);
+			$info[] = $this->copyAlbum($album, null);
 		}
 		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
 		$categories = $categories_col->find();
@@ -179,7 +179,7 @@ class MainController extends AppController {
 		$id = $this->_get_argument('id');
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		$article = $collection->findOne(array('_id' => new MongoId($id)));
-		$this->setArticleInfo($article);
+		$this->_set_article_info($article);
 		$this->set('page', -1);
 		$this->set('body_class', 'zds-article');
 	}
@@ -188,7 +188,7 @@ class MainController extends AppController {
 	{
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		$article = $collection->findOne(array('type' => '主页'));
-		$this->setArticleInfo($article);
+		$this->_set_article_info($article);
 		$this->set('page', 2);
 		$this->set('body_class', 'zds-article');
 		$this->render('/Main/article');
@@ -198,7 +198,7 @@ class MainController extends AppController {
 	{
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		$article = $collection->findOne(array('type' => '招生简章'));
-		$this->setArticleInfo($article);
+		$this->_set_article_info($article);
 		$this->set('page', 6);
 		$this->set('body_class', 'zds-article');
 		$this->render('/Main/article');
@@ -214,7 +214,24 @@ class MainController extends AppController {
 		$this->set('body_class', 'zds-article');
 	}
 
-	private function setArticleInfo($article)
+	public function studioEnv()
+	{
+		$this->set('body_class', 'zds-article');
+		$this->set('page', -1);
+
+		$type = 'studioEnv';
+		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
+		$albums = $albums_col->find(array('type' => $type));
+		$info = array();
+		foreach ($albums as $album) {
+			$info[] = $this->copyAlbum($album, null);
+		}
+		$this->set('albums', $info);
+	}
+
+	// all articles shared the same view {article}
+	// this function sets values for view
+	private function _set_article_info($article)
 	{
 		if (empty($article)) {
 			$title = "找不到相应文章";

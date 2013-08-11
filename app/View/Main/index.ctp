@@ -234,22 +234,22 @@
 	<div class="environment-con">
 		<ul class="clearfix">
 			<li class="env-image env-long">
-			<a href="#"><img src="/index/img/env1.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env1.png" alt="周达画室" /></a>
 			</li>
 			<li class="env-desc">
 			<strong>高效</strong>
 			</li>
 			<li class="env-image">
-			<a href="#"><img src="/index/img/env2.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env2.png" alt="周达画室" /></a>
 			</li>
 			<li class="env-image">
-			<a href="#"><img src="/index/img/env3.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env3.png" alt="周达画室" /></a>
 			</li>
 			<li class="env-image env-wide">
-			<a href="#"><img src="/index/img/env4.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env4.png" alt="周达画室" /></a>
 			</li>
 			<li class="env-desc env-more">
-			<a href="#">
+			<a href="/main/studioEnv">
 				<strong>了解更多</strong><em>more<b></b></em>
 			</a>
 			</li>
@@ -257,13 +257,13 @@
 			<strong>责任</strong>
 			</li>
 			<li class="env-image">
-			<a href="#"><img src="/index/img/env5.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env5.png" alt="周达画室" /></a>
 			</li>
 			<li class="env-desc">
 			<strong>沟通</strong>
 			</li>
 			<li class="env-image">
-			<a href="#"><img src="/index/img/env6.png" alt="周达画室" /></a>
+			<a href="/main/studioEnv"><img src="/index/img/env6.png" alt="周达画室" /></a>
 			</li>
 		</ul>
 	</div>

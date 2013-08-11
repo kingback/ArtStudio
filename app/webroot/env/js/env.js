@@ -147,8 +147,8 @@ YUI.add('env', function(Y) {
                 data.images.length = 14;
             }
             Y.Array.each(data.images, function(image) {
-                image.small = 'http://106.186.25.82/gridfs/' + image.small; 
-                image.large = 'http://106.186.25.82/gridfs/' + image.large; 
+                image.small = '/gridfs/' + image.small; 
+                image.large = '/gridfs/' + image.large; 
             });
             return data;
         },

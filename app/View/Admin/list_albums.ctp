@@ -5,6 +5,8 @@ $types = array(
 	'creation' => '创作',
 	'graphic' => '平面',
 	'sketch' => '速写',
+	'studioEnv' => '画室环境',
+	'zd' => '周达作品',
 );
 ?>
 <p>

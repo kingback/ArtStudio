@@ -151,8 +151,8 @@ class AppController extends Controller {
 		$al['title'] = $album['title'];
 		if (isset($album['cover'])) {
 			$cover_id = $album['cover'];
-			$al['cover']['large'] = $album['images'][$cover_id]['large'];
-			$al['cover']['small'] = $album['images'][$cover_id]['small'];
+			$al['cover']['large'] = $this->grid_base_url . $album['images'][$cover_id]['large'];
+			$al['cover']['small'] = $this->grid_base_url . $album['images'][$cover_id]['small'];
 		}
 		$images = array();
 		$al['image_num'] = 0;
