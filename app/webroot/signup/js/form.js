@@ -172,6 +172,7 @@ YUI.add('form', function(Y) {
                 on: {
                     success: function(id, res) {
                         alert('报名成功！');
+                        window.location.reload();
                     },
                     failure: function(id, res) {
                         var r;
@@ -179,7 +180,8 @@ YUI.add('form', function(Y) {
                             r = eval('(' + res.responseText + ')');
                         } catch (err) {}
                         
-                        alert(r && r.msg || '报名失败，请稍后重试');
+                        alert(r && r.msg || '报名失败，请重试');
+                        window.location.reload();
                     }
                 },
                 form: {

@@ -60,7 +60,7 @@
 	<?php $max_num = 4; ?>
 	<section class="show-category">
 	<ul class="show-list clearfix">
-		<li class="show-item show-item-first">
+		<li class="show-item show-item-first show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
 				<a href="/main/allGallery"><img src="/index/img/show-drawing.png" alt="素描" /></a>
@@ -79,7 +79,7 @@
 			</ul>
 		</div>
 		</li>
-		<li class="show-item">
+		<li class="show-item show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
 				<a href="/main/allGallery"><img src="/index/img/show-color.png" alt="色彩" /></a>
@@ -98,7 +98,7 @@
 			</ul>
 		</div>
 		</li>
-		<li class="show-item show-item-blue show-item-last">
+		<li class="show-item show-item-blue show-item-last show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
 				<a href="#"><img src="/index/img/show-video.png" alt="视频" /></a>
@@ -275,13 +275,16 @@
 	<h2>出版书籍</h2>
 	<div class="books-con">
 		<ul class="clearfix">
-			<li><a href="#"><img src="/index/img/book1.png" alt="教学对话" /></a></li>
-			<li><a href="#"><img src="/index/img/book2.png" alt="名师堂" /></a></li>
-			<li><a href="#"><img src="/index/img/book1.png" alt="教学对话" /></a></li>
-			<li class="book-last"><a href="#"><img src="/index/img/book2.png" alt="名师堂" /></a></li>
+			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
+			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
+			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
+            <li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+            <li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
+            <li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
 		</ul>
 	</div>
-	<a href="#" class="books-more">more</a>
 	</section>
 	<!-- 出版书籍 }}-->
 

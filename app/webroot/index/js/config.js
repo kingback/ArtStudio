@@ -15,11 +15,15 @@
                 combine: YUI.combine,
                 modules: {
                     'main': {
-                        use: ['slideshow', 'hallfame']  
+                        use: ['slideshow', 'books', 'hallfame']  
                     },
                     'slideshow': {
                         path: YUI.getPath('slideshow'),
                         requires: ['slide']
+                    },
+                    'books': {
+                        path: YUI.getPath('books'),
+                        requires: ['node', 'transition']
                     },
                     'hallfame': {
                         path: YUI.getPath('hallfame'),

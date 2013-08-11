@@ -51,6 +51,7 @@
 				</div>
 			<?php endfor; ?>
 		</div>
+		<p class="honour-view-note">※ 以上数据系不完全统计</p>
 	</div>
 	</section>
 	<!-- 光荣榜 }}-->

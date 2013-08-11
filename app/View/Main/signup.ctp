@@ -59,7 +59,7 @@
 	</div>
 
 	<section class="form">
-	<form action="/main/addStudent" method="post" class="clearfix" id="s-form">
+	<form action="/main/addStudent" method="post" class="clearfix" id="s-form" target="_self">
 		<div class="required-info">
 			<ul>
 				<li>
@@ -133,7 +133,7 @@
 					</div>
 					<div class="avartar-unload clearfix">
 						<div class="avartar-unload-btn">
-							<a href="javascript:void(0)"><input type="file" id="avartar-unload-ipt" /></a>
+							<a href="javascript:void(0)"><input type="file" name="avartar" id="avartar-unload-ipt" /></a>
 						</div>
 						<span>（可选）</span>
 					</div>

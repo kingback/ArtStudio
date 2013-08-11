@@ -125,7 +125,6 @@ YUI.add('intro', function(Y) {
         
         initPrizeSlide: function() {
             var slide = new Y.SimpleSlide({
-                selected: 1,
                 tabs: '.intro-prize-tabs li',
                 panels: '.intro-prize-panel',
                 width: 425,

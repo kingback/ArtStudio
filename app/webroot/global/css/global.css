@@ -30,11 +30,12 @@ img {vertical-align:bottom;}
 .g-hd hgroup p,
 .g-signup a,
 .g-signup span,
-.g-sublogo,
+.g-sublogo a,
+.g-sublogo a span,
 .g-nav li.selected,
 .g-nav li b,
 .g-weibo a,
-.g-floatbar-qq {background:url("/global/img/sprite.png") -9999px -9999px no-repeat;}
+.g-floatbar-qq {background:url("/global/img/spritep.png") -9999px -9999px no-repeat;}
 
 /* 公用头部 */
 .g-hd {margin-left:154px;width:846px;height:100px;position:relative;}
@@ -57,8 +58,18 @@ img {vertical-align:bottom;}
 .g-nav {position:fixed;top:0;left:0;min-height:100%;width:114px;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:14px;font-weight:bold;background-color:#252424;color:#fff;text-align:center;_position:absolute;}
 .g-nav a {display:block;color:#fff;}
 /*.g-nav a:hover {text-decoration:none;color:#fc3c4a;}*/
-.g-sublogo {height:77px;border-bottom:1px solid #e2e1e1;background-position:0 0;}
-.g-sublogo a {text-indent:-9999px;height:77px;}
+.g-sublogo {height:77px;}
+.g-sublogo a {height:77px;display:block;background-position:0 0;}
+.g-sublogo a span {
+    opacity:0;background-position:-205px 0;display:block;height:77px;text-indent:-9999px;
+    -webkit-transition:all 0.1s linear 0s;
+    -moz-transition:all 0.1s linear 0s;
+    -o-transition:all 0.1s linear 0s;
+    -ms-transition:all 0.1s linear 0s;
+    transition:all 0.1s linear 0s;
+}
+.g-sublogo a:hover {text-decoration:none;}
+.g-sublogo a:hover span {text-decoration:none;opacity:1;}
 .g-nav li {border-bottom:1px solid #171717;position:relative;overflow:visible;}
 .g-nav li a {
     height:42px;line-height:44px;border-bottom:1px solid #2f2f2f;background:#252424;

@@ -115,6 +115,8 @@ YUI.add('waterfall', function(Y) {
         },
         
         add: function(data) {
+            if (!data) { return; }
+            
             if (!Y.Lang.isArray(data)) {
                 data = [data];
             }
