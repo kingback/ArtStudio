@@ -16,8 +16,6 @@
         <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
-        
-        <!--<base target="_blank" />-->
     </head>
 	<body class="<?php echo $body_class; ?>">
         <header class="g-hd" id="g-hd">
