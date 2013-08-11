@@ -5,7 +5,8 @@
 YUI.add('news', function(Y) {
     
     var template = Y.Lang.trim(Y.one('#J_news_temp').get('innerHTML')),
-        page = 1,
+        nomore = Y.one('.news-nomore'),
+        page = 2,
         waterfall;
     
     function formatter(data) {
@@ -53,6 +54,7 @@ YUI.add('news', function(Y) {
     
     waterfall.on('fail', function(e) {
         this.stop(); 
+        nomore.setStyle('display', 'block');
     });
     
     waterfall.render();
