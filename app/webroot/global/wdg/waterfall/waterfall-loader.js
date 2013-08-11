@@ -46,6 +46,7 @@ YUI.add('waterfall-loader', function(Y) {
             var loader = this._loader;
             
             if (loader) {
+                this.loading = true;
                 loader.call(this, Y.bind(this.success, this), Y.bind(this.fail, this));
             }
         },

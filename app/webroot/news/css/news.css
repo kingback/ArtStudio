@@ -16,7 +16,8 @@
 
 
 .news-item {background:#fff;box-shadow:2px 2px 5px #ccc;margin-bottom:18px;}
-.news-image {background:#ccc;}
+.news-image {background:#ccc;overflow:hidden;}
+.news-image img {width:100%;}
 .news-detail {padding:24px 20px;}
 .news-title {font-size:14px;color:#333;padding:0 2px;font-weight:bold;}
 .news-date {margin-top:6px;margin-bottom:12px;height:22px;line-height:22px;padding-left:32px;font-family:arial;color:#666;}

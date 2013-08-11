@@ -13,21 +13,13 @@
 	<article class="n-main">
 	<script>
 		window.NewsData = [
-		<?php foreach ($newses as $news): ?>
-		{  
-			url: '<?php echo $news['url'];?>',
-			image: '<?php echo $news['image']?>',
-			title: '<?php echo $news['title']; ?>'
-			,date: '<?php echo $news['date']; ?>',
-			desc: '<?php echo $news['desc']; ?>'
-		},
-		<?php endforeach; ?>
+		
 		];
 	</script>
 	<script type="text/template" id="J_news_temp">
 		<div class="news-item">
 			<div class="news-image">
-				<a href="{url}"><img src="{image}" height="{height}" /></a>
+				<a href="{url}"><img src="{image}" /></a>
 			</div>
 			<div class="news-detail">
 				<h3 class="news-title">{title}</h3>
@@ -39,7 +31,23 @@
 			</div>
 		</div>
 	</script>
-	<div class="waterfall clearfix"></div>
+	<div class="waterfall clearfix">
+	    <?php foreach ($newses as $news): ?>
+	    <div class="news-item">
+            <div class="news-image">
+                <a href="<?php echo $news['url'];?>"><img src="<?php echo $news['image']?>" /></a>
+            </div>
+            <div class="news-detail">
+                <h3 class="news-title"><?php echo $news['title']; ?></h3>
+                <p class="news-date"><?php echo $news['date']; ?></p>
+                <p class="news-desc"><?php echo $news['desc']; ?></p>
+                <div class="news-more">
+                    <a href="<?php echo $news['url'];?>">more</a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+	</div>
 	</article>
 	<!-- 新闻页面 }}-->
 </div>
