@@ -266,22 +266,43 @@ class AppController extends Controller {
 		$start_page = ($page-1) * $this->news_page_size;
 		$end_page = $page + $this->news_page_size;
 		foreach ($newses as $news) {
-			if ($i > $end_page) {
+			if ($i >= $end_page) {
 				break;
 			}
-			if ($i < $start_page) {
-				continue;
+			if ($i >= $start_page) {
+				$res[] = array(
+					'url' => '/main/article?id=' . $news['articleId'],
+					'image' => $this->grid_base_url . $news['image'],
+					'title' => $news['title'],
+					'date' => date('Y-m-d', $news['date']->sec),
+					'desc' => $news['summary']
+				);
 			}
 			++ $i;
-			$res[] = array(
-				'url' => '/main/article?id=' . $news['articleId'],
-				'image' => $this->grid_base_url . $news['image'],
-				'title' => $news['title'],
-				'date' => date('Y-m-d', $news['date']->sec),
-				'desc' => $news['summary']
-			);
 		}
+		return $res;
+	}
 
+	protected function _copy_video($videos, $page)
+	{
+		$res = array();
+		$i = 0;
+		$start_page = ($page-1) * $this->video_page_size;
+		$end_page = $start_page + $this->video_page_size;
+		foreach ($videos as $video) {
+			if ($i >= $end_page) {
+				break;
+			}
+			if ($i >= $start_page) {
+				$res[] = array(
+					'url' => $video['url'],
+					'image' => $this->grid_base_url . $video['image'],
+					'name' => $video['name'],
+					'desc' => $video['desc'],
+				);
+			}
+			++ $i;
+		}
 		return $res;
 	}
 }

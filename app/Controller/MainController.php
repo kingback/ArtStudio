@@ -111,10 +111,23 @@ class MainController extends AppController {
 
 	public function video()
 	{
+		$page = $this->_get_argument('page', 1);
+		$page = intval($page);
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
 		$videos = $collection->find();
-		$this->set('base_url', $this->grid_base_url);
-		$this->set('videos', $videos);
+		$video_num = $collection->count();
+		$pages = intval($video_num / $this->video_page_size);
+		if ($video_num % $this->video_page_size > 0) {
+			++ $pages;
+		}
+		$pre_page = $page > 1? $page - 1: 1;
+		$next_page = $page > $pages? $page + 1: $pages;
+		$res = $this->_copy_video($videos, $page);
+		$this->set('videos', $res);
+		$this->set('pages', $pages);
+		$this->set('cur_page', $page);
+		$this->set('pre_page', $pre_page);
+		$this->set('next_page', $next_page);
 		$this->set('body_class', 'zds-video');
 		$this->set('page', 3);
 	}
