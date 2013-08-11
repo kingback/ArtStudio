@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
         
-        <base target="_blank" />
+        <!--<base target="_blank" />-->
     </head>
 	<body class="<?php echo $body_class; ?>">
         <header class="g-hd" id="g-hd">
@@ -35,7 +35,7 @@
         </header>
         <nav class="g-nav" id="g-nav">
             <h2 class="g-sublogo">
-                <a href="http://zhoudams.com/" target="_top">http://zhoudams.com/</a>
+                <a href="http://zhoudams.com/" target="_top"><span>http://zhoudams.com/</span></a>
             </h2>
             <ul>
 			<li <?php if($page == 1):?>class="selected <?php endif; ?>"><a href="/main/index" target="_top">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>

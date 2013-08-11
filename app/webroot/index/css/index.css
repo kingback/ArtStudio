@@ -87,7 +87,8 @@
 .show-item-last {margin-right:0;}
 .show-item-blue {border-bottom-color:#1290cb;}
 .show-image {width:100%;height:236px;text-align:center;overflow:hidden;}
-.show-item ul {padding:0 11px 6px 22px;margin-top:3px;}
+.show-item ul {padding:0 11px 6px 22px;margin-top:3px;min-height:56px;}
+.show-item-tall ul {min-height:112px;}
 .show-item li {position:relative;}
 .show-item li a {display:inline-block;padding-left:11px;*display:inline;*zoom:1;}
 .show-item li b {
@@ -187,10 +188,11 @@
 /* 出版书籍 */
 .books {margin-top:30px;position:relative;}
 .books h2 {font:20px/2 "Microsoft yahei","微软雅黑","黑体";font-weight:bold;}
-.books-con {margin-top:10px;}
-.books li {float:left;width:135px;border:1px solid #d2d2d2;margin-right:17px;margin-bottom:20px;border-radius:2px;box-shadow:0 0 5px #ccc;}
+.books-con {margin-top:10px;width:600px;height:213px;overflow:hidden;position:relative;}
+.books ul {width:617px;height:213px;position:absolute;left:0;top:0;}
+.books li {float:left;width:135px;height:211px;overflow:hidden;border:1px solid #d2d2d2;margin-right:17px;border-radius:2px;box-shadow:0 0 5px #ccc;position:relative;}
 .books .book-last {margin-right:0;}
-.books li a {
+.books li span {
     opacity:1;display:block;border:1px solid #f2f2f2;padding:3px;overflow:hidden;
     -webkit-transition:opacity 0.1s linear 0s;
     -moz-transition:opacity 0.1s linear 0s;
@@ -198,7 +200,7 @@
     -ms-transition:opacity 0.1s linear 0s;
     transition:opacity 0.1s linear 0s;
 }
-.books li a:hover {opacity:0.8;}
+.books li span:hover {opacity:0.8;}
 .books-more {position:absolute;width:68px;height:12px;text-indent:-9999px;top:16px;right:0;background-position:0 -114px;}
 .books-more:hover {background-position:0 -136px;}
 

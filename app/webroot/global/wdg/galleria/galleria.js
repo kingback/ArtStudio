@@ -52,6 +52,23 @@ YUI.add('galleria', function(Y) {
                         '</div>' + 
                     '</div>';
     
+    var storage = (function() {
+        return {
+            _cache: {},
+            getItem: function(name) {
+                return this._cache[name] || '';
+            },
+            setItem: function(name, val) {
+                this._cache[name] = val;
+                return val;
+            },
+            removeItem: function(name) {
+                delete this._cache[name];
+            }
+        };
+    })();
+    
+    
     Y.Galleria = Y.Base.create('galleria', Y.Widget, [
         Y.WidgetStack
     ], {
@@ -90,6 +107,7 @@ YUI.add('galleria', function(Y) {
             cb.delegate('click', this._onPrevClick, '.yui3-galleria-prev a', this);
             cb.delegate('click', this._onNextClick, '.yui3-galleria-next a', this);
             cb.delegate('click', this._onNextClick, '.yui3-galleria-image img', this);
+            cb.delegate('click', this._onLikeBtnClick, '.yui3-galleria-like a', this);
             Y.on('resize', this._onWinResize, Y.config.win, this);
             
             this.after('sourceChange', this._updateThumbs, this);
@@ -109,6 +127,8 @@ YUI.add('galleria', function(Y) {
             this._nextBtn = this._cb.one('.yui3-galleria-next');
             this._prevBtn = this._cb.one('.yui3-galleria-prev');
             this._review = this._cb.one('.yui3-galleria-review');
+            this._like = this._cb.one('.yui3-galleria-like strong');
+            this._likeBtn = this._cb.one('.yui3-galleria-like a');
             this._htmlEl = Y.one('html');
         },
         
@@ -318,6 +338,22 @@ YUI.add('galleria', function(Y) {
             this.nextImage();
         },
         
+        _onLikeBtnClick: function(e) {
+            var btn = this._likeBtn,
+                albumid = btn.getAttribute('data-albumid'),
+                imageid = btn.getAttribute('data-imageid'),
+                cache = storage.getItem(imageid),
+                data = this.get('selectedItem').getData('imageData');
+            
+            if (cache) {
+                alert('您已经点击过喜欢了，感谢您的支持~');
+            } else {
+                new Image().src = '/mainapi/likePic?albumId=' + albumid + '&imgId=' + imageid;
+                this._like.setContent(++data.like);
+                storage.setItem(imageid, true);
+            }
+        },
+        
         _onItemClick: function(e) {
             this.showImage(e.currentTarget.ancestor('li'));
         },
@@ -360,7 +396,7 @@ YUI.add('galleria', function(Y) {
             this._showImage(e);
             this._checkSibling(e);
             this._updateReview(e);
-            //this._updateLike();
+            this._updateLike(e);
             this._updateJiaThis(e);
         },
         
@@ -396,6 +432,13 @@ YUI.add('galleria', function(Y) {
         
         _updateReview: function(e) {
             this._review.setContent('“' + (e && e.data && e.data.desc || '暂无点评') + "”");
+        },
+        
+        _updateLike: function(e) {
+            var source = this.get('source');
+            this._like.setContent(e && e.data && e.data.like || 0);
+            this._likeBtn.setAttribute('data-albumid', source && source.id || '');
+            this._likeBtn.setAttribute('data-imageid', e && e.data && e.data.id || '');
         },
         
         _updateJiaThis: function(e) {
