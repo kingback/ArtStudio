@@ -44,8 +44,8 @@
 
 .intro-prize-tabview {}
 .intro-prize-tabs ul {overflow:visible;height:32px;border-bottom:1px solid #bbb;font-family:"Microsoft yahei","微软雅黑","黑体";}
-.intro-prize-tabs li {float:left;width:53px;text-align:center;height:45px;font-style:italic;font-weight:bold;color:#333;background-position:-452px -184px;}
-.intro-prize-tabs .intro-prize-selected {background-position:-329px -188px;color:#ff5500;}
+.intro-prize-tabs li {float:left;width:70px;text-align:center;height:45px;font-style:italic;font-weight:bold;color:#333;background-position:-444px -184px;}
+.intro-prize-tabs .intro-prize-selected {background-position:-321px -188px;color:#ff5500;}
 .intro-prize-panels {margin-top:11px;}
 .intro-prize-panel {display:none;position:relative;}
 .intro-prize-show {display:block;}
@@ -95,5 +95,5 @@
 .intro-nav div a.selected b {display:block;}
 .intro-nav div a:hover {text-decoration:none;}
 
-.album-loading {display:none;z-index:50;margin-left:-90px;margin-top:-20px;width:130px;font-size:14px;padding-left:45px;position:fixed;left:50%;top:50%;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000 url("../img/loading.gif") 10px center no-repeat;background-color:rgba(0, 0, 0, 0.8);}
-.album-tip {visibility:hidden;;z-index:50;padding:0 20px;position:fixed;left:-200%;top:-200%;font-size:14px;margin-top:-20px;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000;background:rgba(0, 0, 0, 0.8);}
+.album-loading {display:none;z-index:150;margin-left:-90px;margin-top:-20px;width:130px;font-size:14px;padding-left:45px;position:fixed;left:50%;top:50%;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000 url("../img/loading.gif") 10px center no-repeat;background-color:rgba(0, 0, 0, 0.8);}
+.album-tip {visibility:hidden;;z-index:150;padding:0 20px;position:fixed;left:-200%;top:-200%;font-size:14px;margin-top:-20px;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000;background:rgba(0, 0, 0, 0.8);}
