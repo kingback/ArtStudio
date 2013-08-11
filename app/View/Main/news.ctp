@@ -42,23 +42,7 @@
 			</div>
 		</div>
 	</script>
-	<div class="waterfall clearfix">
-	    <?php foreach ($newses as $news): ?>
-	    <div class="news-item">
-            <div class="news-image">
-                <a href="<?php echo $news['url'];?>"><img src="<?php echo $news['image']?>" /></a>
-            </div>
-            <div class="news-detail">
-                <h3 class="news-title"><?php echo $news['title']; ?></h3>
-                <p class="news-date"><?php echo $news['date']; ?></p>
-                <p class="news-desc"><?php echo $news['desc']; ?></p>
-                <div class="news-more">
-                    <a href="<?php echo $news['url'];?>">more</a>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-	</div>
+	<div class="waterfall clearfix"></div>
 	</article>
 	<!-- 新闻页面 }}-->
 </div>
