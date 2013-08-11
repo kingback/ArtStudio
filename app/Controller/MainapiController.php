@@ -82,4 +82,25 @@ class MainapiController extends AppController {
 		}
 		var_dump($res);
 	}
+
+	public function news()
+	{
+		$page = $this->_get_argument('page');
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		$news_num = $news_col->count();
+
+		if ($page < 1) {
+			$this->_setErrMsgAndExit('page starts at 1', 400);
+		}
+
+		if (($page-1) * $this->news_page_size > $news_num) {
+			echo json_encode(array());
+			return;
+		}
+
+		$newses = $news_col->find()->sort(array('date' => -1));
+		$res = $this->_copy_news($newses, $page);
+		echo json_encode($res);
+	}
+
 }

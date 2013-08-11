@@ -208,8 +208,8 @@ class MainController extends AppController {
 	{
 		$news_col = $this->get_collection($this->db_name, $this->news_collection);
 		$newses = $news_col->find()->sort(array('date' => -1));
-		$this->set('newses', $newses);
-		$this->set('base_url', $this->grid_base_url);
+		$res = $this->_copy_news($newses, 1);
+		$this->set('newses', $res);
 		$this->set('page', 9);
 		$this->set('body_class', 'zds-article');
 	}

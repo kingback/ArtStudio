@@ -47,6 +47,8 @@ class AppController extends Controller {
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";
 	protected $max_small_pic_size = 300;
+	protected $news_page_size = 15;
+	protected $video_page_size = 12;
 
 	protected function get_connection()
 	{
@@ -257,4 +259,29 @@ class AppController extends Controller {
 		return $pic_name;
 	}
 
+	protected function _copy_news($newses, $page)
+	{
+		$res = array();
+		$i = 0;
+		$start_page = ($page-1) * $this->news_page_size;
+		$end_page = $page + $this->news_page_size;
+		foreach ($newses as $news) {
+			if ($i > $end_page) {
+				break;
+			}
+			if ($i < $start_page) {
+				continue;
+			}
+			++ $i;
+			$res[] = array(
+				'url' => '/main/article?id=' . $news['articleId'],
+				'image' => $this->grid_base_url . $news['image'],
+				'title' => $news['title'],
+				'date' => date('Y-m-d', $news['date']->sec),
+				'desc' => $news['summary']
+			);
+		}
+
+		return $res;
+	}
 }
