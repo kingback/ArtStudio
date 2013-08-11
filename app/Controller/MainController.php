@@ -229,6 +229,47 @@ class MainController extends AppController {
 		$this->set('albums', $info);
 	}
 
+	public function zdIntro()
+	{
+		$this->set('body_class', 'zds-article');
+		$this->set('page', -1);
+
+		$slides = array();
+		$slides[] = array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt');
+		$slides[] = array('http://106.186.25.82/gridfs/06da024d60d95823fea9c85c693ab41f-1000-1481.jpeg','alt');
+		$slides[] = array('http://106.186.25.82/gridfs/78a7223a53a1fda9b73556253c43052e-720-1018.jpeg','alt');
+		$this->set('slides', $slides);
+
+		$prizes = array();
+		$prizes[2007] = array(
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$prizes[2008] = array(
+			array('http://106.186.25.82/gridfs/06da024d60d95823fea9c85c693ab41f-1000-1481.jpeg','alt'), 
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$prizes[2009] = array(
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$prizes[2010] = array(
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$prizes[2011] = array(
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$prizes[2012] = array(
+			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
+		);
+		$this->set('prizes', $prizes);
+
+		$type = 'zd';
+		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums_col->findOne(array('type' => $type));
+		$this->set('zdAlbumId', $album['_id']);
+	}
+
 	// all articles shared the same view {article}
 	// this function sets values for view
 	private function _set_article_info($article)
