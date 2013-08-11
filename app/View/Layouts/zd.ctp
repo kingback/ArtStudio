@@ -16,8 +16,6 @@
         <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
-		<script src="/admin/js/jquery.js"></script>
-		<script src="/admin/js/jquery.form.js"></script> 
         
         <base target="_blank" />
     </head>
@@ -31,7 +29,7 @@
             </hgroup>
             <div class="g-signup clearfix">
                 <a href="#" class="g-signup-link">火热报名</a>
-                <a href="#" class="g-signup-qq"><strong>QQ咨询</strong><em>278953129</em></a>
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes" class="g-signup-qq"><strong>QQ咨询</strong><em>278953129</em></a>
                 <span class="g-signup-phone">全国报名热线1343993136</span>
             </div>
         </header>
@@ -63,8 +61,8 @@
         
         
         <div class="g-floatbar">
-            <a class="g-floatbar-qq" href="http://wpa.qq.com/msgrd?v=3&uin=632934382&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:632934382:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
-            <a class="g-floatbar-sqq" href="http://wpa.qq.com/msgrd?v=3&uin=632934382&site=qq&menu=yes">QQ咨询</a>
+            <a class="g-floatbar-qq" href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:278953129:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+            <a class="g-floatbar-sqq" href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes">QQ咨询</a>
             <a class="g-floatbar-apply" href="#">网上报名</a>
             <a class="g-floatbar-back" href="#">返回顶部</a>
         </div>

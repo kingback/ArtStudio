@@ -19,7 +19,7 @@
                     },
                     'form': {
                         path: YUI.getPath('form'),
-                        requires: ['datecascade', 'validator', 'event-hover', 'greensock']
+                        requires: ['datecascade', 'validator', 'event-hover', 'io']
                     }
                 }
             }

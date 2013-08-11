@@ -167,13 +167,3 @@
 </div>
 <!-- 主内容 }}-->
 
-
-<script> 
-$(document).ready(function() {
-	// bind 'myForm' and provide a simple callback function 
-	$('#s-form').ajaxForm(function() {
-		alert("报名成功");
-	});
-});
-</script>
-

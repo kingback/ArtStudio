@@ -88,7 +88,7 @@ YUI.add('form', function(Y) {
                 this.removeError(this.requiredInputs);
                 
                 if (result.valid) {
-                    this.form.submit();
+                    this.submit();
                 } else {
                     this.addError(result.ErrObj);
                     firstErrorElement = this.form.one('.item-error .elem-txt');
@@ -164,13 +164,35 @@ YUI.add('form', function(Y) {
                     elem.ancestor('li').one('.info').setContent('');
                 }
             }
+        },
+        
+        submit: function() {
+            Y.io(this.form.getAttribute('action'), {
+                method: 'POST',
+                on: {
+                    success: function(id, res) {
+                        alert('报名成功！');
+                    },
+                    failure: function(id, res) {
+                        var r;
+                        try {
+                            r = eval('(' + res.responseText + ')');
+                        } catch (err) {}
+                        
+                        alert(r && r.msg || '报名失败，请稍后重试');
+                    }
+                },
+                form: {
+                    id: this.form._node
+                } 
+            });
         }
-            
+
     };
     
     Y.Form.init();
     
         
 }, '0.0.1', {
-    requires: ['node', 'validator', 'event-hover']
+    requires: ['node', 'validator', 'event-hover', 'io']
 });
