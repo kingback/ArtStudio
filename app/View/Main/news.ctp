@@ -12,8 +12,19 @@
 	<!-- 新闻页面 {{-->
 	<article class="n-main">
 	<script>
+	    <?php $i = 0 ?>
 		window.NewsData = [
-		
+		<?php foreach ($newses as $news): ?>		
+		<?php if ($i != 0) { echo ","; } ?>
+		{
+            "url": "<?php echo $news['url'];?>",
+            "image": "<?php echo $news['image'];?>",
+            "title": "<?php echo $news['title'];?>",
+            "desc": "<?php echo $news['desc'];?>",
+            "date": "<?php echo $news['date'];?>"
+        }
+        <?php $i++; ?>
+		<?php endforeach; ?>
 		];
 	</script>
 	<script type="text/template" id="J_news_temp">
