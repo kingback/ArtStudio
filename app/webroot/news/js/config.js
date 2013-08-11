@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            news: {
                 base: YUI.getBase('news/js'),
                 comboBase: YUI.getComboBase('news/js'),
                 root: '',

@@ -8,6 +8,8 @@
 .intro-prize-tabs li,
 .intro-slide-prev,
 .intro-slide-next,
+.intro-prize-prev,
+.intro-prize-next,
 .intro-nav h2,
 .intro-nav div b {background:url("../img/spritesp.png") -9999px -9999px no-repeat;}
 
@@ -42,13 +44,23 @@
 
 .intro-prize-tabview {}
 .intro-prize-tabs ul {overflow:visible;height:32px;border-bottom:1px solid #bbb;font-family:"Microsoft yahei","微软雅黑","黑体";}
-.intro-prize-tabs li {float:left;width:53px;cursor:pointer;text-align:center;height:45px;font-style:italic;font-weight:bold;color:#333;background-position:-452px -184px;}
+.intro-prize-tabs li {float:left;width:53px;text-align:center;height:45px;font-style:italic;font-weight:bold;color:#333;background-position:-452px -184px;}
 .intro-prize-tabs .intro-prize-selected {background-position:-329px -188px;color:#ff5500;}
 .intro-prize-panels {margin-top:11px;}
-.intro-prize-panel {display:none;}
+.intro-prize-panel {display:none;position:relative;}
 .intro-prize-show {display:block;}
 .intro-prize-panel h4 {font-style:italic;padding-left:8px;font-size:14px;line-height:22px;font-family:"Microsoft yahei","微软雅黑","黑体";}
-.intro-prize-image {margin-top:11px;height:470px;overflow:hidden;background:#a8a8a8;}
+.intro-prize-image {margin-top:11px;height:470px;overflow:hidden;background:#a8a8a8;position:relative;}
+.intro-prize-image li {height:470px;}
+.intro-prize-image img {height:100%;width:100%;}
+
+.intro-prize-prev,
+.intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:210px;z-index:50;opacity:0.6;}
+.intro-prize-prev {left:20px;background-position:0 -456px;}
+.intro-prize-next {right:20px;background-position:-59px -456px;}
+.intro-prize-prev:hover,
+.intro-prize-next:hover {opacity:1;}
+.intro-prize-disabled:hover {opacity:0.6;}
 
 .intro-impress {margin-top:12px;}
 .intro-impress h2,
@@ -82,3 +94,6 @@
 .intro-nav div a.selected {background:#fff;color:#d52b2a;}
 .intro-nav div a.selected b {display:block;}
 .intro-nav div a:hover {text-decoration:none;}
+
+.album-loading {display:none;z-index:50;margin-left:-90px;margin-top:-20px;width:130px;font-size:14px;padding-left:45px;position:fixed;left:50%;top:50%;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000 url("../img/loading.gif") 10px center no-repeat;background-color:rgba(0, 0, 0, 0.8);}
+.album-tip {visibility:hidden;;z-index:50;padding:0 20px;position:fixed;left:-200%;top:-200%;font-size:14px;margin-top:-20px;height:40px;line-height:40px;color:#fff;border-radius:6px;background:#000;background:rgba(0, 0, 0, 0.8);}

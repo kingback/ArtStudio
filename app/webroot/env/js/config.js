@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            env: {
                 base: YUI.getBase('env/js'),
                 comboBase: YUI.getComboBase('env/js'),
                 root: '',

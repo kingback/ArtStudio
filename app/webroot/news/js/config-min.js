@@ -1,2 +1,2 @@
 /* ZD */
-!function(){ZD.applyConfig({groups:{index:{base:YUI.getBase("news/js"),comboBase:YUI.getComboBase("news/js"),root:"",combine:YUI.combine,modules:{main:{use:["news"]},news:{path:YUI.getPath("news"),requires:["waterfall","waterfall-loader"]}}}}})}();
+!function(){ZD.applyConfig({groups:{news:{base:YUI.getBase("news/js"),comboBase:YUI.getComboBase("news/js"),root:"",combine:YUI.combine,modules:{main:{use:["news"]},news:{path:YUI.getPath("news"),requires:["waterfall","waterfall-loader"]}}}}})}();

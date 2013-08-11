@@ -168,7 +168,7 @@ YUI.add('simpleslide', function(Y) {
                 value: 'click'
             },
             delay: {
-                value: 200
+                value: 100
             },
             tabSelectedClass: {
                 value: 'tab-selected'
@@ -191,20 +191,20 @@ YUI.add('simpleslide', function(Y) {
         
         _renderSlideCon: function() {
             var con = Y.Node.create('<div class="yui3-simpleslide-slidecon"></div>'),
-                panelCon = this.panels.item(0).ancestor(),
+                animCon = this.panels.item(0).ancestor(),
                 width = this.get('width'),
                 height = this.get('height'),
                 total = this.total,
                 x = this.get('dir') === 'x';
                 
-            panelCon.setStyles({
+            con.setStyles({
                 width: width + 'px',
                 height: height + 'px',
                 overflow: 'hidden',
                 position: 'relative'
             });
             
-            con.setStyles({
+            animCon.setStyles({
                 width: (x ? width * total : width) + 'px',
                 height: (x ? height : height * total) + 'px',
                 overflow: 'hidden',
@@ -219,10 +219,11 @@ YUI.add('simpleslide', function(Y) {
                 'float': x ? 'left' : 'none' 
             });
             
-            this.panels.item(0).insert(con, 'before');
-            con.appendChild(this.panels);
+            animCon.insert(con, 'before');
+            con.appendChild(animCon);
             
             this.con = con;
+            this.animCon = animCon;
         },
         
         _checkAnimRunning: function(e) {
@@ -242,11 +243,11 @@ YUI.add('simpleslide', function(Y) {
             
             if (e.anim) {
                 this.running = true;
-                this.con.transition(Y.merge(this.get('transCfg'), transCfg), function() {
+                this.animCon.transition(Y.merge(this.get('transCfg'), transCfg), function() {
                     self.running = false;
                 });
             } else {
-                this.con.setStyles(transCfg);
+                this.animCon.setStyles(transCfg);
             }
         }
           

@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            signup: {
                 base: YUI.getBase('signup/js'),
                 comboBase: YUI.getComboBase('signup/js'),
                 root: '',

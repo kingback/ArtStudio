@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            iuploader: {
                 base: YUI.getBase('iuploader/js'),
                 comboBase: YUI.getComboBase('iuploader/js'),
                 root: '',
