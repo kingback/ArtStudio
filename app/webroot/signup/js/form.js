@@ -88,7 +88,8 @@ YUI.add('form', function(Y) {
                 this.removeError(this.requiredInputs);
                 
                 if (result.valid) {
-                    this.submit();
+                    //this.submit();
+                    this.form.submit();
                 } else {
                     this.addError(result.ErrObj);
                     firstErrorElement = this.form.one('.item-error .elem-txt');
@@ -166,6 +167,7 @@ YUI.add('form', function(Y) {
             }
         },
         
+        /*
         submit: function() {
             Y.io(this.form.getAttribute('action'), {
                 method: 'POST',
@@ -181,7 +183,6 @@ YUI.add('form', function(Y) {
                         } catch (err) {}
                         
                         alert(r && r.msg || '报名失败，请重试');
-                        window.location.reload();
                     }
                 },
                 form: {
@@ -189,6 +190,7 @@ YUI.add('form', function(Y) {
                 } 
             });
         }
+        */
 
     };
     

@@ -65,6 +65,7 @@ class MainController extends AppController {
 	{
 		$this->autoRender = false;
 		$this->response->header('Content-Type: text/javascript');
+		$msg = "注册成功!!";
 		$name = $this->_get_argument('name');
 		$sex = $this->_get_argument('sex');
 		$birthday = $this->_get_argument('birthday');
@@ -85,10 +86,25 @@ class MainController extends AppController {
 			'volk' => $volk,
 			'household' => $household
 		);
-		//var_dump($stu);
+
+		if (isset($_FILES['avartar'])) {
+			$tmp_filename = $_FILES['avartar']['tmp_name'];
+			$filename = $_FILES['avartar']['name'];
+			$type = $_FILES['avartar']['type'];
+			if (!$this->is_image($type)) {
+				$msg = "注册失败: $name 不是图片文件";
+				$this->redirect(array('controller' => 'main', 'action' => 'signup', '?' => array('msg' => $msg)));
+				echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+				$this->_setStatusAndExit(400);
+			}
+			$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
+			$image = $this->save_file($compressed_file, $type);
+			$stu['image'] = $image;
+		}
+
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
 		$res = $collection->update(array('name' => $name, 'telephone' => $telephone), $stu, array('upsert' => true));
-		echo json_encode($res);
+		$this->redirect(array('controller' => 'main', 'action' => 'signup', '?' => array('msg' => $msg)));
 		$this->response->send();
 		exit();
 	}
@@ -140,7 +156,7 @@ class MainController extends AppController {
 		foreach ($albums as $album) {
 			$info[] = $this->copyAlbum($album, null);
 		}
-		
+
 		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
 		$categories = $categories_col->find();
 		$this->set('body_class', 'zds-gallery');
