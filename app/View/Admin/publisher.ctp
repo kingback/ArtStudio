@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="/min?b=publisher/css&f=publisher-min.css" />
-<script src="/editor/kindeditor-all.js"></script>
-<script src="/editor/lang/zh_CN.js"></script>
+<?php $this->Html->script('/editor/kindeditor-all.js', array('inline' => false)); ?>
+<?php $this->Html->script('/editor/lang/zh_CN.js', array('inline' => false)); ?>
+<?php $this->Html->css('/min?b=publisher/css&f=publisher-min.css',null, array('inline' => false)); ?>
+<?php $this->Html->script('/admin/js/publisher.js', array('inline' => false)); ?>
+
+<?php $this->Html->script('/admin/js/article.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/article.css',null, array('inline' => false)); ?>
 
 <div class="publisher">
 	<form action="/adminapi/modifyArticle<?php if (isset($id)) echo "?id=$id";?>" method="post" target="self" id="publish-form">
@@ -10,10 +14,8 @@
 		</div>
 		<div>
 			<label for="type">文章类型：</label>
-			<select name="type">
-				<option>主页</option>
-				<option>招生简章</option>
-			</select>
+			<input disabled type="text" value="<?php echo $type; ?>"></input>
+			<input style="display:none" type="text" name="type" value="<?php echo $type; ?>"></input>
 		</div>
 		<div class="article-content">
 			<label for="content">内容</label>
@@ -27,4 +29,4 @@
 		</div>
 	</form>
 </div>
-<script src="/admin/js/publisher.js"></script>
+

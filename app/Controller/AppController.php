@@ -41,6 +41,7 @@ class AppController extends Controller {
 	protected $teacher_collection = 'teacher';
 	protected $article_collection = 'article';
 	protected $news_collection = 'news';
+	protected $video_collection = 'video';
 	protected $grid_db = "pic";
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";

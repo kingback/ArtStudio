@@ -9,6 +9,10 @@
 						<input type="text" name="name" />
 					</div>
 					<div class="control-group">
+						<label class="control-label" for="school">任职学校</label>
+						<input type="text" name="school" />
+					</div>
+					<div class="control-group">
 						<label class="control-label" for="title">教师头衔</label>
 						<input type="text" name="title" />
 					</div>
@@ -33,45 +37,41 @@
 					</div>
 				</div>
 			</div>
-		</form>
-	</div>
-	<hr>
+		</div>
+	</form>
+</div>
 
-	<p>
-	<a target='_blank' class='btn btn-danger' onclick="deleteTeacher()">删除选中教师</a> &nbsp;
-	<a target='_blank' class='btn btn-info' onclick="modifyTeacher()">修改选中教师</a> &nbsp;&nbsp;&nbsp;&nbsp;
-	<a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
-	<a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
-	<a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
-	</p>
-	<table class="table table-bordered table-hover responsive-utilities">
-		<thead>
-			<tr>
-				<th></th>
-				<th>头像</th>
-				<th>姓名</th>
-				<th>头衔</th>
-				<th>描述</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($teachers as $teacher): ?>
-			<tr>
-				<td><input type="checkbox" name="checkbox" value="<?php echo $teacher['_id'];?>"></td>
-				<td><img class="span3" src='<?php echo $base_url, $teacher['image']?>' style='max-height:210px'/></td>
-				<td><input class="span1"  id='<?php echo $teacher['_id'];?>_name' name ="name" type="text" value="<?php echo $teacher['name'];?>"></input></td>
-				<td><input class="span2"  id='<?php echo $teacher['_id'];?>_title' name ="title" type="text" value="<?php echo $teacher['title'];?>"></input></td>
-				<td><textarea rows="5" class="span5" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
-			</tr>
-			<?php endforeach; ?>
-		</body>
-	</table>
+<p>
+<a target='_blank' class='btn btn-danger' onclick="deleteTeacher()">删除选中教师</a> &nbsp;
+<a target='_blank' class='btn btn-info' onclick="modifyTeacher()">修改选中教师</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
+<a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
+<a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
+</p>
+<table class="table table-bordered table-hover responsive-utilities">
+	<thead>
+		<tr>
+			<th></th>
+			<th>头像</th>
+			<th>姓名</th>
+			<th>学校</th>
+			<th>头衔</th>
+			<th>描述</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($teachers as $teacher): ?>
+		<tr>
+			<td><input type="checkbox" name="checkbox" value="<?php echo $teacher['_id'];?>"></td>
+			<td class="span3"><img src='<?php echo $base_url, $teacher['image']?>' style='max-height:210px'/></td>
+			<td><input class="span1"  id='<?php echo $teacher['_id'];?>_name' name ="name" type="text" value="<?php echo $teacher['name'];?>"></input></td>
+			<td><?php echo $teacher['school'];?></input></td>
+			<td><input class="span2"  id='<?php echo $teacher['_id'];?>_title' name ="title" type="text" value="<?php echo $teacher['title'];?>"></input></td>
+			<td><textarea rows="5" class="span5" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
+		</tr>
+		<?php endforeach; ?>
+	</body>
+</table>
 
-<script>
-	$('input[id=imgFile]').change(function() {
-		var fobj = document.getElementById("imgFile");
-		var file = fobj.files[0];
-		var file_url = window.URL.createObjectURL(file);
-		document.getElementById("previewImg").src = file_url;
-	});
-</script>
+<?php $this->Html->script('/admin/js/teacher.js', array('inline' => false)); ?>
+<?php $this->Html->css('/admin/css/teacher.css',null, array('inline' => false)); ?>

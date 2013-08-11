@@ -8,21 +8,10 @@ class AdminController extends AppController {
 
 	public function index()
 	{
+
+        $this->set('title_for_layout', '主页管理');
 	}
 
-	public function addHonour()
-	{
-		if ($this->request->is('post')) {
-			$collection = $this->get_collection($this->db_name, $this->honour_collection);
-			$name = $this->_get_argument('name');
-			$school = $this->_get_argument('school');
-			$year = $this->_get_argument('year');
-			// add a record
-			$document = array('name' => $name, 'school' => $school, 'year' => $year);
-			$collection->insert($document);
-		} 
-		$this->redirect('/admin/honour');
-	}
 
 	public function honour()
 	{
@@ -32,7 +21,7 @@ class AdminController extends AppController {
 		$this->set('honours', $honours);
 	}
 
-	public function all_images()
+	public function allImages()
 	{
 		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
 		$cursor = $collection->find();
@@ -104,8 +93,9 @@ class AdminController extends AppController {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
 			$category = $this->_get_argument('category');
+			$type = $this->_get_argument('type');
 			$id = md5($title . $desc . time());
-			$album = array('title' => $title, 'desc' => $desc, '_id' => $id, 'category' => $category);
+			$album = array('title' => $title, 'desc' => $desc, '_id' => $id, 'category' => $category, 'type' => $type);
 			var_dump($album);
 			$collection = $this->get_collection($this->db_name, $this->album_collection);
 			$res = $collection->insert($album);
@@ -131,7 +121,8 @@ class AdminController extends AppController {
 			$title = $this->_get_argument('title');
 			$desc = $this->_get_argument('desc');
 			$category = $this->_get_argument('category');
-			$newdata = array('$set' => array('title' => $title, 'desc' => $desc, 'category' => $category));
+			$type = $this->_get_argument('type');
+			$newdata = array('$set' => array('title' => $title, 'desc' => $desc, 'category' => $category, 'type' => $type));
 			var_dump($newdata);
 			$res = $albums->update(array('_id' => $id), $newdata);
 			var_dump($res);
@@ -201,9 +192,13 @@ class AdminController extends AppController {
 			$article = $collection->findOne(array('_id' => new MongoId($id)));
 			$content = $article['content'];
 			$title = $article['title'];
+			$type = $article['type'];
+		} else {
+			$type = $this->_get_argument('type');
 		}
 		$this->set('title_for_layout', '文章发布');
 		$this->set('id', $id);
+		$this->set('type', $type);
 		$this->set('title', $title);
 		$this->set('content', $content);
 	}
@@ -243,5 +238,99 @@ class AdminController extends AppController {
 		$this->set('summary', $summary);
 		$this->set('image', $image);
 		$this->set('base_url', $this->grid_base_url);
+	}
+
+	public function video()
+	{
+		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$videos = $collection->find();
+		$this->set('title_for_layout', '视频管理');
+		$this->set('videos', $videos);
+		$this->set('base_url', $this->grid_base_url);
+	}
+
+	protected function setXlsProperty($objPHPExcel)
+	{
+		$objPHPExcel->getProperties()->setCreator("zd")
+			->setLastModifiedBy("zd")
+			->setTitle("Office 2007 XLSX Test Document")
+			->setSubject("Office 2007 XLSX Test Document")
+			->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.")
+			->setKeywords("office 2007 openxml php")
+			->setCategory("Test result file");
+	}
+
+	protected function addXlsRow(& $objPHPExcel, $sheet, $rowNo, $values)
+	{
+		$cnt = count($values);
+		for ($i = 0; $i < $cnt; $i++) {
+			$col = chr(65 + $i) . $rowNo;
+			$objPHPExcel->setActiveSheetIndex(0)
+				->setCellValue($col, $values[$i]);
+		}
+	}
+
+	public function downloadSignupXls()
+	{
+		App::import('Vendor', 'phpExcel/PHPExcel');
+		$this->autoRender = false;
+
+		$objPHPExcel = new PHPExcel();
+
+		// Set document properties
+		$this->setXlsProperty($objPHPExcel);
+
+		$collection = $this->get_collection($this->db_name, $this->signup_collection);
+		$students = $collection->find();
+		$header = array(
+			'名字',
+			'性别',
+			'生日',
+			'高中',
+			'电话',
+			'qq',
+			'email',
+			'民族',
+			'籍贯',
+		);
+		$this->addXlsRow($objPHPExcel, 0, 1, $header);
+		$i = 2;
+		foreach ($students as $student) {
+			$stu = array();
+			$stu[] = $student['name'];
+			$stu[] = $student['sex'];
+			$stu[] = $student['birthday'];
+			$stu[] = $student['highschool'];
+			$stu[] = $student['telephone'];
+			$stu[] = $student['qq'];
+			$stu[] = $student['email'];
+			$stu[] = $student['volk'];
+			$stu[] = $student['household'];
+			$this->addXlsRow($objPHPExcel, 0, $i, $stu);
+			++$i;
+		}
+		// Rename worksheet
+		$objPHPExcel->getActiveSheet()->setTitle('Signup');
+
+		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+		$objPHPExcel->setActiveSheetIndex(0);
+
+		// Redirect output to a client’s web browser (Excel5)
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="signup.xls"');
+		header('Cache-Control: max-age=0');
+		// If you're serving to IE 9, then the following may be needed
+		header('Cache-Control: max-age=1');
+
+		// If you're serving to IE over SSL, then the following may be needed
+		header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+		header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+		header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+		header ('Pragma: public'); // HTTP/1.0
+
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+		$objWriter->save('php://output');
+		$this->response->send();
+		exit();
 	}
 }

@@ -1,18 +1,32 @@
 <form method="POST" action="/admin/createAlbum">
-	<fieldset>
-		<legend>新建相册</legend>
-		<label>相册名字</label>
-		<input name ="title" type="text"></input>
-		<label>相册类型</label>
-		<select name="category">
-			<?php foreach ($categories as $category): ?>
-			<option><?php echo $category['name']; ?></option>
-			<?php endforeach;?>
-		</select>
-		<br/>
-		<label>相册描述</label>
-		<textarea rows="10" class="span9" name="desc"></textarea>
-		<br/>
-		<button type="submit" class="btn btn-info">创建</button>
-	</fieldset>
+	<legend>新建相册</legend>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<label>相册班级</label>
+				<select name="category" multiple="multiple">
+					<?php foreach ($categories as $category): ?>
+					<option><?php echo $category['name']; ?></option>
+					<?php endforeach;?>
+				</select>
+				<label>相册属性</label>
+				<select style="height:100px" name="type" multiple="multiple">
+					<option value="drawing">素描</option>
+					<option value="color">色彩</option>
+					<option value="creation">创作</option>
+					<option value="graphic">平面</option>
+					<option value="sketch">速写</option>
+				</select>
+			</div>
+			<div class="span9">
+				<label>相册名字</label>
+				<input name ="title" type="text"></input>
+				<label>相册描述</label>
+				<textarea rows="10" class="span9" name="desc"></textarea> <br>
+				<button type="submit" class="btn-large btn-info span6">创建</button>
+			</div>
+		</div>
+		<div>
+		</div>
+	</div>
 </form>

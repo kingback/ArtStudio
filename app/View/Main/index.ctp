@@ -7,21 +7,17 @@
 	<!-- 焦点图 {{-->
 	<section class="slide-show" id="J_slide_show">
 	<div class="tab-content">
+		<?php $i = 0;?>
+		<?php foreach ($focusImages as $focusImage):?>
+		<?php ++$i; ?>
+		<?php if ($i == 1):  ?>
 		<div class="tab-pannel">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-1.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
+		<?php else: ?>
 		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-2.jpg" width="600" height="400" alt="焦点图" /></a>
+		<?php endif;?>
+		<a href="<?php echo $focusImage['link']; ?>"><img src="<?php echo $focusImage['src']; ?>" width="600" height="400" alt="<?php echo $focusImage['alt']; ?>" /></a>
 		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-3.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-4.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
-		<div class="tab-pannel hidden">
-			<a href="#"><img src="http://jayli.github.io/gallery/yuislide/assets/slide-5.jpg" width="600" height="400" alt="焦点图" /></a>
-		</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="tab-nav-con">
 		<div class="tab-nav-wrapper">
@@ -61,33 +57,44 @@
 	<!-- 了解周达画室 }}-->
 
 	<!-- 展示列表 {{-->
+	<?php $max_num = 4; ?>
 	<section class="show-category">
 	<ul class="show-list clearfix">
 		<li class="show-item show-item-first">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-drawing.png" alt="素描" /></a>
+				<a href="/main/allGallery"><img src="/index/img/show-drawing.png" alt="素描" /></a>
 			</div>
 			<h3>
 				<strong>素描</strong><em>drawing</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php $i = 0; $type='drawing'; ?>
+				<?php foreach ($albums as $album): ?>
+				<?php if ($i > 0 && $album['type'] != $type) break; ?>
+				<?php if ($album['type'] != $type) continue; ?>
+				<?php $i ++; if ($i > $max_num) break; ?>
+				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
 		<li class="show-item">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-color.png" alt="色彩" /></a>
+				<a href="/main/allGallery"><img src="/index/img/show-color.png" alt="色彩" /></a>
 			</div>
 			<h3>
 				<strong>色彩</strong><em>color</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php $i = 0; $type='color'; ?>
+				<?php foreach ($albums as $album): ?>
+				<?php if ($i > 0 && $album['type'] != $type) break; ?>
+				<?php if ($album['type'] != $type) continue; ?>
+				<?php $i ++; if ($i > $max_num) break; ?>
+				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
@@ -108,43 +115,58 @@
 		<li class="show-item show-item-first">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-creation.png" alt="创作" /></a>
+				<a href="/main/allGallery"><img src="/index/img/show-creation.png" alt="创作" /></a>
 			</div>
 			<h3>
 				<strong>创作</strong><em>creation</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php $i = 0; $type='creation'; ?>
+				<?php foreach ($albums as $album): ?>
+				<?php if ($i > 0 && $album['type'] != $type) break; ?>
+				<?php if ($album['type'] != $type) continue; ?>
+				<?php $i ++; if ($i > $max_num) break; ?>
+				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
 		<li class="show-item">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-graphic.png" alt="平面" /></a>
+				<a href="/main/allGallery"><img src="/index/img/show-graphic.png" alt="平面" /></a>
 			</div>
 			<h3>
 				<strong>平面</strong><em>graphic</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php $i = 0; $type='graphic'; ?>
+				<?php foreach ($albums as $album): ?>
+				<?php if ($i > 0 && $album['type'] != $type) break; ?>
+				<?php if ($album['type'] != $type) continue; ?>
+				<?php $i ++; if ($i > $max_num) break; ?>
+				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
 		<li class="show-item show-item-last">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-sketch.png" alt="速写" /></a>
+				<a href="/main/allGallery"><img src="/index/img/show-sketch.png" alt="速写" /></a>
 			</div>
 			<h3>
 				<strong>速写</strong>
 				<em>sketch</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php $i = 0; $type='sketch'; ?>
+				<?php foreach ($albums as $album): ?>
+				<?php if ($i > 0 && $album['type'] != $type) break; ?>
+				<?php if ($album['type'] != $type) continue; ?>
+				<?php $i ++; if ($i > $max_num) break; ?>
+				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
@@ -172,93 +194,35 @@
 	<h2>师资力量</h2>
 	<div class="teachers-con">
 		<ul class="main-teachers clearfix">
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt1.png" alt="文筱波" /></span>
-				<strong class="teacher-name">文筱波</strong>
+			<?php  $i = 0; ?>
+			<?php foreach ($mts as $mt): ?>
+			<?php ++$i; ?>
+			<?php if ($i % 2 ==0): ?>
+				<li>
+			<?php else: ?>
+				<li class="teacher-even">
+			<?php endif; ?>
+			<a href="/main/teacher" class="teacher-link">
+				<span class="teacher-image"><img src="<?php echo $mt['img']; ?>" alt="<?php echo $mt['name']; ?>" /></span>
+				<strong class="teacher-name"><?php echo $mt['name']; ?></strong>
 			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">造型主教</p>
+			<p class="teacher-school"><?php echo $mt['school'];?></p>
+			<p class="teacher-title"><?php echo $mt['title']; ?></p>
 			</li>
-			<li class="teacher-even">
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt2.png" alt="李迪" /></span>
-				<strong class="teacher-name">李迪</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt3.png" alt="王允昌" /></span>
-				<strong class="teacher-name">王允昌</strong>
-			</a>
-			<p class="teacher-school">清华美术学院</p>
-			<p class="teacher-title">设计主教</p>
-			</li>
-			<li class="teacher-even">
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt4.png" alt="郝爽" /></span>
-				<strong class="teacher-name">郝爽</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/mt5.png" alt="董丹丹" /></span>
-				<strong class="teacher-name">董丹丹</strong>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">色彩主教</p>
-			</li>
+			<?php endforeach; ?>
 		</ul>
 		<ul class="other-teachers clearfix">
+			<?php foreach ($ots as $ot): ?>
 			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot1.png" alt="文筱波" /></span>
-				<strong class="teacher-name">文筱波</strong>
+			<a href="/main/teacher" class="teacher-link">
+			<span class="teacher-image"><img src="<?php echo $ot['img']; ?>" alt="<?php echo $ot['name']; ?>" /></span>
+			<strong class="teacher-name"><?php echo $ot['name']; ?></strong>
 				<em></em>
 			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">造型主教</p>
+			<p class="teacher-school"><?php echo $ot['school']; ?></p>
+			<p class="teacher-title"><?php echo $ot['title']; ?></p>
 			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot2.png" alt="李迪" /></span>
-				<strong class="teacher-name">李迪</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot3.png" alt="王允昌" /></span>
-				<strong class="teacher-name">王允昌</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">清华美术学院</p>
-			<p class="teacher-title">设计主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot1.png" alt="郝爽" /></span>
-				<strong class="teacher-name">郝爽</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">综合班素描主教</p>
-			</li>
-			<li>
-			<a href="#" class="teacher-link">
-				<span class="teacher-image"><img src="/index/img/ot2.png" alt="董丹丹" /></span>
-				<strong class="teacher-name">董丹丹</strong>
-				<em></em>
-			</a>
-			<p class="teacher-school">中央美术学院</p>
-			<p class="teacher-title">色彩主教</p>
-			</li>
+			<?php endforeach; ?>
 		</ul>
 	</div>
 	</section>
@@ -327,20 +291,15 @@
 	<div class="hall-con">
 		<div class="hall-list">
 			<ul>
-				<li>1祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>2祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>3祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>4祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>5祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>6祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>7祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
-				<li>8祝贺北京周达画室学员高越超同学专业通过中央美术学院</li>
+				<?php foreach ($honours as $honour):  ?>
+				<li>祝贺北京周达画室学员<?php echo $honour['name'];?>同学专业通过<?php echo $honour['school'];?></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		<div class="hall-mask-up"></div>
 		<div class="hall-mask"></div>
 	</div>
-	<a href="#" class="hall-more">more</a>
+	<a href="/main/honour" class="hall-more">more</a>
 	</section>
 	<!-- 光荣榜 }}-->
 
@@ -380,11 +339,9 @@
 		<strong>周达画室开课时间</strong>
 	</h3>
 	<ul>
-		<li><a href="#"><b></b>造型班</a></li>
-		<li><a href="#"><b></b>设计班</a></li>
-		<li><a href="#"><b></b>综合班</a></li>
-		<li><a href="#"><b></b>进修班</a></li>
-		<li><a href="#"><b></b>中考班</a></li>
+		<?php foreach ($courseInfos as $courseInfo): ?>
+		<li><a href="/main/article?id=<?php echo $courseInfo['_id']; ?>"><b></b><?php echo $courseInfo['title']; ?></a></li>
+		<?php endforeach; ?>
 	</ul>
 	</section>
 	<!-- 开课时间 }}-->
@@ -396,11 +353,9 @@
 		<strong>报名须知及注意事项</strong>
 	</h3>
 	<ul>
-		<li><a href="#"><b></b>入学报名须知</a></li>
-		<li><a href="#"><b></b>复读生优惠</a></li>
-		<li><a href="#"><b></b>常见问题详解</a></li>
-		<li><a href="#"><b></b>学生服务</a></li>
-		<li><a href="#"><b></b>画室招生简章</a></li>
+		<?php foreach ($applyInfos as $applyInfo): ?>
+		<li><a href="/main/article?id=<?php echo $applyInfo['_id']; ?>"><b></b><?php echo $applyInfo['title']; ?></a></li>
+		<?php endforeach; ?>
 	</ul>
 	</section>
 	<!-- 报名须知及注意事项 }}-->
@@ -422,72 +377,21 @@
 	<!-- 画室新闻 {{-->
 	<section>
 	<ul class="news">
+		<?php  $i = 0; ?>
+		<?php foreach ($newses as $news): ?>
+		<?php  ++$i; if ($i > 6) break; ?>
 		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
+		<a href="/main/article?id=<?php echo $news['articleId']; ?>" class="news-image">
+		<img src="<?php echo $base_url, $news['image']; ?>" alt="画室新闻" />
+		<strong class="news-title"><?php echo $news['title']; ?></strong>
 		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
+		<p class="news-date"><?php echo date('Y-m-d', $news['date']->sec); ?></p>
+		<p class="news-desc"><?php echo $news['summary']; ?></p>
 		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
+		<a href="/main/article?id=<?php echo $news['articleId']?>">more<b></b></a>
 		</div>
 		</li>
-		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
-		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
-		</div>
-		</li>
-		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
-		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
-		</div>
-		</li>
-		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
-		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
-		</div>
-		</li>
-		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
-		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
-		</div>
-		</li>
-		<li>
-		<a href="#" class="news-image">
-			<img src="/index/img/news.png" alt="画室新闻" />
-			<strong class="news-title">北京周达画室与河北农业大学林学院继续教育合作揭牌仪式举行</strong>
-		</a>
-		<p class="news-date">2013-5-16</p>
-		<p class="news-desc">画画的时候一定要耐心、严谨。画之前要心中有画，考虑周全。收放自如是在控制下的，挥笔自如也是在控制下的。每个细节都可以揪出原因、可以给学生讲解。来龙去脉不可含糊。不看模特，用青春期仅留的荷尔蒙的作画方式我是不赞同的！</p>
-		<div class="news-more clearfix">
-			<a href="#">more<b></b></a>
-		</div>
-		</li>
+		<?php  endforeach; ?>
 	</ul>
 	</section>
 	<!-- 画室新闻 }}-->
