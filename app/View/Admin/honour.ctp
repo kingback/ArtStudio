@@ -52,7 +52,8 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 </div>
 <p>
-<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;
+<a target='_blank' class='btn btn-warning' onclick="markHonour()">加星选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
 <a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
 <a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
@@ -64,6 +65,7 @@
 			<th>考生姓名</th>
 			<th>通过学校</th>
 			<th>考试年</th>
+			<th>加星</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -73,6 +75,11 @@
 			<td><?php echo $stu['name']; ?></td>
 			<td><?php echo $stu['school']; ?></td>
 			<td><?php echo $stu['year']; ?></td>
+			<td>
+				<?php if (isset($stu['mark']) && $stu['mark'] > 0): ?>
+				<span class="badge badge-important">Star</span>
+				<?php endif?>
+			</td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>

@@ -511,7 +511,23 @@ class AdminapiController extends AppController {
 			$newdata = array('$set' => array('name' => $names[$i], 'url' => $urls[$i], 'desc' => $descs[$i]));
 			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
 			if (!$res['ok']) {
-				echo json_encode($res);
+				$this->_setErrMsgAndExit($res['err'], 500);
+			}
+		}
+	}
+
+	public function markHonour()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->honour_collection);
+		$newdata = array('$set' => array('mark' => 1));
+		foreach ($ids as $id) {
+			$res = $collection->update(array('_id' => new MongoId($id)), $newdata);
+			if (!$res['ok']) {
+				$this->_setErrMsgAndExit($res['err'], 500);
 			}
 		}
 	}

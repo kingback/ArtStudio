@@ -39,23 +39,29 @@
 							</tr>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
 							<tr>
-							<td class="student"><?php echo $stu['name']; ?></td>
-							<td class="school"><p><?php echo $stu['school']; ?></p></td>
-							</tr>
-							<?php endforeach; ?>
-						</table>
-					</div>
-				<?php if ($i > 0): ?>
+								<td class="student"><?php echo $stu['name']; ?></td>
+								<?php if (isset($stu['mark']) && $stu['mark'] > 0): ?>
+								<td class="school star">
+									<?php else:?>
+									<td class="school">
+										<?php endif; ?>
+										<p><?php echo $stu['school']; ?></p>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+							</table>
+						</div>
+						<?php if ($i > 0): ?>
 					</script>
-				<?php endif; ?>
+					<?php endif; ?>
 				</div>
-			<?php endfor; ?>
+				<?php endfor; ?>
+			</div>
+			<p class="honour-view-note">※ 以上数据系不完全统计</p>
 		</div>
-		<p class="honour-view-note">※ 以上数据系不完全统计</p>
-	</div>
-	</section>
-	<!-- 光荣榜 }}-->
+		</section>
+		<!-- 光荣榜 }}-->
 
-</div>
-<!-- 主内容 }}-->
+	</div>
+	<!-- 主内容 }}-->
 
