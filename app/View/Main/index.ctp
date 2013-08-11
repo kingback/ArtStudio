@@ -57,9 +57,9 @@
 	<!-- 了解周达画室 }}-->
 
 	<!-- 展示列表 {{-->
-	<?php $max_num = 4; ?>
 	<section class="show-category">
 	<ul class="show-list clearfix">
+		<?php $max_num = 4; ?>
 		<li class="show-item show-item-first show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
@@ -112,6 +112,7 @@
 			</ul>
 		</div>
 		</li>
+		<?php $max_num = 2; ?>
 		<li class="show-item show-item-first">
 		<div class="show-con">
 			<div class="show-image">
