@@ -178,7 +178,7 @@ YUI.add('gallery', function(Y) {
             if (this.data[id]) {
                 fn && fn.call(this, this.data[id]);
             } else {
-                Y.io('http://106.186.25.82/mainapi/albuminfo', {
+                Y.io('/mainapi/albuminfo', {
                     method: 'GET',
                     data: {
                         id: id
@@ -206,8 +206,8 @@ YUI.add('gallery', function(Y) {
         
         parseData: function(data) {
             Y.Array.each(data.images, function(item, index) {
-                data.images[index].small = 'http://106.186.25.82/gridfs/' + data.images[index].small;
-                data.images[index].large = 'http://106.186.25.82/gridfs/' + data.images[index].large;
+                data.images[index].small = '/gridfs/' + data.images[index].small;
+                data.images[index].large = '/gridfs/' + data.images[index].large;
             });
             
             return data;

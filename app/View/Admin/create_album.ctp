@@ -16,6 +16,8 @@
 					<option value="creation">创作</option>
 					<option value="graphic">平面</option>
 					<option value="sketch">速写</option>
+					<option value="studioEnv">画室环境</option>
+					<option value="zd">周达作品</option>
 				</select>
 			</div>
 			<div class="span9">

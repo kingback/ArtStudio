@@ -13,6 +13,7 @@ class MainapiController extends AppController {
 		exit();
 	}
 
+	/*
 	public function listAlbums()
 	{
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
@@ -23,13 +24,19 @@ class MainapiController extends AppController {
 		}
 		echo json_encode($info);
 	}
+	 */
 
 	public function albumInfo()
 	{
 		$album_id = $this->_get_argument('id');
+
 		$albums = $this->get_collection($this->db_name, $this->album_collection);
 		$album = $albums->findOne(array('_id' => $album_id));
-		$info = $this->copyAlbum($album);
+
+		$like_col = $this->get_collection($this->db_name, $this->pic_like_collection);
+		$likes = $like_col->findOne(array('_id' => $album_id));
+
+		$info = $this->copyAlbum($album, $likes);
 		echo json_encode($info);
 	}
 
@@ -51,4 +58,49 @@ class MainapiController extends AppController {
 		$file_url = $this->grid_base_url . $large;
 		echo json_encode(array('error' => 0, 'url' => $file_url));
 	}
+
+	public function likePic()
+	{
+		$album_id = $this->_get_argument('albumId');
+		$img_id = $this->_get_argument('imgId');
+		$like_col = $this->get_collection($this->db_name, $this->pic_like_collection);
+		$like = $like_col->findOne(array('_id' => $album_id));
+
+		$images = array();
+		if (isset($like['images'])) {
+			$images = $like['images'];
+		}
+		if (!isset($images[$img_id])) {
+			$images[$img_id] = 1;
+		} else {
+			$images[$img_id] ++;
+		}
+
+		$newdata = array('$set' => array('images' => $images));
+		$res = $like_col->update(array('_id' => $album_id), $newdata, array('upsert' => true));
+		if (!$res['ok']) {
+		}
+		var_dump($res);
+	}
+
+	public function news()
+	{
+		$page = $this->_get_argument('page');
+		$news_col = $this->get_collection($this->db_name, $this->news_collection);
+		$news_num = $news_col->count();
+
+		if ($page < 1) {
+			$this->_setErrMsgAndExit('page starts at 1', 400);
+		}
+
+		if (($page-1) * $this->news_page_size > $news_num) {
+			echo json_encode(array());
+			return;
+		}
+
+		$newses = $news_col->find()->sort(array('date' => -1));
+		$res = $this->_copy_news($newses, $page);
+		echo json_encode($res);
+	}
+
 }

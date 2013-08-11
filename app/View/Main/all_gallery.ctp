@@ -9,6 +9,7 @@
 		<div class="gl-tab clearfix">
 			<a href="/main/allGallery" class="gl-tab-selected">全部</a>
 			<?php foreach ($categories as $category): ?>
+			<?php if ($category['name'] == '其他') continue;?>
 			<span>|</span>
 			<a href="/main/gallery?category=<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
 			<?php endforeach;?>
@@ -34,7 +35,7 @@
 			<div class="album-cover">
 				<a href="javascript:void(0);" target="_self" title="<?php echo $album['title']; ?>">
 					<?php if (isset($album['cover'])): ?>
-					<img src="<?php echo $base_url, $album['cover']['small']; ?>" />
+					<img src="<?php echo $album['cover']['small']; ?>" />
 					<?php else: ?>
 					<img src="/gallery/img/gf.png" />
 					<?php endif;?>

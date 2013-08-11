@@ -42,10 +42,13 @@ class AppController extends Controller {
 	protected $article_collection = 'article';
 	protected $news_collection = 'news';
 	protected $video_collection = 'video';
+	protected $pic_like_collection = 'picLike';
 	protected $grid_db = "pic";
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";
 	protected $max_small_pic_size = 300;
+	protected $news_page_size = 15;
+	protected $video_page_size = 12;
 
 	protected function get_connection()
 	{
@@ -97,8 +100,7 @@ class AppController extends Controller {
 			return $values[$len - 1];
 		}
 		if (null == $default) {
-			echo "can't find $name";
-			$this->_setStatusAndExit(400);
+			$this->_setErrMsgAndExit("can't find request value: $name", 400);
 		}
 		return $default;
 	}
@@ -141,7 +143,7 @@ class AppController extends Controller {
 		return $this->grid_base_url . $file_name;
 	}
 
-	protected function copyAlbum($album)
+	protected function copyAlbum($album, $likes)
 	{
 		$al = array();
 		$al['id'] = $album['_id'];
@@ -149,14 +151,18 @@ class AppController extends Controller {
 		$al['title'] = $album['title'];
 		if (isset($album['cover'])) {
 			$cover_id = $album['cover'];
-			$al['cover']['large'] = $album['images'][$cover_id]['large'];
-			$al['cover']['small'] = $album['images'][$cover_id]['small'];
+			$al['cover']['large'] = $this->grid_base_url . $album['images'][$cover_id]['large'];
+			$al['cover']['small'] = $this->grid_base_url . $album['images'][$cover_id]['small'];
 		}
 		$images = array();
 		$al['image_num'] = 0;
 		if (isset($album['images'])) {
 			foreach ($album['images'] as $image_id => $image) {
 				$image['id'] = $image_id;
+				$image['like'] = 0;
+				if (isset($likes) && isset($likes['images'][$image_id])) {
+					$image['like'] = $likes['images'][$image_id];
+				}
 				$images[] = $image;
 			}
 			$al['image_num'] = count($images);
@@ -238,5 +244,44 @@ class AppController extends Controller {
 		imagedestroy($im);
 		imagedestroy($new_im);
 		return $name;
+	}
+
+	protected function save_pic($upload_pic)
+	{
+		$mimeType = 'image/';
+		$file = $_FILES[$upload_pic];
+		if (!$this->starts_with($file['type'], $mimeType)) {
+			return false;
+		}
+		$grid = $this->get_grid_fs();
+		$pic_name = $this->generate_name($file['tmp_name']);
+		$res = $grid->storeUpload($upload_pic, $pic_name);
+		return $pic_name;
+	}
+
+	protected function _copy_news($newses, $page)
+	{
+		$res = array();
+		$i = 0;
+		$start_page = ($page-1) * $this->news_page_size;
+		$end_page = $page + $this->news_page_size;
+		foreach ($newses as $news) {
+			if ($i > $end_page) {
+				break;
+			}
+			if ($i < $start_page) {
+				continue;
+			}
+			++ $i;
+			$res[] = array(
+				'url' => '/main/article?id=' . $news['articleId'],
+				'image' => $this->grid_base_url . $news['image'],
+				'title' => $news['title'],
+				'date' => date('Y-m-d', $news['date']->sec),
+				'desc' => $news['summary']
+			);
+		}
+
+		return $res;
 	}
 }

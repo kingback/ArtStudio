@@ -15,11 +15,11 @@
 		window.NewsData = [
 		<?php foreach ($newses as $news): ?>
 		{  
-			url:'/main/article?id=<?php echo $news['articleId'];?>',
-			image:'<?php echo $base_url, $news['image']?>',
-			title:'<?php echo $news['title']; ?>'
-			,date:'<?php echo date('Y-m-d', $news['date']->sec) ?>',
-			desc:'<?php echo $news['summary']; ?>'
+			url: '<?php echo $news['url'];?>',
+			image: '<?php echo $news['image']?>',
+			title: '<?php echo $news['title']; ?>'
+			,date: '<?php echo $news['date']; ?>',
+			desc: '<?php echo $news['desc']; ?>'
 		},
 		<?php endforeach; ?>
 		];

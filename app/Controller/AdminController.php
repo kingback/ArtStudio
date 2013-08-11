@@ -69,20 +69,23 @@ class AdminController extends AppController {
 	{
 		$id = $this->_get_argument('id');
 		$collection = $this->get_collection($this->db_name, $this->album_collection);
-		$album = $collection->findOne(array('_id' => $id));
+		$raw_album = $collection->findOne(array('_id' => $id));
+
+		$like_col = $this->get_collection($this->db_name, $this->pic_like_collection);
+		$likes = $like_col->findOne(array('_id' => $id));
+
+		$album = $this->copyAlbum($raw_album, $likes);
+
+		$cover = "";
+		if (isset($raw_album['cover'])) {
+			$cover = $raw_album['cover'];
+		}
+
 		$this->set('title', $album['title']);
 		$this->set('desc', $album['desc']);
-		$images = array();
-		if (isset($album['images'])) {
-			$images = $album['images'];
-		}
-		$cover = "";
-		if (isset($album['cover'])) {
-			$cover = $album['cover'];
-		}
-		$this->set('id', $id);
 		$this->set('cover', $cover);
-		$this->set('images', $images);
+		$this->set('id', $id);
+		$this->set('images', $album['images']);
 		$this->set('base_url', $this->grid_base_url);
 		$this->set('title_for_layout', '修改相册图片');
 	}
