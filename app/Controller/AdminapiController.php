@@ -149,6 +149,7 @@ class AdminapiController extends AppController {
 		echo json_encode($album);
 	}
 
+	// 单张上传图片
 	public function uploadImage()
 	{
 		$filename = $_FILES['Filedata']['tmp_name'];
@@ -169,6 +170,7 @@ class AdminapiController extends AppController {
 		echo json_encode($info);
 	}
 
+	// 批量上传图片, /admin/images
 	public function uploadImages()
 	{
 		$larges = array();
@@ -196,19 +198,7 @@ class AdminapiController extends AppController {
 		echo json_encode($info);
 	}
 
-	protected function save_pic($upload_pic)
-	{
-		$mimeType = 'image/';
-		$file = $_FILES[$upload_pic];
-		if (!$this->starts_with($file['type'], $mimeType)) {
-			return false;
-		}
-		$grid = $this->get_grid_fs();
-		$pic_name = $this->generate_name($file['tmp_name']);
-		$res = $grid->storeUpload($upload_pic, $pic_name);
-		return $pic_name;
-	}
-
+	// 批量删除图片 /admin/allImages
 	public function deleteImages()
 	{
 		$ids_str = $this->_get_argument('ids');
@@ -222,6 +212,7 @@ class AdminapiController extends AppController {
 		}
 	}
 
+	// 批量删除带小图的图片 /admin/images
 	public function deletePics()
 	{
 		$ids_str = $this->_get_argument('ids');

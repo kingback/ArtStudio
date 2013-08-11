@@ -42,6 +42,7 @@ class AppController extends Controller {
 	protected $article_collection = 'article';
 	protected $news_collection = 'news';
 	protected $video_collection = 'video';
+	protected $pic_like_collection = 'picLike';
 	protected $grid_db = "pic";
 	protected $grid_db_file = "fs.files";
 	protected $grid_base_url = "http://localhost:4444/gridfs/";
@@ -97,8 +98,7 @@ class AppController extends Controller {
 			return $values[$len - 1];
 		}
 		if (null == $default) {
-			echo "can't find $name";
-			$this->_setStatusAndExit(400);
+			$this->_setErrMsgAndExit("can't find request value: $name", 400);
 		}
 		return $default;
 	}
@@ -141,7 +141,7 @@ class AppController extends Controller {
 		return $this->grid_base_url . $file_name;
 	}
 
-	protected function copyAlbum($album)
+	protected function copyAlbum($album, $likes)
 	{
 		$al = array();
 		$al['id'] = $album['_id'];
@@ -157,6 +157,10 @@ class AppController extends Controller {
 		if (isset($album['images'])) {
 			foreach ($album['images'] as $image_id => $image) {
 				$image['id'] = $image_id;
+				$image['like'] = 0;
+				if (isset($likes) && isset($likes['images'][$image_id])) {
+					$image['like'] = $likes['images'][$image_id];
+				}
 				$images[] = $image;
 			}
 			$al['image_num'] = count($images);
@@ -239,4 +243,18 @@ class AppController extends Controller {
 		imagedestroy($new_im);
 		return $name;
 	}
+
+	protected function save_pic($upload_pic)
+	{
+		$mimeType = 'image/';
+		$file = $_FILES[$upload_pic];
+		if (!$this->starts_with($file['type'], $mimeType)) {
+			return false;
+		}
+		$grid = $this->get_grid_fs();
+		$pic_name = $this->generate_name($file['tmp_name']);
+		$res = $grid->storeUpload($upload_pic, $pic_name);
+		return $pic_name;
+	}
+
 }
