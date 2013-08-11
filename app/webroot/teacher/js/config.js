@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            teacher: {
                 base: YUI.getBase('teacher/js'),
                 comboBase: YUI.getComboBase('teacher/js'),
                 root: '',

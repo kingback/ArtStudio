@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            signup: {
                 base: YUI.getBase('signup/js'),
                 comboBase: YUI.getComboBase('signup/js'),
                 root: '',
@@ -19,7 +19,7 @@
                     },
                     'form': {
                         path: YUI.getPath('form'),
-                        requires: ['datecascade', 'validator', 'event-hover', 'greensock']
+                        requires: ['datecascade', 'validator', 'event-hover', 'io']
                     }
                 }
             }

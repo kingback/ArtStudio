@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            gallery: {
                 base: YUI.getBase('gallery/js'),
                 comboBase: YUI.getComboBase('gallery/js'),
                 root: '',

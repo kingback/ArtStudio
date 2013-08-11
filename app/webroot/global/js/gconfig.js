@@ -56,6 +56,10 @@
                         path: getPath('slide/slide'),
                         requires: ['node', 'anim']
                     },
+                    'simpleslide': {
+                        path: getPath('simpleslide/simpleslide'),
+                        requires: ['node', 'event', 'base', 'transition']
+                    },
                     'datecascade': {
                         path: getPath('datecascade/datecascade'),
                         requires: ['node', 'base']

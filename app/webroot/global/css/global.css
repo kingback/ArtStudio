@@ -61,7 +61,7 @@ img {vertical-align:bottom;}
 .g-sublogo a {text-indent:-9999px;height:77px;}
 .g-nav li {border-bottom:1px solid #171717;position:relative;overflow:visible;}
 .g-nav li a {
-    height:38px;line-height:40px;border-bottom:1px solid #2f2f2f;background:#252424;
+    height:42px;line-height:44px;border-bottom:1px solid #2f2f2f;background:#252424;
     -webkit-transition:all 0.2s linear 0s;
     -moz-transition:all 0.2s linear 0s;
     -o-transition:all 0.2s linear 0s;
@@ -81,7 +81,7 @@ img {vertical-align:bottom;}
 .g-weibo a {text-indent:-9999px;background-position:23px -160px;height:62px;display:block;}
 
 /* 主体内容 */
-.g-bd {margin-left:154px;margin-top:20px;width:846px;}
+.g-bd {margin-left:154px;margin-top:20px;width:846px;padding-top:25px;}
 
 /* 面包屑 */
 .g-bread a,

@@ -1,2 +1,2 @@
 /* ZD */
-!function(){ZD.applyConfig({groups:{index:{base:YUI.getBase("iuploader/js"),comboBase:YUI.getComboBase("iuploader/js"),root:"",combine:YUI.combine,modules:{main:{use:["iuploader"]},iuploader:{path:YUI.getPath("iuploader"),requires:["uploader","ZeroClipboard","json-parse"]}}}}})}();
+!function(){ZD.applyConfig({groups:{iuploader:{base:YUI.getBase("iuploader/js"),comboBase:YUI.getComboBase("iuploader/js"),root:"",combine:YUI.combine,modules:{main:{use:["iuploader"]},iuploader:{path:YUI.getPath("iuploader"),requires:["uploader","ZeroClipboard","json-parse"]}}}}})}();

@@ -133,9 +133,7 @@ YUI.add('galleria', function(Y) {
         },
         
         _renderJiaThis: function() {
-            Y.Get.js('http://v3.jiathis.com/code/jia.js?uid=1375524945718704', function() {
-                
-            });
+            Y.Get.js('http://v3.jiathis.com/code/jia.js?uid=1375524945718704');
         },
         
         _showAnim: function() {
@@ -333,6 +331,7 @@ YUI.add('galleria', function(Y) {
             this._htmlEl.toggleClass('yui3-galleria-lock', e.newVal);  
             if (!e.newVal) {
                 this.hideNav();
+                this._updateJiaThis();
             } else {
                 this._updateImageSize();
                 this._updateNavSize();
@@ -401,7 +400,7 @@ YUI.add('galleria', function(Y) {
         
         _updateJiaThis: function(e) {
             window.jiathis_config = window.jiathis_config || {};
-            window.jiathis_config.pic = e.item.getAttribute('data-large');
+            window.jiathis_config.pic = e && e.item.getAttribute('data-large') || '';
         },
         
         _preload: function() {

@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            honour: {
                 base: YUI.getBase('honour/js'),
                 comboBase: YUI.getComboBase('honour/js'),
                 root: '',

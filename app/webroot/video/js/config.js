@@ -8,7 +8,7 @@
     
     ZD.applyConfig({
         groups: {
-            index: {
+            video: {
                 base: YUI.getBase('video/js'),
                 comboBase: YUI.getComboBase('video/js'),
                 root: '',
