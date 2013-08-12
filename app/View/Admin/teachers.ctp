@@ -1,27 +1,38 @@
 <div class="well">
-	<form class="form-inline" id = "addTeacher" method="POST" enctype="multipart/form-data" action="/adminapi/addTeacher">
+	<form class="form-horizontal" id = "addTeacher" method="POST" enctype="multipart/form-data" action="/adminapi/addTeacher">
 		<legend>添加教师</legend>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<div class="control-group">
 						<label class="control-label" for="name">教师姓名</label>
-						<input type="text" name="name" />
+						<div class="controls">
+							<input type="text" name="name" />
+						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="school">任职学校</label>
-						<input type="text" name="school" />
+						<div class="controls">
+							<input type="text" name="school" />
+						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="title">教师头衔</label>
-						<input type="text" name="title" />
+						<div class="controls">
+							<input type="text" name="title" />
+						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="desc">教师描述</label>
-						<textarea rows="7" class="span10" name="desc"></textarea>
+						<div class="controls">
+							<textarea rows="7" class="span10" name="desc"></textarea>
+						</div>
+					</div>
+					<div class="form-actions" >
+						<button style="width:200px;" type="submit" class="btn btn-info">添加</button>
 					</div>
 				</div>
-				<div class="span3 offset1">
+				<div class="span3">
 					<div class="">
 						<img id="previewImg" style="width:300px; height:225px" class="img-polaroid"  data-src="holder.js/300x225" alt=""/>
 					</div>
@@ -29,12 +40,7 @@
 						<label for="imgFile">选择头像</label>
 						<a class="btn btn-info" onclick="$('input[id=imgFile]').click();">Browse</a>
 					</div>
-				</div>
-				<div class="span12" >
 					<input style="display:none" id="imgFile" type="file" name="imgFile" multiple/>
-					<div class="span6 offset2">
-						<button style="width:200px;" type="submit" class="btn btn-info">添加</button>
-					</div>
 				</div>
 			</div>
 		</div>

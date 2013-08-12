@@ -50,9 +50,7 @@
 						<a class="btn btn-info" onclick="$('input[id=imgFile]').click();">Browse</a>
 					</div>
 				</div>
-				<div class="span12" >
-					<input style="display:none" id="imgFile" type="file" name="imgFile" multiple/>
-				</div>
+				<input style="display:none" id="imgFile" type="file" name="imgFile" multiple/>
 			</div>
 		</div>
 	</form>
@@ -85,9 +83,9 @@ $colors = array(
 	<thead>
 		<tr>
 			<th></th>
+			<th>类型</th>
 			<th>封面</th>
 			<th>名称</th>
-			<th>类型</th>
 			<th>播放链接</th>
 			<th>描述</th>
 		</tr>
@@ -96,11 +94,11 @@ $colors = array(
 		<?php foreach ($videos as $video): ?>
 		<tr>
 			<td><input type="checkbox" name="checkbox" value="<?php echo $video['_id'];?>"></td>
-			<td><img src='<?php echo $base_url, $video['image']?>' style='max-width:100px'/></td>
-			<td><input class="span2"  id='<?php echo $video['_id'];?>_name' name ="name" type="text" value="<?php echo $video['name'];?>"></input></td>
 			<td>
 				<span class="label label-<?php echo $colors[$video['type']];?>"><?php echo $types[$video['type']]; ?></span>
 			</td>
+			<td><img src='<?php echo $base_url, $video['image']?>' style='max-width:100px'/></td>
+			<td><input class="span2"  id='<?php echo $video['_id'];?>_name' name ="name" type="text" value="<?php echo $video['name'];?>"></input></td>
 			<td><textarea class="span2" rows="5" id='<?php echo $video['_id'];?>_url' name ="url"><?php echo $video['url'];?></textarea></td>
 			<td><textarea rows="5" class="span3" id='<?php echo $video['_id'];?>_desc' name ="desc"><?php echo $video['desc'];?></textarea></td>
 		</tr>

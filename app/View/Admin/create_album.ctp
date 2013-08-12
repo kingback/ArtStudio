@@ -25,10 +25,10 @@
 				<input name ="title" type="text"></input>
 				<label>相册描述</label>
 				<textarea rows="10" class="span9" name="desc"></textarea> <br>
-				<button type="submit" class="btn-large btn-info span6">创建</button>
+				<div class="form-actions">
+					<button type="submit" class="btn-large btn-info span6">创建</button>
+				</div>
 			</div>
-		</div>
-		<div>
 		</div>
 	</div>
 </form>
