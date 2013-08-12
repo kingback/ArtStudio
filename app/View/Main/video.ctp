@@ -21,7 +21,7 @@
 		<?php else: ?>
 			<li>
 		<?php endif; ?>
-		<a href="#">
+			<a href="/main/playVideo?name=<?php echo $video['name'];?>&url=<?php echo $video['url'];?>">
 			<figure>
 			<div class="video-image">
 			<img src="<?php echo $video['image'];?>" />

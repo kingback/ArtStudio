@@ -299,6 +299,16 @@ class MainController extends AppController {
 		$this->set('zdAlbumId', $album['_id']);
 	}
 
+	public function playVideo()
+	{
+		$this->set('body_class', 'zds-article');
+		$this->set('page', -1);
+		$name = $this->_get_argument('name');
+		$url = $this->_get_argument('url');
+		$this->set('name', $name);
+		$this->set('url', $url);
+	}
+
 	// all articles shared the same view {article}
 	// this function sets values for view
 	private function _set_article_info($article)
