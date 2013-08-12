@@ -246,7 +246,7 @@ class AdminController extends AppController {
 	public function video()
 	{
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
-		$videos = $collection->find();
+		$videos = $collection->find()->sort(array('type' => 1));
 		$this->set('title_for_layout', '视频管理');
 		$this->set('videos', $videos);
 		$this->set('base_url', $this->grid_base_url);
