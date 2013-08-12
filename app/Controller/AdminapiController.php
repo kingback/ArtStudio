@@ -460,22 +460,23 @@ class AdminapiController extends AppController {
 		$name = $this->_get_argument('name');
 		$url = $this->_get_argument('url');
 		$desc = $this->_get_argument('desc');
+		$type = $this->_get_argument('type');
 
 		if (!isset($_FILES['imgFile'])) {
-			echo json_encode(array('msg' => 'no image for teacher'));
+			echo json_encode(array('msg' => 'no image for video'));
 			$this->_setStatusAndExit(400);
 		}
 		$tmp_filename = $_FILES['imgFile']['tmp_name'];
 		$filename = $_FILES['imgFile']['name'];
-		$type = $_FILES['imgFile']['type'];
-		if (!$this->is_image($type)) {
-			echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+		$file_type = $_FILES['imgFile']['type'];
+		if (!$this->is_image($file_type)) {
+			echo json_encode(array('msg' => $name . ' is not image file, type=' . $file_type));
 			$this->_setStatusAndExit(400);
 		}
 		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
-		$image = $this->save_file($compressed_file, $type);
+		$image = $this->save_file($compressed_file, $file_type);
 
-		$video = array('name' => $name, 'url' => $url, 'desc' => $desc, 'image' => $image);
+		$video = array('name' => $name, 'url' => $url, 'desc' => $desc, 'image' => $image, 'type' => $type);
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
 		$res = $collection->insert($video);
 		echo json_encode($res);
