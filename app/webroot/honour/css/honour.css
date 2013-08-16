@@ -21,7 +21,7 @@
 .honour h2 em {vertical-align:baseline;display:inline-block;*display:inline;*zoom:1;}
 
 .honour-view {margin-top:20px;overflow:hidden;height:500px;position:relative;}
-.honour-panel {position:absolute;background:#efefef;top:0;left:0;visibility:hidden;width:100%;}
+.honour-panel {position:absolute;background:#efefef;top:0;left:0;visibility:hidden;width:100%;height:100%;overflow:auto;}
 .honour-panel table {width:100%;border-collapse:collapse;text-align:center;font-size:14px;color:#333;}
 .honour-panel th {font-weight:bold;border:1px solid #d2cbcb;background:#dbd7d7;text-align:center;padding:3px 0;width:50%;}
 .honour-panel td {text-align:center;border-top:1px solid #d0d0d0;border-bottom:1px solid #d0d0d0;padding:9px 0;width:50%;}
