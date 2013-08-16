@@ -127,11 +127,12 @@ class MainController extends AppController {
 
 	public function video()
 	{
+		$type = $this->_get_argument('type');
 		$page = $this->_get_argument('page', 1);
 		$page = intval($page);
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
-		$videos = $collection->find();
-		$video_num = $collection->count();
+		$videos = $collection->find(array('type' => $type));
+		$video_num = $collection->count(array('type' => $type));
 		$pages = intval($video_num / $this->video_page_size);
 		if ($video_num % $this->video_page_size > 0) {
 			++ $pages;
@@ -145,7 +146,7 @@ class MainController extends AppController {
 		$this->set('pre_page', $pre_page);
 		$this->set('next_page', $next_page);
 		$this->set('body_class', 'zds-video');
-		$this->set('page', 3);
+		$this->set('page', -1);
 	}
 
 	public function allGallery()
@@ -325,5 +326,33 @@ class MainController extends AppController {
 		$this->set('title', $title);
 		$this->set('type', $type);
 		$this->set('content', $content);
+	}
+
+	public function videoList()
+	{
+		$this->set('body_class', 'zds-article');
+		$this->set('page', -1);
+		$types = array();
+		$types[] = array(
+			'type' => 'drawing',
+			'name' => '素描教学',
+			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
+		);
+		$types[] = array(
+			'type' => 'color',
+			'name' => '色彩教学',
+			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
+		);
+		$types[] = array(
+			'type' => 'sketch',
+			'name' => '速写教学',
+			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
+		);
+		$types[] = array(
+			'type' => 'creation',
+			'name' => '设计教学',
+			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
+		);
+		$this->set('types', $types);
 	}
 }

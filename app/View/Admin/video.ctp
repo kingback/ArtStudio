@@ -20,7 +20,6 @@
 								<option value="drawing">素描教学</option>
 								<option value="color">色彩教学</option>
 								<option value="creation">创作教学</option>
-								<option value="graphic">平面教学</option>
 								<option value="sketch">速写教学</option>
 							</select>
 						</div>
