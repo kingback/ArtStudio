@@ -118,7 +118,7 @@ class MainController extends AppController {
 		rsort($years);
 		$honours = array();
 		foreach ($years as $year) {
-			$cur_year = $collection->find(array('year' => $year))->sort(array('mark' => -1));
+			$cur_year = $collection->find(array('year' => $year));
 			$honours[$year] = $cur_year;
 		}
 		$this->set('honours', $honours);

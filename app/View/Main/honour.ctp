@@ -37,18 +37,20 @@
 								<th class="student">考生姓名</th>
 								<th class="school">通过学校</th>
 							</tr>
+							<?php $school = false; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
 							<tr>
 								<td class="student"><?php echo $stu['name']; ?></td>
-								<?php if (isset($stu['mark']) && $stu['mark'] > 0): ?>
+								<?php if ($school !=  $stu['school']): ?>
 								<td class="school star">
-									<?php else:?>
-									<td class="school">
-										<?php endif; ?>
-										<p><?php echo $stu['school']; ?></p>
-									</td>
-								</tr>
-								<?php endforeach; ?>
+								<?php else:?>
+								<td class="school">
+								<?php endif; ?>
+								<p><?php echo $stu['school']; ?></p>
+								</td>
+							</tr>
+							<?php $school = $stu['school']; ?>
+							<?php endforeach; ?>
 							</table>
 						</div>
 						<?php if ($i > 0): ?>
