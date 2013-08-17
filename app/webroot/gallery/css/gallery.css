@@ -37,3 +37,4 @@
 .gl-albums .album-show a {font-weight:bold;font-size:14px;line-height:26px;color:#ffa00a;}
 .gl-albums .album-show a:hover {text-decoration:none;color:#ff6600;}
 .gl-albums .album-index {position:absolute;left:2px;top:18px;width:44px;height:44px;line-height:44px;border-radius:22px;background:#e90011;text-align:center;color:#fff;font-size:25px;font-family:"Microsoft yahei","微软雅黑","黑体";font-style:italic;}
+.gl-albums .album-index em {position:relative;left:-2px;font-style:italic;}

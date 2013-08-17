@@ -46,7 +46,7 @@
 				<div class="album-desc"><?php echo $album['desc'];?></div>
 				<p class="album-show"><a href="javascript:void(0);" target="_self">点击欣赏 &gt;</a></p>
 			</div>
-			<div class="album-index"><?php echo $i; ?></div>
+			<div class="album-index"><em><?php echo $i; ?></em></div>
 			</li>
 			<?php endforeach; ?>
 		</ul>
