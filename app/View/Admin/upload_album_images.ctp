@@ -9,7 +9,7 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 	</fieldset>
 </form>
-<form class="yui3-iuploader-form" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>"></form>
+<form class="yui3-iuploader-form" action="/adminapi/uploadAlbumImage?id=<?php echo $id;?>"></form>
 <script>ZD.use('iuploader');</script>
 </div>
 

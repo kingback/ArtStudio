@@ -118,6 +118,7 @@ class AdminapiController extends AppController {
 
 	public function uploadAlbumImages()
 	{
+		var_dump($_FILES);
 		if (!isset($_FILES['pics'])) {
 			return;
 		}
@@ -144,6 +145,42 @@ class AdminapiController extends AppController {
 			//$res = $images_col->insert($pic);
 			$images[$pic_id] = $pic;
 		}
+		$newdata = array('$set' => array('images' => $images));
+		$albums->update(array('_id' => $id), $newdata);
+		echo json_encode($album);
+	}
+
+	public function uploadAlbumImage()
+	{
+		$data_name = 'Filedata';
+		var_dump($_FILES[$data_name]);
+		if (!isset($_FILES[$data_name])) {
+			return;
+		}
+
+		$filename = $_FILES[$data_name]['tmp_name'];
+		$name = $_FILES[$data_name]['name'];
+		$type = $_FILES[$data_name]['type'];
+		if (!$this->is_image($type)) {
+			echo json_encode(array('msg' => $name . ' is not image'));
+			$this->_setStatusAndExit(400);
+		}
+		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
+		$large = $this->save_file($filename, $type);
+		$small = $this->save_file($small_file, $type);
+		$pic_id = md5($large);
+		$pic = array('large' => $large, 'small' => $small, 'name' => $name, 'desc' => $name);
+
+		// FIXME: data may lost
+		$id = $this->_get_argument('id');
+		$albums = $this->get_collection($this->db_name, $this->album_collection);
+		$album = $albums->findOne(array('_id' => $id));
+		$images = array();
+		if (isset($album['images'])) {
+			$images = $album['images'];
+		}
+		$images[$pic_id] = $pic;
+		var_dump($images);
 		$newdata = array('$set' => array('images' => $images));
 		$albums->update(array('_id' => $id), $newdata);
 		echo json_encode($album);
