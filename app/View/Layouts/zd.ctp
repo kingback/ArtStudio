@@ -47,7 +47,7 @@
 			<li <?php if($page == 9): ?>class="selected <?php endif; ?>"><a href="/main/news" target="_top">画室新闻</a><b></b></li>
             </ul>
             <div class="g-weibo">
-                <a href="#">关注周达</a>
+                <a href="http://weibo.com/u/2942681411">关注周达</a>
             </div>
         </nav>
         <script>
