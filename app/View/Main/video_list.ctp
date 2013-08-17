@@ -5,7 +5,7 @@
 <div class="g-bd">
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="#">首页</a><span>&gt;</span><em>教学视频</em>
+		<em>当前位置：</em><a href="/" target="_self">首页</a><span>&gt;</span><em>教学视频</em>
 	</div>
 	<!-- 面包屑 }}-->
 
@@ -15,7 +15,7 @@
 <?php foreach ($types as $type): ?>
 		<li class="video-catagory-item">
 		<div class="video-catagory-image">
-		<a href="/main/video?type=<?php echo $type['type']; ?>">
+		<a href="/main/video?type=<?php echo $type['type']; ?>" target="_self">
 		<img src="<?php echo $type['imgUrl']; ?>" alt="<?php echo $type['name']; ?>" />
 			</a>
 		</div>
