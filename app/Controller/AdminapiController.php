@@ -580,6 +580,9 @@ class AdminapiController extends AppController {
 					$this->_delete_image($image['small']);
 				}
 			}
+
+			$album_dir = $this->image_base_dir . $this->album_image_dir . $id;
+			rmdir($album_dir);
 		}
 	}
 }
