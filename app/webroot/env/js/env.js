@@ -88,7 +88,7 @@ YUI.add('env', function(Y) {
                 height: 440,
                 modal: true,
                 visible: false,
-                centered: true,
+                //centered: true,
                 zIndex: 3000,
                 render: true
             });
@@ -97,7 +97,6 @@ YUI.add('env', function(Y) {
         },
         
         bindSlideShow: function() {
-            this.slideShow.before('visibleChange', this._beforeSlideShowVisibleChange);
             this.slideShow.after('visibleChange', this._afterSlideShowVisibleChange);
         },
         
@@ -208,10 +207,6 @@ YUI.add('env', function(Y) {
             this.showAlbum(id);
         },
         
-        _beforeSlideShowVisibleChange: function(e) {
-            
-        },
-        
         _afterSlideShowVisibleChange: function(e) {
             var self = this,
                 bb = this.get('boundingBox');
@@ -219,15 +214,17 @@ YUI.add('env', function(Y) {
             if (e.newVal) {
                 bb.setStyle('left', '-680px');
                 bb.transition({
-                    left: '114px'
-                }, function() {
-                    
+                    left: '114px',
+                    duration: 0.2,
+                    easing: 'ease-out'
                 });
             } else {
                 bb.removeClass('yui3-slideshow-hidden');
                 bb.setStyle('left', '114px');
                 bb.transition({
-                    left: '-680px'
+                    left: '-680px',
+                    duration: 0.2,
+                    easing: 'ease-out'
                 }, function() {
                     bb.addClass('yui3-slideshow-hidden');
                 });
