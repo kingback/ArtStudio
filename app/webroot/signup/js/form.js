@@ -164,7 +164,7 @@ YUI.add('form', function(Y) {
                     elem.ancestor('li').one('.info').setContent('');
                 }
             }
-        },
+        }
         
         /*
         submit: function() {

@@ -42,8 +42,8 @@ YUI.add('honour', function(Y) {
             
             this.tabView.on('switch', function(e) {
                 this.switchYear(e.newTab);
-                if (e.newPanel.scrollView) { return; }
-                this.initScrollView(e.newPanel);
+                //if (e.newPanel.scrollView) { return; }
+                //this.initScrollView(e.newPanel);
             }, this);
             
             this.tabView.render();
