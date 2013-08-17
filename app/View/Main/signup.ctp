@@ -5,7 +5,7 @@
 <div class="g-bd">
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main">首页</a><span>&gt;</span><em>网上报名</em>
+		<em>当前位置：</em><a href="/main" target="_self">首页</a><span>&gt;</span><em>网上报名</em>
 	</div>
 	<!-- 面包屑 }}-->
 
@@ -133,7 +133,7 @@
 					</div>
 					<div class="avartar-unload clearfix">
 						<div class="avartar-unload-btn">
-							<a href="javascript:void(0)"><input type="file" name="avartar" id="avartar-unload-ipt" multiple /></a>
+							<a href="javascript:void(0)" target="_self"><input type="file" name="avartar" id="avartar-unload-ipt" multiple /></a>
 						</div>
 						<span>（可选）</span>
 					</div>

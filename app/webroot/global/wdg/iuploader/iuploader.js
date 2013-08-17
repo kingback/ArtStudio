@@ -110,7 +110,7 @@ YUI.add('iuploader', function(Y) {
             this.removeBtn.removeClass('yui3-button-disabled');
             this.set('enabled', true);
             this.set('fileList', []);
-            //this.get('reload') && window.location.reload();
+            this.get('reload') && window.location.reload();
         },
         
         onUploadBtnClick: function(e) {

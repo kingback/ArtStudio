@@ -19,7 +19,7 @@
 
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main">首页</a><span>&gt;</span><a href="/main/allGallery">作品欣赏</a><span>&gt;</span><em>全部</em>
+		<em>当前位置：</em><a href="/main" target="_self">首页</a><span>&gt;</span><a href="/main/allGallery">作品欣赏</a><span>&gt;</span><em>全部</em>
 	</div>
 	<!-- 面包屑 }}-->
 
