@@ -62,7 +62,7 @@ YUI.add('gallery', function(Y) {
         initGalleria: function(data) {
             this.galleria = new Y.Galleria({
                 source: data,
-                zIndex: 1000,
+                zIndex: 10000,
                 visible: false,
                 render: true
             });
