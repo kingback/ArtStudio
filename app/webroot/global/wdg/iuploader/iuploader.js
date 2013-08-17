@@ -176,6 +176,5 @@ YUI.add('iuploader', function(Y) {
     });
     
 }, '0.0.1', {
-    requires: ['base', 'uploader', 'iuploader-skin'],
-    after: ['iuploader-skin']
+    requires: ['base', 'uploader', 'iuploader-skin']
 });

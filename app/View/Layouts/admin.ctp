@@ -35,7 +35,7 @@
 				background-color: #083754;
 			}
 		</style>
-		<?php echo $this->fetch('css'); ?>
+		<!--<?php echo $this->fetch('css'); ?>-->
 	</head>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar" style="background-color:#666">
