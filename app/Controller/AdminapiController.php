@@ -238,6 +238,7 @@ class AdminapiController extends AppController {
 	}
 
 	// 批量删除图片 /admin/allImages
+	/*
 	public function deleteImages()
 	{
 		$ids_str = $this->_get_argument('ids');
@@ -250,6 +251,7 @@ class AdminapiController extends AppController {
 			var_dump($res);
 		}
 	}
+	 */
 
 	// 批量删除带小图的图片 /admin/images
 	public function deletePics()
@@ -568,17 +570,14 @@ class AdminapiController extends AppController {
 
 		var_dump($ids);
 		$collection = $this->get_collection($this->db_name, $this->album_collection);
-		$grid = $this->get_grid_fs();
 		foreach ($ids as $id) {
 			$album = $collection->findOne(array('_id' => $id));
 			$res = $collection->remove(array('_id' => $id));
 			var_dump($res);
 			if (isset($album['images'])) {
 				foreach ($album['images'] as $image) {
-					$res = $grid->remove(array('filename' => $image['large']));
-					var_dump($res);
-					$res = $grid->remove(array('filename' => $image['small']));
-					var_dump($res);
+					$this->_delete_image($image['large']);
+					$this->_delete_image($image['small']);
 				}
 			}
 		}
