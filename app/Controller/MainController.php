@@ -50,6 +50,14 @@ class MainController extends AppController {
 		$albums = $album_col->find()->sort(array('type' => 1));
 		$this->set('albums', $albums);
 
+		$video_types = $this->_get_video_types();
+		$video_img = array(
+			'imgUrl' => '/index/img/show-video.png',
+			'alt' => '视频'
+		);
+		$this->set('videoTypes', $video_types);
+		$this->set('videoImage', $video_img);
+
 		$this->set('body_class', 'zds-index');
 		$this->set('page', 1);
 		$this->set('base_url', $this->grid_base_url);
@@ -130,9 +138,11 @@ class MainController extends AppController {
 		$type = $this->_get_argument('type');
 		$page = $this->_get_argument('page', 1);
 		$page = intval($page);
+
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
 		$videos = $collection->find(array('type' => $type));
 		$video_num = $collection->count(array('type' => $type));
+
 		$pages = intval($video_num / $this->video_page_size);
 		if ($video_num % $this->video_page_size > 0) {
 			++ $pages;
@@ -140,6 +150,11 @@ class MainController extends AppController {
 		$pre_page = $page > 1? $page - 1: 1;
 		$next_page = $page > $pages? $page + 1: $pages;
 		$res = $this->_copy_video($videos, $page);
+
+		$video_names = $this->_get_video_names();
+		$video_name =$video_names[$type];
+
+		$this->set('name', $video_name);
 		$this->set('videos', $res);
 		$this->set('pages', $pages);
 		$this->set('cur_page', $page);
@@ -330,8 +345,24 @@ class MainController extends AppController {
 
 	public function videoList()
 	{
+		$types = $this->_get_video_types();
 		$this->set('body_class', 'zds-article');
 		$this->set('page', -1);
+		$this->set('types', $types);
+	}
+
+	protected function _get_video_names()
+	{
+		$types = array();
+		$types['drawing'] = '素描教学';
+		$types['color'] = '色彩教学';
+		$types['sketch'] = '速写教学';
+		$types['creation'] = '设计教学';
+		return $types;
+	}
+
+	protected function _get_video_types()
+	{
 		$types = array();
 		$types[] = array(
 			'type' => 'drawing',
@@ -353,6 +384,6 @@ class MainController extends AppController {
 			'name' => '设计教学',
 			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
 		);
-		$this->set('types', $types);
+		return $types;
 	}
 }
