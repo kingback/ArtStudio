@@ -60,7 +60,7 @@ class MainController extends AppController {
 
 		$this->set('body_class', 'zds-index');
 		$this->set('page', 1);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 	}
 
 	public function signup()
@@ -106,7 +106,7 @@ class MainController extends AppController {
 				$this->_setStatusAndExit(400);
 			}
 			$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
-			$image = $this->save_file($compressed_file, $type);
+			$image = $this->_save_image($compressed_file, $this->signup_image_dir);
 			$stu['image'] = $image;
 		}
 
@@ -179,7 +179,7 @@ class MainController extends AppController {
 		$this->set('page', 5);
 		$this->set('albums', $info);
 		$this->set('categories', $categories);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 	}
 
 	public function gallery()
@@ -206,14 +206,14 @@ class MainController extends AppController {
 		$this->set('categories', $categories);
 		$this->set('cur_category', $category);
 		$this->set('category_desc', $category_desc);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 	}
 
 	public function teacher()
 	{
 		$this->set('body_class', 'zds-gallery');
 		$this->set('page', 4);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$teachers = $collection->find();
 		$this->set('teachers', $teachers);

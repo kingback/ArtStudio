@@ -13,19 +13,6 @@ class MainapiController extends AppController {
 		exit();
 	}
 
-	/*
-	public function listAlbums()
-	{
-		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
-		$albums = $albums_col->find();
-		$info = array();
-		foreach ($albums as $album) {
-			$info[] = $this->copyAlbum($album);
-		}
-		echo json_encode($info);
-	}
-	 */
-
 	public function albumInfo()
 	{
 		$album_id = $this->_get_argument('id');
@@ -54,8 +41,8 @@ class MainapiController extends AppController {
 			return;
 		}
 		$compressed_file = $this->make_photo_thumb($filename, 850);
-		$large = $this->save_file($compressed_file, $type);
-		$file_url = $this->grid_base_url . $large;
+		$large = $this->_save_image($compressed_file, $this->article_image_dir);
+		$file_url = $this->_get_image_url($large);
 		echo json_encode(array('error' => 0, 'url' => $file_url));
 	}
 

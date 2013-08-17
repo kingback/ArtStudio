@@ -206,8 +206,8 @@ YUI.add('gallery', function(Y) {
         
         parseData: function(data) {
             Y.Array.each(data.images, function(item, index) {
-                data.images[index].small = '/gridfs/' + data.images[index].small;
-                data.images[index].large = '/gridfs/' + data.images[index].large;
+                data.images[index].small = '/images/' + data.images[index].small;
+                data.images[index].large = '/images/' + data.images[index].large;
             });
             
             return data;

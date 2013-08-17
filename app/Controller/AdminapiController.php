@@ -157,22 +157,21 @@ class AdminapiController extends AppController {
 		if (!isset($_FILES[$data_name])) {
 			return;
 		}
+		$id = $this->_get_argument('id');
 
 		$filename = $_FILES[$data_name]['tmp_name'];
 		$name = $_FILES[$data_name]['name'];
 		$type = $_FILES[$data_name]['type'];
-		if (!$this->is_image($type)) {
-			echo json_encode(array('msg' => $name . ' is not image'));
-			$this->_setStatusAndExit(400);
-		}
+		$this->_is_image($type, $name);
+
+		$album_dir = $this->album_image_dir . $id;
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
-		$large = $this->save_file($filename, $type);
-		$small = $this->save_file($small_file, $type);
+		$large = $this->_save_image($filename, $album_dir);
+		$small = $this->_save_image($small_file, $album_dir);
 		$pic_id = md5($large);
 		$pic = array('large' => $large, 'small' => $small, 'name' => $name, 'desc' => $name);
 
 		// FIXME: data may lost
-		$id = $this->_get_argument('id');
 		$albums = $this->get_collection($this->db_name, $this->album_collection);
 		$album = $albums->findOne(array('_id' => $id));
 		$images = array();
@@ -217,14 +216,15 @@ class AdminapiController extends AppController {
 			$filename = $_FILES['pics']['tmp_name'][$i];
 			$name = $_FILES['pics']['name'][$i];
 			$type = $_FILES['pics']['type'][$i];
-			if (!$this->is_image($type)) {
-				echo json_encode(array('msg' => $name . ' is not image'));
-				$this->_setStatusAndExit(400);
-			}
+
+			// check if upload file is image
+			$this->_is_image($type, $name);
+
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
-			$large = $this->save_file($filename, $type);
-			$small = $this->save_file($small_file, $type);
+			$large = $this->_save_image($filename);
+			$small = $this->_save_image($small_file);
 			$pic = array('large' => $large, 'small' => $small);
+			var_dump($pic);
 			$res = $collection->insert($pic);
 			$larges[] = $large;
 			$smalls[] = $small;
@@ -257,7 +257,6 @@ class AdminapiController extends AppController {
 
 		var_dump($ids);
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
-		$grid = $this->get_grid_fs();
 		foreach ($ids as $id) {
 			$mongo_id = new MongoId($id);
 			$cursor = $collection->find(array('_id' => $mongo_id));
@@ -267,10 +266,8 @@ class AdminapiController extends AppController {
 				$small = $file['small'];
 				var_dump($large);
 				var_dump($small);
-				$res = $grid->remove(array('filename' => $large));
-				var_dump($res);
-				$res = $grid->remove(array('filename' => $small));
-				var_dump($res);
+				$this->_delete_image($large);
+				$this->_delete_image($small);
 			}
 			$res = $collection->remove(array('_id' => $mongo_id));
 			var_dump($res);
@@ -287,14 +284,12 @@ class AdminapiController extends AppController {
 		$albums = $this->get_collection($this->db_name, $this->album_collection);
 		$album = $albums->findOne(array('_id' => $album_id));
 		$images = $album['images'];
-		$grid = $this->get_grid_fs();
 		foreach ($ids as $id) {
+			$album_dir = $this->_get_album_dir($id);
 			$small = $images[$id]['small'];
 			$large = $images[$id]['large'];
-			$res = $grid->remove(array('filename' => $large));
-			var_dump($res);
-			$res = $grid->remove(array('filename' => $small));
-			var_dump($res);
+			$this->_delete_image($large);
+			$this->_delete_image($small);
 			unset($images[$id]);
 		}
 		var_dump($images);
@@ -354,12 +349,10 @@ class AdminapiController extends AppController {
 		$tmp_filename = $_FILES['imgFile']['tmp_name'];
 		$filename = $_FILES['imgFile']['name'];
 		$type = $_FILES['imgFile']['type'];
-		if (!$this->is_image($type)) {
-			echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
-			$this->_setStatusAndExit(400);
-		}
+		$this->_is_image($type, $name);
+
 		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
-		$image = $this->save_file($compressed_file, $type);
+		$image = $this->_save_image($compressed_file, $this->teacher_image_dir);
 
 		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image, 'school' => $school);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
@@ -471,12 +464,10 @@ class AdminapiController extends AppController {
 			$name = $_FILES['Filedata']['name'];
 			$type = $_FILES['Filedata']['type'];
 			// save news cover image
-			if (!$this->is_image($type)) {
-				echo json_encode(array('msg' => $name . ' is not image'));
-				$this->_setStatusAndExit(400);
-			}
+			$this->_is_image($type, $name);
+
 			$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
-			$image_file = $this->save_file($small_file, $type);
+			$image_file = $this->_save_image($small_file, $this->news_image_dir);
 			var_dump($small_file);
 			var_dump($image_file);
 		}
@@ -506,12 +497,10 @@ class AdminapiController extends AppController {
 		$tmp_filename = $_FILES['imgFile']['tmp_name'];
 		$filename = $_FILES['imgFile']['name'];
 		$file_type = $_FILES['imgFile']['type'];
-		if (!$this->is_image($file_type)) {
-			echo json_encode(array('msg' => $name . ' is not image file, type=' . $file_type));
-			$this->_setStatusAndExit(400);
-		}
+		$this->_is_image($file_type, $filename);
+
 		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
-		$image = $this->save_file($compressed_file, $file_type);
+		$image = $this->_save_image($compressed_file, $this->video_image_dir);
 
 		$video = array('name' => $name, 'url' => $url, 'desc' => $desc, 'image' => $image, 'type' => $type);
 		$collection = $this->get_collection($this->db_name, $this->video_collection);

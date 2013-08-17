@@ -43,9 +43,16 @@ class AppController extends Controller {
 	protected $news_collection = 'news';
 	protected $video_collection = 'video';
 	protected $pic_like_collection = 'picLike';
-	protected $grid_db = "pic";
-	protected $grid_db_file = "fs.files";
-	protected $grid_base_url = "http://localhost:4444/gridfs/";
+
+	protected $image_base_url = "/images/";
+	protected $image_base_dir = '/Users/apple/images/';
+	protected $album_image_dir = 'albums/';
+	protected $teacher_image_dir = 'teacher/';
+	protected $article_image_dir = 'article/';
+	protected $video_image_dir = 'video/';
+	protected $signup_image_dir = 'signup/';
+	protected $news_image_dir = 'news/';
+
 	protected $max_small_pic_size = 300;
 	protected $news_page_size = 15;
 	protected $video_page_size = 12;
@@ -131,16 +138,9 @@ class AppController extends Controller {
 		$this->_setStatusAndExit($code);
 	}
 
-	protected function get_grid_fs()
+	protected function _get_image_url($file_name)
 	{
-		$connection = $this->get_connection();
-		$db = $connection->selectDB($this->grid_db); // Connect to Database
-		return $db->getGridFS();
-	}
-
-	protected function get_file_url($file_name)
-	{
-		return $this->grid_base_url . $file_name;
+		return $this->image_base_url . $file_name;
 	}
 
 	protected function copyAlbum($album, $likes)
@@ -152,8 +152,8 @@ class AppController extends Controller {
 		if (isset($album['cover'])) {
 			$cover_id = $album['cover'];
 			if (isset($album['images'][$cover_id])) {
-				$al['cover']['large'] = $this->grid_base_url . $album['images'][$cover_id]['large'];
-				$al['cover']['small'] = $this->grid_base_url . $album['images'][$cover_id]['small'];
+				$al['cover']['large'] = $this->_get_image_url($album['images'][$cover_id]['large']);
+				$al['cover']['small'] = $this->_get_image_url($album['images'][$cover_id]['small']);
 			}
 		}
 		$images = array();
@@ -173,6 +173,13 @@ class AppController extends Controller {
 		return $al;
 	}
 
+	protected function _is_image($type, $name)
+	{
+		if (!$this->starts_with($type, 'image/')) {
+			$this->_setErrMsgAndExit("$name is not a image file, is $type", 400);
+		}
+	}
+
 	protected function is_image($type)
 	{
 		if (!$this->starts_with($type, 'image/')) {
@@ -181,12 +188,30 @@ class AppController extends Controller {
 		return true;
 	}
 
-	protected function save_file($filename)
+	protected function _save_image($filename, $dir = 'default/')
 	{
-		$grid = $this->get_grid_fs();
+		$image_dir = $this->image_base_dir . $dir;
+		if (!$this->create_dir($image_dir)) {
+			$this->_setErrMsgAndExit("Can't create dir $image_dir",500);
+		}
+
 		$stored_name = $this->generate_name($filename);
-		$res = $grid->storeFile($filename, array('filename' => $stored_name));
-		return $stored_name;
+		$stored_file = $dir . $stored_name;
+		$new_file = "$image_dir/$stored_name";
+
+		$res = rename($filename, $new_file);
+		if (!$res) {
+			$this->_setErrMsgAndExit("Can't move file from $filename to $new_file",500);
+		}
+		return $stored_file;
+	}
+
+	protected function _delete_image($filename)
+	{
+		$image_file = $this->image_base_dir . $filename;
+		if (file_exists($image_file) && !unlink($image_file)) {
+			$this->_setErrMsgAndExit("Can't delete file  $image_file",500);
+		}
 	}
 
 	protected function generate_name($filename)
@@ -248,7 +273,7 @@ class AppController extends Controller {
 		return $name;
 	}
 
-	protected function save_pic($upload_pic)
+	protected function _save_pic($upload_pic)
 	{
 		$mimeType = 'image/';
 		$file = $_FILES[$upload_pic];
@@ -259,6 +284,11 @@ class AppController extends Controller {
 		$pic_name = $this->generate_name($file['tmp_name']);
 		$res = $grid->storeUpload($upload_pic, $pic_name);
 		return $pic_name;
+	}
+
+	protected function _delete_pic($dir, $filename)
+	{
+
 	}
 
 	protected function _copy_news($newses, $page)
@@ -274,7 +304,7 @@ class AppController extends Controller {
 			if ($i >= $start_page) {
 				$res[] = array(
 					'url' => '/main/article?id=' . $news['articleId'],
-					'image' => $this->grid_base_url . $news['image'],
+					'image' => $this->_get_image_url($news['image']),
 					'title' => $news['title'],
 					'date' => date('Y-m-d', $news['date']->sec),
 					'desc' => $news['summary']
@@ -298,7 +328,7 @@ class AppController extends Controller {
 			if ($i >= $start_page) {
 				$res[] = array(
 					'url' => $video['url'],
-					'image' => $this->grid_base_url . $video['image'],
+					'image' => $this->_get_image_url($video['image']),
 					'name' => $video['name'],
 					'desc' => $video['desc'],
 				);
@@ -306,5 +336,19 @@ class AppController extends Controller {
 			++ $i;
 		}
 		return $res;
+	}
+
+	protected function _get_album_dir($id)
+	{
+		return $this->album_image_dir . $id;
+	}
+
+	private function create_dir($dir)
+	{
+		if(file_exists($dir) && is_dir($dir)){
+			return true;
+		} else {
+			return mkdir ($dir,0777, true);
+		}
 	}
 }

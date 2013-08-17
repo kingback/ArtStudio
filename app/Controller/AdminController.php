@@ -21,23 +21,6 @@ class AdminController extends AppController {
 		$this->set('honours', $honours);
 	}
 
-	public function allImages()
-	{
-		$collection = $this->get_collection($this->grid_db, $this->grid_db_file);
-		$cursor = $collection->find();
-		$files = array();
-		foreach ($cursor as $file) {
-			$f = array();
-			$f['filename'] = $file['filename'];
-			$f['url'] = $this->get_file_url($f['filename']);
-			$f['id'] = $file['_id'];
-			$files[] = $f;
-		}
-		//var_dump(count($files));
-		$this->set('files', $files);
-        $this->set('title_for_layout', '所有图片');
-	}
-
 	public function images()
 	{
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
@@ -46,13 +29,13 @@ class AdminController extends AppController {
 		foreach ($cursor as $file) {
 			$f = array();
 			$f['large'] = $file['large'];
-			$f['large_url'] = $this->get_file_url($f['large']);
+			$f['large_url'] = $this->_get_image_url($f['large']);
 			$f['small'] = $file['small'];
-			$f['small_url'] = $this->get_file_url($f['small']);
+			$f['small_url'] = $this->_get_image_url($f['small']);
 			$f['id'] = $file['_id'];
 			$files[] = $f;
 		}
-		//var_dump($files);
+
 		$this->set('files', $files);
         $this->set('title_for_layout', '图片管理');
 	}
@@ -86,7 +69,7 @@ class AdminController extends AppController {
 		$this->set('cover', $cover);
 		$this->set('id', $id);
 		$this->set('images', $album['images']);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 		$this->set('title_for_layout', '修改相册图片');
 	}
 
@@ -164,7 +147,7 @@ class AdminController extends AppController {
 		}
 		$this->set('albums', $albums);
 		$this->set('covers', $covers);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 		$this->set('title_for_layout', '相册管理');
 	}
 
@@ -181,7 +164,7 @@ class AdminController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$teachers = $collection->find();
 		$this->set('title_for_layout', '教师管理');
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 		$this->set('teachers', $teachers);
 	}
 
@@ -241,7 +224,7 @@ class AdminController extends AppController {
 		$this->set('content', $content);
 		$this->set('summary', $summary);
 		$this->set('image', $image);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 	}
 
 	public function video()
@@ -250,7 +233,7 @@ class AdminController extends AppController {
 		$videos = $collection->find()->sort(array('type' => 1));
 		$this->set('title_for_layout', '视频管理');
 		$this->set('videos', $videos);
-		$this->set('base_url', $this->grid_base_url);
+		$this->set('base_url', $this->image_base_url);
 	}
 
 	protected function setXlsProperty($objPHPExcel)
