@@ -5,7 +5,7 @@
 <div class="g-bd">
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main">首页</a><span>&gt;</span><em>教学视频</em>
+		<em>当前位置：</em><a href="/main">首页</a><span>&gt;</span><em>视频播放</em>
 	</div>
 	<!-- 面包屑 }}-->
 

@@ -101,14 +101,15 @@
 		<li class="show-item show-item-blue show-item-last show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="#"><img src="/index/img/show-video.png" alt="视频" /></a>
+			<a href="/main/videoList"><img src="<?php echo $videoImage['imgUrl']; ?>" alt="<?php echo $videoImage['alt']; ?>" /></a>
 			</div>
 			<h3>
 				<strong>视频</strong><em>video</em>
 			</h3>
 			<ul>
-				<li><a href="#"><b></b>素描头像</a></li>
-				<li><a href="#"><b></b>素描半身像</a></li>
+				<?php foreach ($videoTypes as $videoType): ?>
+				<li><a href="/main/video?type=<?php echo $videoType['type'];?>"><b></b><?php echo $videoType['name']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		</li>
@@ -199,9 +200,9 @@
 			<?php foreach ($mts as $mt): ?>
 			<?php ++$i; ?>
 			<?php if ($i % 2 ==0): ?>
-				<li>
+			<li>
 			<?php else: ?>
-				<li class="teacher-even">
+			<li class="teacher-even">
 			<?php endif; ?>
 			<a href="/main/teacher" class="teacher-link">
 				<span class="teacher-image"><img src="<?php echo $mt['img']; ?>" alt="<?php echo $mt['name']; ?>" /></span>
@@ -216,8 +217,8 @@
 			<?php foreach ($ots as $ot): ?>
 			<li>
 			<a href="/main/teacher" class="teacher-link">
-			<span class="teacher-image"><img src="<?php echo $ot['img']; ?>" alt="<?php echo $ot['name']; ?>" /></span>
-			<strong class="teacher-name"><?php echo $ot['name']; ?></strong>
+				<span class="teacher-image"><img src="<?php echo $ot['img']; ?>" alt="<?php echo $ot['name']; ?>" /></span>
+				<strong class="teacher-name"><?php echo $ot['name']; ?></strong>
 				<em></em>
 			</a>
 			<p class="teacher-school"><?php echo $ot['school']; ?></p>
@@ -281,9 +282,9 @@
 			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
 			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
 			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-            <li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
-            <li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-            <li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
+			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
 		</ul>
 	</div>
 	</section>
@@ -386,13 +387,13 @@
 		<?php  ++$i; if ($i > 6) break; ?>
 		<li>
 		<a href="/main/article?id=<?php echo $news['articleId']; ?>" class="news-image">
-		<img src="<?php echo $base_url, $news['image']; ?>" alt="画室新闻" />
-		<strong class="news-title"><?php echo $news['title']; ?></strong>
+			<img src="<?php echo $base_url, $news['image']; ?>" alt="画室新闻" />
+			<strong class="news-title"><?php echo $news['title']; ?></strong>
 		</a>
 		<p class="news-date"><?php echo date('Y-m-d', $news['date']->sec); ?></p>
 		<p class="news-desc"><?php echo $news['summary']; ?></p>
 		<div class="news-more clearfix">
-		<a href="/main/article?id=<?php echo $news['articleId']?>">more<b></b></a>
+			<a href="/main/article?id=<?php echo $news['articleId']?>">more<b></b></a>
 		</div>
 		</li>
 		<?php  endforeach; ?>
