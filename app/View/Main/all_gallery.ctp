@@ -42,7 +42,6 @@
 				</a>
 			</div>
 			<h3 class="album-title"><strong><?php echo $album['title']; ?></strong><em>（<?php echo $album['image_num']; ?>张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
 			</li>
 			<?php endforeach;?>
 		</ul>
