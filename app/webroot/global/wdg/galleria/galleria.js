@@ -410,11 +410,13 @@ YUI.add('galleria', function(Y) {
             if (e.src === 'next' && this._nextImage) {
                 img = this._nextImage;
             } else {
-                img = new Image();
+                img = document.createElement('img');
                 img.src = large;
             }
             
-            imageCon.empty().appendChild(img);
+            imageCon.empty();
+            imageCon.appendChild(img);
+            
             this._posImage(img);
             
             this._amplifyBtn.setAttribute('href', large);
@@ -452,7 +454,7 @@ YUI.add('galleria', function(Y) {
                 next;
             
             if (item && (next = item.next('li'))) {
-                img = new Image();
+                img = document.createElement('img');
                 img.src = next.getAttribute('data-large');
             }
             
