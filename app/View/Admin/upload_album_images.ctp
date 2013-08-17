@@ -1,7 +1,7 @@
 <script src="/yui/build/yui/yui-min.js"></script>
 <script src="/global/js/gconfig-min.js"></script>
 <div class="well">
-<form style="display:none;" class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>">
+<form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>">
 	<fieldset>
 		<legend>上传图片</legend>
 	<label>选择图片</label>
