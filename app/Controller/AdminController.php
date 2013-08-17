@@ -154,7 +154,7 @@ class AdminController extends AppController {
 		$covers = array();
 		foreach ($albums as $album) {
 			$album_id = $album['_id'];
-			if (isset($album['cover'])) {
+			if (isset($album['cover']) && isset($album['image'][$id])) {
 				$id = $album['cover'];
 				$covers[$album_id] = $album['images'][$id]['small'];
 			} else {

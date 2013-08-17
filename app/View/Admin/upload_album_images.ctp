@@ -52,4 +52,3 @@
 </table>
 
 <?php $this->Html->script('/admin/js/album.js', array('inline' => false)); ?>
-<!--<?php $this->Html->css('/admin/css/album.css',null, array('inline' => false)); ?>-->
