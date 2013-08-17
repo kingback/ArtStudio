@@ -1,6 +1,7 @@
 <script src="/yui/build/yui/yui-min.js"></script>
 <script src="/global/js/gconfig-min.js"></script>
 <div class="well">
+<!-- 
 <form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>">
 	<fieldset>
 		<legend>上传图片</legend>
@@ -9,7 +10,8 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 	</fieldset>
 </form>
-<form class="yui3-iuploader-form" action="/adminapi/uploadAlbumImages?id=<?php echo $id;?>"></form>
+-->
+<form class="yui3-iuploader-form" action="/adminapi/uploadAlbumImage?id=<?php echo $id;?>"></form>
 <script>ZD.use('iuploader');</script>
 </div>
 
