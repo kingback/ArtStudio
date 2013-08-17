@@ -203,6 +203,7 @@ class AppController extends Controller {
 		if (!$res) {
 			$this->_setErrMsgAndExit("Can't move file from $filename to $new_file",500);
 		}
+		chmod($new_file, 0755);
 		return $stored_file;
 	}
 
