@@ -15,9 +15,9 @@
                 combine: YUI.combine,
                 modules: {
                     'main': {
-                        use: ['iuploader'] 
+                        use: ['iuploader-demo'] 
                     },
-                    'iuploader': {
+                    'iuploader-demo': {
                         path: YUI.getPath('iuploader'),
                         requires: ['uploader', 'ZeroClipboard', 'json-parse']
                     }

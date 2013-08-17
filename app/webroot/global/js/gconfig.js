@@ -75,6 +75,14 @@
                         path: getPath('waterfall/waterfall-loader'),
                         requires: ['waterfall']
                     },
+                    'iuploader-skin': {
+                        path: getPath('iuploader/iuploader', 'css'),
+                        type: 'css'  
+                    },
+                    'iuploader': {
+                        path: getPath('iuploader/iuploader'),
+                        requires: ['base', 'uploader', 'iuploader-skin']
+                    },
                     'galleria-skin': {
                         path: getPath('galleria/galleria', 'css'),
                         type: 'css'  

@@ -2,7 +2,7 @@
  * 图片上传页面
  */
 
-YUI.add('iuploader', function(Y) {
+YUI.add('iuploader-demo', function(Y) {
     
     ZeroClipboard.setDefaults( { moviePath: '/global/wdg/ZeroClipboard/ZeroClipboard.swf' } );
     
