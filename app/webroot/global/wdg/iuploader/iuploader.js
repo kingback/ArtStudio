@@ -42,7 +42,7 @@ YUI.add('iuploader', function(Y) {
             this.fileSelectNode = this.container.one('.yui3-iuploader-fileselect');
             this.fileListNode = this.container.one('.yui3-iuploader-list');
             this.uploadBtn = this.container.one('.yui3-iuploader-upload');
-            this.removeBtn = this.container.one('.yui3-iuploader-upload');
+            this.removeBtn = this.container.one('.yui3-iuploader-remove');
             
             this.set('dragAndDropArea', this.container.one('.yui3-iuploader-dd'));
             
