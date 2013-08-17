@@ -13,9 +13,17 @@ $types = array(
 <a target='_blank' class='btn btn-primary' href="/admin/createAlbum" >新建相册</a>
 <a target='_blank' class='btn btn-primary' href="/admin/albumCategories" >管理班级</a>
 </p>
+
+<p>
+<a target='_blank' class='btn btn-danger' onclick="deleteAlbum()">删除选中相册</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
+<a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
+<a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
+</p>
 <table class="table table-bordered table-hover responsive-utilities">
 	<thead>
 	<tr>
+		<th></th>
 		<th>名称</th>
 		<th>封面</th>
 		<th>描述</th>
@@ -28,6 +36,7 @@ $types = array(
 	<tbody>
 	<?php foreach ($albums as $album): ?>
 		<tr>
+		<td><input type="checkbox" name="checkbox" value="<?php echo $album['_id'];?>"></td>
 		<td><?php echo $album['title']; ?></td>
 		<td>
 			<?php if ($covers[$album['_id']] != false): ?>
@@ -43,5 +52,7 @@ $types = array(
 		<td><a class="btn btn-warning" href="/admin/modifyAlbum?id=<?php echo $album['_id']; ?>">修改相册信息</a></td>
 	</tr>
 	<?php endforeach; ?>
-</tbody>
+	</tbody>
 </table>
+
+<?php $this->Html->script('/admin/js/album.js', array('inline' => false)); ?>

@@ -532,4 +532,27 @@ class AdminapiController extends AppController {
 			}
 		}
 	}
+
+	public function deleteAlbum()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->album_collection);
+		$grid = $this->get_grid_fs();
+		foreach ($ids as $id) {
+			$album = $collection->findOne(array('_id' => $id));
+			$res = $collection->remove(array('_id' => $id));
+			var_dump($res);
+			if (isset($album['images'])) {
+				foreach ($album['images'] as $image) {
+					$res = $grid->remove(array('filename' => $image['large']));
+					var_dump($res);
+					$res = $grid->remove(array('filename' => $image['small']));
+					var_dump($res);
+				}
+			}
+		}
+	}
 }
