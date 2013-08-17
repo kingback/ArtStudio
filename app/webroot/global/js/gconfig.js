@@ -81,7 +81,7 @@
                     },
                     'iuploader': {
                         path: getPath('iuploader/iuploader'),
-                        requires: ['base', 'uploader'],
+                        requires: ['base', 'uploader', 'iuploader-skin'],
                         after: ['iuploader-skin']
                     },
                     'galleria-skin': {
