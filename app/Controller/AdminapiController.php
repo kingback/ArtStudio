@@ -116,6 +116,7 @@ class AdminapiController extends AppController {
 		}
 	}
 
+	/*
 	public function uploadAlbumImages()
 	{
 		var_dump($_FILES);
@@ -149,6 +150,7 @@ class AdminapiController extends AppController {
 		$albums->update(array('_id' => $id), $newdata);
 		echo json_encode($album);
 	}
+	 */
 
 	public function uploadAlbumImage()
 	{
@@ -164,7 +166,7 @@ class AdminapiController extends AppController {
 		$type = $_FILES[$data_name]['type'];
 		$this->_is_image($type, $name);
 
-		$album_dir = $this->album_image_dir . $id;
+		$album_dir = $this->album_image_dir . $id . '/';
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
 		$large = $this->_save_image($filename, $album_dir);
 		$small = $this->_save_image($small_file, $album_dir);
