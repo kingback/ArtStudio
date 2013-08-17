@@ -52,8 +52,7 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 </div>
 <p>
-<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;
-<a target='_blank' class='btn btn-warning' onclick="markHonour()">加星选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
 <a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
 <a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;
