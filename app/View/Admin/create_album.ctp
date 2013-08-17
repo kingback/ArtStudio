@@ -13,8 +13,8 @@
 				<select style="height:100px" name="type" multiple="multiple">
 					<option value="drawing">素描</option>
 					<option value="color">色彩</option>
-					<option value="creation">创作</option>
-					<option value="graphic">平面</option>
+					<option value="creation">命题创作</option>
+					<option value="graphic">设计</option>
 					<option value="sketch">速写</option>
 					<option value="studioEnv">画室环境</option>
 					<option value="zd">周达作品</option>
