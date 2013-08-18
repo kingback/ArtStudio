@@ -64,7 +64,8 @@ img {vertical-align:bottom;}
 
 /* 左侧导航 */
 .g-nav {position:fixed;z-index:5000;top:0;left:0;min-height:100%;width:114px;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:14px;font-weight:bold;background-color:#252424;color:#fff;text-align:center;_position:absolute;}
-.lte7 .g-nav {top:50px;}
+.ie6 .g-nav,
+.ie7 .g-nav {top:50px;}
 .g-nav a {display:block;color:#fff;}
 /*.g-nav a:hover {text-decoration:none;color:#fc3c4a;}*/
 .g-sublogo {height:77px;}

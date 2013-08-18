@@ -20,7 +20,7 @@
         <base target="_blank" />
     </head>
 	<body class="<?php echo $body_class; ?>">
-	    <!--[if lt IE 7]>
+	    <!--[if lte IE 7]>
         <div class="upgrade-browser">
             <p>亲~您正在使用过时的浏览器，享受更棒的浏览体验，建议您更新<a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" class="upgrade-browser-ie">最新的IE浏览器</a><a href="http://chrome.google.com" class="upgrade-browser-chrome">Chrome浏览器</a></p>
         </div>
