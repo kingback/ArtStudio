@@ -18,8 +18,8 @@ class MainController extends AppController {
 
 		$mainTeachers = array();
 		$mainTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'img' => '/images/default/a9ea42227621ef81ea9e198bfd8bc81f-120-240.png');
-		$mainTeachers[] = array('name' => '王允昌', 'school' => '清华美术学院', 'title' => '设计主教', 'img' => '/images/default/f15c42fae57c8c567e10be5213b799ad-120-240.png');
-		$mainTeachers[] = array('name' => '李迪', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'img' => '/images/default/610f7d555f5ca0d4bc839db90f2eed19-120-240.png');
+		$mainTeachers[] = array('name' => '王允昌', 'school' => '清华美术学院', 'title' => '设计主教', 'img' => '/images/default/610f7d555f5ca0d4bc839db90f2eed19-120-240.png');
+		$mainTeachers[] = array('name' => '李迪', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'img' => '/images/default/f15c42fae57c8c567e10be5213b799ad-120-240.png');
 		$mainTeachers[] = array('name' => '郝爽', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'img' => '/images/default/b7902eec79bffe836284fae1d717d828-120-240.png');
 		$mainTeachers[] = array('name' => '董丹丹', 'school' => '中央美术学院', 'title' => '色彩主教', 'img' => '/images/default/eaafbda627d271df144ede46f85e2889-120-240.png');
 		$this->set('mts', $mainTeachers);
