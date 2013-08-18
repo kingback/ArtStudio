@@ -17,7 +17,7 @@
 	</div>
 	<ul class="tc-list clearfix">
 		<?php foreach ($teachers as $teacher): ?>
-		<li class="clearfix" id="teacher-<?php echo $teacher['id']; ?>">
+		<li class="clearfix" id="teacher-<?php echo $teacher['_id']; ?>">
 		<div class="tc-image">
     		<div class="tc-imagecon">
         		<img src="<?php echo $base_url, $teacher['image']; ?>" alt="<?php $teacher['name'];?>" />
