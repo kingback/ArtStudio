@@ -88,10 +88,16 @@ YUI.add('env', function(Y) {
                 height: 440,
                 modal: true,
                 visible: false,
-                centered: true,
+                //centered: true,
                 zIndex: 3000,
                 render: true
             });
+            
+            this.bindSlideShow();
+        },
+        
+        bindSlideShow: function() {
+            this.slideShow.after('visibleChange', this._afterSlideShowVisibleChange);
         },
         
         show: function(data) {
@@ -147,8 +153,8 @@ YUI.add('env', function(Y) {
                 data.images.length = 14;
             }
             Y.Array.each(data.images, function(image) {
-                image.small = '/gridfs/' + image.small; 
-                image.large = '/gridfs/' + image.large; 
+                image.small = '/images/' + image.small; 
+                image.large = '/images/' + image.large; 
             });
             return data;
         },
@@ -199,6 +205,30 @@ YUI.add('env', function(Y) {
         _onAlbumClick: function(e) {
             var id = e.currentTarget.ancestor().getAttribute('data-albumid');
             this.showAlbum(id);
+        },
+        
+        _afterSlideShowVisibleChange: function(e) {
+            var self = this,
+                bb = this.get('boundingBox');
+
+            if (e.newVal) {
+                bb.setStyle('left', '-680px');
+                bb.transition({
+                    left: '114px',
+                    duration: 0.2,
+                    easing: 'ease-out'
+                });
+            } else {
+                bb.removeClass('yui3-slideshow-hidden');
+                bb.setStyle('left', '114px');
+                bb.transition({
+                    left: '-680px',
+                    duration: 0.2,
+                    easing: 'ease-out'
+                }, function() {
+                    bb.addClass('yui3-slideshow-hidden');
+                });
+            }
         }
           
     };
@@ -206,5 +236,5 @@ YUI.add('env', function(Y) {
     Env.init();
     
 }, '0.0.1', {
-    requires: ['slideshow', 'io', 'json-parse']
+    requires: ['slideshow', 'io', 'json-parse', 'transition']
 });

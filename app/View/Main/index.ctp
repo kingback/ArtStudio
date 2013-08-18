@@ -80,24 +80,24 @@
 		</div>
 		</li>
 		<li class="show-item show-item-tall">
-		<div class="show-con">
-			<div class="show-image">
-				<a href="/main/allGallery"><img src="/index/img/show-color.png" alt="色彩" /></a>
-			</div>
-			<h3>
-				<strong>色彩</strong><em>color</em>
-			</h3>
-			<ul>
-				<?php $i = 0; $type='color'; ?>
-				<?php foreach ($albums as $album): ?>
-				<?php if ($i > 0 && $album['type'] != $type) break; ?>
-				<?php if ($album['type'] != $type) continue; ?>
-				<?php $i ++; if ($i > $max_num) break; ?>
-				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-		</li>
+        <div class="show-con">
+            <div class="show-image">
+                <a href="/main/allGallery"><img src="/index/img/show-graphic.png" alt="平面" /></a>
+            </div>
+            <h3>
+                <strong>设计</strong><em>design</em>
+            </h3>
+            <ul>
+                <?php $i = 0; $type='graphic'; ?>
+                <?php foreach ($albums as $album): ?>
+                <?php if ($i > 0 && $album['type'] != $type) break; ?>
+                <?php if ($album['type'] != $type) continue; ?>
+                <?php $i ++; if ($i > $max_num) break; ?>
+                <li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        </li>
 		<li class="show-item show-item-blue show-item-last show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
@@ -115,63 +115,63 @@
 		</li>
 		<?php $max_num = 2; ?>
 		<li class="show-item show-item-first">
-		<div class="show-con">
-			<div class="show-image">
-				<a href="/main/allGallery"><img src="/index/img/show-creation.png" alt="创作" /></a>
-			</div>
-			<h3>
-				<strong>创作</strong><em>creation</em>
-			</h3>
-			<ul>
-				<?php $i = 0; $type='creation'; ?>
-				<?php foreach ($albums as $album): ?>
-				<?php if ($i > 0 && $album['type'] != $type) break; ?>
-				<?php if ($album['type'] != $type) continue; ?>
-				<?php $i ++; if ($i > $max_num) break; ?>
-				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-		</li>
+        <div class="show-con">
+            <div class="show-image">
+                <a href="/main/allGallery"><img src="/index/img/show-sketch.png" alt="速写" /></a>
+            </div>
+            <h3>
+                <strong>速写</strong>
+                <em>sketch</em>
+            </h3>
+            <ul>
+                <?php $i = 0; $type='sketch'; ?>
+                <?php foreach ($albums as $album): ?>
+                <?php if ($i > 0 && $album['type'] != $type) break; ?>
+                <?php if ($album['type'] != $type) continue; ?>
+                <?php $i ++; if ($i > $max_num) break; ?>
+                <li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        </li>
 		<li class="show-item">
-		<div class="show-con">
-			<div class="show-image">
-				<a href="/main/allGallery"><img src="/index/img/show-graphic.png" alt="平面" /></a>
-			</div>
-			<h3>
-				<strong>平面</strong><em>graphic</em>
-			</h3>
-			<ul>
-				<?php $i = 0; $type='graphic'; ?>
-				<?php foreach ($albums as $album): ?>
-				<?php if ($i > 0 && $album['type'] != $type) break; ?>
-				<?php if ($album['type'] != $type) continue; ?>
-				<?php $i ++; if ($i > $max_num) break; ?>
-				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-		</li>
+        <div class="show-con">
+            <div class="show-image">
+                <a href="/main/allGallery"><img src="/index/img/show-color.png" alt="色彩" /></a>
+            </div>
+            <h3>
+                <strong>色彩</strong><em>color</em>
+            </h3>
+            <ul>
+                <?php $i = 0; $type='color'; ?>
+                <?php foreach ($albums as $album): ?>
+                <?php if ($i > 0 && $album['type'] != $type) break; ?>
+                <?php if ($album['type'] != $type) continue; ?>
+                <?php $i ++; if ($i > $max_num) break; ?>
+                <li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        </li>
 		<li class="show-item show-item-last">
-		<div class="show-con">
-			<div class="show-image">
-				<a href="/main/allGallery"><img src="/index/img/show-sketch.png" alt="速写" /></a>
-			</div>
-			<h3>
-				<strong>速写</strong>
-				<em>sketch</em>
-			</h3>
-			<ul>
-				<?php $i = 0; $type='sketch'; ?>
-				<?php foreach ($albums as $album): ?>
-				<?php if ($i > 0 && $album['type'] != $type) break; ?>
-				<?php if ($album['type'] != $type) continue; ?>
-				<?php $i ++; if ($i > $max_num) break; ?>
-				<li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-		</li>
+        <div class="show-con">
+            <div class="show-image">
+                <a href="/main/allGallery"><img src="/index/img/show-creation.png" alt="创作" /></a>
+            </div>
+            <h3>
+                <strong>命题创作</strong><em>creation</em>
+            </h3>
+            <ul>
+                <?php $i = 0; $type='creation'; ?>
+                <?php foreach ($albums as $album): ?>
+                <?php if ($i > 0 && $album['type'] != $type) break; ?>
+                <?php if ($album['type'] != $type) continue; ?>
+                <?php $i ++; if ($i > $max_num) break; ?>
+                <li><a href="/main/allGallery#albumid=<?php echo $album['_id']; ?>"><b></b><?php echo $album['title'];?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        </li>
 	</ul>
 	</section>
 	<!-- 展示列表 }}-->

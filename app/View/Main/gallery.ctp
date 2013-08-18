@@ -28,7 +28,9 @@
 	<p class="gl-desc"><?php echo $category_desc;?></p>
 	<div class="gl-albums">
 		<ul>
+			<?php $i = 0; ?>
 			<?php foreach ($albums as $album): ?>
+			<?php $i++; ?>
 			<li class="album-item clearfix" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
 				<a href="javascript:void(0);" target="_self" title="造型班">
@@ -41,11 +43,10 @@
 			</div>
 			<div class="album-detail">
 			<h3 class="album-title"><strong><?php echo $album['title'];?></strong><em>（<?php echo $album['image_num'];?>张）</em></h3>
-				<p class="album-eng">portrait sketch</p>
 				<div class="album-desc"><?php echo $album['desc'];?></div>
 				<p class="album-show"><a href="javascript:void(0);" target="_self">点击欣赏 &gt;</a></p>
 			</div>
-			<div class="album-index">1</div>
+			<div class="album-index"><em><?php echo $i; ?></em></div>
 			</li>
 			<?php endforeach; ?>
 		</ul>

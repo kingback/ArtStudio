@@ -31,10 +31,11 @@ YUI.add('galleria', function(Y) {
         DEF_MASK = '<div class="yui3-galleria-mask"></div>',
         
         DEF_THUMB = '<li data-large="{large}" data-index="{index}" data-id="{id}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
-                      
+        
+        //TODO 周达头像              
         DEF_INFO = '<div>' + 
                         '<div class="yui3-galleria-infocon">' + 
-                            '<h3><img src="http://106.186.25.82/gridfs/921dc26e07ed2436a6cb001ed05323e2-180-180.jpeg" width="48" height="48" /><strong>周达点评</strong></h3>' + 
+                            '<h3><img src="./zd.png" width="48" height="48" /><strong>周达点评</strong></h3>' + 
                             '<div class="yui3-galleria-review"></div>' + 
                             '<div class="yui3-galleria-like"><a href="javascript:void(0);" target="_self">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
                             '<div class="yui3-galleria-jiathis">' + 

@@ -4,33 +4,6 @@
 
 YUI.add('gallery', function(Y) {
     
-    var source = {
-            id: "a9c1671343227b4e40a68c9d1e213189",
-            desc: "虎牙",
-            title: "虎牙",
-            cover: {
-                large: "feacf24bbac61ba840b3d8824dbd955a-70-81.gif",
-                small: "feacf24bbac61ba840b3d8824dbd955a-70-81.gif"
-            },
-            image_num: 14,
-            images: [
-                {"like":200,"id":"1","small":"http://106.186.25.82/gridfs/b03a6770fe2aabeedf9312df70560642-584-820.png","large":"http://106.186.25.82/gridfs/b03a6770fe2aabeedf9312df70560642-584-820.png"},
-                {"like":200,"id":"2","small":"http://106.186.25.82/gridfs/74931bdbd8774341b26d9c6c030fc41b-587-820.png","large":"http://106.186.25.82/gridfs/74931bdbd8774341b26d9c6c030fc41b-587-820.png"},
-                {"like":200,"id":"3","small":"http://106.186.25.82/gridfs/5201733f84896ec608b40849b9cfcec5-591-820.png","large":"http://106.186.25.82/gridfs/5201733f84896ec608b40849b9cfcec5-591-820.png"},
-                {"like":200,"id":"4","small":"http://106.186.25.82/gridfs/c5a24583f379caab3fc1a0ebd3a4bde8-583-820.png","large":"http://106.186.25.82/gridfs/c5a24583f379caab3fc1a0ebd3a4bde8-583-820.png"},
-                {"like":200,"id":"5","small":"http://106.186.25.82/gridfs/444ae078389eaa444805fc082f562478-584-820.png","large":"http://106.186.25.82/gridfs/444ae078389eaa444805fc082f562478-584-820.png"},
-                {"like":200,"id":"6","small":"http://106.186.25.82/gridfs/f9180fe7dcd24c6bf7e13a5ed562105a-583-820.png","large":"http://106.186.25.82/gridfs/f9180fe7dcd24c6bf7e13a5ed562105a-583-820.png"},
-                {"like":200,"id":"7","small":"http://106.186.25.82/gridfs/90917713d3c8b21cbfc8f45e8cf77944-520-350.jpeg","large":"http://106.186.25.82/gridfs/90917713d3c8b21cbfc8f45e8cf77944-520-350.jpeg"},
-                {"like":200,"id":"8","small":"http://106.186.25.82/gridfs/3a8e1bda303e345a58acb390792727f3-361-336.jpeg","large":"http://106.186.25.82/gridfs/3a8e1bda303e345a58acb390792727f3-361-336.jpeg"},
-                {"like":200,"id":"9","small":"http://106.186.25.82/gridfs/37ceb25a917b31cefc18c2b861512ff9-320-276.gif","large":"http://106.186.25.82/gridfs/37ceb25a917b31cefc18c2b861512ff9-320-276.gif"},
-                {"like":200,"id":"10","small":"http://106.186.25.82/gridfs/51e605f75ce09b91e521a46b882a43c2-400-400.jpeg","large":"http://106.186.25.82/gridfs/51e605f75ce09b91e521a46b882a43c2-400-400.jpeg"},
-                {"like":200,"id":"11","small":"http://106.186.25.82/gridfs/b4de5e031c8e7d16473a39e6cc3c1553-378-317.jpeg","large":"http://106.186.25.82/gridfs/b4de5e031c8e7d16473a39e6cc3c1553-378-317.jpeg"},
-                {"like":200,"id":"12","small":"http://106.186.25.82/gridfs/35b8743808ed19b07c849cea776ac3fd-311-308.jpeg","large":"http://106.186.25.82/gridfs/35b8743808ed19b07c849cea776ac3fd-311-308.jpeg"},
-                {"like":200,"id":"13","small":"http://106.186.25.82/gridfs/d1a3153643643d1470ffeff18f672198-320-480.jpeg","large":"http://106.186.25.82/gridfs/d1a3153643643d1470ffeff18f672198-320-480.jpeg"},
-                {"like":200,"id":"14","small":"http://106.186.25.82/gridfs/8e730b3a07cf9693dd4c4dde4a37ce1e-609-852.png","large":"http://106.186.25.82/gridfs/8e730b3a07cf9693dd4c4dde4a37ce1e-609-852.png"}
-            ]
-        };
-    
     function getHash(name) {
         var hash = location.hash.substring(1),
             arr = hash.split('&'),
@@ -83,17 +56,13 @@ YUI.add('gallery', function(Y) {
             this.initTip();
             this.bindAlbums();
             
-            //TODO remove
-            this.data['huya1'] = Y.merge(source, {id:'huya1',title:"虎牙1"});
-            this.data['huya2'] = Y.merge(source, {id:'huya2',title:"虎牙2"});
-            
             this.showSelected();
         },
         
         initGalleria: function(data) {
             this.galleria = new Y.Galleria({
                 source: data,
-                zIndex: 1000,
+                zIndex: 10000,
                 visible: false,
                 render: true
             });

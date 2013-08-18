@@ -1,6 +1,8 @@
 
 YUI.add('form', function(Y) {
     
+    var params = Y.QueryString.parse(location.search.substring(1));
+    
     var validateJSON = {
         name: {
             required: {
@@ -195,7 +197,10 @@ YUI.add('form', function(Y) {
     
     Y.Form.init();
     
+    if (params['msg']) {
+        alert(params['msg']);
+    }
         
 }, '0.0.1', {
-    requires: ['node', 'validator', 'event-hover', 'io']
+    requires: ['node', 'validator', 'event-hover', 'querystring-parse']
 });

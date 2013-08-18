@@ -1,3 +1,12 @@
+.gl-hd {margin-bottom:34px;}
+.gl-hd h2 {font:18px/42px "Microsoft yahei","微软雅黑","黑体";font-weight:bold;}
+.gl-tab {line-height:22px;padding-left:28px;background:url('../img/tab.png') 0 0 no-repeat;}
+.gl-tab a,
+.gl-tab span {float:left;color:#666;}
+.gl-tab span {margin:0 12px;}
+.gl-tab a.gl-tab-selected,
+.gl-tab a.gl-tab-selected:hover {color:#ffa00a;text-decoration:none;}
+
 .video-list li .video-play,
 .video-list li figcaption {background:url("/video/img/sprites.png") -9999px -9999px no-repeat;}
 

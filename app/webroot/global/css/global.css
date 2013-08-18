@@ -55,7 +55,7 @@ img {vertical-align:bottom;}
 .g-signup .g-signup-phone {margin-top:2px;height:35px;width:134px;background-position:0 -374px;}
 
 /* 左侧导航 */
-.g-nav {position:fixed;top:0;left:0;min-height:100%;width:114px;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:14px;font-weight:bold;background-color:#252424;color:#fff;text-align:center;_position:absolute;}
+.g-nav {position:fixed;z-index:5000;top:0;left:0;min-height:100%;width:114px;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:14px;font-weight:bold;background-color:#252424;color:#fff;text-align:center;_position:absolute;}
 .g-nav a {display:block;color:#fff;}
 /*.g-nav a:hover {text-decoration:none;color:#fc3c4a;}*/
 .g-sublogo {height:77px;}
@@ -82,7 +82,7 @@ img {vertical-align:bottom;}
 .g-nav li a:hover {
     background:#7b1605;text-decoration:none;
 }
-.g-nav li b {position:absolute;left:114px;top:14px;height:13px;width:8px;background-position:0 -137px;display:none;}
+.g-nav li b {position:absolute;left:113px;top:14px;height:13px;width:8px;background-position:0 -137px;display:none;}
 .g-nav li.selected {border:0;background-position:0 -87px;}
 .g-nav li.selected a {border:0;height:40px;background:none;}
 .g-nav li.selected a:hover {color:#fff;background:none;}

@@ -11,7 +11,7 @@
 			<?php foreach ($categories as $category): ?>
 			<?php if ($category['name'] == '其他') continue;?>
 			<span>|</span>
-			<a href="/main/gallery?category=<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
+			<a href="/main/gallery?category=<?php echo $category['name']; ?>" target="_self"><?php echo $category['name']; ?></a>
 			<?php endforeach;?>
 		</div>                    
 	</div>
@@ -42,7 +42,6 @@
 				</a>
 			</div>
 			<h3 class="album-title"><strong><?php echo $album['title']; ?></strong><em>（<?php echo $album['image_num']; ?>张）</em></h3>
-			<p class="album-eng">portrait sketch</p>
 			</li>
 			<?php endforeach;?>
 		</ul>
