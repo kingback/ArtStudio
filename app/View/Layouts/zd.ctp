@@ -28,7 +28,7 @@
                 <p>一切用实力说话</p>
             </hgroup>
             <div class="g-signup clearfix">
-                <a href="/main/signup" class="g-signup-link" target="_self">火热报名</a>
+                <a href="/main/signup" class="g-signup-link">火热报名</a>
                 <a href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes" class="g-signup-qq"><strong>QQ咨询</strong><em>278953129</em></a>
                 <span class="g-signup-phone">全国报名热线1343993136</span>
             </div>
