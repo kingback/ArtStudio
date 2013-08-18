@@ -11,6 +11,12 @@ YUI.add('slideshow', function(Y) {
         slideShowNode = Y.one('#J_slide_show'),
         ligntBar = Y.one('.tab-nav-bar-light'),
         tabItems = Y.all('.tab-nav li'),
+        tabCon = Y.one('.tab-nav-con'),
+        slide;
+    
+    if (slideShowNode.all('.tab-pannel').size() < 2) {
+        return;
+    }
     
     // 初始化切换组件
     slide = new Y.Slide('J_slide_show', {
@@ -25,6 +31,7 @@ YUI.add('slideshow', function(Y) {
     // 显示前进后退按钮
     prevBtn.removeClass('hidden');
     nextBtn.removeClass('hidden');
+    tabCon.removeClass('hidden');
     
     // 设置导航按钮高亮
     tabItems.item(0).addClass('lighted');

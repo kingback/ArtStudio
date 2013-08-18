@@ -19,7 +19,7 @@
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<div class="tab-nav-con">
+	<div class="tab-nav-con hidden">
 		<div class="tab-nav-wrapper">
 			<ul class="tab-nav clearfix">
 			    <?php $j = 0;?>

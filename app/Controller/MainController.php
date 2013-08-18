@@ -285,9 +285,10 @@ class MainController extends AppController {
 		$this->set('page', -1);
 
 		$slides = array();
-		$slides[] = array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt');
-		$slides[] = array('http://106.186.25.82/gridfs/06da024d60d95823fea9c85c693ab41f-1000-1481.jpeg','alt');
-		$slides[] = array('http://106.186.25.82/gridfs/78a7223a53a1fda9b73556253c43052e-720-1018.jpeg','alt');
+		$slides[] = array('/images/default/687dd75cb5210ade5b8220de6d39019e-390-630.png','周达');
+		$slides[] = array('/images/default/2585c514a3c3a20dce79e0bad5dfc726-451-600.jpeg','安妮.海瑟薇');
+		$slides[] = array('/images/default/df3b4a17ddb4801e6e24d78f6a34fd11-720-1018.jpeg','13纪念日');
+		$slides[] = array('/images/default/e1a5f7187922e2e5f4d07af1960d72d7-1000-1481.jpeg','甘道夫');
 		$this->set('slides', $slides);
 
 		$prizes = array();
