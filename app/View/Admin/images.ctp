@@ -1,6 +1,7 @@
 <?php $this->Html->script('/admin/js/images.js', array('inline' => false)); ?>
 <?php $this->Html->css('/admin/css/images.css',null, array('inline' => false)); ?>
-
+<script src="/yui/build/yui/yui-min.js"></script>
+<script src="/global/js/gconfig-min.js"></script>
 <div class="well">
 <form class="form-inline" id = "uploadImage" method="POST" enctype="multipart/form-data" action="/adminapi/uploadImages">
 	<fieldset>
@@ -10,6 +11,8 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 	</fieldset>
 </form>
+<form class="yui3-iuploader-form" action="/adminapi/uploadImage"></form>
+<script>ZD.use('iuploader');</script>
 </div>
 
 <p>
