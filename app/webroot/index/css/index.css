@@ -40,7 +40,7 @@
 .slide-show .tab-btn-prev {left:30px;background-position:17px 15px;}
 .slide-show .tab-btn-next {right:30px;background-position:17px -14px;}
 .slide-show-hover .tab-btn {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
-.slide-show .tab-nav-con {display:block;position:absolute;bottom:30px;z-index:100;width:100%;text-align:center;}
+.slide-show .tab-nav-con {position:absolute;bottom:30px;z-index:100;width:100%;text-align:center;}
 .slide-show .tab-nav-wrapper {display:inline-block;overflow:hidden;position:relative;border-radius:5px;height:14px;padding:6px 18px;}
 .slide-show .tab-nav {position:relative;z-index:110;}
 .slide-show .tab-nav li {float:left;overflow:visible;margin-right:50px;position:relative;}
