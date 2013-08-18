@@ -7,11 +7,15 @@
 	<div class="gl-hd">
 		<h2>作品欣赏</h2>
 		<div class="gl-tab clearfix">
-			<a href="/main/allGallery" class="gl-tab-selected" target="_self">全部</a>
+			<a href="/main/allGallery" target="_self">全部</a>
 			<?php foreach ($categories as $category): ?>
 			<?php if ($category['name'] == '其他') continue;?>
 			<span>|</span>
+			<?php if ($category['name'] == $cur_category ): ?>
+			<a href="/main/gallery?category=<?php echo $category['name']; ?>" class="gl-tab-selected" target="_self"><?php echo $category['name']; ?></a>
+			<?php else: ?>
 			<a href="/main/gallery?category=<?php echo $category['name']; ?>" target="_self"><?php echo $category['name']; ?></a>
+			<?php endif; ?>
 			<?php endforeach;?>
 		</div>                    
 	</div>
@@ -19,7 +23,7 @@
 
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main/index" target="_self">首页</a><span>&gt;</span><a href="/main/allGallery" target="_self">作品欣赏</a><span>&gt;</span><em>造型班</em>
+	<em>当前位置：</em><a href="/main/index" target="_self">首页</a><span>&gt;</span><a href="/main/allGallery" target="_self">作品欣赏</a><span>&gt;</span><em><?php echo $cur_category; ?></em>
 	</div>
 	<!-- 面包屑 }}-->
 
