@@ -198,6 +198,14 @@ class AdminController extends AppController {
 		$this->set('articles', $articles);
 	}
 
+	public function listNews()
+	{
+		$collection = $this->get_collection($this->db_name, $this->news_collection);
+		$newses = $collection->find()->sort(array('date' => 1));
+		$this->set('title_for_layout', '新闻管理');
+		$this->set('newses', $newses);
+	}
+
 	public function createNews()
 	{
 		$id = $this->_get_argument('id', -1);

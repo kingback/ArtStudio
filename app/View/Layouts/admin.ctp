@@ -51,6 +51,7 @@
 						<li <?php if ($title_for_layout == "注册管理") echo 'class="active"' ?>><a href="/admin/signup">注册管理</a></li>
 						<li <?php if ($title_for_layout == "教师管理") echo 'class="active"' ?>><a href="/admin/teachers">教师管理</a></li>
 						<li <?php if ($title_for_layout == "文章管理") echo 'class="active"' ?>><a href="/admin/listArticles">文章管理</a></li>
+						<li <?php if ($title_for_layout == "新闻管理") echo 'class="active"' ?>><a href="/admin/listNews">新闻管理</a></li>
 						<li <?php if ($title_for_layout == "视频管理") echo 'class="active"' ?>><a href="/admin/video">视频管理</a></li>
 					</ul>
 				</div>

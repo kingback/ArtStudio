@@ -3,7 +3,6 @@
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=招生简章" >新建招生简章</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=开课时间">开课时间</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=报名须知及注意事项">报名须知及注意事项</a> &nbsp;&nbsp;&nbsp;&nbsp;
-<a target='_blank' class='btn btn-primary' href="/admin/createNews" >新建新闻</a> &nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 <p>
@@ -25,6 +24,7 @@
 	</thead>
 	<tbody>
 	<?php foreach ($articles as $article): ?>
+		<?php if ($article['type'] == '新闻') continue; ?> 
 		<tr>
 		<td><input type="checkbox" name="checkbox" value="<?php echo $article['_id'];?>"></td>
 		<td>

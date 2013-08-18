@@ -585,4 +585,23 @@ class AdminapiController extends AppController {
 			rmdir($album_dir);
 		}
 	}
+
+	public function markNews()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$mark = $this->_get_argument('mark');
+		$mark = intval($mark);
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->news_collection);
+		$newdata = array('$set' => array('mark' => $mark));
+		foreach ($ids as $id) {
+			$res = $collection->update(array('articleId' => $id), $newdata);
+			var_dump($res);
+			if (!$res['ok']) {
+				$this->_setErrMsgAndExit($res['err'], 500);
+			}
+		}
+	}
 }
