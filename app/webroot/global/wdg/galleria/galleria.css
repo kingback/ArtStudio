@@ -63,7 +63,7 @@
 .yui3-galleria-info {width:25%;position:absolute;right:0;top:0;height:100%;background:#fff;}
 .yui3-galleria-infocon {padding:0 35px;}
 .yui3-galleria-info h3 {padding:20px 0;border-bottom:2px solid #000;height:48px;font-size:14px;color:#555;}
-.yui3-galleria-info h3 img {border-radius:24px;margin-right:12px;vertical-align:middle;}
+.yui3-galleria-info h3 img {margin-right:12px;vertical-align:middle;}
 .yui3-galleria-info h3 strong {vertical-align:middle;font-weight:bold;}
 .yui3-galleria-review {margin:20px 0;padding:0 10px;line-height:34px;font-size:14px;color:#555;}
 .yui3-galleria-like {text-align:center;font-size:14px;margin:35px 0 45px;}
