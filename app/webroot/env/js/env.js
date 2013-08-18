@@ -84,7 +84,7 @@ YUI.add('env', function(Y) {
         
         initSlideShow: function() {
             this.slideShow = new Y.SlideShow({
-                width: 680,
+                width: 570,
                 height: 440,
                 modal: true,
                 visible: false,
@@ -149,8 +149,8 @@ YUI.add('env', function(Y) {
         },
         
         parseData: function(data) {
-            if (data.images.length > 14) {
-                data.images.length = 14;
+            if (data.images.length > 11) {
+                data.images.length = 11;
             }
             Y.Array.each(data.images, function(image) {
                 image.small = '/images/' + image.small; 
@@ -212,23 +212,8 @@ YUI.add('env', function(Y) {
                 bb = this.get('boundingBox');
 
             if (e.newVal) {
-                bb.setStyle('left', '238px');
-                /*bb.transition({
-                    left: '238px',
-                    duration: 0.2,
-                    easing: 'ease-out'
-                });*/
-            } else {
-                bb.setStyle('left', '-900px');
-                /*bb.removeClass('yui3-slideshow-hidden');
-                bb.setStyle('left', '238px');
-                bb.transition({
-                    left: '-900px',
-                    duration: 0.2,
-                    easing: 'ease-out'
-                }, function() {
-                    bb.addClass('yui3-slideshow-hidden');
-                });*/
+                //居中
+                bb.setStyle('left', '292px');
             }
         }
           
