@@ -11,7 +11,7 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 	</fieldset>
 </form>
-<form class="yui3-iuploader-form" action="/adminapi/uploadImage"></form>
+<form class="yui3-iuploader-form" action="/adminapi/uploadImages"></form>
 <script>ZD.use('iuploader');</script>
 </div>
 
