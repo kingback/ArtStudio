@@ -89,7 +89,7 @@ YUI.add('env', function(Y) {
                 modal: true,
                 visible: false,
                 //centered: true,
-                zIndex: 3000,
+                zIndex: 6000,
                 render: true
             });
             
@@ -212,17 +212,17 @@ YUI.add('env', function(Y) {
                 bb = this.get('boundingBox');
 
             if (e.newVal) {
-                bb.setStyle('left', '-680px');
+                bb.setStyle('left', '-900px');
                 bb.transition({
-                    left: '114px',
+                    left: '160px',
                     duration: 0.2,
                     easing: 'ease-out'
                 });
             } else {
                 bb.removeClass('yui3-slideshow-hidden');
-                bb.setStyle('left', '114px');
+                bb.setStyle('left', '160px');
                 bb.transition({
-                    left: '-680px',
+                    left: '-900px',
                     duration: 0.2,
                     easing: 'ease-out'
                 }, function() {

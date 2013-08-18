@@ -43,15 +43,15 @@
                 <a href="/" target="_self"><span>http://zhoudams.com/</span></a>
             </h2>
             <ul>
-			<li <?php if($page == 1):?>class="selected <?php endif; ?>"><a href="/main/index" target="_self">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
-			<li <?php if($page == 2): ?>class="selected <?php endif; ?>"><a href="/main/studioInfo" target="_self">画室简介</a><b></b></li>
-			<li <?php if($page == 3): ?>class="selected <?php endif; ?>"><a href="/main/honour" target="_self">画室成绩</a><b></b></li>
-			<li <?php if($page == 4): ?>class="selected <?php endif; ?>"><a href="/main/teacher" target="_self">教师介绍</a><b></b></li>
-			<li <?php if($page == 5): ?>class="selected <?php endif; ?>"><a href="/main/allGallery" target="_self">作品欣赏</a><b></b></li>
-			<li <?php if($page == 6): ?>class="selected <?php endif; ?>"><a href="/main/recruitInfo" target="_self">招生简章</a><b></b></li>
-			<li <?php if($page == 7): ?>class="selected <?php endif; ?>"><a href="/main/article?id=520f36c26f211ae93ae94554" target="_self">学生管理</a><b></b></li>
-			<li <?php if($page == 8): ?>class="selected <?php endif; ?>"><a href="/main/signup" target="_self">网上报名</a><b></b></li>
-			<li <?php if($page == 9): ?>class="selected <?php endif; ?>"><a href="/main/news" target="_self">画室新闻</a><b></b></li>
+			<li<?php if($page == 1):?> class="selected"<?php endif; ?>><a href="/main/index" target="_self">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
+			<li<?php if($page == 2): ?> class="selected"<?php endif; ?>><a href="/main/studioInfo" target="_self">画室简介</a><b></b></li>
+			<li<?php if($page == 3): ?> class="selected"<?php endif; ?>><a href="/main/honour" target="_self">画室成绩</a><b></b></li>
+			<li<?php if($page == 4): ?> class="selected"<?php endif; ?>><a href="/main/teacher" target="_self">教师介绍</a><b></b></li>
+			<li<?php if($page == 5): ?> class="selected"<?php endif; ?>><a href="/main/allGallery" target="_self">作品欣赏</a><b></b></li>
+			<li<?php if($page == 6): ?> class="selected"<?php endif; ?>><a href="/main/recruitInfo" target="_self">招生简章</a><b></b></li>
+			<li<?php if($page == 7): ?> class="selected"<?php endif; ?>><a href="/main/article?id=520f36c26f211ae93ae94554" target="_self">学生管理</a><b></b></li>
+			<li<?php if($page == 8): ?> class="selected"<?php endif; ?>><a href="/main/signup" target="_self">网上报名</a><b></b></li>
+			<li<?php if($page == 9): ?> class="selected"<?php endif; ?>><a href="/main/news" target="_self">画室新闻</a><b></b></li>
             </ul>
             <div class="g-weibo">
                 <a href="http://weibo.com/u/2942681411">关注周达</a>
