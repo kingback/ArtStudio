@@ -33,7 +33,7 @@ class MainController extends AppController {
 		$this->set('ots', $otherTeachers);
 
 		$news_col = $this->get_collection($this->db_name, $this->news_collection);
-		$newses = $news_col->find()->sort(array('date' => -1));
+		$newses = $news_col->find(array('mark' => 1))->sort(array('date' => -1));
 		$this->set('newses', $newses);
 
 		$honour_col = $this->get_collection($this->db_name, $this->honour_collection);

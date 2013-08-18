@@ -387,7 +387,7 @@
 		<?php  ++$i; if ($i > 6) break; ?>
 		<li>
 		<a href="/main/article?id=<?php echo $news['articleId']; ?>" class="news-image">
-			<img src="<?php echo $base_url, $news['image']; ?>" alt="画室新闻" />
+			<img src="<?php  if (isset($news['image'])) {echo $base_url, $news['image'];} else { echo "#";} ?>" alt="画室新闻" />
 			<strong class="news-title"><?php echo $news['title']; ?></strong>
 		</a>
 		<p class="news-date"><?php echo date('Y-m-d', $news['date']->sec); ?></p>
