@@ -135,13 +135,18 @@ class MainController extends AppController {
 
 	public function video()
 	{
-		$type = $this->_get_argument('type');
+		$type = $this->_get_argument('type', -1);
 		$page = $this->_get_argument('page', 1);
 		$page = intval($page);
 
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
-		$videos = $collection->find(array('type' => $type));
-		$video_num = $collection->count(array('type' => $type));
+		if ($type != -1) {
+			$videos = $collection->find(array('type' => $type));
+			$video_num = $collection->count(array('type' => $type));
+		} else {
+			$videos = $collection->find();
+			$video_num = $collection->count();
+		}
 
 		$pages = intval($video_num / $this->video_page_size);
 		if ($video_num % $this->video_page_size > 0) {
@@ -152,9 +157,9 @@ class MainController extends AppController {
 		$res = $this->_copy_video($videos, $page);
 
 		$video_names = $this->_get_video_names();
-		$video_name =$video_names[$type];
 
-		$this->set('name', $video_name);
+		$this->set('video_names', $video_names);
+		$this->set('cur_type', $type);
 		$this->set('videos', $res);
 		$this->set('pages', $pages);
 		$this->set('cur_page', $page);

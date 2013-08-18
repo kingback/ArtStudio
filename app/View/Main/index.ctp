@@ -101,7 +101,7 @@
 		<li class="show-item show-item-blue show-item-last show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
-			<a href="/main/videoList"><img src="<?php echo $videoImage['imgUrl']; ?>" alt="<?php echo $videoImage['alt']; ?>" /></a>
+			<a href="/main/video"><img src="<?php echo $videoImage['imgUrl']; ?>" alt="<?php echo $videoImage['alt']; ?>" /></a>
 			</div>
 			<h3>
 				<strong>视频</strong><em>video</em>

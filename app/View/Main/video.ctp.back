@@ -1,24 +1,13 @@
+<head>
 <link rel="stylesheet" href="/min?b=video/css&f=video-min.css" />
 <script src="/min?f=video/js/config-min.js"></script>
+</head>
 
 <!-- 主内容 {{-->
 <div class="g-bd">
-	<!-- 视频教学 {{-->
-	<div class="gl-hd">
-		<h2>教学视频</h2>
-		<div class="gl-tab clearfix">
-		<a href="/main/video" <?php if ($cur_type == -1) echo "class='gl-tab-selected'"; ?>>全部</a>
-<?php foreach ($video_names as $type => $name): ?>
-			<span>|</span>
-			<a href="/main/video?type=<?php echo $type;?>" <?php if ($cur_type == $type) echo "class='gl-tab-selected'"; ?>><?php echo $name;?></a>
-<?php endforeach; ?>
-		</div>                    
-	</div>
-	<!-- 视频教学 }}-->
-
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main/index">首页</a><span>&gt;</span><em>教学视频</em>
+	<em>当前位置：</em><a href="/main" target="_self">首页</a><span>&gt;</span><a href="/main/videoList" target="_self">教学视频</a><span>&gt;</span><em><?php echo $name; ?></em>
 	</div>
 	<!-- 面包屑 }}-->
 
@@ -76,3 +65,4 @@
 
 </div>
 <!-- 主内容 }}-->
+
