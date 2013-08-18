@@ -305,13 +305,17 @@ class AppController extends Controller {
 				break;
 			}
 			if ($i >= $start_page) {
-				$res[] = array(
+				$tmp = array(
 					'url' => '/main/article?id=' . $news['articleId'],
-					'image' => $this->_get_image_url($news['image']),
 					'title' => $news['title'],
+					'image' => "#",
 					'date' => date('Y-m-d', $news['date']->sec),
 					'desc' => $news['summary']
 				);
+				if (isset($news['image'])) {
+					$tmp['image'] = $this->_get_image_url($news['image']);
+				}
+				$res[] = $tmp;
 			}
 			++ $i;
 		}
