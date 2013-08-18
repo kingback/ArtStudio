@@ -82,7 +82,7 @@ img {vertical-align:bottom;}
 .g-nav li a:hover {
     background:#7b1605;text-decoration:none;
 }
-.g-nav li b {position:absolute;left:114px;top:14px;height:13px;width:8px;background-position:0 -137px;display:none;}
+.g-nav li b {position:absolute;left:113px;top:14px;height:13px;width:8px;background-position:0 -137px;display:none;}
 .g-nav li.selected {border:0;background-position:0 -87px;}
 .g-nav li.selected a {border:0;height:40px;background:none;}
 .g-nav li.selected a:hover {color:#fff;background:none;}
