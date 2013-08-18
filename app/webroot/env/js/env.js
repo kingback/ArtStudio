@@ -212,22 +212,23 @@ YUI.add('env', function(Y) {
                 bb = this.get('boundingBox');
 
             if (e.newVal) {
-                bb.setStyle('left', '-900px');
-                bb.transition({
-                    left: '160px',
+                bb.setStyle('left', '238px');
+                /*bb.transition({
+                    left: '238px',
                     duration: 0.2,
                     easing: 'ease-out'
-                });
+                });*/
             } else {
-                bb.removeClass('yui3-slideshow-hidden');
-                bb.setStyle('left', '160px');
+                bb.setStyle('left', '-900px');
+                /*bb.removeClass('yui3-slideshow-hidden');
+                bb.setStyle('left', '238px');
                 bb.transition({
                     left: '-900px',
                     duration: 0.2,
                     easing: 'ease-out'
                 }, function() {
                     bb.addClass('yui3-slideshow-hidden');
-                });
+                });*/
             }
         }
           
