@@ -175,7 +175,9 @@ class MainController extends AppController {
 		$albums = $albums_col->find();
 		$info = array();
 		foreach ($albums as $album) {
-			$info[] = $this->copyAlbum($album, null);
+		    if ($album['category'] != '其他') {
+    			$info[] = $this->copyAlbum($album, null);
+		    }
 		}
 
 		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);

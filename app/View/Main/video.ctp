@@ -47,7 +47,7 @@
 	</ul>
 	<div class="g-paginator clearfix">
 		<ol class="clearfix">
-		<li class="g-paginator-prev"><a href="/main/video?page=<?php echo $pre_page; ?>"></a></li>
+		<li class="g-paginator-prev"><a target="_self" href="/main/video?page=<?php echo $pre_page; ?>"></a></li>
 		<?php $i = 1; ?>
 		<?php for (; $i <= $pages; $i++):?>
 		<?php if ($i > 3) break; ?>
@@ -56,7 +56,7 @@
 		<?php else: ?>
 		<li class="g-paginator-num">
 		<?php endif; ?>
-		<a href="/main/video?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+		<a target="_self" href="/main/video?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 		</li>
 		<?php endfor; ?>
 		<?php if ($pages > 6): ?>
@@ -65,10 +65,10 @@
 		<?php endif; ?>
 		<?php if ($pages > 3): ?>
 		<?php for (; $i <= $pages; $i++):?>
-		<li class="g-paginator-num"><a href="/main/video?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+		<li class="g-paginator-num"><a target="_self" href="/main/video?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 		<?php endfor; ?>
 		<?php endif; ?>
-		<li class="g-paginator-next"><a href="/main/video?page=<?php echo $next_page; ?>"></a></li>
+		<li class="g-paginator-next"><a target="_self" href="/main/video?page=<?php echo $next_page; ?>"></a></li>
 	</ol>
 </div>
 </section>
