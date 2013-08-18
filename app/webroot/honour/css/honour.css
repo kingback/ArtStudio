@@ -10,7 +10,7 @@
     -ms-transition: all 0.15s linear 0s;
     transition: all 0.15s linear 0s;
 }
-.honour-tab:hover {opacity:0.7;}
+.honour-tab:hover {opacity:0.7;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";}
 .honour-tab b {position:absolute;width:15px;height:8px;left:70px;top:38px;display:none;background:url("/honour/img/arrow.png") 0 0 no-repeat;}
 
 .honour h2 {font:28px/40px "Microsoft yahei","微软雅黑","黑体";font-weight:bold;height:40px;overflow:hidden;margin-top:25px;}
@@ -31,7 +31,7 @@
 .honour-view-note {font-size:14px;color:#666;margin-top:15px;}
 
 .yui3-mytabview-panel-show {z-index:10;visibility:visible;}
-.honour-tabview-fade .yui3-mytabview-panel-show {opacity:0}
+.honour-tabview-fade .yui3-mytabview-panel-show {opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}
 .honour-tabview-fade .yui3-mytabview-panel-fadein {z-index:15;}
 .honour-tabview-fade .yui3-mytabview-panel-fadeout {z-index:20;visibility:visible;}
 

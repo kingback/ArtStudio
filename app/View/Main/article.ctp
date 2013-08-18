@@ -4,7 +4,7 @@
 <div class="g-bd">
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-	<em>当前位置：</em><a href="/main" target="_self">首页</a><span>&gt;</span><em><?php echo $type; ?></em>
+	<em>当前位置：</em><a href="/main" target="_self">首页</a><span>&gt;</span><?php if($type == "新闻") { echo '<a href="/main/news" target="_self">画室新闻</a><span>&gt;</span>'; } ?><em><?php echo $type; ?></em>
 	</div>
 	<!-- 面包屑 }}-->
 

@@ -55,12 +55,12 @@
 .intro-prize-image img {height:100%;width:100%;}
 
 .intro-prize-prev,
-.intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:210px;z-index:50;opacity:0.6;}
+.intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:210px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-prize-prev {left:20px;background-position:0 -456px;}
 .intro-prize-next {right:20px;background-position:-59px -456px;}
 .intro-prize-prev:hover,
-.intro-prize-next:hover {opacity:1;}
-.intro-prize-disabled:hover {opacity:0.6;}
+.intro-prize-next:hover {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
+.intro-prize-disabled:hover {opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 
 .intro-impress {margin-top:12px;}
 .intro-impress h2,
@@ -80,12 +80,12 @@
 .intro-slide-panel {height:390px;height:630px;text-align:center;background:#ccc;}
 .intro-slide-panel img {width:100%;height:100%;}
 .intro-slide-prev,
-.intro-slide-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:245px;z-index:50;opacity:0.6;}
+.intro-slide-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:245px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-slide-prev {left:253px;background-position:0 -456px;}
 .intro-slide-next {left:313px;background-position:-59px -456px;}
 .intro-slide-prev:hover,
-.intro-slide-next:hover {opacity:1;}
-.intro-slide-disabled:hover {opacity:0.6;}
+.intro-slide-next:hover {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
+.intro-slide-disabled:hover {opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-nav {position:absolute;width:135px;top:18px;right:18px;z-index:50;}
 .intro-nav h2 {text-indent:-9999px;width:135px;height:90px;background-position:0 -356px;}
 .intro-nav div {padding:8px 12px 0 18px;overflow:visible;}
