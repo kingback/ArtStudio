@@ -137,6 +137,7 @@
 						</div>
 						<span>（可选）</span>
 					</div>
+					<p class="avartar-file"></p>
 				</div>
 				</li>
 				<li>

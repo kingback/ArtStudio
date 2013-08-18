@@ -7,10 +7,10 @@
 	<div class="gl-hd">
 		<h2>教学视频</h2>
 		<div class="gl-tab clearfix">
-		<a href="/main/video" <?php if ($cur_type == -1) echo "class='gl-tab-selected'"; ?>>全部</a>
+		<a target="_self" href="/main/video" <?php if ($cur_type == -1) echo "class='gl-tab-selected'"; ?>>全部</a>
 <?php foreach ($video_names as $type => $name): ?>
 			<span>|</span>
-			<a href="/main/video?type=<?php echo $type;?>" <?php if ($cur_type == $type) echo "class='gl-tab-selected'"; ?>><?php echo $name;?></a>
+			<a target="_self" href="/main/video?type=<?php echo $type;?>" <?php if ($cur_type == $type) echo "class='gl-tab-selected'"; ?>><?php echo $name;?></a>
 <?php endforeach; ?>
 		</div>                    
 	</div>
