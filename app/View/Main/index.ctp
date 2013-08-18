@@ -321,7 +321,7 @@
 			<p class="contact-address">北京市通州区宋庄小堡文化广场对面<br />(离中央美术学院燕郊校区仅10分钟车程)</p>
 			<p class="contact-qq">278953129</p>
 			<p class="contact-path clearfix">
-			<a href="http://api.map.baidu.com/direction?origin=天安门&destination=北京周达画室&mode=transit&region=北京&output=html">乘车路线<b></b></a>
+			<a href="/main/signup">乘车路线<b></b></a>
 			</p>
 		</div>
 	</div>
