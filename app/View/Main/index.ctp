@@ -204,7 +204,7 @@
 			<?php else: ?>
 			<li class="teacher-even">
 			<?php endif; ?>
-			<a href="/main/teacher" class="teacher-link">
+			<a href="/main/teacher#<?php echo $mt['id']; ?>" class="teacher-link">
 				<span class="teacher-image"><img src="<?php echo $mt['img']; ?>" alt="<?php echo $mt['name']; ?>" /></span>
 				<strong class="teacher-name"><?php echo $mt['name']; ?></strong>
 			</a>
@@ -216,7 +216,7 @@
 		<ul class="other-teachers clearfix">
 			<?php foreach ($ots as $ot): ?>
 			<li>
-			<a href="/main/teacher" class="teacher-link">
+			<a href="/main/teacher#<?php echo $ot['id']; ?>" class="teacher-link">
 				<span class="teacher-image"><img src="<?php echo $ot['img']; ?>" alt="<?php echo $ot['name']; ?>" /></span>
 				<strong class="teacher-name"><?php echo $ot['name']; ?></strong>
 				<em></em>
