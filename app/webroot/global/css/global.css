@@ -37,6 +37,14 @@ img {vertical-align:bottom;}
 .g-weibo a,
 .g-floatbar-qq {background:url("/global/img/spritep.png") -9999px -9999px no-repeat;}
 
+/* 升级浏览器 */
+.upgrade-browser {position:relative;z-index:3000;text-align:center;background:#000;height:50px;line-height:50px;color:#fff;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:16px;}
+.upgrade-browser p {display:inline-block;*display:inline;*zoom:1;}
+.upgrade-browser a {color:#fff;display:inline-block;*display:inline;*zoom:1;padding-left:40px;margin-left:20px;}
+.upgrade-browser a:hover {color:#fff;text-decoration:none;}
+.upgrade-browser-ie {background:url("/global/img/ieb.png") left center no-repeat;}
+.upgrade-browser-chrome {background:url("/global/img/gb.png") left center no-repeat;}
+
 /* 公用头部 */
 .g-hd {margin-left:154px;width:846px;height:100px;position:relative;}
 .g-hd hgroup {padding-top:40px;}
@@ -56,6 +64,7 @@ img {vertical-align:bottom;}
 
 /* 左侧导航 */
 .g-nav {position:fixed;z-index:5000;top:0;left:0;min-height:100%;width:114px;font-family:"Microsoft yahei","微软雅黑","黑体";font-size:14px;font-weight:bold;background-color:#252424;color:#fff;text-align:center;_position:absolute;}
+.lte7 .g-nav {top:50px;}
 .g-nav a {display:block;color:#fff;}
 /*.g-nav a:hover {text-decoration:none;color:#fc3c4a;}*/
 .g-sublogo {height:77px;}
