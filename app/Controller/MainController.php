@@ -9,7 +9,7 @@ class MainController extends AppController {
 	{
 
 		$focusImages = array();
-		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-1.jpg', 'alt' => '焦点图', 'link' => '#');
+		$focusImages[] = array('src' => '/images/default/617704b4447d389b4c204f7635e0a878-600-400.png', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
 		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-2.jpg', 'alt' => '焦点图', 'link' => '#');
 		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-3.jpg', 'alt' => '焦点图', 'link' => '#');
 		$focusImages[] = array('src' => 'http://jayli.github.io/gallery/yuislide/assets/slide-4.jpg', 'alt' => '焦点图', 'link' => '#');

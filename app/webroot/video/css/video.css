@@ -44,7 +44,7 @@
 .video-catagory-image {height:140px;width:180px;overflow:hidden;cursor:pointer;}
 .video-catagory-title {font:16px/40px "Microsoft yahei","微软雅黑","黑体";text-align:center;}
 
-.video-play {margin-top:20px;padding:0 23px 25px;background:#fff;}
-.video-play h1 {height:70px;font:22px/70px "Microsoft yahei","微软雅黑","黑体";}
+section.video-play {margin-top:20px;padding:0 23px 25px;background:#fff;}
+section.video-play h1 {height:70px;font:22px/70px "Microsoft yahei","微软雅黑","黑体";}
 
 .g-paginator {padding-top:20px;}

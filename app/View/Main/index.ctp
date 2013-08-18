@@ -22,11 +22,11 @@
 	<div class="tab-nav-con">
 		<div class="tab-nav-wrapper">
 			<ul class="tab-nav clearfix">
-				<li><a href="javascript:void(0);"></a></li>
-				<li><a href="javascript:void(0);"></a></li>
-				<li><a href="javascript:void(0);"></a></li>
-				<li><a href="javascript:void(0);"></a></li>
-				<li class="tab-nav-last"><a href="javascript:void(0);"></a><b></b></li>
+			    <?php $j = 0;?>
+                <?php foreach ($focusImages as $focusImage):?>
+                <?php ++$j; ?>
+				<li<?php if ($j == $i) { echo ' class="tab-nav-last"'; } ?>><a href="javascript:void(0);"></a></li>
+				<?php endforeach;?>
 			</ul>
 			<div class="tab-nav-bar">
 				<div class="tab-nav-bar-con">
