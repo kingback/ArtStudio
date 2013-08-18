@@ -234,11 +234,13 @@ class AppController extends Controller {
 			echo "gd not installed";
 			return false;
 		}
-		$data = @getimagesize($src_file);
+		$name = $src_file . '_small';
+		$data = getimagesize($src_file);
 		$src_w = $data[0];
 		$src_h = $data[1];
 		if ($src_w <= $max_size && $src_h <= $max_size) {
-			return $src_file;
+			copy($src_file, $name);
+			return $name;
 		}
 		if ($src_w >= $src_h) {
 			$dst_w = $max_size;
@@ -249,13 +251,14 @@ class AppController extends Controller {
 		}
 		switch ($data[2]) {
 		case 1: //图片类型，1是GIF图
-			$im = @ImageCreateFromGIF($src_file);
+			$im = ImageCreateFromGIF($src_file);
 			break;
 		case 2: //图片类型，2是JPG图
-			$im = @imagecreatefromjpeg($src_file);
+			$im = ImageCreateFromJpeg($src_file);
+			echo "jpeg";
 			break;
 		case 3: //图片类型，3是PNG图
-			$im = @ImageCreateFromPNG($src_file);
+			$im = ImageCreateFromPNG($src_file);
 			break;
 		}
 		$src_w = ImageSX($im);
@@ -267,7 +270,6 @@ class AppController extends Controller {
 			imagecopyresized($new_im, $im, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);  //复制按比例缩放的原图到 ，新的黑色背景中。    
 		}
 
-		$name = $src_file . '_small';
 		imagejpeg($new_im, $name);
 		imagedestroy($im);
 		imagedestroy($new_im);
