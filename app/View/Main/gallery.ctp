@@ -37,6 +37,7 @@
 			<?php $i++; ?>
 			<li class="album-item clearfix" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
+			    <p>
 				<a href="javascript:void(0);" target="_self" title="造型班">
 					<?php if (isset($album['cover'])): ?>
 					<img src="<?php echo $album['cover']['small']; ?>" />
@@ -44,6 +45,7 @@
 					<img src="/gallery/img/gf.png" />
 					<?php endif;?>
 				</a>
+				</p>
 			</div>
 			<div class="album-detail">
 			<h3 class="album-title"><strong><?php echo $album['title'];?></strong><em>（<?php echo $album['image_num'];?>张）</em></h3>

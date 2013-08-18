@@ -33,6 +33,7 @@
 			<?php foreach ($albums as $album): ?>
 			<li class="album-item<?php $albumCount++; if ($albumCount % 4 == 1) { echo $albumFirst; } elseif ($albumCount % 4 == 0) { echo $albumLast; } ?>" data-albumid="<?php echo $album['id']; ?>">
 			<div class="album-cover">
+			    <p>
 				<a href="javascript:void(0);" target="_self" title="<?php echo $album['title']; ?>">
 					<?php if (isset($album['cover'])): ?>
 					<img src="<?php echo $album['cover']['small']; ?>" />
@@ -40,6 +41,7 @@
 					<img src="/gallery/img/gf.png" />
 					<?php endif;?>
 				</a>
+				</p>
 			</div>
 			<h3 class="album-title"><strong><?php echo $album['title']; ?></strong><em>（<?php echo $album['image_num']; ?>张）</em></h3>
 			</li>
