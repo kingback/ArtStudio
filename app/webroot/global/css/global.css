@@ -61,7 +61,7 @@ img {vertical-align:bottom;}
 .g-sublogo {height:77px;}
 .g-sublogo a {height:77px;display:block;background-position:0 0;}
 .g-sublogo a span {
-    opacity:0;background-position:-205px 0;display:block;height:77px;text-indent:-9999px;
+    opacity:0;background-position:-205px 0;display:block;height:77px;text-indent:-9999px;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     -webkit-transition:all 0.1s linear 0s;
     -moz-transition:all 0.1s linear 0s;
     -o-transition:all 0.1s linear 0s;
@@ -69,7 +69,7 @@ img {vertical-align:bottom;}
     transition:all 0.1s linear 0s;
 }
 .g-sublogo a:hover {text-decoration:none;}
-.g-sublogo a:hover span {text-decoration:none;opacity:1;}
+.g-sublogo a:hover span {text-decoration:none;opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
 .g-nav li {border-bottom:1px solid #171717;position:relative;overflow:visible;}
 .g-nav li a {
     height:42px;line-height:44px;border-bottom:1px solid #2f2f2f;background:#252424;
@@ -130,7 +130,7 @@ img {vertical-align:bottom;}
 .g-floatbar .g-floatbar-apply:hover {background:#ee3643;}
 .g-floatbar .g-floatbar-sqq:hover {border-bottom-color:#ff515d;}
 .g-floatbar .g-floatbar-back {
-    height:36px;line-height:36px;background:#1a1a1a;opacity:0;
+    height:36px;line-height:36px;background:#1a1a1a;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     -webkit-transition:opacity 0.15s linear 0s;
     -moz-transition:opacity 0.15s linear 0s;
     -o-transition:opacity 0.15s linear 0s;

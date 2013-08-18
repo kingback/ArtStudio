@@ -5,14 +5,14 @@
 .waterfall-list-last {margin-right:0;}
 
 .opacity .waterfall-item {
-    opacity: 0;
+    opacity: 0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     -webkit-transition:all 0.2s linear 0s;
     -moz-transition:all 0.2s linear 0s;
     -o-transition:all 0.2s linear 0s;
     -ms-transition:all 0.2s linear 0s;
     transition:all 0.2s linear 0s;
 }
-.opacity .waterfall-item-added {opacity:1;}
+.opacity .waterfall-item-added {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
 
 .news-date,
 .news-more a {
