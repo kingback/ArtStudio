@@ -66,6 +66,7 @@ YUI.add('form', function(Y) {
             this.dateSelectInput = this.form.one('#birthday');
             
             this.uploadInput = this.form.one('#avartar-unload-ipt');
+            this.uploadFile = this.form.one('.avartar-file');
             this.avartarImage = this.form.one('.avartar-image img');
         },
         
@@ -120,11 +121,12 @@ YUI.add('form', function(Y) {
                 }
             }, this);
             
-            // TODO IE本地图片预览
             this.uploadInput.on('change', function(e) {
                 var _this = this,
                     files = e.target._node.files,
                     reader;
+                
+                this.uploadFile.setContent(e.target.get('value'));
                     
                 if (files && typeof FileReader !== 'undefined') {
                     reader = new FileReader();

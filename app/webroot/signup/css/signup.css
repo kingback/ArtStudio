@@ -48,7 +48,7 @@
 .form li .elem-txt:focus,
 .form li select:focus {border:1px solid #4d90fe !important;outline:none;box-shadow:inset 0 1px 2px rgba(0,0,0,0.3);}
 
-.avartar {margin-left:55px;margin-bottom:59px;}
+.avartar {margin-left:55px;margin-bottom:9px;}
 .avartar-image {border:1px solid #ddd;width:130px;height:160px;padding:4px;}
 .avartar-image p {overflow:hidden;}
 .avartar-image img {width:130px;height:160px;}
@@ -59,6 +59,7 @@
 .avartar-unload-btn a:active {background-position:0 -195px;}
 .avartar-unload-btn input {position:absolute;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";display:block;width:100%;height:41px;top:0;left:0;z-index:50;font-size:300px;cursor:pointer;}
 .avartar-unload span {float:left;line-height:41px;}
+.avartar-file {width:240px;height:50px;line-height:50px;text-align:left;font-size:14px;color:#666;padding-left:10px;overflow:hidden;text-overflow:ellipsis;}
 
 .submit-btn {clear:both;padding-top:36px;}
 .submit-btn button {border:0;padding:0;display:block;margin:0 auto;background-position:0 -51px;width:160px;height:51px;text-indent:-9999px;cursor:pointer;}
