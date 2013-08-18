@@ -197,12 +197,16 @@ class AdminapiController extends AppController {
 			echo json_encode(array('msg' => $name . ' is not image'));
 			$this->_setStatusAndExit(400);
 		}
+
+
 		$small_file = $this->make_photo_thumb($filename, $this->max_small_pic_size);
-		$small = $this->save_file($small_file, $type);
-		$large = $this->save_file($filename, $type);
+		$large = $this->_save_image($filename);
+		$small = $this->_save_image($small_file);
 		$pic = array('large' => $large, 'small' => $small);
+
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
 		$res = $collection->insert($pic);
+
 		$info['large'] = $large;
 		$info['small'] = $small;
 		echo json_encode($info);

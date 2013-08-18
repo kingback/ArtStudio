@@ -201,7 +201,7 @@ class AdminController extends AppController {
 	public function listNews()
 	{
 		$collection = $this->get_collection($this->db_name, $this->news_collection);
-		$newses = $collection->find()->sort(array('date' => 1));
+		$newses = $collection->find()->sort(array('date' => -1));
 		$this->set('title_for_layout', '新闻管理');
 		$this->set('newses', $newses);
 	}
