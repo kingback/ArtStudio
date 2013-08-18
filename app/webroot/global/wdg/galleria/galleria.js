@@ -35,7 +35,7 @@ YUI.add('galleria', function(Y) {
         //TODO 周达头像              
         DEF_INFO = '<div>' + 
                         '<div class="yui3-galleria-infocon">' + 
-                            '<h3><img src="./zd.png" width="48" height="48" /><strong>周达点评</strong></h3>' + 
+                            '<h3><img src="/global/wdg/galleria/zd.png" width="48" height="48" /><strong>周达点评</strong></h3>' + 
                             '<div class="yui3-galleria-review"></div>' + 
                             '<div class="yui3-galleria-like"><a href="javascript:void(0);" target="_self">喜欢</a><span><strong>113</strong><b></b></span></div>' + 
                             '<div class="yui3-galleria-jiathis">' + 
