@@ -152,8 +152,8 @@
 				</div>
 				<?php endforeach; ?>
 			</div>
-			<a href="javascript:void(0);" class="intro-slide-prev">prev</a>
-			<a href="javascript:void(0);" class="intro-slide-next">next</a>
+			<a href="javascript:void(0);" class="intro-slide-prev hidden">prev</a>
+			<a href="javascript:void(0);" class="intro-slide-next hidden">next</a>
 		</div>
 		</aside>
 	</div>

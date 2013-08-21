@@ -94,6 +94,9 @@ YUI.add('intro', function(Y) {
         },
         
         initNavSlide: function() {
+            
+            if (Y.all('.intro-slide-panel') <= 1) { return; }
+            
             var slide = new Y.SimpleSlide.Slide({
                 panels: '.intro-slide-panel',
                 width: 390,
@@ -105,6 +108,9 @@ YUI.add('intro', function(Y) {
                     duration: 0.15
                 }
             });
+            
+            this.prevBtn.removeClass('hidden');
+            this.nextBtn.removeClass('hidden');
             
             slide.after('slide', function(e) {
                 this.prevBtn.toggleClass('intro-slide-disabled', e.index === 0);
