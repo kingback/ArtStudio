@@ -277,14 +277,12 @@
 	<h2>出版书籍</h2>
 	<div class="books-con">
 		<ul class="clearfix">
-			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
-			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
-			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
-			<li><span><img src="/index/img/book1.png" alt="教学对话" /></span></li>
-			<li><span><img src="/index/img/book2.png" alt="名师堂" /></span></li>
+			<li><span><img src="/images/default/8e4982d808776ae683726665967bb74b-127-203.png" alt="教学对话" /></span></li>
+			<li><span><img src="/images/default/a24a47310b4d8818f50fb62659f20f43-127-203.png" alt="名师堂" /></span></li>
+			<li><span><img src="/images/default/98339187014c403390a27839f956e741-127-203.jpeg" alt="教学对话" /></span></li>
+			<li><span><img src="/images/default/8b3b099d66ac61a1c9d583d70df4a555-127-203.jpeg" alt="名师堂" /></span></li>
+			<li><span><img src="/images/default/4a89cb1560b79e2481bc87b2ca7b3ed6-127-203.jpeg" alt="教学对话" /></span></li>
+			<li><span><img src="/images/default/06d4a10193d980d052155c9b15b7132d-127-203.jpeg" alt="名师堂" /></span></li>
 		</ul>
 	</div>
 	</section>

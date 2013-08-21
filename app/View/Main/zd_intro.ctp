@@ -90,36 +90,34 @@
 			<div class="intro-prize-tabs clearfix">
 				<ul class="clearfix">
 					<?php $i = 0; ?>
-					<?php foreach($prizes as $year => $prize): ?>
+					<?php foreach($prizes as $prize): ?>
 					<?php ++ $i; ?> 
 					<?php if ($i == 1): ?>
 					<li class="intro-prize-selected">
 					<?php else: ?>
 					<li>
 					<?php endif; ?>
-					<?php echo $year; ?>
+					<?php echo $prize['year']; ?>
 					</li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
 			<div class="intro-prize-panels">
 				<?php $i = 0; ?>
-				<?php foreach($prizes as $year => $images): ?>
+				<?php foreach($prizes as $prize): ?>
 				<?php ++ $i; ?> 
 				<?php if ($i == 1): ?>
 				<div class="intro-prize-panel intro-prize-show">
 				<?php else:  ?>
 				<div class="intro-prize-panel">
 				<?php endif; ?>
-				<h4><?php echo $year; ?>年度素描成绩展“一等奖”留校珍藏作品 </h4>
+				<h4><?php echo $prize['title']; ?> </h4>
 					<div class="intro-prize-image">
 						<div class="intro-prize-slide">
 							<ul>
-								<?php foreach ($images as $image): ?>
 								<li>
-								<img src="<?php echo $image[0]; ?>" alt="<?php echo $image[1];?>" />
+								<img src="<?php echo $prize['imgUrl']; ?>" alt="<?php echo $prize['title'];?>" />
 								</li>
-								<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>

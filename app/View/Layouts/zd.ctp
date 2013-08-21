@@ -75,23 +75,34 @@
             <div class="g-friend clearfix">
                 <h3>友情链接</h3>
                 <ul class="clearfix">
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="http://www.cafa.edu.cn">中央美术学院</a></li>
+                    <li><b></b><a href="http://www.caa.edu.cn">中国美术学院</a></li>
+                    <li><b></b><a href="http://www.ad.tsinghua.edu.cn">清华大学美术学院</a></li>
+                    <li><b></b><a href="http://www.scfai.edu.cn">四川美术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="http://www.gzarts.edu.cn/2013/">广州美术学院</a></li>
                     
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="http://www.xafa.com.cn">西安美术学院</a></li>
+                    <li><b></b><a href="http://www.lumei.edu.cn">鲁迅美术学院</a></li>
+                    <li><b></b><a href="http://www.tjarts.edu.cn">天津美术学院</a></li>
+                    <li><b></b><a href="http://www.hifa.edu.cn">湖北美术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="http://www.bfa.edu.cn">北京电影学院</a></li>
                     
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li><b></b><a href="#">中央美术学院</a></li>
-                    <li class="g-friend-last"><b></b><a href="#">中央美术学院</a></li>
+                    <li><b></b><a href="http://www.chntheatre.edu.cn">中央戏剧学院</a></li>
+                    <li><b></b><a href="http://www.nacta.edu.cn">中国戏曲学院</a></li>
+                    <li><b></b><a href="http://www.sta.edu.cn">上海戏剧学院</a></li>
+                    <li><b></b><a href="http://www.njarti.edu.cn">南京艺术学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="http://www.sytu.edu.cn">江南大学</a></li>
+                    
+                    <li><b></b><a href="http://www.pladaily.com.cn/item/jlwydzt-new/wytt/jfjysxy/">解放军艺术学院</a></li>
+                    <li><b></b><a href="http://www.sdada.edu.cn">山东工艺美术学院</a></li>
+                    <li><b></b><a href="http://www.cuc.edu.cn">中国传媒大学</a></li>
+                    <li><b></b><a href="http://www.jci.edu.cn">景德镇陶瓷学院</a></li>
+                    <li class="g-friend-last"><b></b><a href="http://www.biftedu.com">北京服装学院</a></li>
+                    
+                    <li><b></b><a href="http://www.bigc.edu.cn">北京印刷学院</a></li>
+                    <li><b></b><a href="http://www.ruc.edu.cn">中国人民大学</a></li>
+                    <li><b></b><a href="http://www.cnu.edu.cn">首都师范大学</a></li>
+                    <li><b></b><a href="http://www.bjut.edu.cn">北京工业大学</a></li>
                 </ul>
             </div>
             <p class="g-copyright">Copyright &copy; 2013 周达画室</p>

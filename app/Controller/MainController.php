@@ -294,27 +294,37 @@ class MainController extends AppController {
 		$this->set('slides', $slides);
 
 		$prizes = array();
-		$prizes[2007] = array(
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
-		$prizes[2008] = array(
-			array('http://106.186.25.82/gridfs/06da024d60d95823fea9c85c693ab41f-1000-1481.jpeg','alt'), 
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
-		$prizes[2009] = array(
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
-		$prizes[2010] = array(
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
-		$prizes[2011] = array(
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
-		$prizes[2012] = array(
-			array('http://106.186.25.82/gridfs/f5763c91587cac9714af387ad91f9be5-451-600.jpeg','alt'), 
-		);
+        $prizes[] = array(
+            'year' => '2007',
+            'title' => '布摺',
+            'imgUrl' => '/images/default/5e3e63e615c06f602967999c18dd39dc-425-604.jpeg',
+        );
+        $prizes[] = array(
+            'year' => '2008',
+            'title' => '油画静物',
+            'imgUrl' => '/images/default/80bbd515f1d4e30e3f86834fc3942517-425-312.jpeg',
+        );
+        $prizes[] = array(
+            'year' => '2009',
+            'title' => '男人体',
+            'imgUrl' => '/images/default/2eec02b54cbf18c44ca40c8c44a48961-425-274.jpeg',
+        );
+        $prizes[] = array(
+            'year' => '2010',
+            'title' => '无题',
+            'imgUrl' => '/images/default/d1a7b75cb41ce7a6ed8a7deee150f3f3-425-509.jpeg',
+        );
+        $prizes[] = array(
+            'year' => '2011',
+            'title' => '千里之行',
+            'imgUrl' => '/images/default/32455254869b3596a42d2b14a334df5d-425-398.jpeg',
+        );
+        $prizes[] = array(
+            'year' => '2012',
+            'title' => '2012作品',
+            'imgUrl' => '/images/default/47bd8dc3659e14a81a66948b743d2788-425-283.jpeg',
+        );
+        
 		$this->set('prizes', $prizes);
 
 		$type = 'zd';
