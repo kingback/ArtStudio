@@ -109,12 +109,12 @@ YUI.add('intro', function(Y) {
                 }
             });
             
-            this.prevBtn.removeClass('hidden');
-            this.nextBtn.removeClass('hidden');
+            slide.prevBtn.removeClass('hidden');
+            slide.nextBtn.removeClass('hidden');
             
             slide.after('slide', function(e) {
-                this.prevBtn.toggleClass('intro-slide-disabled', e.index === 0);
-                this.nextBtn.toggleClass('intro-slide-disabled', e.index === this.total - 1);
+                slide.prevBtn.toggleClass('intro-slide-disabled', e.index === 0);
+                slide.nextBtn.toggleClass('intro-slide-disabled', e.index === this.total - 1);
             });
             
             slide.render();
