@@ -109,15 +109,15 @@ YUI.add('intro', function(Y) {
                 }
             });
             
-            slide.prevBtn.removeClass('hidden');
-            slide.nextBtn.removeClass('hidden');
-            
             slide.after('slide', function(e) {
                 slide.prevBtn.toggleClass('intro-slide-disabled', e.index === 0);
                 slide.nextBtn.toggleClass('intro-slide-disabled', e.index === this.total - 1);
             });
             
             slide.render();
+            
+            slide.prevBtn.removeClass('hidden');
+            slide.nextBtn.removeClass('hidden');
             
             this.navSlide = slide;
         },
