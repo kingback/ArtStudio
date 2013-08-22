@@ -213,7 +213,7 @@ YUI.add('env', function(Y) {
 
             if (e.newVal) {
                 //居中
-                bb.setStyle('left', '292px');
+                bb.setStyle('left', '193px');
             }
         }
           
