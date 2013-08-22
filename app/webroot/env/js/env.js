@@ -84,8 +84,8 @@ YUI.add('env', function(Y) {
         
         initSlideShow: function() {
             this.slideShow = new Y.SlideShow({
-                width: 570,
-                height: 440,
+                width: 768,
+                height: 572,
                 modal: true,
                 visible: false,
                 //centered: true,

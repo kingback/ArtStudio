@@ -32,12 +32,6 @@ YUI.add('intro', function(Y) {
             Y.on('scroll', Y.throttle(function() {
                 self.checkScroll();
             }, 15), Y.config.win, this);
-            
-            Y.on('resize', Y.throttle(function() {
-                self.updateCache();
-                self.checkScroll();
-            }, 15), Y.config.win, this);
-            
         },
         
         bindLinkScroll: function() {
@@ -143,7 +137,7 @@ YUI.add('intro', function(Y) {
                 tabs: '.intro-prize-tabs li',
                 panels: '.intro-prize-panel',
                 width: 425,
-                height: 470,
+                height: 637,
                 event: 'hover',
                 tabSelectedClass: 'intro-prize-selected',
                 panelSelectedClass: 'intro-prize-show'
@@ -172,7 +166,7 @@ YUI.add('intro', function(Y) {
                 panel.slide = new Y.SimpleSlide.Slide({
                     panels: imgs._nodes,
                     width: 425,
-                    height: 470,
+                    height: 604,
                     prevBtn: prevBtn,
                     nextBtn: nextBtn,
                     transCfg: {
