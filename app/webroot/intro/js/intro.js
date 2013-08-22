@@ -18,14 +18,23 @@ YUI.add('intro', function(Y) {
             this.initPrizeSlide();
         },
         
+        updateCache: function() {
+            this.fixedTop = this.aside.get('region').top;
+            this.fixedBottom = this.bd.get('region').bottom - this.aside.get('offsetHeight');
+        },
+        
         initScroll: function() {
             var self = this;
             
-            this.fixedTop = this.aside.get('region').top;
-            this.fixedBottom = this.bd.get('region').bottom - this.aside.get('offsetHeight');
             this.navLinks = Y.all('.intro-nav-link');
+            this.updateCache();
                 
             Y.on('scroll', Y.throttle(function() {
+                self.checkScroll();
+            }, 15), Y.config.win, this);
+            
+            Y.on('resize', Y.throttle(function() {
+                self.updateCache();
                 self.checkScroll();
             }, 15), Y.config.win, this);
             
