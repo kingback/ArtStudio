@@ -232,7 +232,11 @@ class MainController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		$article = $collection->findOne(array('_id' => new MongoId($id)));
 		$this->_set_article_info($article);
-		$this->set('page', -1);
+        if ($article && $article['type'] == '新闻') {
+    		$this->set('page', 9);
+        } else {
+    		$this->set('page', -1);
+        }
 		$this->set('body_class', 'zds-article');
 	}
 
