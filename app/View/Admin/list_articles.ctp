@@ -1,6 +1,7 @@
 <p>
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=主页" >新建主页</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=招生简章" >新建招生简章</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-primary' href="/admin/publisher?type=学生管理" >新建学生管理</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=开课时间">开课时间</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn btn-primary' href="/admin/publisher?type=报名须知及注意事项">报名须知及注意事项</a> &nbsp;&nbsp;&nbsp;&nbsp;
 </p>
@@ -34,6 +35,8 @@
 				<span class="label label-info">新闻</span>
 			<?php elseif ($article['type'] == '招生简章'): ?> 
 				<span class="label label-warning">招生简章</span>
+		    <?php elseif ($article['type'] == '学生管理'): ?> 
+                <span class="label label-warning">学生管理</span>
 			<?php else: ?>
 				<span class="label label-inverse"><?php echo $article['type'];?></span>
 			<?php endif; ?>

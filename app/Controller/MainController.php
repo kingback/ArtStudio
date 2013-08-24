@@ -245,7 +245,7 @@ class MainController extends AppController {
 		$this->set('body_class', 'zds-article');
 		$this->render('/Main/article');
 	}
-
+    
 	public function recruitInfo()
 	{
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
@@ -255,6 +255,16 @@ class MainController extends AppController {
 		$this->set('body_class', 'zds-article');
 		$this->render('/Main/article');
 	}
+    
+    public function studentManage()
+    {
+        $collection = $this->get_collection($this->db_name, $this->article_collection);
+        $article = $collection->findOne(array('type' => '学生管理'));
+        $this->_set_article_info($article);
+        $this->set('page', 7);
+        $this->set('body_class', 'zds-article');
+        $this->render('/Main/article');
+    }
 
 	public function news()
 	{

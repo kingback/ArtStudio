@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/min?b=article/css&f=article-min.css" />
+<link rel="stylesheet" href="/min?f=yui/build/cssnormalize-context/cssnormalize-context-min.css,article/css/article-min.css" />
 
 <!-- 主内容 {{-->
 <div class="g-bd">
@@ -9,7 +9,7 @@
 	<!-- 面包屑 }}-->
 
 	<!-- 文章页面 {{-->
-	<article class="article-main">
+	<article class="article-main yui3-normalized">
 	<header class="article-header">
 	<h1><?php echo $title; ?></h1>
 	</header>
