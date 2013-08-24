@@ -83,15 +83,14 @@ img {vertical-align:bottom;}
 .g-nav li {border-bottom:1px solid #171717;position:relative;overflow:visible;}
 .g-nav li a {
     height:38px;line-height:40px;border-bottom:1px solid #2f2f2f;background:#252424;
-    -webkit-transition:all 0.2s linear 0s;
-    -moz-transition:all 0.2s linear 0s;
-    -o-transition:all 0.2s linear 0s;
-    -ms-transition:all 0.2s linear 0s;
-    transition:all 0.2s linear 0s;
+    -webkit-transition:background 0.2s linear 0s;
+    -moz-transition:background 0.2s linear 0s;
+    -o-transition:background 0.2s linear 0s;
+    -ms-transition:background 0.2s linear 0s;
+    transition:background 0.2s linear 0s;
 }
-.g-nav li a:hover {
-    background:#7b1605;text-decoration:none;
-}
+.g-nav li:hover {border:0;}
+.g-nav li a:hover {background:#7b1605;text-decoration:none;border:0;height:40px;}
 .g-nav li b {position:absolute;left:113px;top:14px;height:13px;width:8px;background-position:0 -137px;display:none;}
 .g-nav li.selected {border:0;background-position:0 -87px;}
 .g-nav li.selected a {border:0;height:40px;background:none;}
