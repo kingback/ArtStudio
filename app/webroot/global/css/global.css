@@ -82,7 +82,7 @@ img {vertical-align:bottom;}
 .g-sublogo a:hover span {text-decoration:none;opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
 .g-nav li {border-bottom:1px solid #171717;position:relative;overflow:visible;}
 .g-nav li a {
-    height:42px;line-height:44px;border-bottom:1px solid #2f2f2f;background:#252424;
+    height:38px;line-height:40px;border-bottom:1px solid #2f2f2f;background:#252424;
     -webkit-transition:all 0.2s linear 0s;
     -moz-transition:all 0.2s linear 0s;
     -o-transition:all 0.2s linear 0s;
