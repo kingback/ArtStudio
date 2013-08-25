@@ -449,6 +449,12 @@ class AdminapiController extends AppController {
 		$date = $this->_get_argument('date');
 		$id = $this->_get_argument('id', -1);
 		$type = "新闻";
+        
+        if ($date != '') {
+            $mgdate = new MongoDate(strtotime($date.' 00:00:00'));
+        } else {
+            $mgdate = new MongoDate();
+        }
 
 		// save article
 		$newdata = array('title' => $title, 'content' => $content, 'modifyTime' => new MongoDate(), 'type' => $type);
@@ -482,7 +488,7 @@ class AdminapiController extends AppController {
 		}
 
 		// save news info
-		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => new MongoDate(strtotime($date.' 00:00:00')));
+		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => $mgdate);
 		if ($image_file != -1) {
 			$news_data['image'] = $image_file;
 		}
