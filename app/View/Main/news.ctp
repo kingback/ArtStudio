@@ -21,7 +21,7 @@
             "image": "<?php echo $news['image'];?>",
             "title": "<?php echo $news['title'];?>",
             "desc": "<?php echo $news['desc'];?>",
-            "date": "<?php echo $news['date'];?>"
+            "date": "<?php echo date('Y-m-d', $news['date']->sec);?>"
         }
         <?php $i++; ?>
 		<?php endforeach; ?>
