@@ -445,7 +445,7 @@ class AdminapiController extends AppController {
 		var_dump($_FILES);
 		$content = $this->_get_argument('content');
 		$title = $this->_get_argument('title');
-		$summary = $this->_get_argument('summary');
+		$summary = trim($this->_get_argument('summary'));
 		$date = $this->_get_argument('date');
 		$id = $this->_get_argument('id', -1);
 		$type = "新闻";
