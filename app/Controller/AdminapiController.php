@@ -446,6 +446,7 @@ class AdminapiController extends AppController {
 		$content = $this->_get_argument('content');
 		$title = $this->_get_argument('title');
 		$summary = $this->_get_argument('summary');
+		$date = $this->_get_argument('date');
 		$id = $this->_get_argument('id', -1);
 		$type = "新闻";
 
@@ -481,7 +482,7 @@ class AdminapiController extends AppController {
 		}
 
 		// save news info
-		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => new MongoDate());
+		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => (new MongoDate(strtotime($date)) || new MongoDate()));
 		if ($image_file != -1) {
 			$news_data['image'] = $image_file;
 		}

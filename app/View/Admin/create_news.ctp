@@ -12,10 +12,14 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span9">
-					<div class="article-title" class="span6">
+					<div class="article-title">
 						<label for="article-title">标题</label>
 						<input class="span3" type="text" id="article-title" name="title" placeholder="文章标题" value="<?php echo $title;?>" />
 					</div>
+					<div class="article-title">
+                        <label for="article-title">日期</label>
+                        <input class="span3" type="date" id="article-date" name="date" placeholder="发布时间" value="<?php echo $date;?>" />
+                    </div>
 					<div>
 						<label for="summary">简介</label>
 						<textarea rows="6" class="span12" name="summary"><?php echo $summary; ?></textarea>

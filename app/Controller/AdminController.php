@@ -213,6 +213,8 @@ class AdminController extends AppController {
 		$title = "";
 		$type = "";
 		$summary = "";
+        $mgdate = new MongoDate();
+        $date = date('Y-m-d', $mgdate->sec);
 		$image = false;
 		if ($id != -1) {
 			$article_col = $this->get_collection($this->db_name, $this->article_collection);
@@ -221,6 +223,7 @@ class AdminController extends AppController {
 			$news = $news_col->findOne(array('articleId' => $id));
 			$content = $article['content'];
 			$title = $article['title'];
+            $date = date('Y-m-d', $news['date']->sec);
 			$summary = $news['summary'];
 			if (isset($news['image'])) {
 				$image = $news['image'];
