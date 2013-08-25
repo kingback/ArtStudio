@@ -482,7 +482,7 @@ class AdminapiController extends AppController {
 		}
 
 		// save news info
-		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => (new MongoDate(strtotime($date)) || new MongoDate()));
+		$news_data = array('articleId' => $id, 'summary' => $summary, 'title' => $title, 'date' => new MongoDate());
 		if ($image_file != -1) {
 			$news_data['image'] = $image_file;
 		}
