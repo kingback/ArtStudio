@@ -223,7 +223,7 @@ class AdminController extends AppController {
 			$news = $news_col->findOne(array('articleId' => $id));
 			$content = $article['content'];
 			$title = $article['title'];
-            
+            $date = date('Y-m-d', $news['date']->sec);
 			$summary = $news['summary'];
 			if (isset($news['image'])) {
 				$image = $news['image'];
