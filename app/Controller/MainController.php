@@ -11,6 +11,9 @@ class MainController extends AppController {
 		$focusImages = array();
 		$focusImages[] = array('src' => '/images/default/617704b4447d389b4c204f7635e0a878-600-400.png', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
 		$focusImages[] = array('src' => '/images/default/c9e72a14c5b1e88006e511e110ddf066-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
+		$focusImages[] = array('src' => '/images/default/80bbd515f1d4e30e3f86834fc3942517-425-312.jpeg', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
+		$focusImages[] = array('src' => '/images/default/2eec02b54cbf18c44ca40c8c44a48961-425-274.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
+		$focusImages[] = array('src' => '/images/default/47bd8dc3659e14a81a66948b743d2788-425-283.jpeg', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
 		$this->set('focusImages', $focusImages);
 
 		$mainTeachers = array();
