@@ -234,6 +234,7 @@ class AdminController extends AppController {
 		$this->set('title', $title);
 		$this->set('content', $content);
 		$this->set('summary', $summary);
+		$this->set('date', $date);
 		$this->set('image', $image);
 		$this->set('base_url', $this->image_base_url);
 	}
