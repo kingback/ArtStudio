@@ -45,7 +45,7 @@ class AppController extends Controller {
 	protected $pic_like_collection = 'picLike';
 
 	protected $image_base_url = "/images/";
-	protected $image_base_dir = '/Users/apple/images/';
+	protected $image_base_dir = '/home/web/images/';
 	protected $album_image_dir = 'albums/';
 	protected $teacher_image_dir = 'teacher/';
 	protected $article_image_dir = 'article/';
