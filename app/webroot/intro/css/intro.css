@@ -83,6 +83,8 @@
 .intro-slide-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:245px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-slide-prev {left:253px;background-position:0 -456px;}
 .intro-slide-next {left:313px;background-position:-59px -456px;}
+.intro-slide-prev.hidden,
+.intro-slide-next.hidden {display:hidden;}
 .intro-slide-prev:hover,
 .intro-slide-next:hover {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
 .intro-slide-disabled:hover {opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
