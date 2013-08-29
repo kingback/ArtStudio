@@ -24,7 +24,7 @@ class AdminController extends AppController {
 	public function images()
 	{
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
-		$cursor = array_reverse($collection->find());
+		$cursor = $collection->find();
 		$files = array();
 		foreach ($cursor as $file) {
 			$f = array();
@@ -35,7 +35,7 @@ class AdminController extends AppController {
 			$f['id'] = $file['_id'];
 			$files[] = $f;
 		}
-
+        $files = array_reverse($files);
 		$this->set('files', $files);
         $this->set('title_for_layout', '图片管理');
 	}
