@@ -52,7 +52,7 @@ class MainController extends AppController {
 
 		$video_types = $this->_get_video_types();
 		$video_img = array(
-			'imgUrl' => '/index/img/show-video.png',
+			'imgUrl' => '/images/default/8bfc261c45240022e9218ad8818fce89-186-236.png',
 			'alt' => '视频'
 		);
 		$this->set('videoTypes', $video_types);
