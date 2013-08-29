@@ -98,7 +98,7 @@ YUI.add('intro', function(Y) {
         
         initNavSlide: function() {
             
-            if (Y.all('.intro-slide-panel') <= 1) { return; }
+            if (Y.all('.intro-slide-panel').size() <= 1) { return; }
             
             var slide = new Y.SimpleSlide.Slide({
                 panels: '.intro-slide-panel',
