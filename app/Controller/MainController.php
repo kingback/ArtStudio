@@ -276,14 +276,13 @@ class MainController extends AppController {
 		$newses = $news_col->find()->sort(array('date' => -1));
 		$res = $this->_copy_news($newses, 1);
 		$this->set('newses', $res);
-		$this->set('page', 9);
+		$this->set('page', 10);
 		$this->set('body_class', 'zds-article');
 	}
 
 	public function studioEnv()
 	{
-		$this->set('body_class', 'zds-article');
-		$this->set('page', -1);
+		$this->set('page', 9);
 
 		$type = 'studioEnv';
 		$albums_col = $this->get_collection($this->db_name, $this->album_collection);
