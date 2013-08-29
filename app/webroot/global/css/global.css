@@ -97,7 +97,7 @@ img {vertical-align:bottom;}
 .g-nav li.selected:hover a {color:#fff;background:none;}
 .g-nav li.selected b {display:block;}
 
-.g-weibo {margin-top:9px;}
+.g-weibo {margin-top:20px;}
 .g-weibo a {text-indent:-9999px;background-position:23px -160px;height:62px;display:block;}
 
 /* 主体内容 */
