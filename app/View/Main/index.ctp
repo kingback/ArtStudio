@@ -63,7 +63,7 @@
 		<li class="show-item show-item-first show-item-tall">
 		<div class="show-con">
 			<div class="show-image">
-				<a href="/main/allGallery"><img src="/index/img/show-drawing.png" alt="素描" /></a>
+				<a href="/main/allGallery"><img src="/images/default/a72ce8a0d57f93ad5d005d9ac2dd5610-186-236.jpeg" alt="素描" /></a>
 			</div>
 			<h3>
 				<strong>素描</strong><em>drawing</em>
@@ -82,7 +82,7 @@
 		<li class="show-item show-item-tall">
         <div class="show-con">
             <div class="show-image">
-                <a href="/main/allGallery"><img src="/index/img/show-graphic.png" alt="平面" /></a>
+                <a href="/main/allGallery"><img src="/images/default/f0ec08c78a31749715fa4383c95f5bbd-186-236.png" alt="设计" /></a>
             </div>
             <h3>
                 <strong>设计</strong><em>design</em>

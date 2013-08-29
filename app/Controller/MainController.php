@@ -11,8 +11,8 @@ class MainController extends AppController {
 		$focusImages = array();
 		$focusImages[] = array('src' => '/images/default/617704b4447d389b4c204f7635e0a878-600-400.png', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
 		$focusImages[] = array('src' => '/images/default/c9e72a14c5b1e88006e511e110ddf066-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
-		$focusImages[] = array('src' => '/images/default/119de1fd6cf6bd073b952b667dd10180-600-400.jpeg', 'alt' => '复读生优惠', 'link' => '/main/article?id=5210d04c6f211a9a4c88579c');
-		$focusImages[] = array('src' => '/images/default/2eec02b54cbf18c44ca40c8c44a48961-425-274.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
+		$focusImages[] = array('src' => '/images/default/5ab1443551424d6ef3ac52516dc09d9b-600-400.jpeg', 'alt' => '复读生优惠', 'link' => '/main/article?id=5210d04c6f211a9a4c88579c');
+		$focusImages[] = array('src' => '/images/default/3f685531154ca2f887cc9c4f4813931e-600-400.jpeg', 'alt' => '丰富多彩的课余生活', 'link' => '/main/news');
 		$focusImages[] = array('src' => '/images/default/47bd8dc3659e14a81a66948b743d2788-425-283.jpeg', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
 		$this->set('focusImages', $focusImages);
 
@@ -302,9 +302,9 @@ class MainController extends AppController {
 
 		$slides = array();
 		$slides[] = array('/images/default/687dd75cb5210ade5b8220de6d39019e-390-630.png','周达');
-		$slides[] = array('/images/default/2585c514a3c3a20dce79e0bad5dfc726-451-600.jpeg','安妮.海瑟薇');
-		$slides[] = array('/images/default/df3b4a17ddb4801e6e24d78f6a34fd11-720-1018.jpeg','13纪念日');
-		$slides[] = array('/images/default/e1a5f7187922e2e5f4d07af1960d72d7-1000-1481.jpeg','甘道夫');
+		//$slides[] = array('/images/default/2585c514a3c3a20dce79e0bad5dfc726-451-600.jpeg','安妮.海瑟薇');
+		//$slides[] = array('/images/default/df3b4a17ddb4801e6e24d78f6a34fd11-720-1018.jpeg','13纪念日');
+		//$slides[] = array('/images/default/e1a5f7187922e2e5f4d07af1960d72d7-1000-1481.jpeg','甘道夫');
 		$this->set('slides', $slides);
 
 		$prizes = array();
