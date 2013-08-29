@@ -19,8 +19,8 @@
 							<select class="span6" style="height:100px" name="type" multiple="multiple">
 								<option value="drawing">素描教学</option>
 								<option value="color">色彩教学</option>
-								<option value="creation">创作教学</option>
 								<option value="sketch">速写教学</option>
+								<!--<option value="creation">设计教学</option>-->
 							</select>
 						</div>
 					</div>

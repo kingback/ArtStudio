@@ -13,7 +13,7 @@ class MainController extends AppController {
 		$focusImages[] = array('src' => '/images/default/c9e72a14c5b1e88006e511e110ddf066-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
 		$focusImages[] = array('src' => '/images/default/5ab1443551424d6ef3ac52516dc09d9b-600-400.jpeg', 'alt' => '复读生优惠', 'link' => '/main/article?id=5210d04c6f211a9a4c88579c');
 		$focusImages[] = array('src' => '/images/default/3f685531154ca2f887cc9c4f4813931e-600-400.jpeg', 'alt' => '丰富多彩的课余生活', 'link' => '/main/news');
-		$focusImages[] = array('src' => '/images/default/47bd8dc3659e14a81a66948b743d2788-425-283.jpeg', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
+		$focusImages[] = array('src' => '/images/default/e80a1a18da861b3eaaf6821239f8fe39-600-400.jpeg', 'alt' => '招生简章', 'link' => '/main/recruitInfo');
 		$this->set('focusImages', $focusImages);
 
 		$mainTeachers = array();
@@ -389,7 +389,7 @@ class MainController extends AppController {
 		$types['drawing'] = '素描教学';
 		$types['color'] = '色彩教学';
 		$types['sketch'] = '速写教学';
-		$types['creation'] = '设计教学';
+		//$types['creation'] = '设计教学';
 		return $types;
 	}
 
