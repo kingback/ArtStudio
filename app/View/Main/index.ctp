@@ -371,7 +371,7 @@
 	<p>教学总监/画室创始人</p>
 	</hgroup>
 	</header>
-	<div class="founder-image"></div>
+	<a class="founder-image" href="/main/zdIntro"></a>
 	<p class="founder-desc">2007年考入中央美院。2008年进入中央美院油画系三工作室学习，在校期间多幅作品被留校珍藏。</p>
 	<a href="/main/zdIntro" class="founder-works">作品欣赏<b></b></a>
 	</section>
