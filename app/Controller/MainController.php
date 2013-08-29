@@ -218,7 +218,7 @@ class MainController extends AppController {
 
 	public function teacher()
 	{
-		$this->set('body_class', 'zds-gallery');
+		$this->set('body_class', 'zds-teacher');
 		$this->set('page', 4);
 		$this->set('base_url', $this->image_base_url);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
@@ -246,7 +246,7 @@ class MainController extends AppController {
 		$article = $collection->findOne(array('type' => '主页'));
 		$this->_set_article_info($article);
 		$this->set('page', 2);
-		$this->set('body_class', 'zds-article');
+		$this->set('body_class', 'zds-studio');
 		$this->render('/Main/article');
 	}
     
@@ -266,7 +266,7 @@ class MainController extends AppController {
         $article = $collection->findOne(array('type' => '学生管理'));
         $this->_set_article_info($article);
         $this->set('page', 7);
-        $this->set('body_class', 'zds-article');
+        $this->set('body_class', 'zds-stdmanage');
         $this->render('/Main/article');
     }
 
@@ -277,11 +277,12 @@ class MainController extends AppController {
 		$res = $this->_copy_news($newses, 1);
 		$this->set('newses', $res);
 		$this->set('page', 10);
-		$this->set('body_class', 'zds-article');
+		$this->set('body_class', 'zds-news');
 	}
 
 	public function studioEnv()
 	{
+		$this->set('body_class', 'zds-env');
 		$this->set('page', 9);
 
 		$type = 'studioEnv';
@@ -296,7 +297,7 @@ class MainController extends AppController {
 
 	public function zdIntro()
 	{
-		$this->set('body_class', 'zds-article');
+		$this->set('body_class', 'zds-intro');
 		$this->set('page', -1);
 
 		$slides = array();
@@ -348,7 +349,7 @@ class MainController extends AppController {
 
 	public function playVideo()
 	{
-		$this->set('body_class', 'zds-article');
+		$this->set('body_class', 'zds-video');
 		$this->set('page', -1);
 		$name = $this->_get_argument('name');
 		$url = $this->_get_argument('url');
@@ -377,7 +378,7 @@ class MainController extends AppController {
 	public function videoList()
 	{
 		$types = $this->_get_video_types();
-		$this->set('body_class', 'zds-article');
+		$this->set('body_class', 'zds-video');
 		$this->set('page', -1);
 		$this->set('types', $types);
 	}
