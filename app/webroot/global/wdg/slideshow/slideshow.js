@@ -4,7 +4,7 @@
 
 YUI.add('slideshow', function(Y) {
     
-    var SHOW_TEMP = '<li data-id="{id}" data-index="{index}"><img src="{src}" title="{alt}" alt="{alt}" /></li>',
+    var SHOW_TEMP = '<li data-id="{id}" data-index="{index}"><p><img src="{src}" title="{alt}" alt="{alt}" /></p></li>',
         NAV_TEMP = '<li data-id="{id}" data-index="{index}"><span><img src="{src}" title="{alt}" alt="{alt}" /></span></li>',
         INFO_TEMP = '<h3>{title}</h3><p></p>';
     
