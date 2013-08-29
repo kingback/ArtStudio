@@ -411,11 +411,11 @@ class MainController extends AppController {
 			'name' => '速写教学',
 			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
 		);
-		$types[] = array(
+		/*$types[] = array(
 			'type' => 'creation',
 			'name' => '设计教学',
 			'imgUrl' => 'http://img04.taobaocdn.com/tfscom/T1a7_iXmXhXXb1upjX.jpg_200x200.jpg',
-		);
+		);*/
 		return $types;
 	}
 }
