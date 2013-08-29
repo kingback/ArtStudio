@@ -24,7 +24,7 @@ class AdminController extends AppController {
 	public function images()
 	{
 		$collection = $this->get_collection($this->db_name, $this->pic_collection);
-		$cursor = $collection->find();
+		$cursor = array_reverse($collection->find());
 		$files = array();
 		foreach ($cursor as $file) {
 			$f = array();
