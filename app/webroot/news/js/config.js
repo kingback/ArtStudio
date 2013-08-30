@@ -19,7 +19,7 @@
                     },
                     'news': {
                         path: YUI.getPath('news'),
-                        requires: ['waterfall', 'waterfall-loader', 'io', 'json-parse']
+                        requires: ['waterfall', 'waterfall-loader', 'io', 'json-parse', 'array-extras']
                     }
                 }
             }

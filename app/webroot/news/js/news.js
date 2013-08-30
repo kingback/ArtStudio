@@ -79,5 +79,5 @@ YUI.add('news', function(Y) {
     waterfall.render();
     
 }, '0.0.1', {
-    requires: ['waterfall', 'waterfall-loader', 'io', 'json-parse']
+    requires: ['waterfall', 'waterfall-loader', 'io', 'json-parse', 'array-extras']
 });
