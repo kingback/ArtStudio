@@ -113,13 +113,15 @@
 				<?php else:  ?>
 				<div class="intro-prize-panel">
 				<?php endif; ?>
-				<h4><?php echo $prize['title']; ?> </h4>
+				<h4><?php echo $prize['images'][0]['desc']; ?> </h4>
 					<div class="intro-prize-image">
 						<div class="intro-prize-slide">
 							<ul>
+							    <?php foreach($prize['images'] as $pimage): ?>
 								<li>
-								<img src="<?php echo $prize['imgUrl']; ?>" alt="<?php echo $prize['title'];?>" />
+								    <img src="<?php echo $pimage['image']; ?>" alt="<?php echo $pimage['desc'];?>" />
 								</li>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
