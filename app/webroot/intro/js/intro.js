@@ -168,7 +168,7 @@ YUI.add('intro', function(Y) {
                 panel.slide = new Y.SimpleSlide.Slide({
                     panels: imgs._nodes,
                     width: 425,
-                    height: 604,
+                    height: 730,
                     prevBtn: prevBtn,
                     nextBtn: nextBtn,
                     transCfg: {

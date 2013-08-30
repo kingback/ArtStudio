@@ -56,7 +56,7 @@
 .intro-prize-image img {width:100%;display:inline;}
 
 .intro-prize-prev,
-.intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:210px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
+.intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:340px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-prize-prev {left:20px;background-position:0 -456px;}
 .intro-prize-next {right:20px;background-position:-59px -456px;}
 .intro-prize-prev:hover,
