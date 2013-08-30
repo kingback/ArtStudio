@@ -60,7 +60,7 @@ YUI.add('news', function(Y) {
     
     waterfall = new Y.Waterfall({
         container: '.waterfall',
-        data: window.NewsData,
+        data: window.NewsData && resize(window.NewsData),
         formatter: formatter,
         loader: loader
     });
