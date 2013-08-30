@@ -50,8 +50,9 @@
 .intro-prize-panel {display:none;position:relative;}
 .intro-prize-show {display:block;}
 .intro-prize-panel h4 {font-style:italic;padding-left:8px;font-size:14px;line-height:22px;font-family:"Microsoft yahei","微软雅黑","黑体";}
-.intro-prize-image {margin-top:11px;overflow:hidden;background:#e5e5e5;position:relative;height:604px;}
-.intro-prize-image li {height:604px;display:table-cell;text-align:center;vertical-align:middle;}
+.intro-prize-image {margin-top:11px;overflow:hidden;background:#e5e5e5;position:relative;height:730px;}
+.intro-prize-image li {height:730px;}
+.intro-prize-image li p {height:730px;width:425px;display:table-cell;text-align:center;vertical-align:middle;}
 .intro-prize-image img {width:100%;display:inline;}
 
 .intro-prize-prev,

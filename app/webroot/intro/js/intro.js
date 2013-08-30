@@ -137,7 +137,7 @@ YUI.add('intro', function(Y) {
                 tabs: '.intro-prize-tabs li',
                 panels: '.intro-prize-panel',
                 width: 425,
-                height: 637,
+                height: 763,
                 event: 'hover',
                 tabSelectedClass: 'intro-prize-selected',
                 panelSelectedClass: 'intro-prize-show'
@@ -153,7 +153,9 @@ YUI.add('intro', function(Y) {
         },
         
         initImageSlide: function(panel) {
-            var imgs = panel.all('li'),
+            var self = this,
+                imgs = panel.all('li'),
+                title = panel.one('h4'),
                 con, prevBtn, nextBtn;
             
             if (imgs.size() > 1) {
@@ -177,6 +179,7 @@ YUI.add('intro', function(Y) {
                 panel.slide.after('slide', function(e) {
                     this.prevBtn.toggleClass('intro-prize-disabled', e.index === 0);
                     this.nextBtn.toggleClass('intro-prize-disabled', e.index === this.total - 1);
+                    title.setContent(e.panel.one('img').getAttribute('alt'));
                 });
                 
                 panel.slide.render();

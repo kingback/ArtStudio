@@ -119,7 +119,9 @@
 							<ul>
 							    <?php foreach($prize['images'] as $pimage): ?>
 								<li>
-								    <img src="<?php echo $pimage['image']; ?>" alt="<?php echo $pimage['desc'];?>" />
+								    <p>
+    								    <img src="<?php echo $pimage['image']; ?>" alt="<?php echo $pimage['desc'];?>" />
+								    </p>
 								</li>
 								<?php endforeach; ?>
 							</ul>
