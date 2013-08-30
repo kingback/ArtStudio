@@ -32,7 +32,6 @@ YUI.add('galleria', function(Y) {
         
         DEF_THUMB = '<li data-large="{large}" data-index="{index}" data-id="{id}"><a href="javascript:void(0);" target="_self"><img src="{small}" title="{title}" /></a></li>',
         
-        //TODO 周达头像              
         DEF_INFO = '<div>' + 
                         '<div class="yui3-galleria-infocon">' + 
                             '<h3><img src="/global/wdg/galleria/zd.png" width="48" height="48" /><strong>周达点评</strong></h3>' + 
