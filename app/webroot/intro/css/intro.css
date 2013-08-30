@@ -59,9 +59,10 @@
 .intro-prize-next {width:49px;height:49px;display:block;position:absolute;text-indent:-9999px;top:340px;z-index:50;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-prize-prev {left:20px;background-position:0 -456px;}
 .intro-prize-next {right:20px;background-position:-59px -456px;}
+.intro-prize-disabled {cursor:default;}
 .intro-prize-prev:hover,
 .intro-prize-next:hover {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
-.intro-prize-disabled:hover {opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
+.intro-prize-disabled:hover {cursor:default;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 
 .intro-impress {margin-top:12px;}
 .intro-impress h2,
@@ -86,9 +87,10 @@
 .intro-slide-next {left:313px;background-position:-59px -456px;}
 .intro-slide-prev.hidden,
 .intro-slide-next.hidden {display:none;}
+.intro-slide-disabled {cursor:default;}
 .intro-slide-prev:hover,
 .intro-slide-next:hover {opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
-.intro-slide-disabled:hover {opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
+.intro-slide-disabled:hover {cursor:default;opacity:0.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";}
 .intro-nav {position:absolute;width:135px;top:18px;right:18px;z-index:50;}
 .intro-nav h2 {text-indent:-9999px;width:135px;height:90px;background-position:0 -356px;}
 .intro-nav div {padding:8px 12px 0 18px;overflow:visible;}
