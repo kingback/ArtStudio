@@ -112,7 +112,7 @@ class MainController extends AppController {
 
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
 		$res = $collection->update(array('name' => $name, 'telephone' => $telephone), $stu, array('upsert' => true));
-		$this->redirect(array('controller' => 'main', 'action' => 'signup', '#' => array('msg' => $msg)));
+		$this->redirect(array('controller' => 'main', 'action' => 'signup', '#' => 'msg=' . $msg));
 		$this->response->send();
 		exit();
 	}
