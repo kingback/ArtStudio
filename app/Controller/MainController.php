@@ -444,7 +444,7 @@ class MainController extends AppController {
                             'desc' => '《盆景》，50cm x 70cm x 30cm'
                         ),
                         array(
-                            'image' => '/images/default/8280a6ee5767ec4938371d48d6a970e0-425-283.jpeg',
+                            'image' => '/images/default/bed006aee3413b09a9e53863044e10d4-425-638.jpeg',
                             'desc' => '《沐浴》，120cm x 120cm'
                         ),
                         array(

@@ -156,7 +156,7 @@
 		<li class="show-item show-item-last">
         <div class="show-con">
             <div class="show-image">
-                <a href="/main/allGallery"><img src="/index/img/show-creation.png" alt="创作" /></a>
+                <a href="/main/allGallery"><img src="/images/default/d8e74e6a797e9194032831f48ece3838-186-236.png" alt="创作" /></a>
             </div>
             <h3>
                 <strong>命题创作</strong><em>creation</em>
