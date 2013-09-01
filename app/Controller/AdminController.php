@@ -1,9 +1,18 @@
 <?php
 class AdminController extends AppController {
 
+    var $components = array('Auth', 'Session');
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->layout = 'admin';
+
+        $this->Auth->authenticate = array(
+            'Simple'
+        );
+        $this->Auth->loginAction = array('controller' => 'admin', 'action' => 'login');
+        $this->Auth->loginRedirect = array('controller' => 'admin', 'action' => 'listArticles');
+        $this->Auth->logoutRedirect = '/';
 	}
 
 	public function index()
@@ -12,12 +21,27 @@ class AdminController extends AppController {
         $this->set('title_for_layout', '主页管理');
 	}
 
+	public function login()
+	{
+		if ($this->Auth->user()) {
+			$this->redirect($this->Auth->redirect());
+		}
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$msg = "Invalid username or password";
+				$this->Auth->flash($msg);
+			}
+		}
+	}
+
 
 	public function honour()
 	{
 		$collection = $this->get_collection($this->db_name, $this->honour_collection);
 		$honours = $collection->find()->sort(array('year' => -1));
-        $this->set('title_for_layout', '画室荣誉管理');
+		$this->set('title_for_layout', '画室荣誉管理');
 		$this->set('honours', $honours);
 	}
 
@@ -35,9 +59,9 @@ class AdminController extends AppController {
 			$f['id'] = $file['_id'];
 			$files[] = $f;
 		}
-        $files = array_reverse($files);
+		$files = array_reverse($files);
 		$this->set('files', $files);
-        $this->set('title_for_layout', '图片管理');
+		$this->set('title_for_layout', '图片管理');
 	}
 
 	public function signup()
@@ -46,7 +70,7 @@ class AdminController extends AppController {
 		$students = $collection->find();
 		$this->set('base_url', $this->image_base_url);
 		$this->set('students', $students);
-        $this->set('title_for_layout', '注册管理');
+		$this->set('title_for_layout', '注册管理');
 	}
 
 	public function uploadAlbumImages()
@@ -214,8 +238,8 @@ class AdminController extends AppController {
 		$title = "";
 		$type = "";
 		$summary = "";
-        $mgdate = new MongoDate();
-        $date = date('Y-m-d', $mgdate->sec);
+		$mgdate = new MongoDate();
+		$date = date('Y-m-d', $mgdate->sec);
 		$image = false;
 		if ($id != -1) {
 			$article_col = $this->get_collection($this->db_name, $this->article_collection);
@@ -224,7 +248,7 @@ class AdminController extends AppController {
 			$news = $news_col->findOne(array('articleId' => $id));
 			$content = $article['content'];
 			$title = $article['title'];
-            $date = date('Y-m-d', $news['date']->sec);
+			$date = date('Y-m-d', $news['date']->sec);
 			$summary = $news['summary'];
 			if (isset($news['image'])) {
 				$image = $news['image'];
