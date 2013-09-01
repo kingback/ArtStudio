@@ -278,16 +278,16 @@
 .founder hgroup h3 {font-size:22px;line-height:30px;}
 .founder hgroup p {font-size:14px;line-height:22px;}
 .founder-image {
-    margin-top:15px;height:156px;width:156px;margin:0 auto;display:block;opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    margin-top:16px;height:155px;width:155px;text-decoration:none;background:url("/index/img/zdavartar.png") 0 0 no-repeat;margin:0 auto;display:block;opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     -webkit-transition:all 0.1s linear 0s;
     -moz-transition:all 0.1s linear 0s;
     -o-transition:all 0.1s linear 0s;
     -ms-transition:all 0.1s linear 0s;
     transition:all 0.1s linear 0s;
 }
-.founder-image:hover {opacity:0.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";}
+.founder-image:hover {text-decoration:none;opacity:0.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";}
 
-.founder-desc {text-indent:2em;line-height:22px;margin-top:18px;}
+.founder-desc {text-indent:2em;line-height:22px;margin-top:19px;}
 .founder-works {
     display:block;position:relative;background-color:#e90011;width:100px;height:36px;line-height:36px;margin:23px auto 0;padding-left:16px;font-size:16px;font-family:"Microsoft yahei","微软雅黑","黑体";color:#fff;
     -webkit-transition:all 0.1s linear 0s;
