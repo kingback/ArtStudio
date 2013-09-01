@@ -13,5 +13,5 @@
 .article-content a:hover {color:#1863B4;text-decoration:underline;}
 .article-content table {border-collapse:collapse;border:1px solid #bbb;margin:10px auto;}
 .article-content table th,
-.article-content table td {border:1px solid #ebebeb;padding:9px 12px;text-align:left;}
+.article-content table td {border:1px solid #bbb;padding:9px 12px;text-align:left;}
 .article-content table th {background:#ddd;text-align:center;}
