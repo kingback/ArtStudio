@@ -111,5 +111,8 @@
         <script>
             ZD.use('main');
         </script>
+        <!-- CNZZ {{-->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cdiv id='cnzz_stat_icon_1000047285'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000047285%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+        <!-- CNZZ }}-->
     </body>
 </html>
