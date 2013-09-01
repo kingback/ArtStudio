@@ -163,7 +163,7 @@ class AppController extends Controller {
 				$image['id'] = $image_id;
 				$image['like'] = 0;
 				if (isset($likes) && isset($likes['images'][$image_id])) {
-					$image['like'] = $likes['images'][$image_id];
+					$image['like'] = $likes['images'][$image_id] + 500;
 				}
 				$images[] = $image;
 			}
