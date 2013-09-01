@@ -44,6 +44,7 @@ class AdminController extends AppController {
 	{
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
 		$students = $collection->find();
+		$this->set('base_url', $this->image_base_url);
 		$this->set('students', $students);
         $this->set('title_for_layout', '注册管理');
 	}

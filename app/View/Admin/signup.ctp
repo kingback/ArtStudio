@@ -21,6 +21,7 @@
 			<th>email</th>
 			<th>民族</th>
 			<th>户籍</th>
+			<th>照片</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,6 +37,9 @@
 			<td><?php echo $stu['email']; ?></td>
 			<td><?php echo $stu['volk']; ?></td>
 			<td><?php echo $stu['household']; ?></td>
+			<td>
+			   <img src='<?php if (isset($stu['image'])) echo $base_url, $stu['image']; ?>' style='max-height:210px'/>
+			</td>
 		</tr>
 		<?php endforeach; ?>
 	</body>
