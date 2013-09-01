@@ -165,6 +165,16 @@
 	</section>
 	</article>
 	<!-- 报名页面 }}-->
+	<script>
+	    ;(function() {
+	       function getParams(){for(var d,a=location.hash.substring(1),b=a.split("&"),c={},e=0,f=b.length;f>e;e++){d=b[e].split("=");try{c[decodeURIComponent(d[0])]=decodeURIComponent(d[1])}catch(g){}}return c}
+	       var params = getParams();
+	       if (params['msg']) {
+	           location.hash = '#';
+	           alert(params['msg']);
+	       }
+	    })();
+	</script>
 </div>
 <!-- 主内容 }}-->
 

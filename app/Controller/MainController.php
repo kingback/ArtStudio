@@ -73,7 +73,7 @@ class MainController extends AppController {
 	{
 		$this->autoRender = false;
 		$this->response->header('Content-Type: text/javascript');
-		$msg = "注册成功!!";
+		$msg = "报名成功!!";
 		$name = $this->_get_argument('name');
 		$sex = $this->_get_argument('sex');
 		$birthday = $this->_get_argument('birthday');
@@ -112,7 +112,7 @@ class MainController extends AppController {
 
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
 		$res = $collection->update(array('name' => $name, 'telephone' => $telephone), $stu, array('upsert' => true));
-		$this->redirect(array('controller' => 'main', 'action' => 'signup', '?' => array('msg' => $msg)));
+		$this->redirect(array('controller' => 'main', 'action' => 'signup', '#' => array('msg' => $msg)));
 		$this->response->send();
 		exit();
 	}
