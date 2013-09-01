@@ -99,15 +99,15 @@ class MainController extends AppController {
 			$tmp_filename = $_FILES['avartar']['tmp_name'];
 			$filename = $_FILES['avartar']['name'];
 			$type = $_FILES['avartar']['type'];
-			if (!$this->is_image($type)) {
-				$msg = "注册失败: $name 不是图片文件";
-				$this->redirect(array('controller' => 'main', 'action' => 'signup', '?' => array('msg' => $msg)));
-				echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
-				$this->_setStatusAndExit(400);
+			if ($this->is_image($type)) {
+				//$msg = "注册失败: $name 不是图片文件";
+				//$this->redirect(array('controller' => 'main', 'action' => 'signup', '?' => array('msg' => $msg)));
+				//echo json_encode(array('msg' => $name . ' is not image file, type=' . $type));
+				//	$this->_setStatusAndExit(400);
+				$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
+				$image = $this->_save_image($compressed_file, $this->signup_image_dir);
+				$stu['image'] = $image;
 			}
-			$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
-			$image = $this->_save_image($compressed_file, $this->signup_image_dir);
-			$stu['image'] = $image;
 		}
 
 		$collection = $this->get_collection($this->db_name, $this->signup_collection);
@@ -175,9 +175,9 @@ class MainController extends AppController {
 		$albums = $albums_col->find();
 		$info = array();
 		foreach ($albums as $album) {
-		    if ($album['category'] != '其他') {
-    			$info[] = $this->copyAlbum($album, null);
-		    }
+			if ($album['category'] != '其他') {
+				$info[] = $this->copyAlbum($album, null);
+			}
 		}
 
 		$categories_col = $this->get_collection($this->db_name, $this->album_category_collection);
@@ -232,11 +232,11 @@ class MainController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
 		$article = $collection->findOne(array('_id' => new MongoId($id)));
 		$this->_set_article_info($article);
-        if ($article && $article['type'] == '新闻') {
-    		$this->set('page', 9);
-        } else {
-    		$this->set('page', -1);
-        }
+		if ($article && $article['type'] == '新闻') {
+			$this->set('page', 9);
+		} else {
+			$this->set('page', -1);
+		}
 		$this->set('body_class', 'zds-article');
 	}
 
@@ -249,7 +249,7 @@ class MainController extends AppController {
 		$this->set('body_class', 'zds-studio');
 		$this->render('/Main/article');
 	}
-    
+
 	public function recruitInfo()
 	{
 		$collection = $this->get_collection($this->db_name, $this->article_collection);
@@ -259,16 +259,16 @@ class MainController extends AppController {
 		$this->set('body_class', 'zds-article');
 		$this->render('/Main/article');
 	}
-    
-    public function studentManage()
-    {
-        $collection = $this->get_collection($this->db_name, $this->article_collection);
-        $article = $collection->findOne(array('type' => '学生管理'));
-        $this->_set_article_info($article);
-        $this->set('page', 7);
-        $this->set('body_class', 'zds-stdmanage');
-        $this->render('/Main/article');
-    }
+
+	public function studentManage()
+	{
+		$collection = $this->get_collection($this->db_name, $this->article_collection);
+		$article = $collection->findOne(array('type' => '学生管理'));
+		$this->_set_article_info($article);
+		$this->set('page', 7);
+		$this->set('body_class', 'zds-stdmanage');
+		$this->render('/Main/article');
+	}
 
 	public function news()
 	{
@@ -307,180 +307,180 @@ class MainController extends AppController {
 		$this->set('slides', $slides);
 
 		$prizes = 
-            array(
-                array(
-                    'year' => '2007',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/cf8d070e5a815445d0ed65af254cebc5-425-604.jpeg',
-                            'desc' => '《布褶》，60cm x 90cm'
-                        ),
-                        array(
-                            'image' => '/images/default/45c93c086c7725bbccf605303cc903a8-425-602.jpeg',
-                            'desc' => '《素描女全身》，60cm x 90cm'
-                        )
-                    )
-                ),
-                array(
-                    'year' => '2008',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/4aacb9b7aa83f42f41cce084b90a9a9c-425-312.jpeg',
-                            'desc' => '《油画静物1》，120cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/4e10b11b7b5eeffc83ff06bb6e1f6b5d-425-400.jpeg',
-                            'desc' => '《油画静物2》，150cm x 150cm'
-                        ),
-                        array(
-                            'image' => '/images/default/98c4e9e04d7ca4e9428c5f0c32c60efc-425-730.jpeg',
-                            'desc' => '《油画静物3》，60cm x 120cm'
-                        ),
-                        array(
-                            'image' => '/images/default/f63660ea9a437206dde3bc449d24f4b9-425-603.jpeg',
-                            'desc' => '《油画静物4》，50cm x 60cm'
-                        ),
-                        array(
-                            'image' => '/images/default/423b473fb25e37a2e4706317fa62bce6-425-322.jpeg',
-                            'desc' => '《油画静物5》，60cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/b060474d9bdd1cfc7dda9cd3cac64cbc-425-518.jpeg',
-                            'desc' => '《室友》，60cm x 70cm'
-                        )
-                    )
-                ),
-                array(
-                    'year' => '2009',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/fb23917e7d949300fec9eceaf306d537-425-274.jpeg',
-                            'desc' => '《男人体》，165cm x 110cm'
-                        ),
-                        array(
-                            'image' => '/images/default/5ad9c21b3e948d65be161f1ba574c92e-425-697.jpeg',
-                            'desc' => '《女人体》，70cm x 140cm'
-                        ),
-                        array(
-                            'image' => '/images/default/f4006d13f081291582fe22639c9f66f6-425-605.jpeg',
-                            'desc' => '《玩具系列1》，60cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/edc740b9e815aa40b16960687d1b48b0-425-612.jpeg',
-                            'desc' => '《玩具系列2》，60cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/7c5ecacc053c7f56356f0bbbee7cd35f-425-607.jpeg',
-                            'desc' => '《玩具系列3》，60cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/23abf5f4f21dcf6ba4b03029699e725c-425-574.jpeg',
-                            'desc' => '《玩具系列4》，60cm x 80cm'
-                        ),
-                        array(
-                            'image' => '/images/default/0b4dce490cf465ddcafe70e664af02a3-425-534.jpeg',
-                            'desc' => '《素描静物》，185cm x 155cm'
-                        ),
-                        array(
-                            'image' => '/images/default/ef1ae92213bc0604b1055836472a96a5-425-461.jpeg',
-                            'desc' => '《无题》，175cm x 120cm'
-                        )
-                    )
-                ),
-                array(
-                    'year' => '2010',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/e2c3d30f964819529dd8408bbe1c3c94-425-413.jpeg',
-                            'desc' => '《笑脸系列1》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/18d3a4edd4f0af9b6ee7448b43f60eeb-425-408.jpeg',
-                            'desc' => '《笑脸系列2》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/28aa711462e12e21d9d9c8657cb35b8c-425-435.jpeg',
-                            'desc' => '《笑脸系列3》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/2cb1d648e01c8217a849028cd86457ab-425-425.jpeg',
-                            'desc' => '《笑脸系列4》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/eb1f1f819d6dd722b0d858c161235b30-425-425.jpeg',
-                            'desc' => '《笑脸系列5》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/78b4b8432b6a87f90dc12a05b285e0f2-425-425.jpeg',
-                            'desc' => '《笑脸系列6》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/e12db8ccfcf413fd33f532cdafacb685-425-425.jpeg',
-                            'desc' => '《笑脸系列7》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/08f19a799bead9c34f055f0d3f9a3682-425-425.jpeg',
-                            'desc' => '《笑脸系列8》，100cm x 100cm'
-                        ),
-                        array(
-                            'image' => '/images/default/9739c3d018940e16fe07c88bfd613cd7-425-690.jpeg',
-                            'desc' => '《书架》，100cm x 70cm'
-                        )
-                    )
-                ),
-                array(
-                    'year' => '2011',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/4d2dd0adcddd21257da4b5b10494f31d-425-390.jpeg',
-                            'desc' => '《窗》，170cm x 150cm'
-                        ),
-                        array(
-                            'image' => '/images/default/df23ba428509a9f349fab7301c7811b5-425-643.jpeg',
-                            'desc' => '《回忆的盒子》，105cm x 170cm'
-                        ),
-                        array(
-                            'image' => '/images/default/3a748bf59ca0ea993a16ab8719965528-425-283.jpeg',
-                            'desc' => '《盆景》，50cm x 70cm x 30cm'
-                        ),
-                        array(
-                            'image' => '/images/default/bed006aee3413b09a9e53863044e10d4-425-638.jpeg',
-                            'desc' => '《沐浴》，120cm x 120cm'
-                        ),
-                        array(
-                            'image' => '/images/default/f9378e69e3f78a8fceebf06a4cd8c66c-425-432.jpeg',
-                            'desc' => '《我的书架》，120cm x 120cm x 30cm'
-                        )
-                    )
-            
-                ),
-                array(
-                    'year' => '2012',
-                    'images' => array(
-                        array(
-                            'image' => '/images/default/e06e1e863dde650264563aa83dabf9e2-425-428.jpeg',
-                            'desc' => '《物是人非系列1》，60cm x 60cm'
-                        ),
-                        array(
-                            'image' => '/images/default/5af68f88b25a3e1a427da0d573b6f1c1-425-507.jpeg',
-                            'desc' => '《物是人非系列2》，60cm x 65cm'
-                        ),
-                        array(
-                            'image' => '/images/default/bb1eaa11471f604cb6b75b8ff11b6a64-425-495.jpeg',
-                            'desc' => '《物是人非系列3》，60cm x 65cm'
-                        ),
-                        array(
-                            'image' => '/images/default/d3eae953d6ff75003bd69a6c8a570fec-425-576.jpeg',
-                            'desc' => '《那时》，270cm x 210cm'
-                        ),
-                        array(
-                            'image' => '/images/default/e1d43858b43e95d2b7e3b3448295e4dc-425-612.jpeg',
-                            'desc' => '《自画像》，80cm x 120cm'
-                        )
-                    )
-                )
-            );
-        
+			array(
+				array(
+					'year' => '2007',
+					'images' => array(
+						array(
+							'image' => '/images/default/cf8d070e5a815445d0ed65af254cebc5-425-604.jpeg',
+							'desc' => '《布褶》，60cm x 90cm'
+						),
+						array(
+							'image' => '/images/default/45c93c086c7725bbccf605303cc903a8-425-602.jpeg',
+							'desc' => '《素描女全身》，60cm x 90cm'
+						)
+					)
+				),
+				array(
+					'year' => '2008',
+					'images' => array(
+						array(
+							'image' => '/images/default/4aacb9b7aa83f42f41cce084b90a9a9c-425-312.jpeg',
+							'desc' => '《油画静物1》，120cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/4e10b11b7b5eeffc83ff06bb6e1f6b5d-425-400.jpeg',
+							'desc' => '《油画静物2》，150cm x 150cm'
+						),
+						array(
+							'image' => '/images/default/98c4e9e04d7ca4e9428c5f0c32c60efc-425-730.jpeg',
+							'desc' => '《油画静物3》，60cm x 120cm'
+						),
+						array(
+							'image' => '/images/default/f63660ea9a437206dde3bc449d24f4b9-425-603.jpeg',
+							'desc' => '《油画静物4》，50cm x 60cm'
+						),
+						array(
+							'image' => '/images/default/423b473fb25e37a2e4706317fa62bce6-425-322.jpeg',
+							'desc' => '《油画静物5》，60cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/b060474d9bdd1cfc7dda9cd3cac64cbc-425-518.jpeg',
+							'desc' => '《室友》，60cm x 70cm'
+						)
+					)
+				),
+				array(
+					'year' => '2009',
+					'images' => array(
+						array(
+							'image' => '/images/default/fb23917e7d949300fec9eceaf306d537-425-274.jpeg',
+							'desc' => '《男人体》，165cm x 110cm'
+						),
+						array(
+							'image' => '/images/default/5ad9c21b3e948d65be161f1ba574c92e-425-697.jpeg',
+							'desc' => '《女人体》，70cm x 140cm'
+						),
+						array(
+							'image' => '/images/default/f4006d13f081291582fe22639c9f66f6-425-605.jpeg',
+							'desc' => '《玩具系列1》，60cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/edc740b9e815aa40b16960687d1b48b0-425-612.jpeg',
+							'desc' => '《玩具系列2》，60cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/7c5ecacc053c7f56356f0bbbee7cd35f-425-607.jpeg',
+							'desc' => '《玩具系列3》，60cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/23abf5f4f21dcf6ba4b03029699e725c-425-574.jpeg',
+							'desc' => '《玩具系列4》，60cm x 80cm'
+						),
+						array(
+							'image' => '/images/default/0b4dce490cf465ddcafe70e664af02a3-425-534.jpeg',
+							'desc' => '《素描静物》，185cm x 155cm'
+						),
+						array(
+							'image' => '/images/default/ef1ae92213bc0604b1055836472a96a5-425-461.jpeg',
+							'desc' => '《无题》，175cm x 120cm'
+						)
+					)
+				),
+				array(
+					'year' => '2010',
+					'images' => array(
+						array(
+							'image' => '/images/default/e2c3d30f964819529dd8408bbe1c3c94-425-413.jpeg',
+							'desc' => '《笑脸系列1》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/18d3a4edd4f0af9b6ee7448b43f60eeb-425-408.jpeg',
+							'desc' => '《笑脸系列2》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/28aa711462e12e21d9d9c8657cb35b8c-425-435.jpeg',
+							'desc' => '《笑脸系列3》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/2cb1d648e01c8217a849028cd86457ab-425-425.jpeg',
+							'desc' => '《笑脸系列4》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/eb1f1f819d6dd722b0d858c161235b30-425-425.jpeg',
+							'desc' => '《笑脸系列5》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/78b4b8432b6a87f90dc12a05b285e0f2-425-425.jpeg',
+							'desc' => '《笑脸系列6》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/e12db8ccfcf413fd33f532cdafacb685-425-425.jpeg',
+							'desc' => '《笑脸系列7》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/08f19a799bead9c34f055f0d3f9a3682-425-425.jpeg',
+							'desc' => '《笑脸系列8》，100cm x 100cm'
+						),
+						array(
+							'image' => '/images/default/9739c3d018940e16fe07c88bfd613cd7-425-690.jpeg',
+							'desc' => '《书架》，100cm x 70cm'
+						)
+					)
+				),
+				array(
+					'year' => '2011',
+					'images' => array(
+						array(
+							'image' => '/images/default/4d2dd0adcddd21257da4b5b10494f31d-425-390.jpeg',
+							'desc' => '《窗》，170cm x 150cm'
+						),
+						array(
+							'image' => '/images/default/df23ba428509a9f349fab7301c7811b5-425-643.jpeg',
+							'desc' => '《回忆的盒子》，105cm x 170cm'
+						),
+						array(
+							'image' => '/images/default/3a748bf59ca0ea993a16ab8719965528-425-283.jpeg',
+							'desc' => '《盆景》，50cm x 70cm x 30cm'
+						),
+						array(
+							'image' => '/images/default/bed006aee3413b09a9e53863044e10d4-425-638.jpeg',
+							'desc' => '《沐浴》，120cm x 120cm'
+						),
+						array(
+							'image' => '/images/default/f9378e69e3f78a8fceebf06a4cd8c66c-425-432.jpeg',
+							'desc' => '《我的书架》，120cm x 120cm x 30cm'
+						)
+					)
+
+				),
+				array(
+					'year' => '2012',
+					'images' => array(
+						array(
+							'image' => '/images/default/e06e1e863dde650264563aa83dabf9e2-425-428.jpeg',
+							'desc' => '《物是人非系列1》，60cm x 60cm'
+						),
+						array(
+							'image' => '/images/default/5af68f88b25a3e1a427da0d573b6f1c1-425-507.jpeg',
+							'desc' => '《物是人非系列2》，60cm x 65cm'
+						),
+						array(
+							'image' => '/images/default/bb1eaa11471f604cb6b75b8ff11b6a64-425-495.jpeg',
+							'desc' => '《物是人非系列3》，60cm x 65cm'
+						),
+						array(
+							'image' => '/images/default/d3eae953d6ff75003bd69a6c8a570fec-425-576.jpeg',
+							'desc' => '《那时》，270cm x 210cm'
+						),
+						array(
+							'image' => '/images/default/e1d43858b43e95d2b7e3b3448295e4dc-425-612.jpeg',
+							'desc' => '《自画像》，80cm x 120cm'
+						)
+					)
+				)
+			);
+
 		$this->set('prizes', $prizes);
 
 		$type = 'zd';
