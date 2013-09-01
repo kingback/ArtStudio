@@ -15,3 +15,5 @@
 .article-content table th,
 .article-content table td {border:1px solid #bbb;padding:9px 12px;text-align:left;}
 .article-content table th {background:#ddd;text-align:center;font-weight:bold;}
+.article-content ul {list-style-type: disc;}
+.article-content ol {list-style-type: decimal;}
