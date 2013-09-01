@@ -68,6 +68,7 @@ YUI.add('galleria', function(Y) {
         };
     })();
     
+    var godlike = location.href.indexOf('godlike') > -1;
     
     Y.Galleria = Y.Base.create('galleria', Y.Widget, [
         Y.WidgetStack
@@ -345,7 +346,7 @@ YUI.add('galleria', function(Y) {
                 cache = storage.getItem(imageid),
                 data = this.get('selectedItem').getData('imageData');
             
-            if (cache) {
+            if (cache && !godlike) {
                 alert('您已经点击过喜欢了，感谢您的支持~');
             } else {
                 new Image().src = '/mainapi/likePic?albumId=' + albumid + '&imgId=' + imageid;
