@@ -23,7 +23,7 @@
 
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-	<em>当前位置：</em><a href="/main/index" target="_self">首页</a><span>&gt;</span><a href="/main/allGallery" target="_self">作品欣赏</a><span>&gt;</span><em><?php echo $cur_category; ?></em>
+	<em>当前位置：</em><a href="/" target="_self">首页</a><span>&gt;</span><a href="/main/allGallery" target="_self">作品欣赏</a><span>&gt;</span><em><?php echo $cur_category; ?></em>
 	</div>
 	<!-- 面包屑 }}-->
 

@@ -156,3 +156,6 @@ img {vertical-align:bottom;}
 .g-friend li b {position:absolute;width:2px;height:2px;overflow:hidden;background:#000;left:0;top:10px;}
 .g-friend .g-friend-last {margin-right:0;}
 .g-copyright {text-align:right;height:36px;line-height:36px;border-top:1px solid #c3c0c0;}
+
+/* CNZZ */
+#cnzz_stat_icon_1000047285 {display: none;}

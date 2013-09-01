@@ -28,7 +28,7 @@
         <header class="g-hd" id="g-hd">
             <hgroup class="clearfix ">
                 <h1 class="g-logo" id="g-logo">
-                    <a href="#" target="_top"><img src="/global/img/logo.png" alt="周达画室" /></a>
+                    <a href="/" target="_top"><img src="/global/img/logo.png" alt="周达画室" /></a>
                 </h1>
                 <p>一切用实力说话</p>
             </hgroup>
@@ -40,10 +40,10 @@
         </header>
         <nav class="g-nav" id="g-nav">
             <h2 class="g-sublogo">
-                <a href="/" target="_self"><span>http://zhoudams.com/</span></a>
+                <a href="/" target="_self"><span></span></a>
             </h2>
             <ul>
-			<li<?php if($page == 1): ?> class="selected"<?php endif; ?>><a href="/main/index" target="_self">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
+			<li<?php if($page == 1): ?> class="selected"<?php endif; ?>><a href="/" target="_self">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><b></b></li>
 			<li<?php if($page == 2): ?> class="selected"<?php endif; ?>><a href="/main/studioInfo" target="_self">画室简介</a><b></b></li>
 			<li<?php if($page == 3): ?> class="selected"<?php endif; ?>><a href="/main/honour" target="_self">画室成绩</a><b></b></li>
 			<li<?php if($page == 4): ?> class="selected"<?php endif; ?>><a href="/main/teacher" target="_self">教师介绍</a><b></b></li>

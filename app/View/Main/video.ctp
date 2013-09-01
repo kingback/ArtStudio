@@ -18,7 +18,7 @@
 
 	<!-- 面包屑 {{-->
 	<div class="g-bread">
-		<em>当前位置：</em><a href="/main/index">首页</a><span>&gt;</span><em>教学视频</em>
+		<em>当前位置：</em><a href="/" target="_self">首页</a><span>&gt;</span><em>教学视频</em>
 	</div>
 	<!-- 面包屑 }}-->
 
