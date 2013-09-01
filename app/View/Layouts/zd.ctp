@@ -104,6 +104,7 @@
                     <li><b></b><a href="http://www.ruc.edu.cn">中国人民大学</a></li>
                     <li><b></b><a href="http://www.cnu.edu.cn">首都师范大学</a></li>
                     <li><b></b><a href="http://www.bjut.edu.cn">北京工业大学</a></li>
+                    <li><b></b><a href="http://www.jldh.com.cn">吉林动画学院</a></li>
                 </ul>
             </div>
             <p class="g-copyright">Copyright &copy; 2013 周达画室</p>
