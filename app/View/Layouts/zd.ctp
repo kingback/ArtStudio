@@ -16,6 +16,15 @@
         <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-43690225-1', 'zhoudams.com');
+          ga('send', 'pageview');
+        </script>
         <base target="_blank" />
     </head>
 	<body class="<?php echo $body_class; ?>">
@@ -114,16 +123,5 @@
         <!-- CNZZ {{-->
         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cdiv id='cnzz_stat_icon_1000047285'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000047285%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
         <!-- CNZZ }}-->
-        <!-- 谷歌分析 {{-->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        
-          ga('create', 'UA-43690225-1', 'zhoudams.com');
-          ga('send', 'pageview');
-        </script>
-        <!-- 谷歌分析 }}-->
     </body>
 </html>
