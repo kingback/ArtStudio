@@ -211,7 +211,7 @@
 .hall-list {height:256px;overflow:hidden;position:relative;}
 .hall-list ul {position:absolute;width:100%;}
 .hall-mask-up {background:url("/index/img/mask-up.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;top:0;}
-.hall-mask {background:url("/index/img/mask.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;bottom:50px;}
+.hall-mask {background:url("/index/img/mask.png") 0 0 no-repeat;width:473px;height:55px;position:absolute;left:38px;bottom:53px;}
 .hall-more {position:absolute;width:68px;height:12px;text-indent:-9999px;top:16px;right:0;background-position:0 -114px;}
 .hall-more:hover {background-position:0 -136px;}
 
