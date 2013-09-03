@@ -6,14 +6,16 @@
 <!--[if gt IE 9]><html class="no-js"><![endif]-->
 <!--[if !IE]><!--><html><!--<![endif]-->
     <head>
-        <title>周达画室</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <title>周达画室</title>
+        <meta name="description" content="周达画室 - 一切用实力说话，北京周达画室是全国知名的美术培训中心，是正式注册的国家高考培训机构。自2008年创办以来，秉承“关注每一位学生”的教学宗旨和“注重基础”的教学理念，与地方高中和画室建立长期的合作关系，备受各界关注和好评。经过周达画室师生们的共同努力，向全国各高等院校美术专业输送了大批优秀学生，帮助学子考入理想的大学，在社会上赢得了良好的口碑。" />
+        <meta name="keywords" content="周达画室,北京周达画室,周达,宋庄画室,美术,素描静物,素描全身像,创意速写,素描头像,素描半身像,设计素描,设计色彩,平面设计,单人速写,场景组合,油画头像,命题创作,色彩静物,央美培训,清美培训"/>
+        <meta name="viewport" content="width=device-width" />
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
         
-        <!-- TODO combo -->
         <link rel="stylesheet" href="/min?b=global/css&f=global-min.css" />
         <script src="/min?f=global/js/modernizr-min.js,yui/build/yui/yui-min.js,global/js/gconfig-min.js"></script>
         <script>
