@@ -258,9 +258,11 @@ YUI.add('galleria', function(Y) {
                 top = Math.round((size.cHeight - size.height) / 2);
             }
             
-            img.style['width'] = size.width + 'px';
-            img.style['height'] = size.height + 'px';
-            img.style['marginTop'] = top + 'px';
+            Y.DOM.setStyles({
+                height: size.height + 'px',
+                width: size.width + 'px',
+                marginTop: top + 'px'
+            });
         },
         
         _getItemById: function(id) {
