@@ -258,7 +258,7 @@ YUI.add('galleria', function(Y) {
                 top = Math.round((size.cHeight - size.height) / 2);
             }
             
-            Y.DOM.setStyles({
+            Y.DOM.setStyles(img, {
                 height: size.height + 'px',
                 width: size.width + 'px',
                 marginTop: top + 'px'
