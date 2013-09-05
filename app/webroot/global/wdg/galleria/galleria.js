@@ -108,7 +108,7 @@ YUI.add('galleria', function(Y) {
             cb.delegate('click', this._onItemClick, '.yui3-galleria-list li a', this);
             cb.delegate('click', this._onPrevClick, '.yui3-galleria-prev a', this);
             cb.delegate('click', this._onNextClick, '.yui3-galleria-next a', this);
-            cb.delegate('click', this._onNextClick, '.yui3-galleria-image img', this);
+            cb.delegate('click', this._onNextClick, '.yui3-galleria-image-mask', this);
             cb.delegate('click', this._onLikeBtnClick, '.yui3-galleria-like a', this);
             Y.on('resize', this._onWinResize, Y.config.win, this);
             
