@@ -27,7 +27,8 @@ YUI.add('g-floatbar', function(Y) {
     Y.on('contentready', function(evt) {
         
         var backToTop = Y.one('.g-floatbar-back'),
-            body = Y.one(Y.config.doc.body);
+            webkit = Y.UA.webkit,
+            body = Y.one(webkit ? Y.config.doc.body : Y.config.doc.documentElement);
 
         function check() {
             backToTop.setStyle('opacity', body.get('scrollTop') > 300 ? '1' : '0');
