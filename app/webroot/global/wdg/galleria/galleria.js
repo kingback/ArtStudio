@@ -447,7 +447,7 @@ YUI.add('galleria', function(Y) {
         
         _updateJiaThis: function(e) {
             window.jiathis_config = window.jiathis_config || {};
-            window.jiathis_config.pic = e && e.item.getAttribute('data-large') || '';
+            window.jiathis_config.pic = e && e.item.one('img').getAttribute('src') || '';
         },
         
         _preload: function() {
