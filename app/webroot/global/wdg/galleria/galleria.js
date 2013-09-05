@@ -8,13 +8,14 @@ YUI.add('galleria', function(Y) {
     
     var DEF_HEADER = '<div>' + 
                          '<div class="yui3-galleria-share"><a href="javascript:void(0);" target="_self">分享</a></div>' +
-                         '<div class="yui3-galleria-amplify"><a href="#" title="查看原图">查看原图</a></div>' +
+                         //'<div class="yui3-galleria-amplify"><a href="#" title="查看原图">查看原图</a></div>' +
                          '<div class="yui3-galleria-close"><a href="javascript:void(0);" target="_self" title="关闭">关闭</a></div>' + 
                      '</div>',
                      
         DEF_BODY = '<div>' + 
                        '<div class="yui3-galleria-loading"></div>' +
                        '<div class="yui3-galleria-image"></div>' + 
+                       '<div class="yui3-galleria-image-mask"></div>' + 
                    '</div>',
         
         DEF_FOOTER = '<div>' + 
@@ -123,7 +124,7 @@ YUI.add('galleria', function(Y) {
         _domCache: function(){
             this._bb = this.get('boundingBox');  
             this._cb = this.get('contentBox');
-            this._amplifyBtn = this._cb.one('.yui3-galleria-amplify a');
+            //this._amplifyBtn = this._cb.one('.yui3-galleria-amplify a');
             this._imageCon = this._cb.one('.yui3-galleria-image');
             this._nextBtn = this._cb.one('.yui3-galleria-next');
             this._prevBtn = this._cb.one('.yui3-galleria-prev');
@@ -420,7 +421,7 @@ YUI.add('galleria', function(Y) {
             
             this._posImage(img);
             
-            this._amplifyBtn.setAttribute('href', large);
+            //this._amplifyBtn.setAttribute('href', large);
             
             if (e.prevItem && e.prevItem._node) {
                 e.prevItem.removeClass('yui3-galleria-selected');

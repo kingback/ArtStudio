@@ -55,7 +55,6 @@ YUI.add('gallery', function(Y) {
             this.initLoading();
             this.initTip();
             this.bindAlbums();
-            
             this.showSelected();
         },
         
