@@ -25,7 +25,7 @@
 <script>
     (function() {
         var content = document.getElementById('article-content'),
-            imgs = con.getElementsByTagName('img');
+            imgs = content.getElementsByTagName('img');
         
         function insertMask(img) {
             var con = document.createElement('span'),
