@@ -233,7 +233,7 @@ class MainController extends AppController {
 		$article = $collection->findOne(array('_id' => new MongoId($id)));
 		$this->_set_article_info($article);
 		if ($article && $article['type'] == '新闻') {
-			$this->set('page', 9);
+			$this->set('page', 10);
 		} else {
 			$this->set('page', -1);
 		}
