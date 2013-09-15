@@ -17,5 +17,6 @@
 .article-content table th {background:#ddd;text-align:center;font-weight:bold;}
 .article-content ul {list-style-type: disc;}
 .article-content ol {list-style-type: decimal;}
-.article-content .zd-article-imgcon {position:relative;vertical-align:bottom;display:inline-block;*display:inline;*zoom:1;}
+.article-content .zd-article-imgcon {margin-top:10px;margin-bottom:10px;position:relative;vertical-align:bottom;display:inline-block;*display:inline;*zoom:1;}
 .article-content .zd-article-imgmask {position:absolute;width:100%;height:100%;top:0;left:0;background:#fff;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";*filter:alpha(opacity=0);}
+.article-content .zd-article-imgcon img {margin:0;}
