@@ -1,4 +1,4 @@
-<?php $this->Html->script('/editor/kindeditor-all.js', array('inline' => false)); ?>
+<?php $this->Html->script('/editor/kindeditor-all-min.js', array('inline' => false)); ?>
 <?php $this->Html->script('/editor/lang/zh_CN.js', array('inline' => false)); ?>
 <?php $this->Html->css('/min?b=publisher/css&f=publisher-min.css',null, array('inline' => false)); ?>
 <?php $this->Html->script('/admin/js/publisher.js', array('inline' => false)); ?>

@@ -3189,6 +3189,7 @@ _extend(KCmd, {
 		}
 		html += 'alt="' + _escape(title) + '" ';
 		html += '/>';
+		html = '<span class="zd-article-imgcon">' + html + '<span class="zd-article-imgmask"></span></span>';
 		return this.inserthtml(html);
 	},
 	createlink : function(url, type) {
