@@ -222,7 +222,7 @@ class MainController extends AppController {
 		$this->set('page', 4);
 		$this->set('base_url', $this->image_base_url);
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
-		$teachers = $collection->find();
+		$teachers = $collection->find()->sort(array('_index' => 1));
 		$this->set('teachers', $teachers);
 	}
 
