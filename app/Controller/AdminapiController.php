@@ -361,9 +361,11 @@ class AdminapiController extends AppController {
 
 		$compressed_file = $this->make_photo_thumb($tmp_filename, 300);
 		$image = $this->_save_image($compressed_file, $this->teacher_image_dir);
-
-		$teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image, 'school' => $school);
+		
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
+        $count = $collection->stats()->count;
+        $teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image, 'school' => $school, '_index' => $count);
+        
 		$res = $collection->insert($teacher);
 		echo json_encode($res);
 	}
