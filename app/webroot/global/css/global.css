@@ -146,6 +146,50 @@ img {vertical-align:bottom;}
     -ms-transition:opacity 0.15s linear 0s;
     transition:opacity 0.15s linear 0s;
 }
+.g-floatbar .g-floatbar-qrcode {
+    margin-top:10px;
+    background:#000 url("../img/icon_code.png") 11px center no-repeat;
+    height:36px;
+    line-height:36px;
+    font-family:"Microsoft yahei","微软雅黑","黑体";
+    font-size:12px;
+    padding-left:36px;
+    text-align:left;
+}
+.g-weixincode {
+    position: fixed;
+    top:200px;
+    left:859px;
+    width: 170px;
+    height:203px;
+    text-align:center;
+    background:#fff;
+    box-shadow:0 1px 8px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    -webkit-box-shadow:0 1px 8px rgba(0,0,0,0.1);
+    -webkit-border-radius: 2px;
+    overflow: visible;
+    z-index: 5;
+    display:none;
+}
+
+.g-weixincode img {
+    width:170px;
+    height:170px;
+}
+.g-weixincode p {
+    height:33px;
+    line-height: 23px;
+    font-size:12px;
+}
+.g-weixincode b {
+    position: absolute;
+    background:url("../img/code_arrow.png") 0 0 no-repeat;
+    left:170px;
+    bottom:12px;
+    width:6px;
+    height:11px;
+}
 
 /* 公用底部 */
 .g-ft {margin-left:114px;margin-top:40px;width:806px;background:#dddada;padding:20px 40px 0;clear:both;}

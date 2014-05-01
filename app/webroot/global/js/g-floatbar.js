@@ -27,8 +27,11 @@ YUI.add('g-floatbar', function(Y) {
     Y.on('contentready', function(evt) {
         
         var backToTop = Y.one('.g-floatbar-back'),
+            qrcodeNode = Y.one('.g-floatbar-qrcode'),
+            qrcodePopup = Y.one('.g-weixincode'),
             webkit = Y.UA.webkit,
-            body = Y.one(webkit ? Y.config.doc.body : Y.config.doc.documentElement);
+            body = Y.one(webkit ? Y.config.doc.body : Y.config.doc.documentElement),
+            timer;
 
         function check() {
             backToTop.setStyle('opacity', body.get('scrollTop') > 300 ? '1' : '0');
@@ -57,8 +60,30 @@ YUI.add('g-floatbar', function(Y) {
             anim.run();
         });
         
+        if (qrcodeNode && qrcodePopup) {
+            qrcodeNode.on('hover', function(e) {
+                clearTimeout(timer);
+                qrcodePopup.setStyle('display', 'block');
+            }, function(e) {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    qrcodePopup.setStyle('display', 'none');
+                }, 300);
+            });
+            
+            qrcodePopup.on('hover', function(e) {
+                clearTimeout(timer);
+                qrcodePopup.setStyle('display', 'block');
+            }, function(e) {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    qrcodePopup.setStyle('display', 'none');
+                }, 300);
+            });
+        }
+        
     }, '.g-floatbar');
     
 }, '0.0.1', {
-    requires: ['anim', 'yui-throttle']
+    requires: ['anim', 'event-hover', 'yui-throttle']
 });

@@ -130,7 +130,7 @@
                     },
                     'g-floatbar': {
                         path: getPath('g-floatbar'),
-                        requires: ['anim']
+                        requires: ['anim', 'event-hover', 'yui-throttle']
                     }
                 }
             }

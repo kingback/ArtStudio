@@ -82,7 +82,13 @@
             <a class="g-floatbar-qq" href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:278953129:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
             <a class="g-floatbar-sqq" href="http://wpa.qq.com/msgrd?v=3&uin=278953129&site=qq&menu=yes">QQ咨询</a>
             <a class="g-floatbar-apply" href="/main/signup">网上报名</a>
-            <a class="g-floatbar-back" href="#" target="_self">返回顶部</a>
+            <a class="g-floatbar-back" href="#">返回顶部</a>
+            <a class="g-floatbar-qrcode" href="javascript:void(0);">微信</a>
+        </div>
+        <div class="g-weixincode">
+            <img src="http://zhoudams.com/images/default/4d4855c7350ce6b4b49681849fc91719-300-300.jpeg" />
+            <p>欢迎关注周达画室微信平台</p>
+            <b></b>
         </div>
         <footer class="g-ft">
             <div class="g-friend clearfix">
