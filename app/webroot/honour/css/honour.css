@@ -3,7 +3,7 @@
 .honour-tabview {margin-top:8px;width:846px;overflow:hidden;}
 .honour-tab-list {font:20px/38px "Microsoft yahei","微软雅黑","黑体";padding-bottom:10px;width:856px;}
 .honour-tab {
-    background:#e90011;float:left;width:161px;margin-right:10px;height:38px;line-height:38px;text-align:center;color:#fff;cursor:pointer;position:relative;overflow:visible;
+    background:#e90011;float:left;width:131px;margin-right:12px;height:38px;line-height:38px;text-align:center;color:#fff;cursor:pointer;position:relative;overflow:visible;
     -webkit-transition: all 0.15s linear 0s;
     -moz-transition: all 0.15s linear 0s;
     -o-transition: all 0.15s linear 0s;
