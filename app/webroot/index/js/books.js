@@ -21,7 +21,7 @@ YUI.add('books', function(Y) {
             setTimeout(function() {
                 self.runAnim();
                 self.run();
-            }, 5000)
+            }, 5000);
         },
         
         runAnim: function() {

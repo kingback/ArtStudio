@@ -9,7 +9,7 @@ class MainController extends AppController {
 	{
 
 		$focusImages = array();
-		$focusImages[] = array('src' => '/images/default/7f287be3163bbd26e5c560127ff0ca1f-600-400.jpeg', 'alt' => '北京周达画室火热招生中', 'link' => '/main/signup');
+		$focusImages[] = array('src' => '/images/default/7018957cc635121e047042dd89bfabea-600-400.jpeg', 'alt' => '校考冲刺班开讲啦！！！', 'link' => '/main/signup');
 		$focusImages[] = array('src' => '/images/default/9486e14523d3ebf1186b7343431db54d-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
 		$focusImages[] = array('src' => '/images/default/7138a539c8220e3909aa9bbaf39fa40b-600-400.jpeg', 'alt' => '复读生优惠', 'link' => '/main/article?id=5210d04c6f211a9a4c88579c');
 		$focusImages[] = array('src' => '/images/default/30b62a52f5c9aefa9fa0201a475e70a2-600-400.jpeg', 'alt' => '丰富多彩的课余生活', 'link' => '/main/news');
