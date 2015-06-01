@@ -576,6 +576,22 @@ class AdminapiController extends AppController {
 		}
 	}
 
+	public function unmarkHonour()
+	{
+		$ids_str = $this->_get_argument('ids');
+		$ids = explode(',', $ids_str);
+
+		var_dump($ids);
+		$collection = $this->get_collection($this->db_name, $this->honour_collection);
+		$newdata = array('$set' => array('mark' => 0));
+		foreach ($ids as $id) {
+			$res = $collection->update(array('_id' => new MongoId($id)), $newdata);
+			if (!$res['ok']) {
+				$this->_setErrMsgAndExit($res['err'], 500);
+			}
+		}
+	}
+
 	public function deleteAlbum()
 	{
 		$ids_str = $this->_get_argument('ids');

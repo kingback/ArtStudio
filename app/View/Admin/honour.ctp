@@ -20,20 +20,13 @@
 		<label class="control-label" for="year">考试年</label>
 		<div class="controls">
 			<select name="year">
+				<option>2015</option>
+				<option>2014</option>
 				<option>2013</option>
 				<option>2012</option>
 				<option>2011</option>
 				<option>2010</option>
 				<option>2009</option>
-				<option>2008</option>
-				<option>2007</option>
-				<option>2006</option>
-				<option>2005</option>
-				<option>2004</option>
-				<option>2003</option>
-				<option>2002</option>
-				<option>2001</option>
-				<option>2000</option>
 			</select>
 		</div>
 	</div>
@@ -52,7 +45,9 @@
 	<button type="submit" class="btn btn-info">确定上传</button>
 </div>
 <p>
-<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a target='_blank' class='btn btn-danger' onclick="deleteHonour()">删除选中学生</a>&nbsp;
+<a target='_blank' class='btn btn-info' onclick="markHonour()">加星选中学生</a>&nbsp;
+<a target='_blank' class='btn btn-danger' onclick="unmarkHonour()">取消加星选中学生</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a target='_blank' class='btn' onclick="selectAll()">全选</a>&nbsp;
 <a target='_blank' class='btn' onclick="dselectAll()">全部取消</a>&nbsp;
 <a target='_blank' class='btn' onclick="rselectAll()">反选</a>&nbsp;

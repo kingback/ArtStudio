@@ -277,6 +277,10 @@
 	<h2>出版书籍</h2>
 	<div class="books-con">
 		<ul class="clearfix">
+			<li><span><img src="/images/default/fe3a4d2d761dfe63d14e60caddb7d979-127-203.jpeg" alt="素描头像" /></span></li>
+			<li><span><img src="/images/default/b9761516b933a9f4e22d9c87c6b0a664-127-203.jpeg" alt="色彩静物" /></span></li>
+			<li><span><img src="/images/default/4421102c417520b181b2ece82b392da7-127-203.jpeg" alt="素描静物" /></span></li>
+			<li><span><img src="/images/default/20e417be78160c268382f491aa257e0e-127-203.jpeg" alt="美术报考指南" /></span></li>
 			<li><span><img src="/images/default/8e4982d808776ae683726665967bb74b-127-203.png" alt="教学对话" /></span></li>
 			<li><span><img src="/images/default/a24a47310b4d8818f50fb62659f20f43-127-203.png" alt="名师堂" /></span></li>
 			<li><span><img src="/images/default/98339187014c403390a27839f956e741-127-203.jpeg" alt="教学对话" /></span></li>
