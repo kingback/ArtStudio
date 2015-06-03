@@ -351,7 +351,7 @@ class AppController extends Controller {
 		foreach ($videos as $video) {
 			$res[] = array(
 				'url' => $video['url'],
-				'image' => $this->_get_image_url($video['image']),
+				'image' => $video['image'],
 				'name' => $video['name'],
 				'desc' => $video['desc'],
 			);
