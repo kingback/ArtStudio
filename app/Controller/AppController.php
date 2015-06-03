@@ -344,6 +344,20 @@ class AppController extends Controller {
 		}
 		return $res;
 	}
+	
+	protected function _copy_all_video($videos, $reverse)
+	{
+		$res = array();
+		foreach ($videos as $video) {
+			$res[] = array(
+				'url' => $video['url'],
+				'image' => $this->_get_image_url($video['image']),
+				'name' => $video['name'],
+				'desc' => $video['desc'],
+			);
+		}
+		return $reverse ? array_reverse($res) : $res;
+	}
 
 	protected function _get_album_dir($id)
 	{

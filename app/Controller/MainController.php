@@ -148,8 +148,6 @@ class MainController extends AppController {
 			$videos = $collection->find();
 			$video_num = $collection->count();
 		}
-		
-		$videos = array_reverse($videos);
 
 		$pages = intval($video_num / $this->video_page_size);
 		if ($video_num % $this->video_page_size > 0) {
@@ -157,7 +155,9 @@ class MainController extends AppController {
 		}
 		$pre_page = $page > 1? $page - 1: 1;
 		$next_page = $page > $pages? $page + 1: $pages;
-		$res = $this->_copy_video($videos, $page);
+		
+		$videoArray = $this->_copy_all_video($videos, true);
+		$res = $this->_copy_video($videoArray, $page);
 
 		$video_names = $this->_get_video_names();
 
