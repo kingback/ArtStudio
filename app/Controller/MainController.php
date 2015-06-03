@@ -140,6 +140,8 @@ class MainController extends AppController {
 		$page = intval($page);
 
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
+		$collection = array_reverse($collection);
+		
 		if ($type != -1) {
 			$videos = $collection->find(array('type' => $type));
 			$video_num = $collection->count(array('type' => $type));
@@ -522,7 +524,7 @@ class MainController extends AppController {
 		$types = $this->_get_video_types();
 		$this->set('body_class', 'zds-video');
 		$this->set('page', -1);
-		$this->set('types', array_reverse($types));
+		$this->set('types', $types);
 	}
 
 	protected function _get_video_names()
