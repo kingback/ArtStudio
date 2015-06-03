@@ -522,7 +522,7 @@ class MainController extends AppController {
 		$types = $this->_get_video_types();
 		$this->set('body_class', 'zds-video');
 		$this->set('page', -1);
-		$this->set('types', $types);
+		$this->set('types', array_reverse($types));
 	}
 
 	protected function _get_video_names()
