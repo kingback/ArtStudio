@@ -140,7 +140,6 @@ class MainController extends AppController {
 		$page = intval($page);
 
 		$collection = $this->get_collection($this->db_name, $this->video_collection);
-		$collection = array_reverse($collection);
 		
 		if ($type != -1) {
 			$videos = $collection->find(array('type' => $type));
@@ -149,6 +148,8 @@ class MainController extends AppController {
 			$videos = $collection->find();
 			$video_num = $collection->count();
 		}
+		
+		$videos = array_reverse($videos);
 
 		$pages = intval($video_num / $this->video_page_size);
 		if ($video_num % $this->video_page_size > 0) {
