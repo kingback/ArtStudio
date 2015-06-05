@@ -275,7 +275,7 @@ YUI.add('slideshow', function(Y) {
             }
             
             if (e.data) {
-                this._info.one('p').setContent(e.data.desc);
+                //this._info.one('p').setContent(e.data.desc);
             }
         }
         
