@@ -39,9 +39,7 @@
 							</tr>
 							<?php $cur_school = false; $schools = null; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
-							<?php
-								$schools = preg_split('/\s+/', $stu['school']);
-							?>
+							<?php $schools = preg_split('/\s+/', $stu['school']); ?>
 							<tr>
 								<td class="student"><?php echo $stu['name']; ?></td>
 								<td class="school">
@@ -52,7 +50,7 @@
 										<?php else:?>
 											<p><?php echo $schools[$j]; ?></p>
 										<?php endif; ?>
-										$cur_school = $schools[$j];
+										<?php $cur_school = $schools[$j]; ?>
 									<?php else:?>
 										<br />
 										<p><?php echo $schools[$j]; ?></p>
