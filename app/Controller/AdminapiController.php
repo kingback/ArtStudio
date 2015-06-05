@@ -42,24 +42,13 @@ class AdminapiController extends AppController {
 		var_dump($honours);
 		$collection = $this->get_collection($this->db_name, $this->honour_collection);
 		foreach ($honours as $honour) {
-			$document = array('name' => $honour[0], 'school' => $honour[1], 'year' => intval($honour[2]));
-			$collection->insert($document);
-		}
-	}
-	
-	public function addTextAreaHonours()
-	{
-		if ($this->request->is('post')) {
-			$collection = $this->get_collection($this->db_name, $this->honour_collection);
-			$honour_str = $this->_get_argument('honours');
-			foreach ($honours as $honour) {
+			if ($honour[0] && $honour[1] && $honour[2]) {
 				$document = array('name' => $honour[0], 'school' => $honour[1], 'year' => intval($honour[2]));
 				$collection->insert($document);
 			}
-		} 
-		$this->redirect('/admin/honour');
+		}
 	}
-
+	
 	public function addAlbumCategory()
 	{
 		$name = $this->_get_argument('name');

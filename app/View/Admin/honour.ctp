@@ -39,41 +39,6 @@
 </div>
 
 <div class="well">
-	<form class="form-horizontal" id="addTextAreaHonours" method="POST" enctype="multipart/form-data" action="/adminapi/addTextAreaHonours">
-		<legend>批量添加新学生</legend>
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span8">
-					<div class="control-group">
-						<label class="control-label" for="year">考试年</label>
-						<div class="controls">
-							<select name="year">
-								<option>2015</option>
-								<option>2014</option>
-								<option>2013</option>
-								<option>2012</option>
-								<option>2011</option>
-								<option>2010</option>
-								<option>2009</option>
-							</select>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="desc">考生列表</label>
-						<div class="controls">
-							<textarea rows="15" class="span10" name="honours"></textarea>
-						</div>
-					</div>
-					<div class="form-actions" >
-						<button style="width:200px;" type="submit" class="btn btn-info">添加</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-
-<div class="well">
 <form class="form-inline" id="addHonours"  method="POST" enctype="multipart/form-data" action="/adminapi/addHonours">
 	<legend>批量添加新学生(Excel)</legend>
 	<input type="file" name="file" multiple/>
