@@ -149,9 +149,9 @@ YUI.add('env', function(Y) {
         },
         
         parseData: function(data) {
-            if (data.images.length > 11) {
-                data.images.length = 11;
-            }
+            // if (data.images.length > 11) {
+                // data.images.length = 11;
+            // }
             Y.Array.each(data.images, function(image) {
                 image.small = '/images/' + image.small; 
                 image.large = '/images/' + image.large; 
