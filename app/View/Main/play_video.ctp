@@ -13,7 +13,8 @@
 	<section class="video-play">
 	<h1><?php echo $name; ?></h1>
 	<div class="video-flash">
-	<embed src="<?php echo $url;?>" allowFullScreen="true" quality="high" width="800" height="500" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+	<iframe height="500" width="800" src="http://player.youku.com/embed/<?php echo $id;?>" frameborder="0" allowfullscreen></iframe>
+	<!--<embed src="<?php echo $url;?>" allowFullScreen="true" quality="high" width="800" height="500" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
 	</div>
 	</section>
 	<!-- 视频列表 }}-->

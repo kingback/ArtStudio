@@ -498,8 +498,12 @@ class MainController extends AppController {
 		$this->set('page', -1);
 		$name = $this->_get_argument('name');
 		$url = $this->_get_argument('url');
+		preg_match('/sid\/(\w+)\//i', $url, $matches);
+		$id = $matches[1];
+		
 		$this->set('name', $name);
 		$this->set('url', $url);
+		$this->set('id', $id);
 	}
 
 	// all articles shared the same view {article}
