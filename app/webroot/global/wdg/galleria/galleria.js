@@ -439,7 +439,13 @@ YUI.add('galleria', function(Y) {
         },
         
         _updateReview: function(e) {
-            this._review.setContent('“' + (e && e.data && e.data.desc || '暂无点评') + "”");
+        	var desc = e && e.data && e.data.desc;
+        	
+        	if (!desc || desc.match(/\.(jpg|jpeg|gif|png)$/i)) {
+        		desc = '暂无点评';
+        	}
+        	
+            this._review.setContent('“' + desc + "”");
         },
         
         _updateLike: function(e) {
