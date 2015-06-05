@@ -37,19 +37,29 @@
 								<th class="student">考生姓名</th>
 								<th class="school">通过学校</th>
 							</tr>
-							<?php $school = false; ?>
+							<?php $cur_school = false; $schools = null; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
+							<?php
+								$schools = preg_split('/\s+/', $stu['school']);
+							?>
 							<tr>
 								<td class="student"><?php echo $stu['name']; ?></td>
-								<?php if ($school !=  $stu['school']): ?>
-								<td class="school star">
-								<?php else:?>
 								<td class="school">
-								<?php endif; ?>
-								<p><?php echo $stu['school']; ?></p>
+								<?php for ($j = 0; $j < count($schools); $j++): ?>
+									<?php if ($j == 0): ?>
+										<?php if ($cur_school !=  $schools[$j]): ?>
+											<p class="star"><?php echo $schools[$j]; ?></p>
+										<?php else:?>
+											<p><?php echo $schools[$j]; ?></p>
+										<?php endif; ?>
+										$cur_school = $schools[$j];
+									<?php else:?>
+										<br />
+										<p><?php echo $schools[$j]; ?></p>
+									<?php endif; ?>
+								<?php endfor; ?>
 								</td>
 							</tr>
-							<?php $school = $stu['school']; ?>
 							<?php endforeach; ?>
 							</table>
 						</div>

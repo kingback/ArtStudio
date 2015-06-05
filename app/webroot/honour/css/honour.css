@@ -3,7 +3,7 @@
 .honour-tabview {margin-top:8px;width:846px;overflow:hidden;}
 .honour-tab-list {font:20px/38px "Microsoft yahei","微软雅黑","黑体";padding-bottom:10px;width:858px;}
 .honour-tab {
-    background:#e90011;float:left;width:131px;margin-right:12px;height:38px;line-height:38px;text-align:center;color:#fff;cursor:pointer;position:relative;overflow:visible;
+    background:#e90011;float:left;width:110px;margin-right:12px;height:38px;line-height:38px;text-align:center;color:#fff;cursor:pointer;position:relative;overflow:visible;
     -webkit-transition: all 0.15s linear 0s;
     -moz-transition: all 0.15s linear 0s;
     -o-transition: all 0.15s linear 0s;
@@ -27,7 +27,7 @@
 .honour-panel td {text-align:center;border-top:1px solid #d0d0d0;border-bottom:1px solid #d0d0d0;padding:9px 0;width:50%;}
 .honour-panel td.student {border-right:1px solid #d0d0d0;}
 .honour-panel td p {padding:0 21px;display:inline-block;*display:inline;*zoom:1;}
-.honour-panel .star p {font-weight:bold;color:#e94200;background:url("/honour/img/star.png") left center no-repeat;}
+.honour-panel td .star {font-weight:bold;color:#e94200;background:url("/honour/img/star.png") left center no-repeat;}
 .honour-view-note {font-size:14px;color:#666;margin-top:15px;}
 
 .yui3-mytabview-panel-show {z-index:10;visibility:visible;}
