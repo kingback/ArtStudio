@@ -52,6 +52,7 @@ function modifyTeacher() {
 	var names = new Array();
 	var titles = new Array();
 	var descs = new Array();
+	var indexes = new Array();
 	var box = document.getElementsByName("checkbox");
 	for (i = 0; i < box.length; ++i) {
 		if (box[i].checked) {
@@ -59,16 +60,19 @@ function modifyTeacher() {
 			var name = document.getElementById(id + "_name").value;
 			var desc = document.getElementById(id + "_desc").value;
 			var title = document.getElementById(id + "_title").value;
+			var index = document.getElementById(id + "_index").value;
 			ids.push(id);
 			names.push(name);
 			titles.push(title);
 			descs.push(desc);
+			indexes.push(index);
 		}
 	}
 	var json_ids = JSON.stringify(ids);
 	var json_names = JSON.stringify(names);
 	var json_titles = JSON.stringify(titles);
 	var json_descs = JSON.stringify(descs);
+	var json_indexes = JSON.stringify(indexes);
 	$.ajax({
 		type: 'POST',
 		url: '/adminapi/modifyTeacher',
@@ -76,7 +80,8 @@ function modifyTeacher() {
 			'ids': json_ids,
 			'names': json_names,
 			'titles': json_titles,
-			'descs': json_descs
+			'descs': json_descs,
+			'indexes': json_indexes
 		},
 		success: function(e) {
 			alert("修改教师成功");
