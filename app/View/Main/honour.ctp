@@ -45,7 +45,7 @@
 								<td class="school">
 								<?php for ($j = 0; $j < count($schools); $j++): ?>
 									<?php if ($j == 0): ?>
-										<?php if ($stu['mark'] == 1): ?>
+										<?php if (isset($stu['mark']) && $stu['mark'] == 1): ?>
 											<p class="star"><?php echo $schools[$j]; ?></p>
 										<?php else:?>
 											<p><?php echo $schools[$j]; ?></p>
