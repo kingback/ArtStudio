@@ -41,8 +41,7 @@
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
 							<?php 
 								$schools = preg_split('/\s+/', $stu['school']); 
-								echo strlen($schools[0]);
-								if (strlen($schools[0]) == 1) {
+								if (strlen($schools[0]) <= 3) {
 									$schools = join('', $schools);
 									$schools = preg_split('/\s+/', $stu['school']);
 								}
