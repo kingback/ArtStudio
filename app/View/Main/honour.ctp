@@ -39,7 +39,13 @@
 							</tr>
 							<?php $schools = null; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
-							<?php $schools = preg_split('/\s+/', $stu['school']); ?>
+							<?php 
+								$schools = preg_split('/\s+/', $stu['school']); 
+								if (strlen($schools[0]) == 1) {
+									$schools = join('', $schools);
+									$schools = preg_split('/\s+/', $stu['school']);
+								}
+							?>
 							<tr>
 								<td class="student"><?php echo $stu['name']; ?></td>
 								<td class="school">
