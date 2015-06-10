@@ -299,7 +299,8 @@
 		<div class="hall-list">
 			<ul>
 				<?php foreach ($honours as $honour):  ?>
-				<li>祝贺北京周达画室学员<?php echo $honour['name'];?>同学专业通过<?php echo $honour['school'];?></li>
+				<?php $schools = preg_split('/\s+/', $honour['school']); ?>
+				<li>祝贺北京周达画室学员<?php echo $honour['name'];?>同学专业通过<?php echo $schools[0];?></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>

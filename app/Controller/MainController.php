@@ -37,7 +37,7 @@ class MainController extends AppController {
 		$this->set('newses', $newses);
 
 		$honour_col = $this->get_collection($this->db_name, $this->honour_collection);
-		$honours = $honour_col->find(array("year" => 2013));
+		$honours = $honour_col->find(array("year" => 2015));
 		$this->set('honours', $honours);
 
 		$article_col = $this->get_collection($this->db_name, $this->article_collection);
