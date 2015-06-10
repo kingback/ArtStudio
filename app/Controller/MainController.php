@@ -18,18 +18,18 @@ class MainController extends AppController {
 
 		$mainTeachers = array();
 		$mainTeachers[] = array('name' => '文筱波', 'school' => '中央美术学院', 'title' => '造型主教', 'id' => 'teacher-521082b36f211a9a4cf8776e', 'img' => '/images/default/a9ea42227621ef81ea9e198bfd8bc81f-120-240.png');
-		$mainTeachers[] = array('name' => '王允昌', 'school' => '清华美术学院', 'title' => '设计主教', 'id' => 'teacher-521083ba6f211a9a4ca2cfa9', 'img' => '/images/default/610f7d555f5ca0d4bc839db90f2eed19-120-240.png');
-		$mainTeachers[] = array('name' => '陈春雨', 'school' => '天津美院', 'title' => '色彩主教', 'id' => 'teacher-5210cd106f211ae4524e5d9b', 'img' => '/images/default/7347378d71f0f42fb9ffd9cb36e435e3-120-240.jpeg');
-		$mainTeachers[] = array('name' => '郝爽', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'id' => 'teacher-521084e56f211a934c0315f4', 'img' => '/images/default/b7902eec79bffe836284fae1d717d828-120-240.png');
-		$mainTeachers[] = array('name' => '董丹丹', 'school' => '中央美术学院', 'title' => '色彩主教', 'id' => 'teacher-5210af2b6f211ae452f75f96', 'img' => '/images/default/eaafbda627d271df144ede46f85e2889-120-240.png');
+		$mainTeachers[] = array('name' => '赵连锁', 'school' => '中央美术学院', 'title' => '造型班主教', 'id' => 'teacher-55786bd66f211a8e2f895eb8', 'img' => '/images/default/3d4ee51e8a2f58da994001e2cea02148-120-240.jpeg');
+		$mainTeachers[] = array('name' => '陈春雨', 'school' => '天津美院', 'title' => '色彩主教', 'id' => 'teacher-55786b886f211a902f480278', 'img' => '/images/default/262424ca64ca1342f168855163515bbc-120-240.jpeg');
+		$mainTeachers[] = array('name' => '贾晓羊', 'school' => '天津美术学院', 'title' => '综合班速写主教', 'id' => 'teacher-55786cf86f211a8e2f9ac315', 'img' => '/images/default/d20f837571b4ed9d7dd6463f392fd828-120-240.jpeg');
+		$mainTeachers[] = array('name' => '朱明月', 'school' => '中央美术学院', 'title' => '平面主教', 'id' => 'teacher-55786c3b6f211a902fdad244', 'img' => '/images/default/1635fbdd225ab14066f5a3876adf6c22-120-240.jpeg');
 		$this->set('mts', $mainTeachers);
 
 		$otherTeachers = array();
-		$otherTeachers[] = array('name' => '廖雅文', 'school' => '中央美术学院', 'title' => '综合班色彩主教', 'id' => 'teacher-5210b04a6f211a9a4c799f12', 'img' => '/images/default/b717387ab19ac42d9f2038e3099a785a-115-115.png');
-		$otherTeachers[] = array('name' => '李锦', 'school' => '中央美术学院', 'title' => '设计主教', 'id' => 'teacher-5210b0ab6f211ae452754fec', 'img' => '/images/default/8482e448ba2cec0933f68b8f82722c24-115-115.png');
-		$otherTeachers[] = array('name' => '胡杨静妮', 'school' => '中央美术学院', 'title' => '造型主教', 'id' => 'teacher-5210b1326f211a9a4ce1a874', 'img' => '/images/default/052a5a934bb14ede76aed6e6173167ed-115-115.png');
-		$otherTeachers[] = array('name' => '李俊', 'school' => '广州美院', 'title' => '综合班素描主教', 'id' => 'teacher-5210ca836f211ae452f815ed', 'img' => '/images/default/2101fea955aeb9fe8850fb6956c9cf8f-115-115.jpeg');
-		$otherTeachers[] = array('name' => '程钊', 'school' => '北京服装学院', 'title' => '速写主教', 'id' => 'teacher-5210cb106f211a984c3ea289', 'img' => '/images/default/376ef3a8ef0b7f98b99ba37fced31837-115-115.jpeg');
+		$otherTeachers[] = array('name' => '郝爽', 'school' => '中央美术学院', 'title' => '综合班素描主教', 'id' => 'teacher-521084e56f211a934c0315f4', 'img' => '/images/default/45e3f2c58b82c21087835c44e1896dc8-115-115.jpeg');
+		$otherTeachers[] = array('name' => '孙鹏飞', 'school' => '四川美术学院', 'title' => '综合班色彩主教', 'id' => 'teacher-55786cc96f211a902fb28c79', 'img' => '/images/default/5e3f395638ce72c057261c43f609e42c-115-115.jpeg');
+		$otherTeachers[] = array('name' => '宫奇', 'school' => '鲁迅美术学院', 'title' => '综合班素描主教', 'id' => 'teacher-55786d5b6f211a4011698c9b', 'img' => '/images/default/cd0e1913b55f956df0178d762b93c2eb-115-115.jpeg');
+		$otherTeachers[] = array('name' => '王宝良', 'school' => '中央美术学院', 'title' => '造型老师', 'id' => 'teacher-55786da96f211a902f5f403b', 'img' => '/images/default/cc69c04f3809193b8fafb9b16d5f7075-115-115.jpeg');
+		$otherTeachers[] = array('name' => '徐瑞', 'school' => '清华美院', 'title' => '色彩老师', 'id' => 'teacher-55786c906f211a40110b0b12', 'img' => '/images/default/b8d9901517ee500cda7d5de9dc19914c-115-115.jpeg');
 		$this->set('ots', $otherTeachers);
 
 		$news_col = $this->get_collection($this->db_name, $this->news_collection);
