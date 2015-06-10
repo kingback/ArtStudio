@@ -74,7 +74,7 @@
 			<td><input class="span1"  id='<?php echo $teacher['_id'];?>_name' name ="name" type="text" value="<?php echo $teacher['name'];?>"></input></td>
 			<td><?php echo $teacher['school'];?></input></td>
 			<td><input class="span2"  id='<?php echo $teacher['_id'];?>_title' name ="title" type="text" value="<?php echo $teacher['title'];?>"></input></td>
-			<td><textarea rows="3" class="span3" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
+			<td><textarea rows="5" class="span4" id='<?php echo $teacher['_id'];?>_desc' name ="desc"><?php echo $teacher['desc'];?></textarea></td>
 			<td><input class="span1"  id='<?php echo $teacher['_id'];?>_index' name ="index" type="text" value="<?php echo $teacher['_index'];?>"></input></td>
 		</tr>
 		<?php endforeach; ?>
