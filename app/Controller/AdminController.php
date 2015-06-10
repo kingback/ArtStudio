@@ -187,7 +187,7 @@ class AdminController extends AppController {
 	public function teachers()
 	{
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
-		$teachers = $collection->find();
+		$teachers = $collection->find()->sort(array('_index' => 1));
 		$this->set('title_for_layout', '教师管理');
 		$this->set('base_url', $this->image_base_url);
 		$this->set('teachers', $teachers);

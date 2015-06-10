@@ -367,6 +367,7 @@ class AdminapiController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
         //$count = $collection->stats()->count;
         $count = $collection->find()->count();
+		$count = $count + 1;
         $teacher = array('name' => $name, 'title' => $title, 'desc' => $desc, 'image' => $image, 'school' => $school, '_index' => $count);
         
 		$res = $collection->insert($teacher);
