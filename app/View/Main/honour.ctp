@@ -37,14 +37,14 @@
 								<th class="student">考生姓名</th>
 								<th class="school">通过学校</th>
 							</tr>
-							<?php $schools = null; ?>
+							<?php $schools = null; $temp = null; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
 							<?php 
 								$schools = preg_split('/\s+/', $stu['school']); 
 								if (strlen($schools[0]) <= 3) {
-									$schools = join('', $schools);
-									echo $schools;
-									$schools = preg_split('/\s+/', $stu['school']);
+									$temp = join('', $schools);
+									$schools = array();
+									$schools[] = $temp;
 								}
 							?>
 							<tr>

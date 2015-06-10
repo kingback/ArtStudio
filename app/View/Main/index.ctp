@@ -301,9 +301,11 @@
 				<?php foreach ($honours as $honour):  ?>
 				<?php 
 					$schools = preg_split('/\s+/', $honour['school']); 
+					$temp = null;
 					if (strlen($schools[0]) <= 3) {
-						$schools = join('', $schools);
-						$schools = preg_split('/\s+/', $honour['school']);
+						$temp = join('', $schools);
+						$schools = array();
+						$schools[] = $temp;
 					}
 				?>
 				<li>祝贺北京周达画室学员<?php echo $honour['name'];?>同学专业通过<?php echo $schools[0];?></li>
