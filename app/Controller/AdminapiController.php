@@ -404,7 +404,7 @@ class AdminapiController extends AppController {
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$cnt = count($ids);
 		for ($i = 0; $i < $cnt; $i++) {
-			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i], '_index' => $index[$i]));
+			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i], '_index' => intval($index[$i], 10)));
 			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
 			if (!$res['ok']) {
 				echo json_encode($res);
