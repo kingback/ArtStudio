@@ -43,6 +43,7 @@
 								$schools = preg_split('/\s+/', $stu['school']); 
 								if (strlen($schools[0]) <= 3) {
 									$schools = join('', $schools);
+									echo $schools;
 									$schools = preg_split('/\s+/', $stu['school']);
 								}
 							?>
