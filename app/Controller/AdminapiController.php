@@ -392,15 +392,18 @@ class AdminapiController extends AppController {
 		$names_str = $this->_get_argument('names');
 		$titles_str = $this->_get_argument('titles');
 		$descs_str = $this->_get_argument('descs');
+		$index_str = $this->_get_argument('index');
+		
 		$ids = json_decode($ids_str);
 		$names = json_decode($names_str);
 		$titles = json_decode($titles_str);
 		$descs = json_decode($descs_str);
+		$index = json_decode($index_str);
 
 		$collection = $this->get_collection($this->db_name, $this->teacher_collection);
 		$cnt = count($ids);
 		for ($i = 0; $i < $cnt; $i++) {
-			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i]));
+			$newdata = array('$set' => array('name' => $names[$i], 'title' => $titles[$i], 'desc' => $descs[$i], '_index' => $index[$i]));
 			$res = $collection->update(array('_id' => new MongoId($ids[$i])), $newdata);
 			if (!$res['ok']) {
 				echo json_encode($res);
