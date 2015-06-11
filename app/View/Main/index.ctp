@@ -300,7 +300,7 @@
 			<ul>
 				<?php foreach ($honours as $honour):  ?>
 				<?php 
-					$schools = preg_split('/\s+/', $honour['school']); 
+					$schools = preg_split('/\s+/', trim($honour['school'])); 
 					$temp = null;
 					if (strlen($schools[0]) <= 3) {
 						$temp = join('', $schools);

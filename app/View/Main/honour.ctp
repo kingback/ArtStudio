@@ -40,7 +40,7 @@
 							<?php $schools = null; $temp = null; ?>
 							<?php foreach ($honours[$years[$i]] as $stu): ?>
 							<?php 
-								$schools = preg_split('/\s+/', $stu['school']); 
+								$schools = preg_split('/\s+/', trim($stu['school'])); 
 								if (strlen($schools[0]) <= 3) {
 									$temp = join('', $schools);
 									$schools = array();
