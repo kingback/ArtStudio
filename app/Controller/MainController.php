@@ -10,10 +10,10 @@ class MainController extends AppController {
 
 		$focusImages = array();
 		$focusImages[] = array('src' => '/images/default/7018957cc635121e047042dd89bfabea-600-400.jpeg', 'alt' => '校考冲刺班开讲啦！！！', 'link' => '/main/signup');
-		$focusImages[] = array('src' => '/images/default/9486e14523d3ebf1186b7343431db54d-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
+		$focusImages[] = array('src' => '/images/default/703bfb24e8c7f77281aed9c84fb42be1-600-400.jpeg', 'alt' => '热烈祝贺北京周达画室再创佳绩', 'link' => '/main/honour');
 		$focusImages[] = array('src' => '/images/default/7138a539c8220e3909aa9bbaf39fa40b-600-400.jpeg', 'alt' => '复读生优惠', 'link' => '/main/article?id=5210d04c6f211a9a4c88579c');
 		$focusImages[] = array('src' => '/images/default/30b62a52f5c9aefa9fa0201a475e70a2-600-400.jpeg', 'alt' => '丰富多彩的课余生活', 'link' => '/main/news');
-		$focusImages[] = array('src' => '/images/default/d164d9d1c8e923904dfe45209facdbc6-600-400.jpeg', 'alt' => '招生简章', 'link' => '/main/recruitInfo');
+		$focusImages[] = array('src' => '/images/default/29b073ea0c0a80554b303e280cfc060b-600-400.jpeg', 'alt' => '招生简章', 'link' => '/main/recruitInfo');
 		$this->set('focusImages', $focusImages);
 
 		$mainTeachers = array();

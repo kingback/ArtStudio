@@ -12,7 +12,7 @@
 	<!-- 光荣榜 {{-->
 	<section class="honour">
 	<div class="honour-image">
-		<img src="/honour/img/focus.png" />
+		<img src="/images/default/7be362dbc16b2d784dee94718d1d0792-846-360.jpeg" />
 	</div>
 	<div class="honour-tabview">
 		<ol class="honour-tab-list clearfix">
